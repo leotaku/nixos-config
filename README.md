@@ -12,3 +12,6 @@ Example: `home-thinkpad-leo.nix`
 ### Machines
 ### Users
 ### Dotfiles
+
+## Additional Info
+Top level configuaration files should import systems, machines/hardware and users separately. Systems should not import users or hardware.
