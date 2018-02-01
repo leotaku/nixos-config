@@ -12,13 +12,19 @@
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
     shell = pkgs.zsh;
   };
+ 
   # Global configuration linked to this account
   services.mpd.enable = true;
   services.mpd.startWhenNeeded = true;
+  
   # Home manager configuration for this account
   home-manager.users.leo = {
     home.file."TEST".text = "foo";
     home.packages = [ pkgs.hello pkgs.nethack ];
+    home.sessionVariables = {
+      TERMINAL = [ "urxvt" ];
+      EDITOR = [ "vim" ];
+    };
     programs.git = {
       enable = true;
       userName  = "LeOtaku";

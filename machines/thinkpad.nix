@@ -12,6 +12,12 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.efiInstallAsRemovable = false;
+  boot.loader.grub.device = "nodev";
+  
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/7f5fb58a-3cde-49a0-b46e-c0ed577b2692";
       fsType = "ext4";

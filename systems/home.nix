@@ -7,12 +7,6 @@
 {
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.efiInstallAsRemovable = false;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot";
-  # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "nodev"; # or "nodev" for efi only
   boot.loader.grub.memtest86.enable = true;
 
   #override default nixos stuff
@@ -40,7 +34,6 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # Terminal Apps
-    efibootmgr
     vim_configurable
     htop
     figlet
@@ -74,18 +67,19 @@
     w3m
     bashmount
     psmisc
+    efibootmgr
     # Other
     herbstluftwm
     compton
     zsh
     oh-my-zsh
     polybar
+    dzen2
     mpd
     mpc_cli
   ];
 
   environment.variables = {
-    TERMINAL = [ "urxvt" ];
     OH_MY_ZSH = [ "${pkgs.oh-my-zsh}/share/oh-my-zsh" ];
     EDITOR = [ "vim" ];
   };
