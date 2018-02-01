@@ -12,7 +12,10 @@
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
     shell = pkgs.zsh;
   };
-
+  # Global configuration linked to this account
+  services.mpd.enable = true;
+  services.mpd.startWhenNeeded = true;
+  # Home manager configuration for this account
   home-manager.users.leo = {
     home.file."TEST".text = "foo";
     home.packages = [ pkgs.hello pkgs.nethack ];
@@ -20,6 +23,6 @@
       enable = true;
       userName  = "LeOtaku";
       userEmail = "leo.gaskin@brg-feldkirchen.at";
-    };
+    }; 
   };
 }

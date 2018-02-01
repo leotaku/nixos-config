@@ -5,9 +5,23 @@
 { config, pkgs, ... }:
 
 {
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.version = 2;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.efiInstallAsRemovable = false;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
+  # Define on which hard drive you want to install Grub.
+  boot.loader.grub.device = "nodev"; # or "nodev" for efi only
+  boot.loader.grub.memtest86.enable = true;
+
+  #override default nixos stuff
+  boot.loader.grub.splashImage = null;
+  boot.loader.grub.gfxmodeBios = "1366x768";
+  boot.loader.timeout = -1;
+
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = false;
 
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -26,6 +40,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # Terminal Apps
+    efibootmgr
     vim_configurable
     htop
     figlet
