@@ -25,6 +25,13 @@
       TERMINAL = [ "urxvt" ];
       EDITOR = [ "vim" ];
     };
+    gtk = {
+      enable = true;
+      theme.package = pkgs.adapta-gtk-theme;
+      theme.name = "Adapta";
+      iconTheme.package = pkgs.gnome3.adwaita-icon-theme;
+      iconTheme.name = "Adwaita";
+    };
     programs.git = {
       enable = true;
       userName  = "LeOtaku";

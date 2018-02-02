@@ -49,14 +49,21 @@
     canto-curses
     pamix
     ranger
+    xfce.thunar
+    gnome3.nautilus
+    dolphin
+    libqalculate
     # Graphical Apps
     xterm
     rxvt_unicode
+    alacritty
+    termite
     urxvt_perls 
     firefox
     vscode
     steam
     feh
+    surf
     # Utilities
     wget
     git
@@ -68,8 +75,11 @@
     bashmount
     psmisc
     efibootmgr
+    tmux
+    lxappearance
     # Other
     herbstluftwm
+    sxhkd
     compton
     zsh
     oh-my-zsh
