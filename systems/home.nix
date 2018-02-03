@@ -34,7 +34,6 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # Terminal Apps
-    vim_configurable
     htop
     figlet
     fortune
@@ -55,15 +54,17 @@
     libqalculate
     # Graphical Apps
     xterm
-    rxvt_unicode
+    rxvt_unicode_with-plugins
     alacritty
     termite
-    urxvt_perls 
+    #urxvt_perls 
     firefox
     vscode
     steam
     feh
     surf
+    zathura
+    gnome3.gucharmap
     # Utilities
     wget
     git
@@ -72,11 +73,27 @@
     dmenu
     ncdu
     w3m
+    elinks
+    lynx
     bashmount
     psmisc
     efibootmgr
     tmux
-    lxappearance
+    lxappearance-gtk3
+    youtube-dl
+    libnotify
+    pandoc
+    ffmpegthumbnailer
+    p7zip
+    exiftool
+    poppler_utils
+    mediainfo
+    imagemagick
+    transmission
+    highlight
+    unoconv
+    discount
+    nodePackages.node2nix
     # Other
     herbstluftwm
     sxhkd
@@ -87,6 +104,13 @@
     dzen2
     mpd
     mpc_cli
+    # python
+    python36Packages.eyeD3
+    python36Packages.pygments
+    # oh god no
+    instant-markdown-d
+    bobthefish
+    #((import ../pkgs/instant-markdown-d/default.nix) {}).package 
   ];
 
   environment.variables = {
@@ -96,14 +120,14 @@
 
   # Some programs need SUID wrappeas, can be configured further or are
   # started in user sessions.
-  programs.bash.enableCompletion = true;
+  # programs.bash.enableCompletion = true;
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
   # List services that you want to enable:
   
-  # Enable Zsh to avoid bugs
-  programs.zsh.enable = true;
+  # Test Test
+  programs.ibus.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -118,25 +142,15 @@
   services.printing.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "de";
-  services.xserver.xkbOptions = "eurosign:e";
-  # For Steam
-  hardware.opengl.driSupport32Bit = true;
-  
-  # Enable compton
-  services.compton.enable = true;
+  services.xserver.enable = true; 
  
   # Enable PulseAudio
   hardware.pulseaudio.enable = true;
   # For Steam
   hardware.pulseaudio.support32Bit = true;
-
+  hardware.opengl.driSupport32Bit = true;
+  
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
-
-  # Enable the DE/WM + DM 
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.windowManager.herbstluftwm.enable = true;
 
 }

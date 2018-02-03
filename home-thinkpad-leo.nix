@@ -9,11 +9,11 @@
     [ # Import home manager module
       "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/nixos-module.tar.gz}/nixos"
       # Import Files
+      ./users/leo.nix
       ./systems/home.nix
       ./machines/thinkpad.nix
-      ./users/leo.nix
     ];
-
+  nixpkgs.overlays = [ (import ./pkgs) ];
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
