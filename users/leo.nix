@@ -4,6 +4,22 @@
 
 { config, pkgs, ... }:
 
+let
+  customPlugins.vim-instant-markdown = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-instant-markdown";
+    src = pkgs.fetchFromGitHub {
+      owner = "suan";
+      repo = "vim-instant-markdown";
+      rev = "master";
+      sha256 = "10zfm1isqv1mgx8598bfghf2zwzxgba74k0h658lnw59inwz7dkr";
+    };
+    #installPhase = ''
+    #cp $out/after/ftplugin
+    #cp foo $out/bin
+    #'';
+  };
+
+in
 {
   ## Define an user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.leo = {
@@ -31,17 +47,12 @@
     home.file."TEST".text = "foo";
 
     home.packages = with pkgs; [
-      (vim_configurable.customize {
+      ( vim_configurable.customize {
         name = "vim";
-        vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
-          # loaded on launch
-          start = [ fugitive ];
-          # manually loadable by calling `:packadd $plugin-name`
-          opt = [ elm-vim youcompleteme ];
-          # To automatically load a plugin when opening a filetype, add vimrc lines like:
-          # autocmd FileType php :packadd phpCompletion
-        };
-      })
+        vimrcConfig.vam.knownPlugins = pkgs.vimPlugins // customPlugins;
+        vimrcConfig.vam.pluginDictionaries = [ "vim-instant-markdown" ];  
+        }
+      )
       gnome3.adwaita-icon-theme
       numix-icon-theme
       numix-icon-theme-square
