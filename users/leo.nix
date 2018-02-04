@@ -4,22 +4,6 @@
 
 { config, pkgs, ... }:
 
-let
-  customPlugins.vim-instant-markdown = pkgs.vimUtils.buildVimPlugin {
-    name = "vim-instant-markdown";
-    src = pkgs.fetchFromGitHub {
-      owner = "suan";
-      repo = "vim-instant-markdown";
-      rev = "master";
-      sha256 = "10zfm1isqv1mgx8598bfghf2zwzxgba74k0h658lnw59inwz7dkr";
-    };
-    #installPhase = ''
-    #cp $out/after/ftplugin
-    #cp foo $out/bin
-    #'';
-  };
-
-in
 {
   ## Define an user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.leo = {
@@ -29,7 +13,7 @@ in
     shell = pkgs.zsh;
   };
  
-  ## Global configuration linked to this account
+  ## Global configuration linked to this accourt
   
   services.mpd.enable = true;
   services.mpd.startWhenNeeded = true;
@@ -49,8 +33,8 @@ in
     home.packages = with pkgs; [
       ( vim_configurable.customize {
         name = "vim";
-        vimrcConfig.vam.knownPlugins = pkgs.vimPlugins // customPlugins;
-        vimrcConfig.vam.pluginDictionaries = [ "vim-instant-markdown" ];  
+        vimrcConfig.vam.knownPlugins = pkgs.vimPlugins // pkgs.vimPluginsLeo;
+        vimrcConfig.vam.pluginDictionaries = [ "vim-instant-markdown" "vim-startify" "vim-surround" ];  
         }
       )
       gnome3.adwaita-icon-theme
@@ -63,11 +47,11 @@ in
       xfce.xfce4-icon-theme
       siji
     ];
-
+    
     home.sessionVariables = {
-      TERMINAL = [ "urxvt" ];
-      EDITOR = [ "vim" ];
-      RANGER_LOAD_DEFAULT_RC = [ "FALSE" ];
+      TERMINAL = "urxvt";
+      EDITOR = "nano";
+      RANGER_LOAD_DEFAULT_RC = "FALSE";
     };
 
     gtk = {
@@ -88,9 +72,9 @@ in
     fonts.fontconfig.enableProfileFonts = true;
 
     # Xserver configurations
-    home.keyboard.layout = "de";
-    home.keyboard.variant = "nodeadkeys";
-    home.keyboard.options = "eurosign:e";
+    home.keyboard.layout = "us";
+    #home.keyboard.variant = "nodeadkeys";
+    #home.keyboard.options = "eurosign:e";
   
     # Enable compton
     services.compton.enable = true;

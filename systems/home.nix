@@ -33,8 +33,20 @@
   
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+    # Nixos
+    nixUnstable
+    nix-repl
+    nox
+    nix-index
+    python2nix 
+    nodePackages.node2nix
+    # Games
+    #factorio
+    # fonts
+    siji
     # Terminal Apps
     htop
+    gtop
     figlet
     fortune
     cowsay
@@ -65,11 +77,12 @@
     surf
     zathura
     gnome3.gucharmap
+    font-manager
+    fontmatrix
     # Utilities
     wget
     git
     xclip
-    nixUnstable
     dmenu
     ncdu
     w3m
@@ -93,7 +106,6 @@
     highlight
     unoconv
     discount
-    nodePackages.node2nix
     # Other
     herbstluftwm
     sxhkd
@@ -109,13 +121,14 @@
     python36Packages.pygments
     # oh god no
     instant-markdown-d
-    bobthefish
+    #bobthefish
     #((import ../pkgs/instant-markdown-d/default.nix) {}).package 
   ];
 
   environment.variables = {
     OH_MY_ZSH = [ "${pkgs.oh-my-zsh}/share/oh-my-zsh" ];
     EDITOR = [ "vim" ];
+    TERMINAL = [ "urxvt" ];
   };
 
   # Some programs need SUID wrappeas, can be configured further or are
