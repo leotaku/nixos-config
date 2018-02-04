@@ -79,6 +79,9 @@
     gnome3.gucharmap
     font-manager
     fontmatrix
+    vlc
+    gnome-mpv
+    mpv
     # Utilities
     wget
     git
@@ -124,11 +127,12 @@
     #bobthefish
     #((import ../pkgs/instant-markdown-d/default.nix) {}).package 
   ];
-
+  
   environment.variables = {
     OH_MY_ZSH = [ "${pkgs.oh-my-zsh}/share/oh-my-zsh" ];
     EDITOR = [ "vim" ];
     TERMINAL = [ "urxvt" ];
+    RANGER_LOAD_DEFAULT_RC = [ "FALSE" ];
   };
 
   # Some programs need SUID wrappeas, can be configured further or are

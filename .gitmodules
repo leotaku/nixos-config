@@ -1,6 +1,0 @@
-[submodule "pkgs/gtop"]
-	path = pkgs/gtop
-	url = https://github.com/aksakalli/gtop
-[submodule "pkgs/instant-markdown-d"]
-	path = pkgs/instant-markdown-d
-	url = https://github.com/suan/instant-markdown-d
