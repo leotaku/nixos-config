@@ -31,12 +31,7 @@
     home.file."TEST".text = "foo";
 
     home.packages = with pkgs; [
-      ( vim_configurable.customize {
-        name = "vim";
-        vimrcConfig.vam.knownPlugins = pkgs.vimPlugins // pkgs.vimPluginsLeo;
-        vimrcConfig.vam.pluginDictionaries = [ "vim-instant-markdown" "vim-startify" "vim-surround" ];  
-        }
-      )
+      leovim
       gnome3.adwaita-icon-theme
       numix-icon-theme
       numix-icon-theme-square

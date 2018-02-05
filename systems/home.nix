@@ -45,9 +45,11 @@
     # fonts
     siji
     # Terminal Apps
+    vim_configurable
     htop
     gtop
     figlet
+    toilet
     fortune
     cowsay
     lolcat
@@ -60,9 +62,6 @@
     canto-curses
     pamix
     ranger
-    xfce.thunar
-    gnome3.nautilus
-    dolphin
     libqalculate
     # Graphical Apps
     xterm
@@ -76,12 +75,17 @@
     feh
     surf
     zathura
+    evince
     gnome3.gucharmap
     font-manager
     fontmatrix
     vlc
+    mplayer
     gnome-mpv
     mpv
+    xfce.thunar
+    gnome3.nautilus
+    dolphin
     # Utilities
     wget
     git
