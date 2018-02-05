@@ -21,5 +21,3 @@ This directory should contain non-.nix files for configuring different programme
 
 ## Additional Info
 Top level configuaration files should import systems, machines/hardware and users separately. Systems should not import users or hardware.
-
-![Hui](https://simg3.gelbooru.com//samples/66/79/sample_6679e13c3742d731798ea0b5978fdcd5.jpg)
