@@ -20,7 +20,7 @@
 
   # Enable the DE/WM + DM 
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.windowManager.herbstluftwm.enable = true;
+  #services.xserver.windowManager.herbstluftwm.enable = true;
 
   # Enable Zsh to avoid bugs
   programs.zsh.enable = true;
@@ -45,7 +45,7 @@
     
     home.sessionVariables = {
       TERMINAL = "urxvt";
-      EDITOR = "nano";
+      EDITOR = "vim";
       RANGER_LOAD_DEFAULT_RC = "FALSE";
     };
 
@@ -67,8 +67,10 @@
     fonts.fontconfig.enableProfileFonts = true;
 
     # Xserver configurations
-    home.keyboard.layout = "us";
-    #home.keyboard.variant = "nodeadkeys";
+    xsession.enable = true;
+    xsession.windowManager.command = "herbstluftwm";
+    home.keyboard.layout = "de";
+    home.keyboard.variant = "nodeadkeys";
     #home.keyboard.options = "eurosign:e";
   
     # Enable compton

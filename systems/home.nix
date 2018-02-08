@@ -4,7 +4,14 @@
 
 { config, pkgs, ... }:
 
-{
+{ 
+  #nix.nixPath = [
+  #  "nixpkgs=https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz"
+  #  "nixos=https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz"
+  #  "nixos-config=/etc/nixos/configuration.nix"
+  #"overlays=${/etc/nixos/nixos-config/pkgs}"
+  #];
+
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.memtest86.enable = true;
@@ -20,6 +27,14 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  services.avahi = { 
+    enable = true;
+    nssmdns = true;
+    publish = {
+      enable = true;
+      domain = true;
+    };
+  };
 
   # Select internationalisation properties.
   i18n = {
@@ -46,6 +61,8 @@
     siji
     # Terminal Apps
     vim_configurable
+    scim
+    vifm
     htop
     gtop
     figlet
@@ -86,9 +103,12 @@
     xfce.thunar
     gnome3.nautilus
     dolphin
+    discord
     # Utilities
+    tpacpi-bat
     wget
     git
+    scrot
     xclip
     dmenu
     ncdu
@@ -108,15 +128,24 @@
     exiftool
     poppler_utils
     mediainfo
+    atool
+    libarchive
     imagemagick
     transmission
     highlight
     unoconv
     discount
+    autoconf
+    automake
+    xorg.xinit
+    xorg.xauth
+    acpi
     # Other
+    windowchef
     herbstluftwm
     sxhkd
     compton
+    #athame-zsh
     zsh
     oh-my-zsh
     polybar
@@ -126,10 +155,10 @@
     # python
     python36Packages.eyeD3
     python36Packages.pygments
-    # oh god no
+    # vim
     instant-markdown-d
-    #bobthefish
-    #((import ../pkgs/instant-markdown-d/default.nix) {}).package 
+    # languages
+    R
   ];
   
   environment.variables = {
@@ -148,7 +177,10 @@
   # List services that you want to enable:
   
   # Test Test
-  programs.ibus.enable = true;
+  #programs.ibus.enable = true;
+
+  # Enable upower
+  services.upower.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
