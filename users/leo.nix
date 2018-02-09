@@ -20,9 +20,9 @@
 
   # Enable the DE/WM + DM 
   services.xserver.displayManager.sddm.enable = true;
-  #services.xserver.windowManager.herbstluftwm.enable = true;
+  services.xserver.windowManager.herbstluftwm.enable = true;
 
-  # Enable Zsh to avoid bugs
+  # Disable Zsh to avoid configuration overlap
   programs.zsh.enable = true;
 
   ## Home manager configuration for this account
@@ -41,6 +41,8 @@
       moka-icon-theme
       xfce.xfce4-icon-theme
       siji
+      gohufont
+      terminus_font
     ];
     
     home.sessionVariables = {
@@ -68,13 +70,13 @@
 
     # Xserver configurations
     xsession.enable = true;
-    xsession.windowManager.command = "herbstluftwm";
+    xsession.windowManager.command = "sxhkd & windowchef";
     home.keyboard.layout = "de";
     home.keyboard.variant = "nodeadkeys";
     #home.keyboard.options = "eurosign:e";
   
     # Enable compton
-    services.compton.enable = true;
+    services.compton.enable = false;
     
     # Enable dunst
     services.dunst.enable = true;

@@ -21,6 +21,8 @@
   boot.loader.grub.gfxmodeBios = "1366x768";
   boot.loader.timeout = -1;
 
+  boot.earlyVconsoleSetup = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = false;
 
@@ -57,8 +59,6 @@
     nodePackages.node2nix
     # Games
     #factorio
-    # fonts
-    siji
     # Terminal Apps
     vim_configurable
     scim
@@ -79,12 +79,15 @@
     canto-curses
     pamix
     ranger
+    neofetch
     libqalculate
     # Graphical Apps
     xterm
     rxvt_unicode_with-plugins
     alacritty
     termite
+    #st
+    mlterm
     #urxvt_perls 
     firefox
     vscode
@@ -106,6 +109,7 @@
     discord
     # Utilities
     tpacpi-bat
+    xorg.xbacklight
     wget
     git
     scrot
@@ -159,6 +163,15 @@
     instant-markdown-d
     # languages
     R
+  ];
+
+  fonts.fonts = with pkgs; [
+    google-fonts
+    siji
+    gohufont
+    terminus_font
+    tewi-font
+    dina-font
   ];
   
   environment.variables = {
