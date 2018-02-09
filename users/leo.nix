@@ -20,7 +20,7 @@
 
   # Enable the DE/WM + DM 
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.windowManager.herbstluftwm.enable = true;
+  #services.xserver.windowManager.herbstluftwm.enable = true;
 
   # Disable Zsh to avoid configuration overlap
   programs.zsh.enable = true;
@@ -76,7 +76,7 @@
     #home.keyboard.options = "eurosign:e";
   
     # Enable compton
-    services.compton.enable = false;
+    services.compton.enable = true;
     
     # Enable dunst
     services.dunst.enable = true;
