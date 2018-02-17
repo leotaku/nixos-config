@@ -20,8 +20,12 @@
   boot.loader.grub.splashImage = null;
   boot.loader.grub.gfxmodeBios = "1366x768";
   boot.loader.timeout = -1;
+  boot.plymouth.enable = true;
 
-  boot.earlyVconsoleSetup = true;
+  # less verbose boot log
+  boot.consoleLogLevel = 3;
+  boot.kernelParams = [ "quiet" "udev.log_priority=3" ];
+  #boot.earlyVconsoleSetup = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = false;
@@ -64,6 +68,7 @@
     scim
     vifm
     htop
+    atop
     gtop
     figlet
     toilet
@@ -86,8 +91,9 @@
     rxvt_unicode_with-plugins
     alacritty
     termite
+    kitty
     #st
-    mlterm
+    #mlterm
     #urxvt_perls 
     firefox
     vscode
@@ -110,6 +116,7 @@
     # Utilities
     tpacpi-bat
     xorg.xbacklight
+    xorg.xev
     wget
     git
     scrot
@@ -144,9 +151,15 @@
     xorg.xinit
     xorg.xauth
     acpi
+    dash
+    slop
     # Other
     windowchef
     herbstluftwm
+    wmutils-core
+    wmutils-opt
+    #howm
+    #cottage
     sxhkd
     compton
     #athame-zsh
@@ -166,8 +179,10 @@
   ];
 
   fonts.fonts = with pkgs; [
-    google-fonts
     siji
+    font-awesome-ttf
+    #google-fonts
+    #nerdfonts
     gohufont
     terminus_font
     tewi-font
