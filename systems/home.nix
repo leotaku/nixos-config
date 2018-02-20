@@ -30,8 +30,6 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = false;
   
-  #systemd.services.nix-daemon.serviceConfig.CPUQuota="20%";
-
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -104,7 +102,8 @@
     # Development
     vscode-with-extensions
     jetbrains.pycharm-community
-    python36Packages.notebook
+    #python36Packages.notebook
+    #currently only works when loaded with python env
     # Other
     firefox
     steam
