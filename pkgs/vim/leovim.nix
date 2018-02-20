@@ -12,7 +12,8 @@ pkgs.neovim.override {
     "nerdtree-git-plugin"
   ];
   configure.customRC = ''
-  set laststatus=0
+    set laststatus=0
+    source ~/.config/nvim/init.vim
   '';
 }
 

@@ -10,8 +10,13 @@ self: super:
   windowchef = super.callPackage ./windowchef/default.nix {};
   howm = super.callPackage ./howm/default.nix {};
   cottage = super.callPackage ./cottage/default.nix {};
-  wmutils-core = super.callPackage ./wmutils/default.nix {};
-  ncmpcpp = super.ncmpcpp.override { visualizerSupport = true; outputsSupport = true; clockSupport = true; };
+  #interrobang = super.callPackage ./interrobang/default.nix {};
+  gpick = super.callPackage ./gpick/default.nix {};
+  # Package Overrides
+  wmutils-core = super.callPackage ./wmutils/core.nix {};
+  wmutils-opt = super.callPackage ./wmutils/opt.nix {};
+  ncmpcpp = super.ncmpcpp.override { visualizerSupport=true; outputsSupport=true; clockSupport=true; };
+  polybar = super.polybar.override { githubSupport = true; mpdSupport = true; };
   #leoVim = super.callPackage ./vim/leoVim.nix {};
   #bobthefish = super.callPackage ./bobfish/default.nix {};
 }

@@ -29,6 +29,8 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = false;
+  
+  #systemd.services.nix-daemon.serviceConfig.CPUQuota="20%";
 
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -70,12 +72,16 @@
     htop
     atop
     gtop
+    python36Packages.glances
+    bmon
+    vnstat
     figlet
     toilet
     fortune
     cowsay
     lolcat
     cmatrix
+    pipes
     pulsemixer
     cava
     cli-visualizer
@@ -86,17 +92,20 @@
     ranger
     neofetch
     libqalculate
+    rtv
     # Graphical Apps
     xterm
-    rxvt_unicode_with-plugins
+    rxvt_unicode
+    urxvt_perls 
+    #_with-plugins
     alacritty
     termite
     kitty
     #st
     #mlterm
-    #urxvt_perls 
     firefox
-    vscode
+    vscode-with-extensions
+    jetbrains.pycharm-community
     steam
     feh
     surf
@@ -113,7 +122,9 @@
     gnome3.nautilus
     dolphin
     discord
+    projectm
     # Utilities
+    wmname
     tpacpi-bat
     xorg.xbacklight
     xorg.xev
@@ -122,6 +133,7 @@
     scrot
     xclip
     dmenu
+    #interrobang
     ncdu
     w3m
     elinks
@@ -141,6 +153,7 @@
     mediainfo
     atool
     libarchive
+    ffmpeg-full
     imagemagick
     transmission
     highlight
@@ -153,6 +166,7 @@
     acpi
     dash
     slop
+    gcolor2
     # Other
     windowchef
     herbstluftwm
@@ -169,24 +183,33 @@
     dzen2
     mpd
     mpc_cli
+    id3v2
+    inotifyTools
     # python
-    python36Packages.eyeD3
+    #python36Packages.eyeD3
     python36Packages.pygments
     # vim
     instant-markdown-d
     # languages
     R
+    # Python
+    #python3Full
+    #python36Packages.pip
+    #python36Packages.virtualenv
+    #python36Packages.pylint
   ];
 
   fonts.fonts = with pkgs; [
     siji
     font-awesome-ttf
-    #google-fonts
+    google-fonts
     #nerdfonts
     gohufont
     terminus_font
     tewi-font
     dina-font
+    fira-code
+    fira-mono
   ];
   
   environment.variables = {

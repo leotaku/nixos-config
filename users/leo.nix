@@ -55,6 +55,7 @@
   home-manager.users.leo = {
     
     home.file."TEST".text = "foo";
+    home.file.".Xresources2".text = builtins.readFile ../dotfiles/Xresources;
 
     home.packages = with pkgs; [
       leovim
@@ -100,13 +101,21 @@
     # Xserver configurations
     xsession = {
       enable = true;
-      #pointerCursor.size = 0;
+      #pointerCursor = {
+      #  size = 32;
+      #  package = pkgs.gnome3.adwaita-icon-theme;
+      #  name = "Adwaita";
+      #};
+      profileExtra = "
+      xrdb -merge ~/.Xresources2
+      ";
       windowManager.command = "windowchef";
       initExtra = "
-      polybar example &
-      sxhkd &
-      mpd
       feh --bg-tile ~/Downloads/019.jpg
+      polybar example &
+      mpd
+      sxhkd &
+      exec ~/wmutils/event-watcher.sh &> /dev/null &
       ";
     };
     home.keyboard.layout = "de";
@@ -119,6 +128,7 @@
       backend = "glx";
       fade = true;
       fadeDelta = 5;
+      shadow = true;
     };
 
     # Enable dunst
