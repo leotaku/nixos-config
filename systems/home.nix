@@ -56,16 +56,14 @@
   
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    # Nixos
+    ## Nixos
     nixUnstable
     nix-repl
     nox
     nix-index
     python2nix 
     nodePackages.node2nix
-    # Games
-    #factorio
-    # Terminal Apps
+    ## Terminal Apps
     vim_configurable
     scim
     vifm
@@ -93,19 +91,22 @@
     neofetch
     libqalculate
     rtv
-    # Graphical Apps
+    ## Graphical Apps
+    # Terminals
     xterm
     rxvt_unicode
     urxvt_perls 
-    #_with-plugins
     alacritty
     termite
     kitty
     #st
     #mlterm
-    firefox
+    # Development
     vscode-with-extensions
     jetbrains.pycharm-community
+    python36Packages.notebook
+    # Other
+    firefox
     steam
     feh
     surf
@@ -123,7 +124,7 @@
     dolphin
     discord
     projectm
-    # Utilities
+    ## Utilities
     wmname
     tpacpi-bat
     xorg.xbacklight
@@ -167,7 +168,9 @@
     dash
     slop
     gcolor2
-    # Other
+    python36Packages.pygments
+    id3v2
+    ## Other
     windowchef
     herbstluftwm
     wmutils-core
@@ -183,14 +186,10 @@
     dzen2
     mpd
     mpc_cli
-    id3v2
     inotifyTools
-    # python
-    #python36Packages.eyeD3
-    python36Packages.pygments
-    # vim
+    # Vim
     instant-markdown-d
-    # languages
+    ## Languages
     R
     # Python
     #python3Full
