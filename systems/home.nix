@@ -242,6 +242,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = with pkgs; [ hplib gutenprint gutenprintBin splix ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true; 
