@@ -5,8 +5,12 @@ pkgs.neovim.override {
   configure.vam.knownPlugins = pkgs.vimPlugins // pkgs.vimPluginsLeo;
   configure.vam.pluginDictionaries = [
     "vim-nix"
-    "vim-instant-markdown" 
-    "surround" 
+    "vim-instant-markdown"
+    "vim-pandoc-syntax"
+    "vim-rmarkdown"
+    "vim-pandoc"
+    #"vimpreviewpandoc"
+    "surround"
     "vim-startify" 
     "The_NERD_tree" 
     "nerdtree-git-plugin"

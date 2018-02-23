@@ -19,6 +19,15 @@
       rev = "v2.1";
       sha256 = "0pcs8f6cv7k6wi7krah025gax3ms23fgflg2cr3fq9fpssrlf1ws";
     };
-  };  
-}
+  };
 
+  vim-rmarkdown = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-surround";
+    src = pkgs.fetchFromGitHub {
+      owner = "vim-pandoc";
+      repo = "vim-rmarkdown";
+      rev = "3de5ed4";
+      sha256 = "1ccwdhc7fi4sryssl00p02msqbqzr0674x5hcyir6a4h8w8hic68";
+    };
+  };
+}

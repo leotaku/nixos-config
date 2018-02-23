@@ -146,6 +146,7 @@
     youtube-dl
     libnotify
     pandoc
+    texlive.combined.scheme-small 
     ffmpegthumbnailer
     p7zip
     exiftool
@@ -201,6 +202,7 @@
     siji
     font-awesome-ttf
     google-fonts
+    lmmath
     #nerdfonts
     gohufont
     terminus_font
@@ -242,7 +244,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.printing.drivers = with pkgs; [ hplib gutenprint gutenprintBin splix ];
+  services.printing.drivers = with pkgs; [ hplip gutenprint gutenprintBin splix ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true; 
