@@ -1,4 +1,5 @@
-with import <nixpkgs> {};
+{ pkgs ? import <nixpkgs> {}, ... }:
+with pkgs;
 ( rWrapper.override {
             packages = with rPackages; [
                 dplyr
