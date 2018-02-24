@@ -25,7 +25,7 @@ Example: `home-thinkpad-leo.nix`
 ### Dotfiles
 This directory should contain non-.nix files for configuring different programmes. The configurations set here are only to be applied after a system rebuild. The files in this directory should be grouped by users folders containing arbitrary folders and files. 
 
-# Env (bad name)
+### Env (bad name)
 This directory may contain arbitrary folders containing build instructions for development environments. They should usually be sorted by language and given descriptive names.
 
 ## Additional Info
