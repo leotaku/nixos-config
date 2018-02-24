@@ -124,6 +124,7 @@
     discord
     projectm
     ## Utilities
+    tree
     wmname
     tpacpi-bat
     xorg.xbacklight
