@@ -132,7 +132,8 @@
     };
 
     # Enable dunst
-    services.dunst.enable = true;
+    #services.dunst.enable = true;
+    #services.dunst.settings = builtins.readFile ../dotfiles/dunstrc;
 
   };
 }

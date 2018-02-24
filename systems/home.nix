@@ -29,7 +29,7 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = false;
-  
+ 
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -166,7 +166,7 @@
     xorg.xauth
     acpi
     dash
-    slop
+    #slop
     gcolor2
     python36Packages.pygments
     id3v2
