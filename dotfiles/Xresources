@@ -1,7 +1,8 @@
 !! Urxvt terminal emulator
-URxvt.font		:	xft:GohuFont:size=9
+URxvt.termName		:	rxvt-unicode-256color
+URxvt.font			:	xft:GohuFont:size=9
 URxvt.scrollBar		:	False
-URxvt.internalBorder	:	4
+URxvt.internalBorder:	4
 
 !! Colors
 ! special

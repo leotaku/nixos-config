@@ -19,4 +19,5 @@ self: super:
   wmutils-opt = super.callPackage ./wmutils/opt.nix {};
   ncmpcpp = super.ncmpcpp.override { visualizerSupport=true; outputsSupport=true; clockSupport=true; };
   polybar = super.polybar.override { githubSupport = true; mpdSupport = true; };
+  #ranger = super.callPackage ./ranger/default.nix {};
 }
