@@ -20,4 +20,6 @@ self: super:
   ncmpcpp = super.ncmpcpp.override { visualizerSupport=true; outputsSupport=true; clockSupport=true; };
   polybar = super.polybar.override { githubSupport = true; mpdSupport = true; };
   #ranger = super.callPackage ./ranger/default.nix {};
+  # Global env for stupid programmes
+  #pythonForR = super.callPackage ../env/python/rSystem.nix {};
 }

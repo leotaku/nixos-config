@@ -33,7 +33,7 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  services.avahi = { 
+  services.avahi = {
     enable = true;
     nssmdns = true;
     publish = {
@@ -65,6 +65,9 @@
     vim_configurable
     scim
     vifm
+    neomutt
+    rtv
+    taskwarrior
     htop
     atop
     gtop
@@ -88,7 +91,6 @@
     ranger
     neofetch
     libqalculate
-    rtv
     ## Graphical Apps
     # Terminals
     xterm
@@ -101,11 +103,13 @@
     #mlterm
     # Development
     vscode-with-extensions
-    jetbrains.pycharm-community
+    #jetbrains.pycharm-community
     #python36Packages.notebook
     #currently only works when loaded with python env
     # Other
     firefox
+    vivaldi
+    thunderbird
     steam
     feh
     surf
@@ -129,6 +133,9 @@
     tpacpi-bat
     xorg.xbacklight
     xorg.xev
+    xdo
+    xdotool
+    xvkbd
     wget
     git
     scrot
@@ -147,7 +154,6 @@
     youtube-dl
     libnotify
     pandoc
-    texlive.combined.scheme-small 
     ffmpegthumbnailer
     p7zip
     exiftool
@@ -171,6 +177,7 @@
     gcolor2
     python36Packages.pygments
     id3v2
+    inotifyTools
     ## Other
     windowchef
     herbstluftwm
@@ -183,15 +190,17 @@
     #athame-zsh
     zsh
     oh-my-zsh
+    zsh-completions
     polybar
     dzen2
     mpd
     mpc_cli
-    inotifyTools
+    dunst
     # Vim
     instant-markdown-d
     ## Languages
-    R
+    #R
+    #pythonForR
     # Python
     #python3Full
     #python36Packages.pip

@@ -1,3 +1,3 @@
 { pkgs ? import <nixpkgs> {}, ... }:
 with pkgs;
-python3.withPackages (ps: with ps; [ numpy toolz matplotlib pylint jupyter notebook ])
+python3.withPackages (ps: with ps; [ numpy pandas toolz matplotlib pylint jupyter notebook ])

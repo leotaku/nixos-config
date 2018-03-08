@@ -10,6 +10,8 @@ pkgs.neovim.override {
     "vim-pandoc-syntax"
     "vim-rmarkdown"
     "vim-pandoc"
+    "vim-pandoc-after"
+    "table-mode"
     #"vimpreviewpandoc"
     "surround"
     "vim-startify" 

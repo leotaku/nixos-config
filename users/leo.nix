@@ -54,7 +54,7 @@
   ## Home manager configuration for this account
   home-manager.users.leo = {
     
-    home.file."TEST".text = "foo";
+    home.file."coolTEST".text = "foo";
     home.file.".Xresources2".text = builtins.readFile ../dotfiles/Xresources;
 
     home.packages = with pkgs; [
@@ -111,10 +111,12 @@
       ";
       windowManager.command = "windowchef";
       initExtra = "
-      feh --bg-tile ~/Downloads/019.jpg
+      #feh --bg-tile ~/Downloads/019.jpg
+      feh --bg-fill ~/Images/018-blur.jpg
       polybar example &
       mpd
       sxhkd &
+      dunst &
       exec ~/wmutils/event-watcher.sh &> /dev/null &
       ";
     };

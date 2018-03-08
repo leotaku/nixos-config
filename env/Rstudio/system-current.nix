@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> {}, ... }:
 with pkgs;
-( rWrapper.override {
+( rstudioWrapper.override {
             packages = with rPackages; [
               dplyr
               reticulate
@@ -8,8 +8,6 @@ with pkgs;
               reshape2
               rmarkdown
               knitr
-              tufte
-              devtools
             ];
         }
 )
