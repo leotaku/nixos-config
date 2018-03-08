@@ -6,11 +6,12 @@
 
 { 
   nix.nixPath = [
+    "/etc/nixos/nixos-config"
     "nixpkgs=/etc/nixos/nixos-config/nixpkgs"
     "nixos=/etc/nixos/nixos-config/nixpkgs/nixos"
-  #  "nixos-config=/etc/nixos/configuration.nix"
+    "nixos-config=/etc/nixos/configuration.nix"
   #  "nixpkgs-overlays=${/etc/nixos/nixos-config/pkgs}"
-  #];
+  ];
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
