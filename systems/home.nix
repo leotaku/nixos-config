@@ -5,11 +5,11 @@
 { config, pkgs, ... }:
 
 { 
-  #nix.nixPath = [
-  #  "nixpkgs=https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz"
-  #  "nixos=https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz"
+  nix.nixPath = [
+    "nixpkgs=/etc/nixos/nixos-config/nixpkgs"
+    "nixos=/etc/nixos/nixos-config/nixpkgs/nixos"
   #  "nixos-config=/etc/nixos/configuration.nix"
-  #"overlays=${/etc/nixos/nixos-config/pkgs}"
+  #  "nixpkgs-overlays=${/etc/nixos/nixos-config/pkgs}"
   #];
 
   boot.loader.grub.enable = true;
