@@ -13,6 +13,8 @@
   #  "nixpkgs-overlays=${/etc/nixos/nixos-config/pkgs}"
   ];
 
+  nixpkgs.overlays = [ (import ../pkgs) ];
+
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.memtest86.enable = true;
