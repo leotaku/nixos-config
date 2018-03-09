@@ -57,7 +57,13 @@
     home.file."coolTEST".text = "foo";
     home.file.".Xresources2".text = builtins.readFile ../dotfiles/Xresources;
 
+    nixpkgs = {
+      config = { allowUnfree = true; };
+      overlays = [ (import ../pkgs/default.nix) ];
+    };
+
     home.packages = with pkgs; [
+      hello
       leovim
       gnome3.adwaita-icon-theme
       numix-icon-theme

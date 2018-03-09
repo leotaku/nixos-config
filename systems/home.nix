@@ -10,7 +10,7 @@
     "nixpkgs=/etc/nixos/nixos-config/nixpkgs"
     "nixos=/etc/nixos/nixos-config/nixpkgs/nixos"
     "nixos-config=/etc/nixos/configuration.nix"
-  #  "nixpkgs-overlays=${/etc/nixos/nixos-config/pkgs}"
+    #"nixpkgs-overlays=/etc/nixos/nixos-config/pkgs"
   ];
 
   nixpkgs.overlays = [ (import ../pkgs) ];

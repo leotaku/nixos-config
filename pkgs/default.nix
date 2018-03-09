@@ -9,11 +9,11 @@ self: super:
   leoVim = super.callPackage ./vim/leoVim.nix {};
   windowchef = super.callPackage ./windowchef/default.nix {};
   # Not currently working
-  athame-zsh = super.callPackage ./zsh/athame-zsh.nix {};
-  howm = super.callPackage ./howm/default.nix {};
-  cottage = super.callPackage ./cottage/default.nix {};
+  #athame-zsh = super.callPackage ./zsh/athame-zsh.nix {};
+  #howm = super.callPackage ./howm/default.nix {};
+  #cottage = super.callPackage ./cottage/default.nix {};
   interrobang = super.callPackage ./interrobang/default.nix {};
-  gpick = super.callPackage ./gpick/default.nix {};
+  #gpick = super.callPackage ./gpick/default.nix {};
   # Package Overrides
   wmutils-core = super.callPackage ./wmutils/core.nix {};
   wmutils-opt = super.callPackage ./wmutils/opt.nix {};
