@@ -3,7 +3,7 @@
 pkgs.neovim.override {
   vimAlias = true; 
   withRuby = false;
-  configure.vam.knownPlugins = pkgs.vimPlugins // pkgs.vimPluginsLeo;
+  configure.vam.knownPlugins = pkgs.vimPlugins // pkgs.customVimPlugins;
   configure.vam.pluginDictionaries = [
     "vim-nix"
     "vim-instant-markdown"

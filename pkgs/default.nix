@@ -4,10 +4,11 @@ self: super:
   # Custom packages
   instant-markdown-d = (super.callPackage ./instant-markdown-d/default.nix {}).package;
   gtop =  (super.callPackage ./gtop/default.nix {}).package;
-  vimPluginsLeo = super.callPackage ./vim/customPlugins.nix {};
+  customVimPlugins = super.callPackage ./vim/customPlugins.nix {};
   leovim = super.callPackage ./vim/leovim.nix {};
   leoVim = super.callPackage ./vim/leoVim.nix {};
   windowchef = super.callPackage ./windowchef/default.nix {};
+  customPythonPackages = super.callPackage ./python/customPackages.nix {};
   # Not currently working
   #athame-zsh = super.callPackage ./zsh/athame-zsh.nix {};
   #howm = super.callPackage ./howm/default.nix {};
