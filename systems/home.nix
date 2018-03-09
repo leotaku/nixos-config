@@ -115,6 +115,7 @@
     thunderbird
     steam
     feh
+    sxiv
     surf
     zathura
     evince

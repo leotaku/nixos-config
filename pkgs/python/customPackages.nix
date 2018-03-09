@@ -14,7 +14,7 @@ with pkgs.python3.pkgs;
       sha256 = "1lq6g4kl3y1b4ch3b6wik7xy743x6pp5iald0jb9zxqgyxy1zsz4";
     };
     
-    #propagatedBuildInputs = [ pkgs.customPythonPackages.pyaudio ];
+    propagatedBuildInputs = with pkgs; [ customPythonPackages.pyaudio flac ];
     doCheck = false;
   };
 
@@ -37,7 +37,7 @@ with pkgs.python3.pkgs;
     doCheck = false;
   };
 
-  pyaudiooo = pyaudio.overrideAttrs (oldAttrs: rec {
+  pyaudio = pyaudio.overrideAttrs (oldAttrs: rec {
     version = "0.2.11";
     src = fetchPypi {
       inherit version;
