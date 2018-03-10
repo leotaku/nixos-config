@@ -30,4 +30,15 @@
       sha256 = "1ccwdhc7fi4sryssl00p02msqbqzr0674x5hcyir6a4h8w8hic68";
     };
   };
+  
+  conque = pkgs.vimUtils.buildVimPlugin {
+    name = "conque";
+    src = pkgs.fetchFromGitHub {
+      owner = "vim-scripts";
+      repo = "conque";
+      rev = "202";
+      sha256 = "0ccwdhc7fi4sryssl00p02msqbqzr0674x5hcyir6a4h8w8hic68";
+    };
+  }
+
 }

@@ -63,8 +63,6 @@
     };
 
     home.packages = with pkgs; [
-      hello
-      leovim
       gnome3.adwaita-icon-theme
       numix-icon-theme
       numix-icon-theme-square

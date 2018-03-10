@@ -18,6 +18,8 @@ pkgs.neovim.override {
     "The_NERD_tree" 
     "nerdtree-git-plugin"
     "vimshell"
+    "vimproc"
+    "conque"
   ];
   configure.customRC = ''
     set laststatus=0
