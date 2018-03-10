@@ -19,7 +19,7 @@
   boot.loader.grub.version = 2;
   boot.loader.grub.memtest86.enable = true;
 
-  #override default nixos stuff
+  # Override default nixos stuff
   boot.loader.grub.splashImage = null;
   boot.loader.grub.gfxmodeBios = "1366x768";
   boot.loader.timeout = -1;
@@ -32,6 +32,16 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = false;
+
+  # Enable Virtualbox
+  virtualisation.virtualbox.host = { 
+    enable = true; 
+    #enableHardening = false; 
+  };
+
+  security.wrappers = {
+    #VirtualBox.source = "/nix/store/.../bin/VirtualBox";
+  };
  
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
