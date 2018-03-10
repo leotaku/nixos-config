@@ -17,6 +17,7 @@ pkgs.neovim.override {
     "vim-startify" 
     "The_NERD_tree" 
     "nerdtree-git-plugin"
+    "vimshell"
   ];
   configure.customRC = ''
     set laststatus=0
