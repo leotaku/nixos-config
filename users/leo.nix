@@ -88,7 +88,7 @@
     gtk = {
       enable = true;
       theme.package = pkgs.adapta-gtk-theme;
-      theme.name = "Adapta";
+      theme.name = "Adapta-Eta";
       iconTheme.package = pkgs.papirus-icon-theme;
       iconTheme.name = "ePapirus"; #ePapirus
     };
