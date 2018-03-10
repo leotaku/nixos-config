@@ -8,6 +8,7 @@ self: super:
   leovim = super.callPackage ./vim/leovim.nix {};
   leoVim = super.callPackage ./vim/leoVim.nix {};
   windowchef = super.callPackage ./windowchef/default.nix {};
+  farfetch = super.callPackage ./farfetch/default.nix {};
   customPythonPackages = super.callPackage ./python/customPackages.nix {};
   # Not currently working
   #athame-zsh = super.callPackage ./zsh/athame-zsh.nix {};

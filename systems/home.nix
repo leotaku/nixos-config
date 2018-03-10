@@ -69,6 +69,7 @@
     scim
     vifm
     neomutt
+    ranger
     rtv
     taskwarrior
     htop
