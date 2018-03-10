@@ -35,10 +35,10 @@
     name = "conque";
     src = pkgs.fetchFromGitHub {
       owner = "vim-scripts";
-      repo = "conque";
+      repo = "Conque-Shell";
       rev = "202";
-      sha256 = "0ccwdhc7fi4sryssl00p02msqbqzr0674x5hcyir6a4h8w8hic68";
+      sha256 = "09c63fnby8nnawg1psp0nbkphw9s7vrdj2wrf2ixlpiv357x478i";
     };
-  }
+  };
 
 }
