@@ -33,19 +33,14 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = false;
 
-  # Enable Virtualbox
-  virtualisation.virtualbox.host = { 
-    enable = true; 
-    #enableHardening = false; 
-  };
-
-  security.wrappers = {
+  #security.wrappers = {
     #VirtualBox.source = "/nix/store/.../bin/VirtualBox";
-  };
+  #};
  
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
   services.avahi = {
     enable = true;
     nssmdns = true;
@@ -178,7 +173,8 @@
     libarchive
     ffmpeg-full
     imagemagick
-    transmission
+    transmission-remote-gtk
+    transmission-remote-cli
     highlight
     unoconv
     discount
@@ -282,5 +278,16 @@
   
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
+
+  # Enable Virtualbox
+  virtualisation.virtualbox.host = { 
+    enable = true;
+    #enableHardening = false; 
+  };
+
+  nixpkgs.config.virtualbox.enableExtensionPack = true;
+
+  # Enable Transmission server
+  services.transmission.enable = true;
 
 }
