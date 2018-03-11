@@ -287,6 +287,9 @@
 
   nixpkgs.config.virtualbox.enableExtensionPack = true;
 
+  # Enable ZNC IRC bouncer
+  services.znc.enable = true;
+
   # Enable Transmission server
   services.transmission.enable = true;
 
