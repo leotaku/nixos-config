@@ -10,6 +10,7 @@ self: super:
   windowchef = super.callPackage ./windowchef/default.nix {};
   farfetch = super.callPackage ./farfetch/default.nix {};
   customPythonPackages = super.callPackage ./python/customPackages.nix {};
+  mullvad-gtk = super.callPackage ./mullvad/gtk-client.nix {};
   # Not currently working
   #athame-zsh = super.callPackage ./zsh/athame-zsh.nix {};
   #howm = super.callPackage ./howm/default.nix {};

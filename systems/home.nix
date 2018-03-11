@@ -62,6 +62,7 @@
   
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+    mullvad-gtk
     ## Nixos
     nixUnstable
     nix-repl
@@ -288,9 +289,20 @@
   nixpkgs.config.virtualbox.enableExtensionPack = true;
 
   # Enable ZNC IRC bouncer
-  services.znc.enable = true;
+  services.znc = { 
+    enable = true;
+    confOptions = {
+      passBlock = ''
+      <Pass password>
+        Method = sha256
+        Hash = 8fac540252eb7af4bc040feb23a6f1a4319bd75050c2ae8e65ce6501a9efb32b
+        Salt = DMjqwLmUgbIb5vJO8qj2
+      </Pass>
+      '';
+    };
+  };
 
   # Enable Transmission server
-  services.transmission.enable = true;
+  services.transmission.enable = false;
 
 }
