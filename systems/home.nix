@@ -198,7 +198,7 @@
     #howm
     #cottage
     sxhkd
-    compton
+    compton-git
     #athame-zsh
     zsh
     oh-my-zsh
