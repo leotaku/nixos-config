@@ -302,7 +302,11 @@
     };
   };
 
-  # Enable Transmission server
+  # Enable Transmission torrent service
   services.transmission.enable = false;
-
+  
+  # Enable OpenVPN service
+  services.openvpn.servers = {
+    mullvadAT = { config = '' config /home/leo/openvpn/mullvad_at.conf ''; };
+  };
 }
