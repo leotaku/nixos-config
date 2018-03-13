@@ -305,7 +305,6 @@
   # Enable Transmission torrent service
   services.transmission = { 
     enable = true;
-    port = 1080;
   };
   
   # Enable OpenVPN service
