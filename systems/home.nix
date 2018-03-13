@@ -304,7 +304,19 @@
 
   # Enable Transmission torrent service
   services.transmission = { 
-    enable = true;
+    enable = false;
+    port = 9091;
+    settings = {
+      utp-enabled = false;
+      dht-enabled = false;
+      pex-enabled = false;
+      lpd-enabled = false;
+      port-forwarding-enabled = false;
+      proxy-enabled = true;
+      proxy = "10.8.0.1";
+      proxy-port = 1080;
+      proxy-type = 2;
+    };
   };
   
   # Enable OpenVPN service
