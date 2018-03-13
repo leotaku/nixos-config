@@ -303,7 +303,10 @@
   };
 
   # Enable Transmission torrent service
-  services.transmission.enable = false;
+  services.transmission = { 
+    enable = true;
+    port = 1080;
+  }
   
   # Enable OpenVPN service
   services.openvpn.servers = {
