@@ -11,6 +11,8 @@ self: super:
   farfetch = super.callPackage ./farfetch/default.nix {};
   customPythonPackages = super.callPackage ./python/customPackages.nix {};
   mullvad-gtk = super.callPackage ./mullvad/gtk-client.nix {};
+  torrench = super.callPackage ./torrench/default.nix {};
+  subtle = super.callPackages ./subtle/default.nix {};
   # Not currently working
   #athame-zsh = super.callPackage ./zsh/athame-zsh.nix {};
   #howm = super.callPackage ./howm/default.nix {};

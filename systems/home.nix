@@ -50,6 +50,8 @@
     };
   };
 
+  #services.dhcpd4.enable = true;
+
   # Select internationalisation properties.
   i18n = {
     consoleFont = "Lat2-Terminus16";
@@ -262,7 +264,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -304,7 +306,7 @@
 
   # Enable Transmission torrent service
   services.transmission = { 
-    enable = false;
+    enable = true;
     port = 9091;
     settings = {
       utp-enabled = false;
@@ -312,10 +314,11 @@
       pex-enabled = false;
       lpd-enabled = false;
       port-forwarding-enabled = false;
-      proxy-enabled = true;
-      proxy = "10.8.0.1";
-      proxy-port = 1080;
-      proxy-type = 2;
+      peer-port = 10528;
+      #proxy-enabled = true;
+      #proxy = "10.8.0.1";
+      #proxy-port = 1080;
+      #proxy-type = 2;
     };
   };
   
