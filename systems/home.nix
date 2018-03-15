@@ -152,6 +152,7 @@
     wget
     git
     scrot
+	maim
     xclip
     dmenu
     #interrobang
@@ -187,7 +188,7 @@
     xorg.xauth
     acpi
     dash
-    #slop
+    slop
     gcolor2
     python36Packages.pygments
     id3v2
@@ -282,6 +283,9 @@
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
 
+  # Enable clipboard manager
+  services.gnome3.gpaste.enable = true;
+
   # Enable Virtualbox
   virtualisation.virtualbox.host = { 
     enable = true;
@@ -291,15 +295,26 @@
   nixpkgs.config.virtualbox.enableExtensionPack = true;
 
   # Enable ZNC IRC bouncer
-  services.znc = { 
+  services.znc = {
     enable = true;
     confOptions = {
+      nick = "leotaku";
       passBlock = ''
       <Pass password>
         Method = sha256
-        Hash = 8fac540252eb7af4bc040feb23a6f1a4319bd75050c2ae8e65ce6501a9efb32b
-        Salt = DMjqwLmUgbIb5vJO8qj2
-      </Pass>
+        Hash = 4d1f02701e27fee1405d52527bc93f9ad8e233a0946f1bc86ea540edeb176af7
+        Salt = 9vpyWS6!(5wkCR3uv:_5
+       </Pass>
+      '';
+      networks.freenode = {
+        port = 6697; 
+        server = "chat.freenode.net"; 
+        useSSL = false;
+        channels = [ "nixos" ];
+        modules = [ "simple_away" ];
+      };
+      extraZncConf = ''
+        MaxBufferSize=10000
       '';
     };
   };
@@ -322,7 +337,7 @@
     };
   };
   
-  # Enable OpenVPN service
+  # Add OpenVPN servers 
   services.openvpn.servers = {
     mullvadAT = { config = '' config /home/leo/openvpn/mullvad_at.conf ''; };
   };
