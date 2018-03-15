@@ -297,6 +297,7 @@
   # Enable ZNC IRC bouncer
   services.znc = {
     enable = true;
+    openFirewall = true;
     confOptions = {
       nick = "leotaku";
       passBlock = ''
