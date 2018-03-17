@@ -34,11 +34,11 @@
       EDITOR = "vim";
     };
 
-    #programs.git = {
-    #  enable = true;
-    #  userName  = "LeOtaku";
-    #  userEmail = "leo.gaskin@brg-feldkirchen.at";
-    #};
+    programs.git = {
+      enable = true;
+      userName  = "LeOtaku";
+      userEmail = "leo.gaskin@brg-feldkirchen.at";
+    };
 
   };
 }
