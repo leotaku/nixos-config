@@ -339,8 +339,11 @@
     };
   };
 
-  systemd.services.transmission.wantedBy = lib.mkOverride 50 [];
-  
+  systemd.services.transmission = {
+    wantedBy = lib.mkOverride 50 [];
+    #environment.systemPackages = lib.mkOverride 50 [];
+  };
+
   # Add OpenVPN servers 
   services.openvpn.servers = {
     mullvadAT = { config = '' config /home/leo/openvpn/mullvad_at.conf ''; };
