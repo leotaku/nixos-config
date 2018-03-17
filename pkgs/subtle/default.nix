@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
   buildInputs = with pkgs; [  ];
   propagatedBuildInputs = with pkgs; [ pkgconfig gems gems.wrappedRuby xorg.libXrandr xorg.libXft xorg.libXpm xorg.libXinerama xorg.libXtst ];
   buildPhase = ''
-  rake default xtest=false debug=yes destdir=$out prefix= extdir=$out/subtle
+  rake default xtest=false debug=yes destdir=$out prefix= extdir=$out/include
   '';
   installPhase = "rake install";
 

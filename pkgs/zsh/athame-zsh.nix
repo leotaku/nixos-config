@@ -1,4 +1,4 @@
-{ zsh, fetchurl, fetchFromGitHub, ncurses, pcre, ... }:
+{ zsh, fetchurl, fetchFromGitHub, ncurses, pcre, athameVim , which, ... }:
 
 let 
   srcs = { 
@@ -12,7 +12,7 @@ let
       owner = "ardagnir";
       repo = "vimbed";
       rev = "dca24bb";
-      sha256 = "0mqzcwswvwwi0kcyc58smd32n6kjh5b4995s76pvcmafr7y3x9l4";
+      sha256 = "0sh98vhh53bll7psbxwvv9n9ldrxcsvabpkqfc5j5hqqxyavcsz9";
     };
   };
 in
@@ -23,13 +23,19 @@ zsh.overrideAttrs (old: rec {
   cp ${srcs.athame}/* ./athame -r
   cp ${srcs.vimbed}/* ./vimbed -r
   ";
-  patches = [ ./athame/zsh.patch ];
+  #patches = [ ./athame/zsh.patch ];
   postPatch = "
-  #patch -p1 < \"./athame/zsh.patch\"
+  patch -p1 < \"./athame/zsh.patch\"
   cp -r ./vimbed ./Src/Zle
   cp ./athame/athame.* ./Src/Zle
   cp ./athame/athame_util.h ./Src/Zle
   cp ./athame/athame_zsh.h ./Src/Zle/athame_intermediary.h
   ";
-  buildFlags = [ "CFLAGS=-std=c99" "ATHAME_VIM_BIN=/run/current-system/sw/bin/vim" "ATHAME_USE_JOBS_DEFAULT=1" ];
+  buildPhase = ''
+  make CFLAGS="-std=c99" \
+  ATHAME_VIM_BIN=$(which vim) \
+  ATHAME_USE_JOBS_DEFAULT=1
+  '';
+  buildInputs = [ ncurses pcre which ];
+  propagatedBuildInputs = [ athameVim ];
 })

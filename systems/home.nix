@@ -284,7 +284,7 @@
   services.xserver.libinput.enable = true;
 
   # Enable clipboard manager
-  services.gnome3.gpaste.enable = true;
+  services.gnome3.gpaste.enable = false;
 
   # Enable Virtualbox
   virtualisation.virtualbox.host = { 
@@ -299,6 +299,7 @@
     enable = true;
     openFirewall = true;
     confOptions = {
+      port = 14990;
       nick = "leotaku";
       passBlock = ''
       <Pass password>
@@ -310,7 +311,7 @@
       networks.freenode = {
         port = 6697; 
         server = "chat.freenode.net"; 
-        useSSL = false;
+        useSSL = true;
         channels = [ "nixos" ];
         modules = [ "simple_away" ];
       };
@@ -322,7 +323,8 @@
 
   # Enable Transmission torrent service
   services.transmission = { 
-    enable = true;
+    enable = false;
+    install = true;
     port = 9091;
     settings = {
       utp-enabled = false;
