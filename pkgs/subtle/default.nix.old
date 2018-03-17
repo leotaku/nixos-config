@@ -1,0 +1,32 @@
+{ pkgs, fetchhg, stdenv, bundlerEnv, ruby, ... }:
+
+let
+  gems = bundlerEnv {
+    name = "your-package";
+    inherit ruby;
+    gemdir = ./.;
+  };
+in
+stdenv.mkDerivation rec {
+  name = "subtle-${version}";
+  version = "0.11";
+
+  src = fetchhg {
+    url = "http://hg.subforge.org/subtle";
+    rev = "0.11";
+    sha256 = "16bwp04ylvrhz34zi69h3qzwrhx9qqmqlwl63d4c7byc4xwpk036";
+  };
+
+  propagatedBuildInputs = [ ];
+  patchPhase = ''
+  ls
+  sed -e \
+  's/RbConfig::CONFIG\["sitelibdir"\]/RbConfig::CONFIG\["vendorlibdir"\]/' \
+  -i Rakefile
+  '';
+  buildInputs = with pkgs; [ ruby gems ];
+  buildPhase = "rake";
+  installPhase = "rake install";
+
+  doCheck = false;
+}
