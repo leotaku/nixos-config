@@ -9,9 +9,9 @@
     [ # Import home manager module
       "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
       # Import Files
-      ./users/leo.nix
-      ./systems/home.nix
-      ./machines/thinkpad.nix
+      ./users/pi.nix
+      ./systems/server.nix
+      ./machines/raspberry3.nix
     ];
   
   # This value determines the NixOS release with which your system is to be
