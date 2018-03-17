@@ -323,8 +323,7 @@
 
   # Enable Transmission torrent service
   services.transmission = { 
-    enable = false;
-    install = true;
+    enable = true;
     port = 9091;
     settings = {
       utp-enabled = false;
@@ -339,6 +338,8 @@
       #proxy-type = 2;
     };
   };
+
+  systemd.services.transmission.wantedBy = mkOverride 50 [];
   
   # Add OpenVPN servers 
   services.openvpn.servers = {
