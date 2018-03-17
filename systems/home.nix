@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 { 
   nix.nixPath = [
@@ -339,7 +339,7 @@
     };
   };
 
-  systemd.services.transmission.wantedBy = mkOverride 50 [];
+  systemd.services.transmission.wantedBy = lib.mkOverride 50 [];
   
   # Add OpenVPN servers 
   services.openvpn.servers = {
