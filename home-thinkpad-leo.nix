@@ -5,14 +5,14 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Import home manager module
-      "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
-      # Import Files
-      ./users/leo.nix
-      ./systems/home.nix
-      ./machines/thinkpad.nix
-    ];
+  imports = [ 
+    # Import home manager module
+    "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
+    # Import Files
+    ./users/leo.nix
+    ./systems/home.nix
+    ./machines/thinkpad.nix
+  ];
   
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

@@ -5,6 +5,15 @@
 { config, pkgs, lib, ... }:
 
 { 
+  imports = [
+    # Enable working Avahi
+    ../plugables/avahi/default.nix
+    # Enable Transmission torrenting service
+    ../plugables/transmission/default.nix
+    # Add all known OpenVPN servers
+    ../plugables/openvpn/serverlist.nix
+  ];
+
   nix.nixPath = [
     "/etc/nixos/nixos-config"
     "nixpkgs=/etc/nixos/nixos-config/nixpkgs"
@@ -40,15 +49,6 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
-    publish = {
-      enable = true;
-      domain = true;
-    };
-  };
 
   #services.dhcpd4.enable = true;
 
@@ -294,58 +294,4 @@
 
   nixpkgs.config.virtualbox.enableExtensionPack = true;
 
-  # Enable ZNC IRC bouncer
-  services.znc = {
-    enable = true;
-    openFirewall = true;
-    confOptions = {
-      port = 14990;
-      nick = "leotaku";
-      passBlock = ''
-      <Pass password>
-        Method = sha256
-        Hash = 4d1f02701e27fee1405d52527bc93f9ad8e233a0946f1bc86ea540edeb176af7
-        Salt = 9vpyWS6!(5wkCR3uv:_5
-       </Pass>
-      '';
-      networks.freenode = {
-        port = 6697; 
-        server = "chat.freenode.net"; 
-        useSSL = true;
-        channels = [ "nixos" ];
-        modules = [ "simple_away" ];
-      };
-      extraZncConf = ''
-        MaxBufferSize=10000
-      '';
-    };
-  };
-
-  # Enable Transmission torrent service
-  services.transmission = { 
-    enable = true;
-    port = 9091;
-    settings = {
-      utp-enabled = false;
-      dht-enabled = false;
-      pex-enabled = false;
-      lpd-enabled = false;
-      port-forwarding-enabled = false;
-      peer-port = 10528;
-      #proxy-enabled = true;
-      #proxy = "10.8.0.1";
-      #proxy-port = 1080;
-      #proxy-type = 2;
-    };
-  };
-
-  systemd.services.transmission = {
-    wantedBy = lib.mkOverride 50 [];
-    #environment.systemPackages = lib.mkOverride 50 [];
-  };
-
-  # Add OpenVPN servers 
-  services.openvpn.servers = {
-    mullvadAT = { config = '' config /home/leo/openvpn/mullvad_at.conf ''; };
-  };
 }
