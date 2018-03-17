@@ -49,7 +49,7 @@
     ## Nixos
     nixUnstable
     ## Terminal Apps
-    vim_configurable
+    vim
     ranger
     htop
     atop
@@ -117,10 +117,13 @@
   # Enable ZNC IRC bouncer
   services.znc = {
     enable = true;
+    mutable = true;
     openFirewall = true;
     confOptions = {
-      port = 14990;
+      port = 6667;
+      useSSL = false;
       nick = "leotaku";
+      userName = "leotaku";
       passBlock = ''
       <Pass password>
         Method = sha256
@@ -165,7 +168,7 @@
   };
 
   # Add OpenVPN servers 
-  services.openvpn.servers = {
+  #services.openvpn.servers = {
     #mullvadAT = { config = '' config /home/leo/openvpn/mullvad_at.conf ''; };
-  };
+  #};
 }
