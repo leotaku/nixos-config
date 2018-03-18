@@ -44,11 +44,7 @@
   #   '';
   # };
 
-  # Enable the DE/WM + DM 
-  services.xserver.displayManager.sddm.enable = true;
-  #services.xserver.windowManager.herbstluftwm.enable = true;
-
-  # Enable Zsh to get features + stupid nl
+    # Enable Zsh to get features + stupid nl
   programs.zsh.enable = true;
 
   ## Home manager configuration for this account

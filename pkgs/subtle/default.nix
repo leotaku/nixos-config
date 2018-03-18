@@ -22,11 +22,13 @@ stdenv.mkDerivation rec {
     --replace "fail(\"Ruby 1.9.0 or higher required\")" "" \
     --replace "-Wall" "" \
     --replace "sitelibdir" "vendorlibdir"
+  substitute ./data/subtler/runner.rb ./data/subtler/runner.rb \
+    --replace "subtle/subtlext" "subtlee/subtwext"
   '';
   buildInputs = with pkgs; [  ];
   propagatedBuildInputs = with pkgs; [ pkgconfig gems gems.wrappedRuby xorg.libXrandr xorg.libXft xorg.libXpm xorg.libXinerama xorg.libXtst ];
   buildPhase = ''
-  rake default xtest=false debug=yes destdir=$out prefix= extdir=$out/include
+  rake default xtest=false debug=yes destdir=$out prefix= extdir=$out/ext
   '';
   installPhase = "rake install";
 

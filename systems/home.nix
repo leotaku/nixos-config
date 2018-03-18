@@ -142,6 +142,7 @@
     projectm
     ## Utilities
     tree
+    stow
     wmname
     tpacpi-bat
     xorg.xbacklight
@@ -274,6 +275,19 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true; 
  
+  # Enable the DE/WM + DM 
+  services.xserver.displayManager.lightdm = { 
+    enable = true;
+    #background = "${pkgs.nixos-artwork.wallpapers.stripes-logo}/share/artwork/gnome/nix-wallpaper-stripes-logo.png";
+    background = "${pkgs.adapta-backgrounds}/share/backgrounds/adapta/tealized.jpg";
+    greeters.gtk = {
+      theme.package = pkgs.adapta-gtk-theme;
+      theme.name = "Adapta-Eta";
+      iconTheme.package = pkgs.paper-icon-theme;
+      iconTheme.name = "Paper";
+    };
+  };
+
   # Enable PulseAudio
   hardware.pulseaudio.enable = true;
   # For Steam

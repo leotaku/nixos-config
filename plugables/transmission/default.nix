@@ -21,6 +21,7 @@
   # Disable autostart
   systemd.services.transmission = {
     wantedBy = lib.mkOverride 50 [];
+    serviceConfig.ExecStart = "${pkgs.dante}/bin/socksify ${pkgs.transmission}/bin/transmission-daemon -f --port ${toString config.services.transmission.port}";
     #environment.systemPackages = lib.mkOverride 50 [];
   };
 }
