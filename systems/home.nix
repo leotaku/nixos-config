@@ -12,6 +12,8 @@
     ../plugables/transmission/default.nix
     # Add all known OpenVPN servers
     ../plugables/openvpn/serverlist.nix
+    # Import transmission-proxy service
+    ../modules/services/transmission-proxy.nix
   ];
 
   nix.nixPath = [

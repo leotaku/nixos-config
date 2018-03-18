@@ -1,27 +1,21 @@
 { config, pkgs, lib, ... }:
 {
-  # Enable Transmission torrent service
-  services.transmission = { 
+  # Enable Transmission torrent service, with proxy
+  services.transmission-proxy = { 
     enable = true;
     port = 9091;
+    proxy = {
+      ip = "10.8.0.1";
+      port = "1080";
+      type = "socks5";
+    };
     settings = {
-      utp-enabled = false;
+      utp-enabled = true;
       dht-enabled = false;
       pex-enabled = false;
       lpd-enabled = false;
       port-forwarding-enabled = false;
       peer-port = 10528;
-      #proxy-enabled = true;
-      #proxy = "10.8.0.1";
-      #proxy-port = 1080;
-      #proxy-type = 2;
     };
-  };
-  
-  # Disable autostart
-  systemd.services.transmission = {
-    wantedBy = lib.mkOverride 50 [];
-    serviceConfig.ExecStart = "${pkgs.dante}/bin/socksify ${pkgs.transmission}/bin/transmission-daemon -f --port ${toString config.services.transmission.port}";
-    #environment.systemPackages = lib.mkOverride 50 [];
   };
 }
