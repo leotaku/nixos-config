@@ -305,6 +305,6 @@
   nixpkgs.config.virtualbox.enableExtensionPack = true;
 
   # Enable Deluge torrent server
-  services.deluge.enable = true;
+  services.deluge.enable = false;
 
 }
