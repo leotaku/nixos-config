@@ -15,4 +15,5 @@
   };
   systemd.services.transmission = {
     wantedBy = lib.mkForce [];
+  };
 }
