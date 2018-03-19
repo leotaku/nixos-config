@@ -1,14 +1,9 @@
 { config, pkgs, lib, ... }:
 {
-  # Enable Transmission torrent service, with proxy
-  services.transmission-proxy = { 
+  # Enable Transmission torrent service
+  services.transmission = { 
     enable = true;
     port = 9091;
-    proxy = {
-      ip = "10.8.0.1";
-      port = "1080";
-      type = "socks5";
-    };
     settings = {
       utp-enabled = true;
       dht-enabled = false;
@@ -18,4 +13,6 @@
       peer-port = 10528;
     };
   };
+  systemd.services.transmission = {
+    wantedBy = lib.mkForce [];
 }

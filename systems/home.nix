@@ -8,12 +8,10 @@
   imports = [
     # Enable working Avahi
     ../plugables/avahi/default.nix
-    # Enable Transmission torrenting service
-    ../plugables/transmission/default.nix
     # Add all known OpenVPN servers
     ../plugables/openvpn/serverlist.nix
-    # Import transmission-proxy service
-    ../modules/services/transmission-proxy.nix
+    # Enable transmission service
+    ../plugables/transmission/default.nix
   ];
 
   nix.nixPath = [
@@ -44,10 +42,6 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = false;
 
-  #security.wrappers = {
-    #VirtualBox.source = "/nix/store/.../bin/VirtualBox";
-  #};
- 
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -309,5 +303,8 @@
   };
 
   nixpkgs.config.virtualbox.enableExtensionPack = true;
+
+  # Enable Deluge torrent server
+  services.deluge.enable = true;
 
 }
