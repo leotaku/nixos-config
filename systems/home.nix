@@ -136,8 +136,10 @@
     dolphin
     discord
     projectm
-    wireshark-gtk
+    #wireshark-gtk
+    nmap-graphical
     ## Utilities
+    iptables
     tree
     stow
     wmname
@@ -309,6 +311,8 @@
   services.deluge.enable = false;
 
   # Add wireshark permissions
-  programs.wireshark.enable = true;
-
+  programs.wireshark = { 
+    enable = true;
+    package = pkgs.wireshark-gtk;
+  };
 }
