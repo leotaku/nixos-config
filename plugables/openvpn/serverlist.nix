@@ -7,4 +7,8 @@
       updateResolvConf = true;
     };
   };
+
+  powerManagement.resumeCommands = ''
+    ${pkgs.systemd}/bin/systemctl restart openvpn-mullvadAT.service
+  '';
 }

@@ -136,6 +136,7 @@
     dolphin
     discord
     projectm
+    wireshark-gtk
     ## Utilities
     tree
     stow
