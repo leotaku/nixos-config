@@ -8,7 +8,7 @@
   imports = [
     ../plugables/avahi/default.nix
     ../plugables/znc/default.nix
-  ]
+  ];
 
   nix.nixPath = [
     "/etc/nixos/nixos-config"
