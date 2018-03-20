@@ -7,7 +7,7 @@
 {
   imports = [ 
     # Import home manager module
-    "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
+    ./modules/home-manager/nixos
     # Import Files
     ./users/leo.nix
     ./systems/home.nix
