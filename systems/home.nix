@@ -308,4 +308,7 @@
   # Enable Deluge torrent server
   services.deluge.enable = false;
 
+  # Add wireshark permissions
+  programs.wireshark.enable = true;
+
 }
