@@ -51,7 +51,7 @@
   home-manager.users.leo = {
     
     home.file."coolTEST".text = "foo";
-    home.file.".Xresources2".text = builtins.readFile ../dotfiles/Xresources;
+    home.file.".Xresources2".text = builtins.readFile ../files/Xresources;
 
     nixpkgs = {
       config = { allowUnfree = true; };
