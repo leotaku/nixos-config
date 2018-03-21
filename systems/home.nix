@@ -43,7 +43,10 @@
   boot.loader.systemd-boot.enable = false;
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    packages = with pkgs; [ networkmanager_openvpn ];
+  };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   #services.dhcpd4.enable = true;

@@ -50,8 +50,8 @@
   ## Home manager configuration for this account
   home-manager.users.leo = {
     
-    home.file."coolTEST".text = "foo";
-    home.file.".Xresources2".text = builtins.readFile ../files/Xresources;
+    home.file."coolDir/coolTEST".text = "foo";
+    home.file.".Xresources2".source = ../files/Xresources;
 
     nixpkgs = {
       config = { allowUnfree = true; };
