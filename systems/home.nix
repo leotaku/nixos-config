@@ -202,6 +202,12 @@
     gitAndTools.gitRemoteGcrypt
     mercurial
     darcs
+    # Security
+    gnupg
+    tomb
+    pass
+    openssh
+    libressl
     # Base
     coreutils
     utillinux
