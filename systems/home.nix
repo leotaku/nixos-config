@@ -71,6 +71,8 @@
     nix-index
     python2nix 
     nodePackages.node2nix
+    bundix
+    nix-prefetch-scripts
     # Terminal toys
     figlet
     toilet
@@ -80,6 +82,8 @@
     cmatrix
     pipes
     neofetch
+    screenfetch
+    sl
     # File managers
     ranger
     vifm
@@ -89,6 +93,7 @@
     # Text editors + plugins
     vim_configurable
     instant-markdown-d
+    micro
     # IDEs
     vscode-with-extensions
     #jetbrains.pycharm-community
@@ -106,12 +111,17 @@
     # Network utils
     #wireshark-gtk
     nmap-graphical
+    netcat-gnu
+    speedtest-cli
     bmon
     vnstat
     iptables
     # Audio
+    alsaUtils
     pulsemixer
     pamix
+    # Recording
+    audacity
     # Music
     mpd
     mpc_cli
@@ -202,10 +212,13 @@
     stow
     ncdu
     psmisc
-    # Screenshots
+    # Screenshots + screen recording
     scrot
     maim
     slop
+    simplescreenrecorder
+    screenkey
+    asciinema
     # Shells
     bash
     zsh
@@ -213,8 +226,11 @@
     zsh-completions
     #athame-zsh
     dash
-    # Mounting
+    # Filesystems
     bashmount
+    usbutils
+    mtpfs
+    libmtp
     # Archiving
     p7zip
     libarchive
@@ -231,8 +247,11 @@
     python36Packages.pygments
     id3v2
     # Torrent
+    torrench
     transmission-remote-gtk
     transmission-remote-cli
+    deluge
+    qbittorrent
     # WMs
     windowchef
     herbstluftwm
