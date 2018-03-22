@@ -114,7 +114,7 @@
     pamix
     # Music
     mpd
-    mpd-cli
+    mpc_cli
     ncmpcpp
     cava
     cli-visualizer
@@ -194,13 +194,13 @@
     darcs
     # Base
     coreutils
+    utillinux
+    utillinuxCurses
     tree
     wget
     curl
     stow
     ncdu
-    fdisk
-    cfdisk
     psmisc
     # Screenshots
     scrot
