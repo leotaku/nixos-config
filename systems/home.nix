@@ -204,6 +204,7 @@
     darcs
     # Security
     gnupg
+    gpa
     tomb
     pass
     openssh
