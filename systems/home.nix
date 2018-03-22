@@ -64,27 +64,14 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     mullvad-gtk
-    ## Nixos
+    # Nix
     nixUnstable
     nix-repl
     nox
     nix-index
     python2nix 
     nodePackages.node2nix
-    ## Terminal Apps
-    vim_configurable
-    scim
-    vifm
-    neomutt
-    ranger
-    rtv
-    taskwarrior
-    htop
-    atop
-    gtop
-    python36Packages.glances
-    bmon
-    vnstat
+    # Terminal toys
     figlet
     toilet
     fortune
@@ -92,17 +79,65 @@
     lolcat
     cmatrix
     pipes
+    neofetch
+    # File managers
+    ranger
+    vifm
+    xfce.thunar
+    gnome3.nautilus
+    dolphin
+    # Text editors + plugins
+    vim_configurable
+    instant-markdown-d
+    # IDEs
+    vscode-with-extensions
+    #jetbrains.pycharm-community
+    #python36Packages.notebook
+    #currently only works when loaded with python env
+    # Office
+    libreoffice-fresh
+    scim
+    libqalculate
+    # Performance monitoring
+    python36Packages.glances
+    htop
+    atop
+    gtop
+    # Network utils
+    #wireshark-gtk
+    nmap-graphical
+    bmon
+    vnstat
+    iptables
+    # Audio
     pulsemixer
+    pamix
+    # Music
+    mpd
+    mpd-cli
+    ncmpcpp
     cava
     cli-visualizer
-    ncmpcpp
+    projectm
+    # Browsers
+    firefox
+    vivaldi
+    surf
+    w3m
+    elinks
+    lynx
+    # Mail clients
+    neomutt
+    thunderbird
+    # Chat
     weechat
+    discord
+    # Other Internet
+    rtv
     canto-curses
-    pamix
-    ranger
-    neofetch
-    libqalculate
-    ## Graphical Apps
+    youtube-dl
+    # Life  
+    taskwarrior
     # Terminals
     xterm
     rxvt_unicode
@@ -110,120 +145,110 @@
     alacritty
     termite
     kitty
-    #st
-    #mlterm
-    # Development
-    vscode-with-extensions
-    #jetbrains.pycharm-community
-    #python36Packages.notebook
-    #currently only works when loaded with python env
-    # Other
-    firefox
-    vivaldi
-    thunderbird
+    st
+    mlterm
+    # Terminal multiplexers
+    tmux
+    screen
+    # Games
     steam
+    # Images
     feh
     sxiv
-    surf
+    imagemagick
+    # PDF
     zathura
     evince
+    # Video
+    vlc
+    mplayer
+    mpv
+    gnome-mpv
+    ffmpegthumbnailer
+    ffmpeg-full
+    # Font management
     gnome3.gucharmap
     font-manager
     fontmatrix
-    vlc
-    mplayer
-    gnome-mpv
-    mpv
-    xfce.thunar
-    gnome3.nautilus
-    dolphin
-    discord
-    projectm
-    #wireshark-gtk
-    nmap-graphical
-    ## Utilities
-    iptables
-    tree
-    stow
-    wmname
-    tpacpi-bat
+    # Xorg
     xorg.xbacklight
     xorg.xev
     xdo
     xdotool
     xvkbd
-    wget
-    git
-    scrot
-	maim
+    wmname
     xclip
-    dmenu
-    #interrobang
-    ncdu
-    w3m
-    elinks
-    lynx
-    bashmount
-    psmisc
-    efibootmgr
-    tmux
-    lxappearance-gtk3
-    youtube-dl
+    xorg.xinit
+    xorg.xauth
     libnotify
-    pandoc
-    ffmpegthumbnailer
+    inotifyTools
+    # Systems
+    tpacpi-bat
+    acpi
+    efibootmgr
+    # Version control
+    gitFull
+    gitAndTools.git-hub
+    gitAndTools.gitRemoteGcrypt
+    mercurial
+    darcs
+    # Base
+    coreutils
+    tree
+    wget
+    curl
+    stow
+    ncdu
+    fdisk
+    cfdisk
+    psmisc
+    # Screenshots
+    scrot
+    maim
+    slop
+    # Shells
+    bash
+    zsh
+    oh-my-zsh
+    zsh-completions
+    #athame-zsh
+    dash
+    # Mounting
+    bashmount
+    # Archiving
     p7zip
+    libarchive
+    # Misc Filetype
+    pandoc
     exiftool
     poppler_utils
     mediainfo
     atool
-    libarchive
-    ffmpeg-full
-    imagemagick
-    transmission-remote-gtk
-    transmission-remote-cli
     highlight
     unoconv
     discount
-    autoconf
-    automake
-    xorg.xinit
-    xorg.xauth
-    acpi
-    dash
-    slop
     gcolor2
     python36Packages.pygments
     id3v2
-    inotifyTools
-    ## Other
+    # Torrent
+    transmission-remote-gtk
+    transmission-remote-cli
+    # WMs
     windowchef
     herbstluftwm
     wmutils-core
     wmutils-opt
     #howm
     #cottage
+    # Other rice related
+    lxappearance-gtk3
     sxhkd
     compton-git
-    #athame-zsh
-    zsh
-    oh-my-zsh
-    zsh-completions
+    #interrobang
+    dmenu
     polybar
     dzen2
-    mpd
-    mpc_cli
     dunst
-    # Vim
-    instant-markdown-d
-    ## Languages
-    #R
-    #pythonForR
-    # Python
-    #python3Full
-    #python36Packages.pip
-    #python36Packages.virtualenv
-    #python36Packages.pylint
   ];
 
   fonts.fonts = with pkgs; [
