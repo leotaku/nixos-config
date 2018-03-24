@@ -41,4 +41,13 @@
     };
   };
 
+  vim-tutor-mode = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-tutor-mode";
+    src = pkgs.fetchFromGitHub {
+      owner = "fmoralesc";
+      repo = "vim-tutor-mode";
+      rev = "0.2.1";
+      sha256 = "0jz1471pw0s7hbwdr34zbkafrxsp31hpjz7vxil688advr13mqc6";
+    };
+  };
 }

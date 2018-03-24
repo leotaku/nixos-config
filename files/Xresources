@@ -1,6 +1,9 @@
 !! Urxvt terminal emulator
 URxvt.termName		:	rxvt-unicode-256color
-URxvt.font			:	xft:GohuFont:size=9
+URxvt.font			:	xft:GohuFont:size=9,\
+						xft:Fira Mono:pixelsize=9,\
+						-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+
 URxvt.scrollBar		:	False
 URxvt.internalBorder:	4
 

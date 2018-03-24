@@ -20,6 +20,7 @@ pkgs.neovim.override {
     "vimshell"
     "vimproc"
     "conque"
+    "vim-tutor-mode"
   ];
   configure.customRC = ''
     set laststatus=0
