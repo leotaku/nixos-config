@@ -173,7 +173,6 @@
     vlc
     mplayer
     mpv
-    gnome-mpv
     ffmpegthumbnailer
     ffmpeg-full
     # Font management
