@@ -3,12 +3,12 @@
   # Add OpenVPN servers, currently only works on one system
   services.openvpn.servers = {
     mullvadAT = { 
-      config = builtins.readFile ../../private/openvpn/mullvadAT/mullvad_at.conf;
+      config = builtins.readFile ../../private/openvpn/mullvad/mullvad_at.conf;
       updateResolvConf = true;
       autoStart = false;
     };
     mullvadHU = { 
-      config = builtins.readFile ../../private/openvpn/mullvadHU/mullvad_hu.conf;
+      config = builtins.readFile ../../private/openvpn/mullvad/mullvad_hu.conf;
       updateResolvConf = true;
       autoStart = false;
     };
