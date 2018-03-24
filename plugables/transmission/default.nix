@@ -6,8 +6,8 @@
     port = 9091;
     settings = {
       utp-enabled = true;
-      dht-enabled = false;
-      pex-enabled = false;
+      dht-enabled = true;
+      pex-enabled = true;
       lpd-enabled = false;
       port-forwarding-enabled = false;
       peer-port = 10528;
