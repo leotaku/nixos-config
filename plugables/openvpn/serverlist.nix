@@ -15,6 +15,6 @@
   };
 
   powerManagement.resumeCommands = ''
-    ${pkgs.bash}/bin/bash -c "${pkgs.systemd}/bin/systemctl restart `${pkgs.systemd}/bin/systemctl --plain list-unit-files | ${pkgs.gnugrep}/bin/grep 'enabled *$' | ${pkgs.gnugrep}/bin/grep -o 'openvpn[^ ]*`"
+  PATH=$PATH:${pkgs.systemd}/bin:${pkgs.gnugrep}/bin:${pkgs.bash}/bin /etc/nixos/nixos-config/files/restart-openvpn.sh
   '';
 }
