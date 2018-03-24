@@ -109,15 +109,12 @@
       profileExtra = "
       xrdb -merge ~/.Xresources2
       ";
-      windowManager.command = "windowchef";
+      windowManager.command = "herbstluftwm";
       initExtra = "
-      #feh --bg-tile ~/Downloads/019.jpg
       feh --bg-fill ~/Images/018-blur.jpg
       polybar example &
       mpd
-      sxhkd &
       dunst &
-      exec ~/wmutils/event-watcher.sh &> /dev/null &
       ";
     };
     home.keyboard.layout = "de";
