@@ -11,6 +11,9 @@
       lpd-enabled = false;
       port-forwarding-enabled = false;
       peer-port = 10528;
+      cache-size-mb = 32;
+      peer-limit-global = 400;
+      peer-limit-per-torrent = 100;
     };
   };
   systemd.services.transmission = {
