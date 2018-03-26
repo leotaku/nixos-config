@@ -5,7 +5,7 @@
     mullvadAT = { 
       config = builtins.readFile ../../private/openvpn/mullvad/mullvad_at.conf;
       updateResolvConf = true;
-      autoStart = false;
+      autoStart = true;
     };
     mullvadHU = { 
       config = builtins.readFile ../../private/openvpn/mullvad/mullvad_hu.conf;
