@@ -14,8 +14,8 @@ self: super:
   mullvad-gtk = super.callPackage ./mullvad/gtk-client.nix {};
   torrench = super.callPackage ./torrench/default.nix {};
   subtle = super.callPackages ./subtle/default.nix {};
-  eventd = self.callPackages ./eventd/default.nix {};
-  meson = super.callPackages ./meson/default.nix {};
+  eventd = super.callPackages ./eventd/default.nix {};
+  #meson = super.callPackages ./meson/default.nix {};
   # Not currently working
   athame-zsh = super.callPackage ./zsh/athame-zsh.nix {};
   #howm = super.callPackage ./howm/default.nix {};
