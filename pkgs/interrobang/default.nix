@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   
   makeFlags = [ "PREFIX=" "DESTDIR=$(out)" ];
 
-  buildInputs = [
+  propagatedBuildInputs = [
     libX11
   ];
 }
