@@ -114,6 +114,7 @@
       feh --bg-fill ~/Images/white.png
       mpd
       compton &
+      eventd &
       ";
     };
     home.keyboard.layout = "de";
@@ -131,7 +132,7 @@
     };
 
     # Enable dunst
-    #services.dunst.enable = true;
+    services.dunst.enable = false;
     #services.dunst.settings = builtins.readFile ../dotfiles/dunstrc;
 
   };
