@@ -359,7 +359,7 @@
     #enableHardening = false; 
   };
 
-  nixpkgs.config.virtualbox.enableExtensionPack = true;
+  nixpkgs.config.virtualbox.enableExtensionPack = false;
 
   # Enable Deluge torrent server
   services.deluge.enable = false;
