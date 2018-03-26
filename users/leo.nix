@@ -51,7 +51,7 @@
   home-manager.users.leo = {
     
     home.file."coolDir/coolTEST".text = "foo";
-    home.file.".Xresources2".source = ../files/Xresources;
+    #home.file.".Xresources2".source = ../files/Xresources;
 
     nixpkgs = {
       config = { allowUnfree = true; };
@@ -106,15 +106,14 @@
       #  package = pkgs.gnome3.adwaita-icon-theme;
       #  name = "Adwaita";
       #};
-      profileExtra = "
-      xrdb -merge ~/.Xresources2
-      ";
+      #profileExtra = "
+      #xrdb -merge ~/.Xresources2
+      #";
       windowManager.command = "herbstluftwm";
       initExtra = "
-      feh --bg-fill ~/Images/018-blur.jpg
-      polybar example &
+      feh --bg-fill ~/Images/white.png
       mpd
-      dunst &
+      compton &
       ";
     };
     home.keyboard.layout = "de";

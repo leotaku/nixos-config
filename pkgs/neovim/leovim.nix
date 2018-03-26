@@ -21,6 +21,8 @@ pkgs.neovim.override {
     "vimproc"
     "conque"
     "vim-tutor-mode"
+    "base16-vim"
+    "ale"
   ];
   configure.customRC = ''
     set laststatus=0

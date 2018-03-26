@@ -50,4 +50,14 @@
       sha256 = "0jz1471pw0s7hbwdr34zbkafrxsp31hpjz7vxil688advr13mqc6";
     };
   };
+
+  base16-vim = pkgs.vimUtils.buildVimPlugin {
+    name = "base16-vim";
+    src = pkgs.fetchFromGitHub {
+      owner = "chriskempson";
+      repo = "base16-vim";
+      rev = "7959654";
+      sha256 = "0v579vr8z59g0vxsar1byfhgdvlw8yx1spazjfm2hp110nf6icn1";
+    };
+  };
 }
