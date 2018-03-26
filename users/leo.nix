@@ -122,8 +122,9 @@
     #home.keyboard.options = "eurosign:e";
   
     # Enable compton
+    # Run as user
     services.compton = {
-      enable = true;
+      enable = false;
       backend = "glx";
       fade = true;
       fadeDelta = 5;
