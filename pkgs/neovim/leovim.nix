@@ -2,7 +2,6 @@
 
 pkgs.neovim.override {
   vimAlias = true; 
-  withRuby = false;
   configure.vam.knownPlugins = pkgs.vimPlugins // pkgs.customVimPlugins;
   configure.vam.pluginDictionaries = [
     "vim-nix"
@@ -21,8 +20,14 @@ pkgs.neovim.override {
     "vimproc"
     "conque"
     "vim-tutor-mode"
-    "base16-vim"
     "ale"
+    "disco"
+    "UltiSnips"
+    "undotree"
+    "deoplete-nvim"
+    "Supertab"
+    "goyo"
+    "limelight-vim"
   ];
   configure.customRC = ''
     set laststatus=0

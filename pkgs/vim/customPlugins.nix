@@ -60,4 +60,15 @@
       sha256 = "0v579vr8z59g0vxsar1byfhgdvlw8yx1spazjfm2hp110nf6icn1";
     };
   };
+
+  disco = pkgs.vimUtils.buildVimPlugin {
+    name = "disco";
+    src = pkgs.fetchFromGitHub {
+      owner = "jsit";
+      repo = "disco.vim";
+      rev = "84d4560";
+      sha256 = "0kxm52pmjd80916k8d33ddvqwhx0sc3vkks5i05g6kirgy34lsqx";
+    };
+  };
+
 }
