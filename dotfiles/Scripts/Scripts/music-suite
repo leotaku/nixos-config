@@ -1,0 +1,10 @@
+#!/bin/sh
+CAVA_ID=`urxvt -e cava & echo $!` # -p ~/.config/cava/config_music & echo $!`
+sleep 0.03
+PULSE_ID=`urxvt -e pulsemixer & echo $!`
+sleep 0.03
+urxvt -e ncmpcpp
+
+kill $CAVA_ID
+kill $PULSE_ID
+

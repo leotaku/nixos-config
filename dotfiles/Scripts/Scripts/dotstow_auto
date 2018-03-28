@@ -1,0 +1,21 @@
+#!/bin/sh
+bold=$(tput bold)
+normal=$(tput sgr0)
+STOWDIR=$(pwd)
+PACKAGE=$(basename $STOWDIR)
+echo "${bold}Adding specified directories to package${normal}"
+
+for i in $@; do
+    DIR=$i
+    MIDDLE=$(echo $DIR | sed "s#$HOME/##g")
+    
+    cd ~
+    cp --parents -r $MIDDLE $STOWDIR && rm -r $MIDDLE && echo "New directory: $MIDDLE"
+    cd $STOWDIR
+done
+
+cd $STOWDIR
+echo "${bold}$PACKAGE now contains:\n${normal}$(find . | tail -n +2)"
+cd ..
+stow -t ~ $PACKAGE
+echo "${bold}Copied directories were deleted and stowed${normal}"
