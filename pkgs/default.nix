@@ -7,14 +7,16 @@ self: super:
   customVimPlugins = super.callPackage ./vim/customPlugins.nix {};
   leovim = super.callPackage ./neovim/leovim.nix {};
   leoVim = super.callPackage ./vim/leoVim.nix {};
+  orgEmacs = super.callPackage ./emacs/orgmode.nix {};
+  orgEmacsConfig = super.callPackage ./emacs/configuration-package.nix {};
   athameVim = super.callPackage ./vim/athameVim.nix {};
   windowchef = super.callPackage ./windowchef/default.nix {};
   farfetch = super.callPackage ./farfetch/default.nix {};
   customPythonPackages = super.callPackage ./python/customPackages.nix {};
   mullvad-gtk = super.callPackage ./mullvad/gtk-client.nix {};
   torrench = super.callPackage ./torrench/default.nix {};
-  subtle = super.callPackages ./subtle/default.nix {};
-  eventd = super.callPackages ./eventd/default.nix {};
+  subtle = super.callPackage ./subtle/default.nix {};
+  eventd = super.callPackage ./eventd/default.nix {};
   #meson = super.callPackages ./meson/default.nix {};
   # Not currently working
   athame-zsh = super.callPackage ./zsh/athame-zsh.nix {};
