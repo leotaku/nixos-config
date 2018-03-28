@@ -7,7 +7,7 @@
       "rpc-url-path" : "/transmission/rpc",
       "username" : "",
       "password" : "",
-      "auto-connect" : true,
+      "auto-connect" : false,
       "ssl" : false,
       "ssl-validate" : false,
       "timeout" : 40,
@@ -19,6 +19,65 @@
       "min-update-interval" : 3,
       "session-update-interval" : 60,
       "last-add-destination" : "/home/leo/Downloads",
+      "last-move-destination" : "/var/lib/transmission/Downloads",
+      "exec-commands" : [
+        {
+          "label" : "Open file (xdg)",
+          "cmd" : "xdg-open \"%{full-path}\""
+        },
+        {
+          "label" : "Open video (vlc)",
+          "cmd" : "vlc \"%{full-path}\""
+        },
+        {
+          "label" : "Open video (mpl)",
+          "cmd" : "mplayer \"%{full-path}\""
+        }
+      ],
+      "destinations" : [
+      ]
+    },
+    {
+      "profile-name" : "Test",
+      "hostname" : "localhost",
+      "port" : 9090,
+      "rpc-url-path" : "/transmission/rpc",
+      "username" : "",
+      "password" : "",
+      "auto-connect" : false,
+      "ssl" : false,
+      "ssl-validate" : false,
+      "timeout" : 40,
+      "retries" : 3,
+      "update-active-only" : false,
+      "activeonly-fullsync-enabled" : false,
+      "activeonly-fullsync-every" : 2,
+      "update-interval" : 3,
+      "min-update-interval" : 3,
+      "session-update-interval" : 60,
+      "exec-commands" : [
+      ],
+      "destinations" : [
+      ]
+    },
+    {
+      "profile-name" : "Test2",
+      "hostname" : "localhost",
+      "port" : 9089,
+      "rpc-url-path" : "/transmission/rpc",
+      "username" : "",
+      "password" : "",
+      "auto-connect" : false,
+      "ssl" : false,
+      "ssl-validate" : false,
+      "timeout" : 40,
+      "retries" : 3,
+      "update-active-only" : false,
+      "activeonly-fullsync-enabled" : false,
+      "activeonly-fullsync-every" : 2,
+      "update-interval" : 3,
+      "min-update-interval" : 3,
+      "session-update-interval" : 60,
       "exec-commands" : [
       ],
       "destinations" : [
@@ -28,21 +87,21 @@
   "profile-id" : 0,
   "tree-views" : {
     "TrgTorrentTreeView" : {
-      "sort-col" : -1,
+      "sort-col" : 39,
       "sort-type" : 0
     },
     "TrgTrackersTreeView" : {
       "sort-col" : -2,
       "sort-type" : 0,
       "widths" : [
-        78,
-        147,
-        89,
-        140,
-        146,
-        148,
-        124,
-        129
+        112,
+        181,
+        123,
+        174,
+        180,
+        182,
+        158,
+        168
       ],
       "columns" : [
         "tier",
@@ -59,11 +118,11 @@
       "sort-col" : -2,
       "sort-type" : 0,
       "widths" : [
-        192,
-        180,
-        209,
-        218,
-        202
+        247,
+        235,
+        264,
+        273,
+        259
       ],
       "columns" : [
         "name",
@@ -77,13 +136,13 @@
       "sort-col" : -2,
       "sort-type" : 0,
       "widths" : [
-        119,
-        126,
-        177,
-        158,
-        152,
-        130,
-        139
+        159,
+        166,
+        217,
+        198,
+        192,
+        170,
+        176
       ],
       "columns" : [
         "ip",
@@ -93,6 +152,70 @@
         "progress",
         "flags",
         "client"
+      ]
+    },
+    "TrgFilesTreeView-dialog" : {
+      "sort-col" : -2,
+      "sort-type" : 0,
+      "widths" : [
+        340,
+        87,
+        79,
+        88,
+        74
+      ],
+      "columns" : [
+        "name",
+        "size",
+        "progress",
+        "wanted",
+        "priority"
+      ]
+    },
+    "TrgPeersTreeView-dialog" : {
+      "sort-col" : -2,
+      "sort-type" : 0,
+      "widths" : [
+        72,
+        79,
+        130,
+        111,
+        105,
+        83,
+        88
+      ],
+      "columns" : [
+        "ip",
+        "host",
+        "down-speed",
+        "up-speed",
+        "progress",
+        "flags",
+        "client"
+      ]
+    },
+    "TrgTrackersTreeView-dialog" : {
+      "sort-col" : -2,
+      "sort-type" : 0,
+      "widths" : [
+        33,
+        337,
+        44,
+        95,
+        101,
+        103,
+        79,
+        317
+      ],
+      "columns" : [
+        "tier",
+        "announce-url",
+        "last-announce-peer-count",
+        "seeder-count",
+        "leecher-count",
+        "last-announce-time",
+        "last-result",
+        "scrape-url"
       ]
     }
   },
@@ -106,14 +229,16 @@
   "show-notebook" : true,
   "system-tray" : false,
   "system-tray-minimise" : false,
-  "window-height" : 600,
-  "window-width" : 1005,
-  "notebook-paned-pos" : 300,
+  "window-height" : 684,
+  "window-width" : 1282,
+  "notebook-paned-pos" : 446,
   "states-paned-pos" : 240,
+  "state-selector-last" : 0,
+  "style" : 2,
+  "dialog-width" : 700,
+  "dialog-height" : 495,
   "exec-commands" : [
   ],
   "destinations" : [
-  ],
-  "state-selector-last" : 0,
-  "style" : 2
+  ]
 }
