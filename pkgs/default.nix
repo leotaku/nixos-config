@@ -16,7 +16,7 @@ self: super:
   mullvad-gtk = super.callPackage ./mullvad/gtk-client.nix {};
   torrench = super.callPackage ./torrench/default.nix {};
   subtle = super.callPackages ./subtle/default.nix {};
-  broadcom-rpi3-extra super.callPackage ./raspberry/broadcomi_driver {};
+  broadcom-rpi3-extra = super.callPackage ./raspberry/broadcomi_driver {};
   subtle = super.callPackage ./subtle/default.nix {};
   eventd = super.callPackage ./eventd/default.nix {};
   interrobang = super.callPackage ./interrobang/default.nix {};
