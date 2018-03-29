@@ -14,6 +14,7 @@ self: super:
   mullvad-gtk = super.callPackage ./mullvad/gtk-client.nix {};
   torrench = super.callPackage ./torrench/default.nix {};
   subtle = super.callPackages ./subtle/default.nix {};
+  broadcom-rpi3-extra super.callPackage ./raspberry/broadcomi_driver {};
   # Not currently working
   athame-zsh = super.callPackage ./zsh/athame-zsh.nix {};
   #howm = super.callPackage ./howm/default.nix {};
