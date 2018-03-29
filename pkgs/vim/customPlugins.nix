@@ -41,4 +41,34 @@
     };
   };
 
+  vim-tutor-mode = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-tutor-mode";
+    src = pkgs.fetchFromGitHub {
+      owner = "fmoralesc";
+      repo = "vim-tutor-mode";
+      rev = "0.2.1";
+      sha256 = "0jz1471pw0s7hbwdr34zbkafrxsp31hpjz7vxil688advr13mqc6";
+    };
+  };
+
+  base16-vim = pkgs.vimUtils.buildVimPlugin {
+    name = "base16-vim";
+    src = pkgs.fetchFromGitHub {
+      owner = "chriskempson";
+      repo = "base16-vim";
+      rev = "7959654";
+      sha256 = "0v579vr8z59g0vxsar1byfhgdvlw8yx1spazjfm2hp110nf6icn1";
+    };
+  };
+
+  disco = pkgs.vimUtils.buildVimPlugin {
+    name = "disco";
+    src = pkgs.fetchFromGitHub {
+      owner = "jsit";
+      repo = "disco.vim";
+      rev = "84d4560";
+      sha256 = "0kxm52pmjd80916k8d33ddvqwhx0sc3vkks5i05g6kirgy34lsqx";
+    };
+  };
+
 }

@@ -51,7 +51,7 @@
   home-manager.users.leo = {
     
     home.file."coolDir/coolTEST".text = "foo";
-    home.file.".Xresources2".source = ../files/Xresources;
+    #home.file.".Xresources2".source = ../files/Xresources;
 
     nixpkgs = {
       config = { allowUnfree = true; };
@@ -106,18 +106,15 @@
       #  package = pkgs.gnome3.adwaita-icon-theme;
       #  name = "Adwaita";
       #};
-      profileExtra = "
-      xrdb -merge ~/.Xresources2
-      ";
-      windowManager.command = "windowchef";
+      #profileExtra = "
+      #xrdb -merge ~/.Xresources2
+      #";
+      windowManager.command = "herbstluftwm";
       initExtra = "
-      #feh --bg-tile ~/Downloads/019.jpg
-      feh --bg-fill ~/Images/018-blur.jpg
-      polybar example &
+      feh --bg-fill ~/Images/white.png
       mpd
-      sxhkd &
-      dunst &
-      exec ~/wmutils/event-watcher.sh &> /dev/null &
+      compton &
+      eventd &
       ";
     };
     home.keyboard.layout = "de";
@@ -125,8 +122,9 @@
     #home.keyboard.options = "eurosign:e";
   
     # Enable compton
+    # Run as user
     services.compton = {
-      enable = true;
+      enable = false;
       backend = "glx";
       fade = true;
       fadeDelta = 5;
@@ -134,7 +132,7 @@
     };
 
     # Enable dunst
-    #services.dunst.enable = true;
+    services.dunst.enable = false;
     #services.dunst.settings = builtins.readFile ../dotfiles/dunstrc;
 
   };

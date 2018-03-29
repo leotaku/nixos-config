@@ -202,6 +202,13 @@
     gitAndTools.gitRemoteGcrypt
     mercurial
     darcs
+    # Security
+    gnupg
+    gpa
+    tomb
+    pass
+    openssh
+    libressl
     # Base
     coreutils
     utillinux
@@ -352,7 +359,7 @@
     #enableHardening = false; 
   };
 
-  nixpkgs.config.virtualbox.enableExtensionPack = true;
+  nixpkgs.config.virtualbox.enableExtensionPack = false;
 
   # Enable Deluge torrent server
   services.deluge.enable = false;
@@ -362,4 +369,18 @@
     enable = true;
     package = pkgs.wireshark-gtk;
   };
+
+  services.logind.lidSwitch = "ignore";
+  
+  services.acpid.enable = true;
+  services.acpid.lidEventCommands = ''
+    LID_STATE=/proc/acpi/button/lid/LID/state
+    if [ $(${pkgs.gawk}/bin/awk '{print $2}' $LID_STATE) = 'closed' ]; then
+      if `${pkgs.coreutils}/bin/cat /home/leo/nosuspend`; then
+        ${pkgs.xorg.xset}/bin/xset dpms force off
+      else
+        ${pkgs.systemd}/bin/systemctl suspend
+      fi
+    fi
+  '';
 }

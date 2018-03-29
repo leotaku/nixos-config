@@ -1,0 +1,5 @@
+#!/bin/sh
+DIR=~/.config/ufetch/
+NAME="ufetch-${1}"
+(ls $DIR | grep "^${NAME}$" >/dev/null) || exit 1
+exec "${DIR}${NAME}"

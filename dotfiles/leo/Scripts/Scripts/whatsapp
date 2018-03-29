@@ -1,0 +1,2 @@
+#!/bin/sh
+nohup vivaldi https://web.whatsapp.com/ &> /dev/null &

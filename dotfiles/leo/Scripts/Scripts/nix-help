@@ -1,0 +1,140 @@
+#!/bin/sh
+git_is_clean()
+{
+	if git diff HEAD --quiet && [ -z $(git ls-files --other --exclude-standard --directory) ]; then
+		return 0
+	else
+		echo "there are uncommited changes in your repo, please commit them to keep builds reproducible"
+		git status --short
+		cd nixpkgs
+		git status --short
+		cd ..
+		return 1
+	fi
+}
+
+DIR=$NIXOS_CONFIG_DIR
+
+cd $DIR
+case $1 in
+	fetch|update)
+		xargs=""
+		OPTIND=3
+		while getopts ":v" opt; do
+			case $opt in
+				v)
+					xargs="--verbose"
+					;;
+				**)
+					echo "Invalid options"
+					exit 1
+			esac
+		done
+		OPTIND=1
+		case $2 in
+			all)
+				cd nixpkgs
+				echo "${xargs}" | xargs git fetch --all
+				;;
+			**)
+				cd nixpkgs
+				echo "Fetching ${2}"
+				echo "${xargs}" | xargs git fetch $2
+				;;
+		esac
+		;;
+
+	diff)
+		cd nixpkgs
+		xargs="--name-only"
+		OPTIND=3
+		while getopts ":icf:" opt; do
+			case $opt in
+				i)
+					if="True"
+					;;
+				f)
+					file=$OPTARG
+					;;
+				c)
+					content="True"
+					;;
+				**)
+					echo "Invalid options"
+					exit 1
+			esac
+		done
+		
+		if [[ $if == "True" ]]; then
+			if git diff $2 --quiet; then
+				echo "No difference between commits"
+			else
+				echo "Difference found"
+			fi
+		else
+			if [[ $content == "True" ]]; then
+				git diff $2 $file
+			else
+				git diff --name-only $2 $file | cat
+			fi
+		fi
+		;;
+	branch)
+		cd nixpkgs
+		git checkout $2
+		;;
+	switch)
+		if git_is_clean; then
+			cd nixpkgs
+			COMMIT=$(git rev-parse --short $2)
+			OLD_COMMIT=$(git rev-parse --short HEAD)
+			MESSAGE="nixpkgs: ${OLD_COMMIT} -> ${COMMIT} (${HOST})"
+			git checkout $COMMIT
+			cd ..
+			git commit -m "$MESSAGE"
+		else
+			exit
+		fi
+		;;
+	rebuild)
+		if git_is_clean; then
+			sudo nixos-rebuild $2
+		else
+			exit
+		fi
+		;;
+	get-store|show-store|store)
+		echo $(dirname $(dirname $(readlink $(which $2))))
+		;;
+	get-rev|show-rev|rev)
+		OPTIND=2
+		while getopts ":s" opt; do
+			case $opt in
+				s)
+					args="--short"
+					;;
+				**)
+					exit 1
+					;;
+			esac
+		done
+		git rev-parse $args HEAD 
+		;;
+	get-pkg-rev|show-pkg-rev|pkg-rev)
+		OPTIND=2
+		while getopts ":s" opt; do
+			case $opt in
+				s)
+					args="--short"
+					;;
+				**)
+					exit 1
+					;;
+			esac
+		done
+		cd nixpkgs
+		git rev-parse $args HEAD
+		;;
+	**)
+		echo "Please specify a valid command"
+esac
