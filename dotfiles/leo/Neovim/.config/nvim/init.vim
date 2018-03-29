@@ -1,10 +1,15 @@
+"set mouse=a
 "autocmd VimEnter * !tmux rename-window vim
 set tabstop=4
 set shiftwidth=4
 
+set ignorecase
 " set sidebar
-set number
+"set number
+set foldcolumn=1
 highlight LineNr ctermbg=0
+highlight FoldColumn ctermbg=0
+"highlight VertSplit ctermbg=7 ctermfg=16
 "highlight EndOfBuffer ctermfg=16
 
 " Use alt-[hjkl] to select the active split!
@@ -75,7 +80,7 @@ let g:startify_custom_header =
 "hi StartifyBracket ctermfg=0
 "hi StartifyFile    ctermfg=4
 "hi StartifyFooter  ctermfg=0
-"hi StartifyHeader  ctermfg=1
+hi StartifyHeader  ctermfg=1
 "hi StartifySection ctermfg=1
 "hi StartifyNumber  ctermfg=0
 "hi StartifyPath    ctermfg=0
@@ -88,3 +93,17 @@ if (normalBg ==# '')
 endif
 
 execute 'highlight EndOfBuffer ctermfg='.normalBg
+
+" Fix broken colors
+hi Statement ctermfg=3
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+if exists('$TMUX')
+  let &t_SI = "\ePtmux;\e\e[5 q\e\\"
+  let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+else
+  let &t_SI = "\e[5 q"
+  let &t_EI = "\e[2 q"
+endif

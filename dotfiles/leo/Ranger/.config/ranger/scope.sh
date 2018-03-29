@@ -36,8 +36,8 @@ FILE_EXTENSION_LOWER="${FILE_EXTENSION,,}"
 # Settings
 HIGHLIGHT_SIZE_MAX=262143  # 256KiB
 HIGHLIGHT_TABWIDTH=8
-HIGHLIGHT_STYLE='bright'
-PYGMENTIZE_STYLE='autumn'
+HIGHLIGHT_STYLE='term'
+PYGMENTIZE_STYLE='term'
 
 
 handle_extension() {
@@ -147,10 +147,10 @@ handle_mime() {
                 local pygmentize_format='terminal'
                 local highlight_format='ansi'
             fi
-            #highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${highlight_format}" \
-            #--style="${HIGHLIGHT_STYLE}" -- "${FILE_PATH}" && exit 5
+            highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${highlight_format}" \
+            	--style="${HIGHLIGHT_STYLE}" -- "${FILE_PATH}" && exit 5
             #if [ $? -ne 5 ]; then 
-            #    pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}" -- "${FILE_PATH}" && exit 5
+                pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}" -- "${FILE_PATH}" && exit 5
             #fi
             exit 2;;
 

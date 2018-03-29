@@ -1,139 +1,141 @@
 #!/bin/sh
-git_is_clean()
-{
-	if git diff HEAD --quiet && [ -z $(git ls-files --other --exclude-standard --directory) ]; then
+
+is_clean () {
+	if git diff HEAD --quiet && git submodule --quiet foreach git diff HEAD --quiet; then
 		return 0
 	else
-		echo "there are uncommited changes in your repo, please commit them to keep builds reproducible"
-		git status --short
-		cd nixpkgs
-		git status --short
-		cd ..
 		return 1
 	fi
 }
 
-DIR=$NIXOS_CONFIG_DIR
+show_status () {
+	echo "Entering 'nixos-config'"
+	git status --short
+	git submodule foreach git status --short
+}
 
-cd $DIR
-case $1 in
-	fetch|update)
-		xargs=""
-		OPTIND=3
-		while getopts ":v" opt; do
-			case $opt in
-				v)
-					xargs="--verbose"
-					;;
-				**)
-					echo "Invalid options"
-					exit 1
-			esac
-		done
-		OPTIND=1
-		case $2 in
-			all)
-				cd nixpkgs
-				echo "${xargs}" | xargs git fetch --all
-				;;
-			**)
-				cd nixpkgs
-				echo "Fetching ${2}"
-				echo "${xargs}" | xargs git fetch $2
-				;;
-		esac
-		;;
 
-	diff)
-		cd nixpkgs
-		xargs="--name-only"
-		OPTIND=3
-		while getopts ":icf:" opt; do
-			case $opt in
-				i)
-					if="True"
-					;;
-				f)
-					file=$OPTARG
-					;;
-				c)
-					content="True"
-					;;
-				**)
-					echo "Invalid options"
-					exit 1
-			esac
-		done
-		
-		if [[ $if == "True" ]]; then
-			if git diff $2 --quiet; then
-				echo "No difference between commits"
-			else
-				echo "Difference found"
-			fi
+fetch () {
+	DIR=${f:-nixpkgs}
+	SOURCE=${1:-"all"}
+	[ $SOURCE = "all" ] && SOURCE="--all" || echo "Fetching $SOURCE"
+	cd $DIR
+	git fetch $SOURCE
+}
+
+diff () {
+	CHECK1=$1
+	CHECK2=$2
+	[ -z "$CHECK2" ] && CHECK2=$CHECK1 && CHECK1="HEAD"
+	cd nixpkgs
+	if [ -n "$i" ]; then
+		if git diff $CHECK1 $CHECK2 --quiet; then
+			echo "No" 
 		else
-			if [[ $content == "True" ]]; then
-				git diff $2 $file
-			else
-				git diff --name-only $2 $file | cat
-			fi
+			echo "Yes"
 		fi
+	else
+		[ -n "$f" ] && git diff $CHECK1 $CHECK2 -- $f && return
+		[ -n "$c" ] && git diff $CHECK1 $CHECK2 && return
+		git diff --name-only $CHECK1 $CHECK2
+	fi
+}
+
+list_modules () {
+	git submodule foreach git rev-parse HEAD | sed 's/Entering/Submodule/g'
+}
+
+update_modules () {
+	list_modules
+	list_modules > $MODULETRACKER
+}
+
+switch () {
+	if is_clean; then
+		REL_COMMIT=$1
+		MODULE="${f:-nixpkgs}"
+		cd $MODULE
+		COMMIT=$(git rev-parse --short $REL_COMMIT)
+		OLD_COMMIT=$(git rev-parse --short HEAD)
+		MESSAGE="${MODULE}: ${OLD_COMMIT} -> ${COMMIT} (${HOST})"
+		git checkout "$COMMIT" 
+		echo "$MESSAGE"
+		cd $CONFIGS
+		list_modules > $MODULETRACKER
+		git add $MODULETRACKER
+		git commit -a -m "$MESSAGE"
+	else
+		echo "Your repo has uncommited changes, please fix that"
+		show_status
+		return 1
+	fi
+}
+
+rebuild () {
+	REBUILD_TYPE=$1
+	if [ -n "$F" ]; then
+		echo "Forcing rebuild"
+		nixos-rebuild $REBUILD_TYPE
+	elif is_clean; then
+		nixos-rebuild $REBUILD_TYPE
+	else
+		show_status
+		echo "Your repo has uncommited changes, please fix that"
+		return 1
+	fi
+}
+
+COMMAND=$1
+CONFIGS=${NIX_HELP_CONFIG_DIR:-$NIXOS_CONFIG_DIR}
+HOST=${NIX_DESCRIPTIVE_NAME}
+MODULETRACKER=".moduletracker-$HOST"
+
+OPTIND=2
+while getopts sicf:F OPT; do
+	read "$OPT" <<< "${OPTARG:-true}"
+done
+
+INDENT=$OPTIND
+shift $[ INDENT - 1 ]
+
+cd $CONFIGS
+case $COMMAND in
+	fetch|update)
+		fetch "$@"
 		;;
-	branch)
+	diff)
+		diff "$@"
+		;;
+	checkout)
+		COMMIT=$1
 		cd nixpkgs
-		git checkout $2
+		git checkout $COMMIT
 		;;
 	switch)
-		if git_is_clean; then
-			cd nixpkgs
-			COMMIT=$(git rev-parse --short $2)
-			OLD_COMMIT=$(git rev-parse --short HEAD)
-			MESSAGE="nixpkgs: ${OLD_COMMIT} -> ${COMMIT} (${HOST})"
-			git checkout $COMMIT
-			cd ..
-			git commit -m "$MESSAGE"
-		else
-			exit
-		fi
+		switch "$@"
 		;;
 	rebuild)
-		if git_is_clean; then
-			sudo nixos-rebuild $2
-		else
-			exit
-		fi
+		rebuild "$@"
+		;;
+	status)
+		show_status "$@"
+		;;
+	list-modules|modules)
+		list_modules "$@"
+		;;
+	update-modules|upmo)
+		update_modules "$@"
 		;;
 	get-store|show-store|store)
-		echo $(dirname $(dirname $(readlink $(which $2))))
+		echo $(dirname $(dirname $(readlink $(which $1))))
 		;;
 	get-rev|show-rev|rev)
-		OPTIND=2
-		while getopts ":s" opt; do
-			case $opt in
-				s)
-					args="--short"
-					;;
-				**)
-					exit 1
-					;;
-			esac
-		done
-		git rev-parse $args HEAD 
-		;;
-	get-pkg-rev|show-pkg-rev|pkg-rev)
-		OPTIND=2
-		while getopts ":s" opt; do
-			case $opt in
-				s)
-					args="--short"
-					;;
-				**)
-					exit 1
-					;;
-			esac
-		done
-		cd nixpkgs
-		git rev-parse $args HEAD
+		cd "$f"
+		if [ -n "$s" ]; then
+			git rev-parse --short HEAD
+		else
+			git rev-parse HEAD
+		fi
 		;;
 	**)
 		echo "Please specify a valid command"

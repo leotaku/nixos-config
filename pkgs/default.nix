@@ -21,7 +21,11 @@ self: super:
   eventd = super.callPackage ./eventd/default.nix {};
   interrobang = super.callPackage ./interrobang/default.nix {};
   athame-zsh = super.callPackage ./zsh/athame-zsh.nix {};
-  #meson = super.callPackages ./meson/default.nix {};
+  dmenu3 = super.callPackage ./dmenu/dmenu3.nix {};
+  urxvtWithExtensions = super.callPackage ./urxvt/default.nix {};
+  seashells = super.callPackage ./seashells/default.nix {};
+  xgetres = super.callPackage ./xgetres/default.nix {};
+  #meson = super.callPackage ./meson/default.nix {};
   # Not currently working
   #howm = super.callPackage ./howm/default.nix {};
   #cottage = super.callPackage ./cottage/default.nix {};
