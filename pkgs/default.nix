@@ -21,7 +21,9 @@ self: super:
   interrobang = super.callPackage ./interrobang/default.nix {};
   dmenu3 = super.callPackage ./dmenu/dmenu3.nix {};
   urxvtWithExtensions = super.callPackage ./urxvt/default.nix {};
-  #meson = super.callPackages ./meson/default.nix {};
+  seashells = super.callPackage ./seashells/default.nix {};
+  xgetres = super.callPackage ./xgetres/default.nix {};
+  #meson = super.callPackage ./meson/default.nix {};
   # Not currently working
   #howm = super.callPackage ./howm/default.nix {};
   #cottage = super.callPackage ./cottage/default.nix {};
