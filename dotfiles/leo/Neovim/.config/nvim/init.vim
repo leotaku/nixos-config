@@ -1,7 +1,9 @@
+"set mouse=a
 "autocmd VimEnter * !tmux rename-window vim
 set tabstop=4
 set shiftwidth=4
 
+set ignorecase
 " set sidebar
 "set number
 set foldcolumn=1
@@ -97,3 +99,11 @@ hi Statement ctermfg=3
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+if exists('$TMUX')
+  let &t_SI = "\ePtmux;\e\e[5 q\e\\"
+  let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+else
+  let &t_SI = "\e[5 q"
+  let &t_EI = "\e[2 q"
+endif

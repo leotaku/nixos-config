@@ -114,6 +114,7 @@
       feh --bg-fill ~/Images/white.png
       mpd
       compton &
+      (compton &) &> /dev/null
       eventd &
       ";
     };
