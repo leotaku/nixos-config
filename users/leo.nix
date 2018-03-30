@@ -113,8 +113,8 @@
       initExtra = "
       feh --bg-fill ~/Images/white.png
       mpd
-      compton &
-      (compton &) &> /dev/null
+      compton -b
+      compton &> /dev/null
       eventd &
       ";
     };

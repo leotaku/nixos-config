@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation {
   name = "broadcom-rpi3-extra";
-  src = pkgs.fetchurl {
+  src = fetchurl {
     url = "https://raw.githubusercontent.com/RPi-Distro/firmware-nonfree/54bab3d/brcm80211/brcm/brcmfmac43430-sdio.txt";
     sha256 = "19bmdd7w0xzybfassn7x4rb30l70vynnw3c80nlapna2k57xwbw7";
   };

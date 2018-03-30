@@ -15,7 +15,7 @@ self: super:
   customPythonPackages = super.callPackage ./python/customPackages.nix {};
   mullvad-gtk = super.callPackage ./mullvad/gtk-client.nix {};
   torrench = super.callPackage ./torrench/default.nix {};
-  broadcom-rpi3-extra = super.callPackage ./raspberry/broadcomi_driver {};
+  broadcom-rpi3-extra = super.callPackage ./raspberry/broadcom_driver.nix {};
   subtle = super.callPackage ./subtle/default.nix {};
   eventd = super.callPackage ./eventd/default.nix {};
   interrobang = super.callPackage ./interrobang/default.nix {};

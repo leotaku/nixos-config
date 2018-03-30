@@ -17,21 +17,21 @@ pkgs.neovim.override {
     "The_NERD_tree" 
     "nerdtree-git-plugin"
     "vimshell"
-    "vimproc"
+    #"vimproc"
     #"conque"
     "vim-tutor-mode"
     "ale"
-    "disco"
+    #"disco"
     "UltiSnips"
     "undotree"
-     #"deoplete-nvim"
-    "Supertab"
+    "deoplete-nvim"
+    #"Supertab"
     "goyo"
     "limelight-vim"
+    "fzf-vim"
   ];
   configure.customRC = ''
     set laststatus=0
     source ~/.config/nvim/init.vim
   '';
 }
-
