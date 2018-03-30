@@ -26,14 +26,11 @@
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   
-
   hardware.enableRedistributableFirmware = true;
   hardware.firmware = [
     pkgs.broadcom-rpi3-extra
   ];
 
-  networking.wireless.enable = true;
-}
   #services.dhcpd4.enable = true;
 
   # Select internationalisation properties.
