@@ -58,6 +58,8 @@
       overlays = [ (import ../pkgs/default.nix) ];
     };
 
+    programs.fzf.enable = true;
+
     home.packages = with pkgs; [
       gnome3.adwaita-icon-theme
       numix-icon-theme

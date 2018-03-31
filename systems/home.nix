@@ -84,12 +84,15 @@
     neofetch
     screenfetch
     sl
+    bashSnippets
+    tty-clock
     # File managers
     ranger
     vifm
     xfce.thunar
     gnome3.nautilus
     dolphin
+    #fzf
     # Text editors + plugins
     vim_configurable
     instant-markdown-d
@@ -132,6 +135,7 @@
     # Browsers
     firefox
     vivaldi
+    qutebrowser
     surf
     w3m
     elinks
@@ -166,6 +170,8 @@
     feh
     sxiv
     imagemagick
+    krita
+    gimp
     # PDF
     zathura
     evince
@@ -192,6 +198,8 @@
     xorg.xauth
     libnotify
     inotifyTools
+    # Misc graphical apps
+    gcolor3
     # Systems
     tpacpi-bat
     acpi
@@ -211,6 +219,7 @@
     libressl
     # Base
     coreutils
+    binutils-unwrapped
     utillinux
     utillinuxCurses
     tree
@@ -219,6 +228,7 @@
     stow
     ncdu
     psmisc
+    bc
     # Screenshots + screen recording
     scrot
     maim
