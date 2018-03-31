@@ -29,6 +29,7 @@ pkgs.neovim.override {
     "goyo"
     "limelight-vim"
     "fzf-vim"
+    "fzfWrapper"
   ];
   configure.customRC = ''
     set laststatus=0

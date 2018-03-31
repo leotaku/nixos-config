@@ -58,7 +58,11 @@
       overlays = [ (import ../pkgs/default.nix) ];
     };
 
-    programs.fzf.enable = true;
+    programs.fzf = {
+      enable = true;
+      # does not work because zsh isn't controlled by home
+      defaultOptions = [ "--color 16" "--border" ];
+    };
 
     home.packages = with pkgs; [
       gnome3.adwaita-icon-theme

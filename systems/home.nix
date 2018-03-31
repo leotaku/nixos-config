@@ -170,7 +170,7 @@
     feh
     sxiv
     imagemagick
-    krita
+    #krita
     gimp
     # PDF
     zathura
