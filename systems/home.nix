@@ -308,6 +308,10 @@
     RANGER_LOAD_DEFAULT_RC = [ "FALSE" ];
   };
 
+  environment.shellAliases = {
+    nix-env = "nix-env -f /etc/nixos/nixos-config/files/fake-channel.nix";
+  };
+
   # Some programs need SUID wrappeas, can be configured further or are
   # started in user sessions.
   # programs.bash.enableCompletion = true;
