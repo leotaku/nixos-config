@@ -338,8 +338,8 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  # Enable Chron
-  services.chron.enable = true;
+  # Enable Cron
+  services.cron.enable = true;
   services.fchron.enable = true;
 
   # Enable CUPS to print documents.
