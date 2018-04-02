@@ -140,8 +140,10 @@
     w3m
     elinks
     lynx
-    # Mail clients
+    # Mail
     neomutt
+    offlineimap
+    dialog
     thunderbird
     # Chat
     weechat
