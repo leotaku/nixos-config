@@ -143,6 +143,7 @@
     # Mail
     neomutt
     offlineimap
+    notmuch
     dialog
     thunderbird
     # Chat
