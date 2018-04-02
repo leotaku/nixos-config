@@ -338,6 +338,10 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
+  # Enable Chron
+  services.chron.enable = true;
+  services.fchron.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [ hplip gutenprint gutenprintBin splix ];
