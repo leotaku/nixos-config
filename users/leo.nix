@@ -43,8 +43,13 @@
   #   }
   #   '';
   # };
+  
+  # Personal Cronjobs 
+  #services.cron.systemCronJobs = [
+  #  "*/5 * * * * /home/leo/.config/mutt/etc/mailsync.sh"
+  #];
 
-    # Enable Zsh to get features + stupid nl
+  # Enable Zsh to get features + stupid nl
   programs.zsh.enable = true;
 
   ## Home manager configuration for this account

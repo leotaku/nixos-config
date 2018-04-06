@@ -340,7 +340,6 @@
 
   # Enable Cron
   services.cron.enable = true;
-  services.fcron.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
