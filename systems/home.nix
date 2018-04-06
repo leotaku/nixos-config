@@ -63,7 +63,6 @@
   
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    mullvad-gtk
     # Nix
     nixUnstable
     nix-repl
