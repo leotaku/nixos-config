@@ -24,6 +24,8 @@ self: super:
   urxvtWithExtensions = super.callPackage ./urxvt/default.nix {};
   seashells = super.callPackage ./seashells/default.nix {};
   xgetres = super.callPackage ./xgetres/default.nix {};
+  gotop = super.callPackage ./gotop/default.nix {};
+  fuck-my-zsh = super.callPackage ./zsh/oh-my-zsh.nix {};
   #meson = super.callPackage ./meson/default.nix {};
   # Not currently working
   #howm = super.callPackage ./howm/default.nix {};
