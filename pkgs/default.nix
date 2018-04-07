@@ -25,7 +25,6 @@ self: super:
   seashells = super.callPackage ./seashells/default.nix {};
   xgetres = super.callPackage ./xgetres/default.nix {};
   gotop = super.callPackage ./gotop/default.nix {};
-  oh-my-zsh = super.callPackage ./zsh/oh-my-zsh.nix {};
   #meson = super.callPackage ./meson/default.nix {};
   # Not currently working
   #howm = super.callPackage ./howm/default.nix {};
@@ -36,6 +35,7 @@ self: super:
   wmutils-opt = super.callPackage ./wmutils/opt.nix {};
   ncmpcpp = super.ncmpcpp.override { visualizerSupport=true; outputsSupport=true; clockSupport=true; };
   polybar = super.polybar.override { githubSupport = true; mpdSupport = true; };
+  oh-my-zsh-custom = super.callPackage ./zsh/oh-my-zsh.nix {};
   #ranger = super.callPackage ./ranger/default.nix {};
   # Global env for stupid programmes
   #pythonForR = super.callPackage ../env/python/rSystem.nix {};

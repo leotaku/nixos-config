@@ -241,7 +241,7 @@
     # Shells
     bash
     zsh
-    oh-my-zsh
+    #oh-my-zsh
     zsh-completions
     #athame-zsh
     dash
@@ -304,7 +304,7 @@
   ];
   
   environment.variables = {
-    OH_MY_ZSH = [ "${pkgs.oh-my-zsh}/share/oh-my-zsh" ];
+    OH_MY_ZSH = [ "${pkgs.oh-my-zsh-custom}/share/oh-my-zsh" ];
     EDITOR = [ "vim" ];
     TERMINAL = [ "urxvt" ];
     RANGER_LOAD_DEFAULT_RC = [ "FALSE" ];
