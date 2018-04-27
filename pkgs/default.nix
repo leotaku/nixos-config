@@ -31,6 +31,7 @@ self: super:
   #cottage = super.callPackage ./cottage/default.nix {};
   #gpick = super.callPackage ./gpick/default.nix {};
   # Package Overrides
+  fix2bwm = super.callPackage ./2bwm/default.nix {};
   wmutils-core = super.callPackage ./wmutils/core.nix {};
   wmutils-opt = super.callPackage ./wmutils/opt.nix {};
   ncmpcpp = super.ncmpcpp.override { visualizerSupport=true; outputsSupport=true; clockSupport=true; };
