@@ -120,7 +120,7 @@
       #profileExtra = "
       #xrdb -merge ~/.Xresources2
       #";
-      windowManager.command = "2bwm";
+      windowManager.command = "2bwm & urxvt";
       #windowManager.command = "qtile -c /home/leo/config.py || herbstluftwm";
       initExtra = "
       feh --bg-fill ~/Images/white.png

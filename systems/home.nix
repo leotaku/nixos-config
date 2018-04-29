@@ -328,6 +328,10 @@
   # Enable upower
   services.upower.enable = true;
 
+  # Enable powerManagement
+  powerManagement.enable = true;
+  powerManagement.powerDownCommands = "${pkgs.xautolock}/bin/xautolock -locknow"
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
