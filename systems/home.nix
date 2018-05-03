@@ -96,6 +96,7 @@
     vim_configurable
     instant-markdown-d
     micro
+    kakoune
     # IDEs
     vscode-with-extensions
     #jetbrains.pycharm-community
@@ -118,9 +119,13 @@
     bmon
     vnstat
     iptables
+    bind
+    mtr
+    liboping
     # Audio
     alsaUtils
     pulsemixer
+    ncpamixer
     pamix
     # Recording
     audacity
@@ -147,11 +152,13 @@
     thunderbird
     # Chat
     weechat
+    irssi
     discord
     # Other Internet
     rtv
     canto-curses
     youtube-dl
+    seashells
     # Life  
     taskwarrior
     # Terminals
@@ -170,10 +177,13 @@
     steam
     # Images
     feh
+    meh
     sxiv
     imagemagick
-    #krita
+    krita
     gimp
+    inkscape
+    gcolor3
     # PDF
     zathura
     evince
@@ -184,6 +194,8 @@
     gnome-mpv
     ffmpegthumbnailer
     ffmpeg-full
+    # Ebook
+    calibre
     # Font management
     gnome3.gucharmap
     font-manager
@@ -194,7 +206,9 @@
     xdo
     xdotool
     xvkbd
+    xautolock
     wmname
+    wmctrl
     xclip
     xorg.xinit
     xorg.xauth
@@ -224,13 +238,22 @@
     binutils-unwrapped
     utillinux
     utillinuxCurses
+    sutils
+    pciutils
+    file
+    fd
     tree
     wget
     curl
     stow
-    ncdu
     psmisc
-    bc
+    wirelesstools
+    ethtool
+    cron
+    # Base +
+    ncdu
+    exa
+    aria
     # Screenshots + screen recording
     scrot
     maim
@@ -262,7 +285,6 @@
     highlight
     unoconv
     discount
-    gcolor2
     python36Packages.pygments
     id3v2
     # Torrent
@@ -274,6 +296,7 @@
     # WMs
     windowchef
     herbstluftwm
+    num2bwm
     wmutils-core
     wmutils-opt
     #howm
@@ -287,6 +310,8 @@
     polybar
     dzen2
     dunst
+    num9menu
+    i3lock-color
   ];
 
   fonts.fonts = with pkgs; [
@@ -330,7 +355,6 @@
 
   # Enable powerManagement
   powerManagement.enable = true;
-  powerManagement.powerDownCommands = "${pkgs.xautolock}/bin/xautolock -locknow"
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -397,9 +421,11 @@
   
   services.acpid.enable = true;
   services.acpid.lidEventCommands = ''
-    LID_STATE=/proc/acpi/button/lid/LID/state
+    LID_STATE=/proc/acpi/button/lid/LID/state 
     if [ $(${pkgs.gawk}/bin/awk '{print $2}' $LID_STATE) = 'closed' ]; then
-      if `${pkgs.coreutils}/bin/cat /home/leo/nosuspend`; then
+      echo "lock" > /tmp/lockscreen
+      sleep 0.5
+      if `${pkgs.coreutils}/bin/cat /tmp/nosuspend`; then
         ${pkgs.xorg.xset}/bin/xset dpms force off
       else
         ${pkgs.systemd}/bin/systemctl suspend

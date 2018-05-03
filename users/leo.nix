@@ -48,7 +48,7 @@
   #services.cron.systemCronJobs = [
   #  "*/5 * * * * /home/leo/.config/mutt/etc/mailsync.sh"
   #];
-
+  
   # Enable Zsh to get features + stupid nl
   programs.zsh.enable = true;
 
@@ -129,6 +129,9 @@
       eventd &
       urxvtd &
       polybar float &
+      xautolock -locker ~/Scripts/screenlock &
+      $HOME/Scripts/update_workspaces.sh &
+      $HOME/Scripts/waitlock &
       ";
     };
     home.keyboard.layout = "de";
