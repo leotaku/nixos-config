@@ -128,10 +128,10 @@
       compton -b
       eventd &
       urxvtd &
-      polybar float &
       xautolock -locker ~/Scripts/screenlock &
       $HOME/Scripts/update_workspaces.sh &
       $HOME/Scripts/waitlock &
+      polybar float &
       ";
     };
     home.keyboard.layout = "de";

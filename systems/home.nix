@@ -424,7 +424,7 @@
     LID_STATE=/proc/acpi/button/lid/LID/state 
     if [ $(${pkgs.gawk}/bin/awk '{print $2}' $LID_STATE) = 'closed' ]; then
       echo "lock" > /tmp/lockscreen
-      sleep 0.5
+      sleep 1
       if `${pkgs.coreutils}/bin/cat /tmp/nosuspend`; then
         ${pkgs.xorg.xset}/bin/xset dpms force off
       else
