@@ -19,6 +19,7 @@
     "nixpkgs=/etc/nixos/nixos-config/nixpkgs"
     "nixos=/etc/nixos/nixos-config/nixpkgs/nixos"
     "nixos-config=/etc/nixos/configuration.nix"
+    "home-manager=/etc/nixos/nixos-config/modules/home-manager"
     #"nixpkgs-overlays=/etc/nixos/nixos-config/pkgs"
   ];
 
