@@ -327,6 +327,8 @@
     dina-font
     fira-code
     fira-mono
+    roboto
+    montserrat
   ];
   
   environment.variables = {

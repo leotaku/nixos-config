@@ -70,5 +70,14 @@
       sha256 = "0kxm52pmjd80916k8d33ddvqwhx0sc3vkks5i05g6kirgy34lsqx";
     };
   };
-
+  
+  slimv = pkgs.vimUtils.buildVimPlugin {
+    name = "slimv";
+    src = pkgs.fetchFromGitHub {
+      owner = "kovisoft";
+      repo = "slimv";
+      rev = "f781a76";
+      sha256 = "1076lv3jiz29inlsvv012jd5fb7462cscii0gk8pvzgiik74bm4a";
+    };
+  };
 }

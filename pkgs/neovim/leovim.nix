@@ -30,6 +30,7 @@ pkgs.neovim.override {
     "limelight-vim"
     "fzf-vim"
     "fzfWrapper"
+    "slimv"
   ];
   configure.customRC = ''
     set laststatus=0
