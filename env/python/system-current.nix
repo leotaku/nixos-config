@@ -1,3 +1,16 @@
 { pkgs ? import <nixpkgs> {}, ... }:
 with pkgs;
-python3.withPackages (ps: with ps; [ numpy pandas toolz matplotlib pylint jupyter notebook ])
+pkgs.python3.buildEnv.override {
+  extraLibs = with pkgs.python3Packages; [
+    sh
+    numpy 
+    pandas 
+    toolz 
+    matplotlib 
+    jupyter 
+    notebook 
+    flake8 
+    jedi 
+  ];
+  ignoreCollisions = true;
+}

@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 pkgs.neovim.override {
   vimAlias = true; 
   configure.vam.knownPlugins = pkgs.vimPlugins // pkgs.customVimPlugins;
@@ -25,6 +24,7 @@ pkgs.neovim.override {
     "UltiSnips"
     "undotree"
     "deoplete-nvim"
+    "deoplete-jedi"
     #"Supertab"
     "goyo"
     "limelight-vim"
@@ -35,4 +35,5 @@ pkgs.neovim.override {
     set laststatus=0
     source ~/.config/nvim/init.vim
   '';
+
 }

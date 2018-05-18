@@ -120,18 +120,18 @@
       #profileExtra = "
       #xrdb -merge ~/.Xresources2
       #";
-      windowManager.command = "2bwm & urxvt";
+      windowManager.command = "2bwm";
       #windowManager.command = "qtile -c /home/leo/config.py || herbstluftwm";
       initExtra = "
       feh --bg-fill ~/Images/white.png
       mpd
       compton -b
       eventd &
+      polybar float &
       urxvtd &
       xautolock -locker ~/Scripts/screenlock &
       $HOME/Scripts/update_workspaces.sh &
       $HOME/Scripts/waitlock &
-      polybar float &
       ";
     };
     home.keyboard.layout = "de";
