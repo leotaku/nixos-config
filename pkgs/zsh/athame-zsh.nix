@@ -5,14 +5,14 @@ let
     athame = fetchFromGitHub {
       owner = "ardagnir";
       repo = "athame";
-      rev = "v1.0";
-      sha256 = "0ikwrhp71kaqzmhmq9ax5p3rmkfrfpkj0qr3xikq6gf3q1jbi557";
+      rev = "a05d6a1";
+      sha256 = "138zz5gxwnzvfxlflvx4fwy5f46x5965dbj611fa7paqangi1npj";
     };
     vimbed = fetchFromGitHub {
       owner = "ardagnir";
       repo = "vimbed";
-      rev = "dca24bb";
-      sha256 = "0sh98vhh53bll7psbxwvv9n9ldrxcsvabpkqfc5j5hqqxyavcsz9";
+      rev = "61f3ec7";
+      sha256 = "04zz1a18fdwxhi02j24w6xibkgappmy4y14khf039v600pw2921r";
     };
   };
 in
