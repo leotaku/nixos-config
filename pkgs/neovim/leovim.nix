@@ -31,6 +31,8 @@ pkgs.neovim.override {
     "fzf-vim"
     "fzfWrapper"
     "slimv"
+    "multiple-cursors"
+    "auto-pairs"
   ];
   configure.customRC = ''
     set laststatus=0
