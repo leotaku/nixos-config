@@ -77,7 +77,6 @@
       papirus-icon-theme
       paper-icon-theme
       moka-icon-theme
-      xfce.xfce4-icon-theme
       #siji
       #gohufont
       #terminus_font

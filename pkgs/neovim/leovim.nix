@@ -30,9 +30,13 @@ pkgs.neovim.override {
     "limelight-vim"
     "fzf-vim"
     "fzfWrapper"
-    "slimv"
+    #"slimv"
+    "vim-slime"
     "multiple-cursors"
-    "auto-pairs"
+    #"easymotion"
+    "vim-sneak"
+    #"auto-pairs"
+    #"parinfer-rust-vim"
   ];
   configure.customRC = ''
     set laststatus=0

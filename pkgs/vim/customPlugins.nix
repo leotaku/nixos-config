@@ -80,4 +80,52 @@
       sha256 = "1076lv3jiz29inlsvv012jd5fb7462cscii0gk8pvzgiik74bm4a";
     };
   };
+
+  vim-sneak = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-sneak";
+    src = pkgs.fetchFromGitHub {
+      owner = "justinmk";
+      repo = "vim-sneak";
+      rev = "943e084";
+      sha256 = "0b2h2rvfyn44zxg88037qjrwi7g86xzshn4kiicrzhx0lxx05102";
+    };
+
+    prePatch = ''
+    rm ./Makefile
+    '';
+  };
+
+ vim-slime = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-slime";
+    src = pkgs.fetchFromGitHub {
+      owner = "jpalardy";
+      repo = "vim-slime";
+      rev = "e58486b";
+      sha256 = "1abp1wh10wdvrii1jyzg12a0c5jk2yf88mczxkjwql0r7wcn89qd";
+    };
+  }; 
+
+  # Broken:
+  parinfer-rust-vim = pkgs.vimUtils.buildVimPlugin rec {
+      name = "parinfer-rust-vim";
+      version = "a26808b";
+
+      src = pkgs.fetchFromGitHub {
+      };
+    };
+
+    parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {
+      name = "parinfer-rust-${version}";
+      version = "a26808b";
+
+      src = pkgs.fetchFromGitHub {
+        owner = "eraserhd";
+        repo = "parinfer-rust";
+        rev = "${version}";
+        sha256 = "1j47ypk6waphp4lr5bihdv87945i2gs6d207szcqgph7igg92s8a";
+      };
+
+      cargoSha256 = "1q68qyl2h6i0qsz82z840myxlnjay8p1w5z7hfyr8fqp8wgwa7cx";
+
+    };
 }
