@@ -166,7 +166,7 @@
     xterm
     rxvt_unicode
     urxvt_perls 
-    alacritty
+    #alacritty
     termite
     kitty
     st

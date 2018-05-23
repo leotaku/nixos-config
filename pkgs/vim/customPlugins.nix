@@ -105,27 +105,37 @@
     };
   }; 
 
-  # Broken:
-  parinfer-rust-vim = pkgs.vimUtils.buildVimPlugin rec {
-      name = "parinfer-rust-vim";
+  vim-sexp = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-sexp";
+    src = pkgs.fetchFromGitHub {
+      owner = "guns";
+      repo = "vim-sexp";
+      rev = "1229294";
+      sha256 = "1mfqbmrbqgnsc34pmcsrc0c5zvgxhhnw4hx4g5wbssfk1ddyx6y0";
+    };
+  }; 
+
+  parinfer-rust = 
+  let
+  parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {
+    name = "parinfer-rust-${version}";
+    version = "a26808b";
+
+    src = ./parinfer;
+    cargoSha256 = "07dmalpnikrzvx9rg2dziijjhrnw8z2pxv3im6vsj458dydzkwri";
+
+    doCheck = false;  
+  };
+  in
+  pkgs.vimUtils.buildVimPlugin rec {
+      name = "parinfer-rust";
       version = "a26808b";
 
-      src = pkgs.fetchFromGitHub {
-      };
+      src = ./parinfer;
+      postBuild = ''
+        mkdir -p ./target/release
+        cp ${parinfer-rust-package}/bin/libparinfer_rust.so target/release
+      '';
     };
 
-    parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {
-      name = "parinfer-rust-${version}";
-      version = "a26808b";
-
-      src = pkgs.fetchFromGitHub {
-        owner = "eraserhd";
-        repo = "parinfer-rust";
-        rev = "${version}";
-        sha256 = "1j47ypk6waphp4lr5bihdv87945i2gs6d207szcqgph7igg92s8a";
-      };
-
-      cargoSha256 = "1q68qyl2h6i0qsz82z840myxlnjay8p1w5z7hfyr8fqp8wgwa7cx";
-
-    };
-}
+  }
