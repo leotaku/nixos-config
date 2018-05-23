@@ -33,7 +33,7 @@ zsh.overrideAttrs (old: rec {
   ";
   buildPhase = ''
   make CFLAGS="-std=c99" \
-  ATHAME_VIM_BIN=$(which vim) \
+  ATHAME_VIM_BIN=${athameVim}/bin/vim \
   ATHAME_USE_JOBS_DEFAULT=1
   '';
   buildInputs = [ ncurses pcre which ];

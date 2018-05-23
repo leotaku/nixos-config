@@ -8,7 +8,6 @@ pkgs.vim_configurable.customize {
     "airline"
   ];
   vimrcConfig.customRC = ''
-	source ~/.config/nvim/init.vim
    	'';
 }
 
