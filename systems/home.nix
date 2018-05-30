@@ -3,7 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, ... }:
-
 { 
   imports = [
     # Enable working Avahi
@@ -314,11 +313,15 @@
     num9menu
     i3lock-color
   ];
-
+  
+  #fonts.fontconfig.antialias = false;
+  #fonts.fontconfig.subpixel.lcdfilter = "none";
   fonts.fonts = with pkgs; [
     siji
     font-awesome-ttf
     google-fonts
+    noto-fonts
+    noto-fonts-emoji
     lmmath
     #nerdfonts
     gohufont

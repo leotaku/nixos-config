@@ -98,10 +98,10 @@
  vim-slime = pkgs.vimUtils.buildVimPlugin {
     name = "vim-slime";
     src = pkgs.fetchFromGitHub {
-      owner = "jpalardy";
+      owner = "LeOtaku";
       repo = "vim-slime";
-      rev = "e58486b";
-      sha256 = "1abp1wh10wdvrii1jyzg12a0c5jk2yf88mczxkjwql0r7wcn89qd";
+      rev = "6f05a53";
+      sha256 = "0sd2kcndzf1l3w6gvjhyfj7al4ryxsmlcjq80nda6888f1vximcf";
     };
   }; 
 
@@ -114,6 +114,16 @@
       sha256 = "1mfqbmrbqgnsc34pmcsrc0c5zvgxhhnw4hx4g5wbssfk1ddyx6y0";
     };
   }; 
+  
+  vim-express = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-express";
+    src = pkgs.fetchFromGitHub {
+      owner = "tommcdo";
+      repo = "vim-express";
+      rev = "2cbe706";
+      sha256 = "0fcwykwp6dwcs7jkkcxx5g9v9g9csj178c07sl3lcvmgidms79qk";
+    };
+  };
 
   parinfer-rust = 
   let

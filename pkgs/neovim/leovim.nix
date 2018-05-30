@@ -51,8 +51,9 @@ pkgs.neovim.override {
     #"disco"
 
     # Lib
+    "vim-express"
     #"vimproc"
-    "vim-operator-user"
+    #"vim-operator-user"
   ];
   configure.customRC = ''
     set laststatus=0

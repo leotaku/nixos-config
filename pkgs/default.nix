@@ -26,6 +26,7 @@ self: super:
   xgetres = super.callPackage ./xgetres/default.nix {};
   gotop = super.callPackage ./gotop/default.nix {};
   num9menu = super.callPackage ./9menu/default.nix {};
+  gohufont-ttf = super.callPackage ./gohufont-ttf/default.nix {};
   #meson = super.callPackage ./meson/default.nix {};
   # Not currently working
   #howm = super.callPackage ./howm/default.nix {};
