@@ -110,7 +110,7 @@
     python36Packages.glances
     htop
     atop
-    gtop
+    #gtop
     # Network utils
     #wireshark-gtk
     nmap-graphical
@@ -225,7 +225,7 @@
     gitAndTools.git-hub
     gitAndTools.gitRemoteGcrypt
     mercurial
-    darcs
+    #darcs
     # Security
     gnupg
     gpa
