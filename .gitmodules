@@ -4,6 +4,3 @@
 [submodule "modules/home-manager"]
 	path = modules/home-manager
 	url = https://github.com/rycee/home-manager.git
-[submodule "private"]
-	path = private
-	url = git@github.com:LeOtaku/private.git
