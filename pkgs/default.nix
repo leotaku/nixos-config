@@ -25,12 +25,15 @@ self: super:
   seashells = super.callPackage ./seashells/default.nix {};
   xgetres = super.callPackage ./xgetres/default.nix {};
   gotop = super.callPackage ./gotop/default.nix {};
+  num9menu = super.callPackage ./9menu/default.nix {};
+  gohufont-ttf = super.callPackage ./gohufont-ttf/default.nix {};
   #meson = super.callPackage ./meson/default.nix {};
   # Not currently working
   #howm = super.callPackage ./howm/default.nix {};
   #cottage = super.callPackage ./cottage/default.nix {};
   #gpick = super.callPackage ./gpick/default.nix {};
   # Package Overrides
+  num2bwm = super.callPackage ./2bwm/default.nix {};
   wmutils-core = super.callPackage ./wmutils/core.nix {};
   wmutils-opt = super.callPackage ./wmutils/opt.nix {};
   ncmpcpp = super.ncmpcpp.override { visualizerSupport=true; outputsSupport=true; clockSupport=true; };

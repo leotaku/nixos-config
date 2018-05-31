@@ -70,5 +70,82 @@
       sha256 = "0kxm52pmjd80916k8d33ddvqwhx0sc3vkks5i05g6kirgy34lsqx";
     };
   };
+  
+  slimv = pkgs.vimUtils.buildVimPlugin {
+    name = "slimv";
+    src = pkgs.fetchFromGitHub {
+      owner = "kovisoft";
+      repo = "slimv";
+      rev = "f781a76";
+      sha256 = "1076lv3jiz29inlsvv012jd5fb7462cscii0gk8pvzgiik74bm4a";
+    };
+  };
 
-}
+  vim-sneak = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-sneak";
+    src = pkgs.fetchFromGitHub {
+      owner = "justinmk";
+      repo = "vim-sneak";
+      rev = "943e084";
+      sha256 = "0b2h2rvfyn44zxg88037qjrwi7g86xzshn4kiicrzhx0lxx05102";
+    };
+
+    prePatch = ''
+    rm ./Makefile
+    '';
+  };
+
+ vim-slime = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-slime";
+    src = pkgs.fetchFromGitHub {
+      owner = "LeOtaku";
+      repo = "vim-slime";
+      rev = "6f05a53";
+      sha256 = "0sd2kcndzf1l3w6gvjhyfj7al4ryxsmlcjq80nda6888f1vximcf";
+    };
+  }; 
+
+  vim-sexp = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-sexp";
+    src = pkgs.fetchFromGitHub {
+      owner = "guns";
+      repo = "vim-sexp";
+      rev = "1229294";
+      sha256 = "1mfqbmrbqgnsc34pmcsrc0c5zvgxhhnw4hx4g5wbssfk1ddyx6y0";
+    };
+  }; 
+  
+  vim-express = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-express";
+    src = pkgs.fetchFromGitHub {
+      owner = "tommcdo";
+      repo = "vim-express";
+      rev = "2cbe706";
+      sha256 = "0fcwykwp6dwcs7jkkcxx5g9v9g9csj178c07sl3lcvmgidms79qk";
+    };
+  };
+
+  parinfer-rust = 
+  let
+  parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {
+    name = "parinfer-rust-${version}";
+    version = "a26808b";
+
+    src = ./parinfer;
+    cargoSha256 = "07dmalpnikrzvx9rg2dziijjhrnw8z2pxv3im6vsj458dydzkwri";
+
+    doCheck = false;  
+  };
+  in
+  pkgs.vimUtils.buildVimPlugin rec {
+      name = "parinfer-rust";
+      version = "a26808b";
+
+      src = ./parinfer;
+      postBuild = ''
+        mkdir -p ./target/release
+        cp ${parinfer-rust-package}/bin/libparinfer_rust.so target/release
+      '';
+    };
+
+  }

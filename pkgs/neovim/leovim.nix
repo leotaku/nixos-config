@@ -1,38 +1,63 @@
 { pkgs, ... }:
-
 pkgs.neovim.override {
   vimAlias = true; 
   configure.vam.knownPlugins = pkgs.vimPlugins // pkgs.customVimPlugins;
   configure.vam.pluginDictionaries = [
+    # Nix
     "vim-nix"
-    "vim-instant-markdown"
-    "vim-pandoc-syntax"
-    "vim-rmarkdown"
-    "vim-pandoc"
-    "vim-pandoc-after"
-    "table-mode"
-    #"vimpreviewpandoc"
-    "surround"
-    "vim-startify" 
-    "The_NERD_tree" 
-    "nerdtree-git-plugin"
-    "vimshell"
-    #"vimproc"
-    #"conque"
-    "vim-tutor-mode"
-    "ale"
-    #"disco"
-    "UltiSnips"
+
+    # General
+    "vim-startify"
     "undotree"
-    #"deoplete-nvim"
-    "Supertab"
-    "goyo"
-    "limelight-vim"
     "fzf-vim"
     "fzfWrapper"
+    #"vimshell"
+    #"The_NERD_tree" 
+    #"nerdtree-git-plugin"
+
+    # Editing
+    "surround"
+    "multiple-cursors"
+    "vim-sexp"
+    #"auto-pairs"
+    #"easymotion"
+    #"vim-sneak"
+
+    # Completion + Other
+    "ale"
+    "deoplete-nvim"
+    "deoplete-jedi"
+    "Supertab"
+    #"UltiSnips"
+
+    # Markup Languages
+    #"vim-instant-markdown"
+    #"vim-pandoc-syntax"
+    #"vim-rmarkdown"
+    #"vim-pandoc"
+    #"vim-pandoc-after"
+    #"vimpreviewpandoc"
+    #"table-mode"
+    #"vim-tutor-mode"
+
+    # Programming Languages
+    "vim-slime"
+    "parinfer-rust"
+    #"slimv"
+
+    # Visual
+    "goyo"
+    "limelight-vim"
+    #"disco"
+
+    # Lib
+    "vim-express"
+    #"vimproc"
+    #"vim-operator-user"
   ];
   configure.customRC = ''
     set laststatus=0
     source ~/.config/nvim/init.vim
   '';
+
 }

@@ -48,7 +48,7 @@
   #services.cron.systemCronJobs = [
   #  "*/5 * * * * /home/leo/.config/mutt/etc/mailsync.sh"
   #];
-
+  
   # Enable Zsh to get features + stupid nl
   programs.zsh.enable = true;
 
@@ -77,7 +77,6 @@
       papirus-icon-theme
       paper-icon-theme
       moka-icon-theme
-      xfce.xfce4-icon-theme
       #siji
       #gohufont
       #terminus_font
@@ -120,13 +119,18 @@
       #profileExtra = "
       #xrdb -merge ~/.Xresources2
       #";
-      windowManager.command = "herbstluftwm";
+      windowManager.command = "2bwm & urxvt";
+      #windowManager.command = "qtile -c /home/leo/config.py || herbstluftwm";
       initExtra = "
       feh --bg-fill ~/Images/white.png
       mpd
       compton -b
-      compton &> /dev/null
       eventd &
+      polybar float &
+      urxvtd &
+      xautolock -locker ~/Scripts/screenlock &
+      $HOME/Scripts/update_workspaces.sh &
+      $HOME/Scripts/waitlock &
       ";
     };
     home.keyboard.layout = "de";
