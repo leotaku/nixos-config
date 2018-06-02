@@ -1,6 +1,9 @@
 { pkgs, ... }:
 pkgs.neovim.override {
   vimAlias = true; 
+  withPython3 = true;
+  extraPython3Packages = with pkgs.python3Packages; [ jedi ];
+
   configure.vam.knownPlugins = pkgs.vimPlugins // pkgs.customVimPlugins;
   configure.vam.pluginDictionaries = [
     # Nix
@@ -12,12 +15,12 @@ pkgs.neovim.override {
     "fzf-vim"
     "fzfWrapper"
     #"vimshell"
-    #"The_NERD_tree" 
-    #"nerdtree-git-plugin"
+    "The_NERD_tree" 
+    "nerdtree-git-plugin"
 
     # Editing
     "surround"
-    "multiple-cursors"
+    #"multiple-cursors"
     "vim-sexp"
     #"auto-pairs"
     #"easymotion"
@@ -25,10 +28,20 @@ pkgs.neovim.override {
 
     # Completion + Other
     "ale"
-    "deoplete-nvim"
-    "deoplete-jedi"
-    "Supertab"
-    #"UltiSnips"
+    #"vim-mucomplete"
+    #"deoplete-nvim"
+    #"deoplete-jedi"
+    #"deoplete-go"
+    #"deoplete-rust"
+    #"Supertab"
+    "nvim-completion-manager"
+    "UltiSnips"
+    "vim-snippets"
+    "neco-syntax"
+
+    # Ctags
+    "Tagbar"
+    "vim-gutentags"
 
     # Markup Languages
     #"vim-instant-markdown"
@@ -44,6 +57,13 @@ pkgs.neovim.override {
     "vim-slime"
     "parinfer-rust"
     #"slimv"
+    "vim-go"
+    "neco-vim"
+
+    # Org
+    "vimwiki"
+    "vim-orgmode"
+    "vim-speeddating"
 
     # Visual
     "goyo"
@@ -52,6 +72,8 @@ pkgs.neovim.override {
 
     # Lib
     "vim-express"
+    "repeat"
+    "SyntaxRange"
     #"vimproc"
     #"vim-operator-user"
   ];

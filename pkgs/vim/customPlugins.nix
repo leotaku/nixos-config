@@ -6,7 +6,7 @@
     src = pkgs.fetchFromGitHub {
       owner = "suan";
       repo = "vim-instant-markdown";
-      rev = "master";
+      rev = "fail";
       sha256 = "10zfm1isqv1mgx8598bfghf2zwzxgba74k0h658lnw59inwz7dkr";
     };
   };
@@ -90,12 +90,10 @@
       sha256 = "0b2h2rvfyn44zxg88037qjrwi7g86xzshn4kiicrzhx0lxx05102";
     };
 
-    prePatch = ''
-    rm ./Makefile
-    '';
+    prePatch = "rm ./Makefile";
   };
 
- vim-slime = pkgs.vimUtils.buildVimPlugin {
+  vim-slime = pkgs.vimUtils.buildVimPlugin {
     name = "vim-slime";
     src = pkgs.fetchFromGitHub {
       owner = "LeOtaku";
@@ -123,6 +121,44 @@
       rev = "2cbe706";
       sha256 = "0fcwykwp6dwcs7jkkcxx5g9v9g9csj178c07sl3lcvmgidms79qk";
     };
+  };
+
+  vim-gutentags = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-gutentags";
+    src = pkgs.fetchFromGitHub {
+      owner = "ludovicchabant";
+      repo = "vim-gutentags";
+      rev = "327bd97";
+      sha256 = "02bfbbc12my3b4mpfykk3mvq0dg5b8wmscfnf6i87jbxni6ara69";
+    };
+  };
+  
+  vim-mucomplete = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-mucomplete";
+    src = pkgs.fetchFromGitHub {
+      owner = "lifepillar";
+      repo = "vim-mucomplete";
+      rev = "bdccec8";
+      sha256 = "0794c4xl17cgpzrdpmqwal9kdisd2q7yirk6c639nhqgv67cipx1";
+    };
+  };
+
+  UltiSnips = pkgs.vimUtils.buildVimPlugin {
+    name = "UltiSnips";
+    src = pkgs.fetchFromGitHub {
+      owner = "SirVer";
+      repo = "ultisnips";
+      rev = "6fdc364";
+      sha256 = "1zp3xcmxk6cn38zmxxy5s2wnw9djskwkmspq2s9vqliyhprf9sy3";
+    };
+    prePatch = "rm ./Makefile";
+  };
+
+  vim-go = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-go";
+    src = /home/leo/vim-go;
+
+    prePatch = "rm ./Makefile";
   };
 
   parinfer-rust = 
