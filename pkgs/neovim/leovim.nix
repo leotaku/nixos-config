@@ -2,7 +2,7 @@
 pkgs.neovim.override {
   vimAlias = true; 
   withPython3 = true;
-  extraPython3Packages = with pkgs.python3Packages; [ jedi ];
+  extraPython3Packages = with pkgs.python3Packages; [ jedi typing ];
 
   configure.vam.knownPlugins = pkgs.vimPlugins // pkgs.customVimPlugins;
   configure.vam.pluginDictionaries = [
@@ -15,6 +15,9 @@ pkgs.neovim.override {
     "fzf-vim"
     "fzfWrapper"
     #"vimshell"
+    "ctrlp"
+    "denite"
+    "neomru"
     "The_NERD_tree" 
     "nerdtree-git-plugin"
 
@@ -22,6 +25,7 @@ pkgs.neovim.override {
     "surround"
     #"multiple-cursors"
     "vim-sexp"
+    "endwise"
     #"auto-pairs"
     #"easymotion"
     #"vim-sneak"
@@ -41,6 +45,7 @@ pkgs.neovim.override {
 
     # Ctags
     "Tagbar"
+    #"vim-easytags"
     "vim-gutentags"
 
     # Markup Languages
@@ -61,7 +66,7 @@ pkgs.neovim.override {
     "neco-vim"
 
     # Org
-    "vimwiki"
+    #"vimwiki"
     "vim-orgmode"
     "vim-speeddating"
 
@@ -69,6 +74,9 @@ pkgs.neovim.override {
     "goyo"
     "limelight-vim"
     #"disco"
+
+    # Input Handling
+    #"vim-autoswap"
 
     # Lib
     "vim-express"

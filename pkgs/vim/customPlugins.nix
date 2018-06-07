@@ -11,13 +11,23 @@
     };
   };
 
-  vim-surround = pkgs.vimUtils.buildVimPlugin {
-    name = "vim-surround";
+  endwise = pkgs.vimUtils.buildVimPlugin {
+    name = "endwise";
     src = pkgs.fetchFromGitHub {
       owner = "tpope";
-      repo = "vim-surround";
-      rev = "v2.1";
-      sha256 = "0pcs8f6cv7k6wi7krah025gax3ms23fgflg2cr3fq9fpssrlf1ws";
+      repo = "vim-endwise";
+      rev = "1f76f7a";
+      sha256 = "1dqa7yn4kxybvaqqgqmzv7dcdqp93h15y7vfi2kxavgmlzin858f";
+    };
+  };
+
+  vim-autoswap = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-autoswap";
+    src = pkgs.fetchFromGitHub {
+      owner = "gioele";
+      repo = "vim-autoswap";
+      rev = "347a6fd";
+      sha256 = "0wr78mxw76hazy1rzb3nfcl20y99xw0xxaialqs2fl0lw807kqqb";
     };
   };
 
