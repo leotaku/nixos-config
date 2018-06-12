@@ -65,6 +65,11 @@ pkgs.neovim.override {
     "vim-go"
     "neco-vim"
 
+    # Source Control
+    "fugitive"
+    "gitgutter"
+    "gitv"
+
     # Org
     #"vimwiki"
     "vim-orgmode"
@@ -73,6 +78,9 @@ pkgs.neovim.override {
     # Visual
     "goyo"
     "limelight-vim"
+    #"airline"
+    #"vim-airline-themes"
+    "lightline-vim"
     #"disco"
 
     # Input Handling

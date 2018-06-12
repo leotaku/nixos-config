@@ -153,24 +153,6 @@
     };
   };
 
-  UltiSnips = pkgs.vimUtils.buildVimPlugin {
-    name = "UltiSnips";
-    src = pkgs.fetchFromGitHub {
-      owner = "SirVer";
-      repo = "ultisnips";
-      rev = "6fdc364";
-      sha256 = "1zp3xcmxk6cn38zmxxy5s2wnw9djskwkmspq2s9vqliyhprf9sy3";
-    };
-    prePatch = "rm ./Makefile";
-  };
-
-  vim-go = pkgs.vimUtils.buildVimPlugin {
-    name = "vim-go";
-    src = /home/leo/vim-go;
-
-    prePatch = "rm ./Makefile";
-  };
-
   parinfer-rust = 
   let
   parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {
