@@ -153,6 +153,46 @@
     };
   };
 
+  shot-f = pkgs.vimUtils.buildVimPlugin {
+    name = "shot-f";
+    src = pkgs.fetchFromGitHub {
+      owner = "deris";
+      repo = "vim-shot-f";
+      rev = "eea71d2";
+      sha256 = "1rxv0z3nfvsi4nms5dl6y28zzc7pk2k68ls1wsq6z1g5rwify0w8";
+    };
+  };
+
+  multiselect = pkgs.vimUtils.buildVimPlugin {
+    name = "multiselect";
+    src = pkgs.fetchFromGitHub {
+      owner = "vim-scripts";
+      repo = "multiselect";
+      rev = "2.2";
+      sha256 = "10gwywfimxsvk3h352cpwaabcdr462rwbnyk4djdlm1dgyfyn296";
+    };
+  };
+
+  genutils = pkgs.vimUtils.buildVimPlugin {
+    name = "genutils";
+    src = pkgs.fetchFromGitHub {
+      owner = "vim-scripts";
+      repo = "genutils";
+      rev = "2.5";
+      sha256 = "0dzcm7xwgy7kzs4wmgp4w6js1x4w4wxwcwpybqvmfvbjsa6vgyxk";
+    };
+  };
+
+  vim-swap = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-swap";
+    src = pkgs.fetchFromGitHub {
+      owner = "machakann";
+      repo = "vim-swap";
+      rev = "80c783d";
+      sha256 = "1xw0pmmw6fdliw7hfkplmkgl24472qdfmgsvld9rgbndliybln9r";
+    };
+  };
+
   parinfer-rust = 
   let
   parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {

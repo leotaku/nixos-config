@@ -23,9 +23,12 @@ pkgs.neovim.override {
 
     # Editing
     "surround"
-    #"multiple-cursors"
+    "multiple-cursors"
+    "multiselect"
     "vim-sexp"
     "endwise"
+    "shot-f"
+    "vim-swap"
     #"auto-pairs"
     #"easymotion"
     #"vim-sneak"
@@ -48,15 +51,18 @@ pkgs.neovim.override {
     #"vim-easytags"
     "vim-gutentags"
 
+    # Writing
+    "vim-grammarous"
+    "vim-wordy"
+
     # Markup Languages
     #"vim-instant-markdown"
-    #"vim-pandoc-syntax"
+    "vim-pandoc-syntax"
     #"vim-rmarkdown"
-    #"vim-pandoc"
-    #"vim-pandoc-after"
+    "vim-pandoc"
+    "vim-pandoc-after"
     #"vimpreviewpandoc"
     #"table-mode"
-    #"vim-tutor-mode"
 
     # Programming Languages
     "vim-slime"
@@ -75,6 +81,9 @@ pkgs.neovim.override {
     "vim-orgmode"
     "vim-speeddating"
 
+    # Tools
+    #"vim-tutor-mode"
+
     # Visual
     "goyo"
     "limelight-vim"
@@ -88,10 +97,11 @@ pkgs.neovim.override {
 
     # Lib
     "vim-express"
+    "vim-operator-user"
     "repeat"
     "SyntaxRange"
+    "genutils"
     #"vimproc"
-    #"vim-operator-user"
   ];
   configure.customRC = ''
     set laststatus=0

@@ -28,6 +28,7 @@ self: super:
   num9menu = super.callPackage ./9menu/default.nix {};
   catimg = super.callPackage ./catimg/default.nix {};
   gohufont-ttf = super.callPackage ./gohufont-ttf/default.nix {};
+  #xero-figlet-fonts = super.callPackage ./xero-figlet-fonts/default.nix {};
   #meson = super.callPackage ./meson/default.nix {};
   # Not currently working
   #howm = super.callPackage ./howm/default.nix {};
@@ -39,6 +40,7 @@ self: super:
   wmutils-opt = super.callPackage ./wmutils/opt.nix {};
   ncmpcpp = super.ncmpcpp.override { visualizerSupport=true; outputsSupport=true; clockSupport=true; };
   polybar = super.polybar.override { githubSupport = true; mpdSupport = true; };
+  sxiv = super.sxiv.override { conf = builtins.readFile /home/leo/nixos-config/files/config.h; };
   oh-my-zsh-custom = super.callPackage ./zsh/oh-my-zsh.nix {};
   #ranger = super.callPackage ./ranger/default.nix {};
   # Global env for stupid programmes
