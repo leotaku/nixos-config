@@ -103,7 +103,7 @@
     #python36Packages.notebook
     #currently only works when loaded with python env
     # Office
-    libreoffice-fresh
+    #libreoffice-fresh
     scim
     libqalculate
     # Performance monitoring
@@ -283,7 +283,7 @@
     mediainfo
     atool
     highlight
-    unoconv
+    #unoconv
     discount
     python36Packages.pygments
     id3v2
