@@ -31,7 +31,7 @@
   # Override default nixos stuff
   boot.loader.grub.splashImage = null;
   boot.loader.grub.gfxmodeBios = "1366x768";
-  boot.loader.timeout = -1;
+  boot.loader.timeout = 10;
   boot.plymouth.enable = true;
 
   # less verbose boot log
