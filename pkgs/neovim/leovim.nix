@@ -6,9 +6,6 @@ pkgs.neovim.override {
 
   configure.vam.knownPlugins = pkgs.vimPlugins // pkgs.customVimPlugins;
   configure.vam.pluginDictionaries = [
-    # Nix
-    "vim-nix"
-
     # General
     "vim-startify"
     "undotree"
@@ -24,7 +21,7 @@ pkgs.neovim.override {
     # Editing
     "surround"
     "multiple-cursors"
-    "multiselect"
+    #"multiselect"
     "vim-sexp"
     "endwise"
     "shot-f"
@@ -65,6 +62,8 @@ pkgs.neovim.override {
     #"table-mode"
 
     # Programming Languages
+    "vim-nix"
+    "vim-fish"
     "vim-slime"
     "parinfer-rust"
     #"slimv"
@@ -89,7 +88,7 @@ pkgs.neovim.override {
     "limelight-vim"
     #"airline"
     #"vim-airline-themes"
-    "lightline-vim"
+    #"lightline-vim"
     #"disco"
 
     # Input Handling

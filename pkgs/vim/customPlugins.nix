@@ -193,6 +193,16 @@
     };
   };
 
+  vim-fish = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-fish";
+    src = pkgs.fetchFromGitHub {
+      owner = "dag";
+      repo = "vim-fish";
+      rev = "50b95cb";
+      sha256 = "1yvjlm90alc4zsdsppkmsja33wsgm2q6kkn9dxn6xqwnq4jw5s7h";
+    };
+  };
+
   parinfer-rust = 
   let
   parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {
