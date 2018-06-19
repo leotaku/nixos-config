@@ -49,10 +49,6 @@
   #  "*/5 * * * * /home/leo/.config/mutt/etc/mailsync.sh"
   #];
   
-  # Enable Zsh to get features + stupid nl
-  programs.zsh.enable = true;
-  programs.fish.enable = true;
-
   ## Home manager configuration for this account
   home-manager.users.leo = {
     

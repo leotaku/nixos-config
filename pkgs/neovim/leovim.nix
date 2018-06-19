@@ -40,6 +40,7 @@ pkgs.neovim.override {
     #"Supertab"
     "nvim-completion-manager"
     "UltiSnips"
+    #"snipmate"
     "vim-snippets"
     "neco-syntax"
 
@@ -50,7 +51,7 @@ pkgs.neovim.override {
 
     # Writing
     "vim-grammarous"
-    "vim-wordy"
+    #"vim-wordy"
 
     # Markup Languages
     #"vim-instant-markdown"
@@ -99,7 +100,7 @@ pkgs.neovim.override {
     "vim-operator-user"
     "repeat"
     "SyntaxRange"
-    "genutils"
+    #"genutils"
     #"vimproc"
   ];
   configure.customRC = ''

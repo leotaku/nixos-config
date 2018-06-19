@@ -11,6 +11,8 @@
     ../plugables/openvpn/serverlist.nix
     # Enable transmission service
     ../plugables/transmission/default.nix
+    # Enable zsh and add plugins to env
+    ../plugables/zsh/default.nix
   ];
 
   nix.nixPath = [
@@ -335,7 +337,6 @@
   ];
   
   environment.variables = {
-    OH_MY_ZSH = [ "${pkgs.oh-my-zsh-custom}/share/oh-my-zsh" ];
     EDITOR = [ "vim" ];
     TERMINAL = [ "urxvt" ];
     RANGER_LOAD_DEFAULT_RC = [ "FALSE" ];
