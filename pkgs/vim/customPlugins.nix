@@ -163,6 +163,16 @@
     };
   };
 
+  clever-f = pkgs.vimUtils.buildVimPlugin {
+    name = "clever-f";
+    src = pkgs.fetchFromGitHub {
+      owner = "rhysd";
+      repo = "clever-f.vim";
+      rev = "89d99b5";
+      sha256 = "0nqki67zrhadmj8hwxdpikw7zqwqyhc4ykrsfrjfllvmqwigynv2";
+    };
+  };
+
   multiselect = pkgs.vimUtils.buildVimPlugin {
     name = "multiselect";
     src = pkgs.fetchFromGitHub {

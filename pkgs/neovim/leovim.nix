@@ -25,6 +25,7 @@ pkgs.neovim.override {
     "vim-sexp"
     "endwise"
     "shot-f"
+    #"clever-f"
     "vim-swap"
     #"auto-pairs"
     #"easymotion"
@@ -89,7 +90,7 @@ pkgs.neovim.override {
     "limelight-vim"
     #"airline"
     #"vim-airline-themes"
-    #"lightline-vim"
+    "lightline-vim"
     #"disco"
 
     # Input Handling
