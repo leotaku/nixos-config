@@ -293,8 +293,8 @@
     torrench
     transmission-remote-gtk
     transmission-remote-cli
-    deluge
-    qbittorrent
+    #deluge
+    #qbittorrent
     # WMs
     windowchef
     herbstluftwm
