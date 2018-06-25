@@ -5,14 +5,10 @@
 { config, pkgs, lib, ... }:
 { 
   imports = [
-    # Enable working Avahi
+    # Import plugable configurations
     ../plugables/avahi/default.nix
-    # Add all known OpenVPN servers
     ../plugables/openvpn/serverlist.nix
-    # Enable transmission service
     ../plugables/transmission/default.nix
-    # Enable zsh and add plugins to env
-    ../plugables/zsh/default.nix
   ];
 
   nix.nixPath = [
@@ -21,7 +17,6 @@
     "nixos=/etc/nixos/nixos-config/nixpkgs/nixos"
     "nixos-config=/etc/nixos/configuration.nix"
     "home-manager=/etc/nixos/nixos-config/modules/home-manager"
-    #"nixpkgs-overlays=/etc/nixos/nixos-config/pkgs"
   ];
 
   nixpkgs.overlays = [ (import ../pkgs) ];
@@ -39,7 +34,7 @@
   # less verbose boot log
   boot.consoleLogLevel = 3;
   boot.kernelParams = [ "quiet" "udev.log_priority=3" ];
-  #boot.earlyVconsoleSetup = true;
+  boot.earlyVconsoleSetup = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = false;
@@ -49,9 +44,6 @@
     enable = true;
     packages = with pkgs; [ networkmanager_openvpn ];
   };
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  #services.dhcpd4.enable = true;
 
   # Select internationalisation properties.
   i18n = {
@@ -64,6 +56,7 @@
   time.timeZone = "Europe/Vienna";
   
   nixpkgs.config.allowUnfree = true;
+  # TODO: Move this to separate home manager file
   environment.systemPackages = with pkgs; [
     # Nix
     nixUnstable
@@ -318,6 +311,7 @@
   
   #fonts.fontconfig.antialias = false;
   #fonts.fontconfig.subpixel.lcdfilter = "none";
+  # TODO: move this
   fonts.fonts = with pkgs; [
     siji
     font-awesome-ttf
@@ -339,24 +333,15 @@
   environment.variables = {
     EDITOR = [ "vim" ];
     TERMINAL = [ "urxvt" ];
-    RANGER_LOAD_DEFAULT_RC = [ "FALSE" ];
   };
-
+  
+  # TODO: Refactor this to be more flexible
   environment.shellAliases = {
     nix-env = "nix-env -f /etc/nixos/nixos-config/files/fake-channel.nix";
   };
 
-  # Some programs need SUID wrappeas, can be configured further or are
-  # started in user sessions.
-  # programs.bash.enableCompletion = true;
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-
   # List services that you want to enable:
   
-  # Test Test
-  #programs.ibus.enable = true;
-
   # Enable upower
   services.upower.enable = true;
 
@@ -404,9 +389,6 @@
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
 
-  # Enable clipboard manager
-  services.gnome3.gpaste.enable = false;
-
   # Enable Virtualbox
   virtualisation.virtualbox.host = { 
     enable = true;
@@ -414,9 +396,6 @@
   };
 
   nixpkgs.config.virtualbox.enableExtensionPack = false;
-
-  # Enable Deluge torrent server
-  services.deluge.enable = false;
 
   # Add wireshark permissions
   programs.wireshark = { 
