@@ -1,3 +1,0 @@
-#!/bin/sh
-#shitty script remove when not needed
-notify-send "$(xprop)"

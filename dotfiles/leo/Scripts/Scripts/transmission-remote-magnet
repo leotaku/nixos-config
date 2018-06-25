@@ -1,2 +1,0 @@
-#!/bin/sh
-transmission-remote localhost:9091 --add "${1}"
