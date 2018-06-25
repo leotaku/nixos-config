@@ -4,20 +4,21 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-    ];
+  imports = [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
 
-  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" " intel_pstate" ];
+  # Kernel modules + other
+  boot.initrd.availableKernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "acpi_call" ];
   boot.extraModulePackages = [ pkgs.linuxPackages.acpi_call ];
 
+  # Boot loader
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = false;
   boot.loader.grub.device = "nodev";
-  
+
+  # Filesystem (configured by nixos-install)
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/7f5fb58a-3cde-49a0-b46e-c0ed577b2692";
       fsType = "ext4";
@@ -30,6 +31,7 @@
 
   swapDevices = [ ];
 
+  # Other
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = "powersave";
 }
