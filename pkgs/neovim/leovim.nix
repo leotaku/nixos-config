@@ -88,9 +88,10 @@ pkgs.neovim.override {
     # Visual
     "goyo"
     "limelight-vim"
+    "lightline-vim"
+    "vim-minimap"
     #"airline"
     #"vim-airline-themes"
-    "lightline-vim"
     #"disco"
 
     # Input Handling

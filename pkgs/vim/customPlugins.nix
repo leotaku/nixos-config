@@ -51,6 +51,16 @@
     };
   };
 
+  vim-minimap = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-minimap";
+    src = pkgs.fetchFromGitHub {
+      owner = "severin-lemaignan";
+      repo = "vim-minimap";
+      rev = "1bc36a0";
+      sha256 = "0x89im2w86q8fkhhw0yrvc0ih4b10518kmk7q0ck7d7dczy7qzyn";
+    };
+  };
+
   vim-tutor-mode = pkgs.vimUtils.buildVimPlugin {
     name = "vim-tutor-mode";
     src = pkgs.fetchFromGitHub {
