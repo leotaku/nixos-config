@@ -12,7 +12,7 @@
     # Enable transmission service
     ../plugables/transmission/default.nix
     # Enable zsh and add plugins to env
-    ../plugables/zsh/default.nix
+    #../plugables/zsh/default.nix
   ];
 
   nix.nixPath = [
