@@ -48,6 +48,8 @@
   #services.cron.systemCronJobs = [
   #  "*/5 * * * * /home/leo/.config/mutt/etc/mailsync.sh"
   #];
+
+  programs.zsh.enable = true;
   
   ## Home manager configuration for this account
   home-manager.users.leo = {
@@ -91,8 +93,8 @@
       enable = true;
       theme.package = pkgs.adapta-gtk-theme;
       theme.name = "Adapta-Eta";
-      iconTheme.package = pkgs.papirus-icon-theme;
-      iconTheme.name = "ePapirus"; #ePapirus
+      iconTheme.package = pkgs.paper-icon-theme;
+      iconTheme.name = "Paper"; #ePapirus
     };
 
     #programs.git = {
