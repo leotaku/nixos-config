@@ -55,7 +55,7 @@ pkgs.neovim.override {
     #"vim-wordy"
 
     # Markup Languages
-    #"vim-instant-markdown"
+    "vim-instant-markdown"
     "vim-pandoc-syntax"
     #"vim-rmarkdown"
     "vim-pandoc"
@@ -70,6 +70,7 @@ pkgs.neovim.override {
     "parinfer-rust"
     #"slimv"
     "vim-go"
+    "vim-delve"
     "neco-vim"
 
     # Source Control

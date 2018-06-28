@@ -1,12 +1,22 @@
 { pkgs, ... }: 
 
 {
+  vim-delve = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-delve";
+    src = pkgs.fetchFromGitHub {
+      owner = "sebdah";
+      repo = "vim-delve";
+      rev = "2f2a61e";
+      sha256 = "15wz19ar2agnkiznawywfps3ia8syv7c2c9f0h5ycd2r1bij1l8s";
+    };
+  };
+
   vim-instant-markdown = pkgs.vimUtils.buildVimPlugin {
     name = "vim-instant-markdown";
     src = pkgs.fetchFromGitHub {
       owner = "suan";
       repo = "vim-instant-markdown";
-      rev = "fail";
+      rev = "5f592bd";
       sha256 = "10zfm1isqv1mgx8598bfghf2zwzxgba74k0h658lnw59inwz7dkr";
     };
   };
