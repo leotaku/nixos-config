@@ -52,7 +52,6 @@
   ## Home manager configuration for this account
   home-manager.users.leo = {
     
-    home.file."coolDir/coolTEST".text = "foo";
     #home.file.".Xresources2".source = ../files/Xresources;
 
     nixpkgs = {
