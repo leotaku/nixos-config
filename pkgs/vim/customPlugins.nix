@@ -11,6 +11,16 @@
     };
   };
 
+  Mundo = pkgs.vimUtils.buildVimPlugin {
+    name = "Mundo";
+    src = pkgs.fetchFromGitHub {
+      owner = "simnalamburt";
+      repo = "vim-mundo";
+      rev = "2540b4f";
+      sha256 = "0a5qxfsvrw7y6s00dfxhn9b2xr0h55wsx2cpl54havjwqcr5fs1s";
+    };
+  };
+
   vim-instant-markdown = pkgs.vimUtils.buildVimPlugin {
     name = "vim-instant-markdown";
     src = pkgs.fetchFromGitHub {

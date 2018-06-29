@@ -8,7 +8,7 @@ pkgs.neovim.override {
   configure.vam.pluginDictionaries = [
     # General
     "vim-startify"
-    "undotree"
+    "Mundo"
     "fzf-vim"
     "fzfWrapper"
     #"vimshell"
