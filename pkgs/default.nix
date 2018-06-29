@@ -40,7 +40,7 @@ self: super:
   wmutils-opt = super.callPackage ./wmutils/opt.nix {};
   ncmpcpp = super.ncmpcpp.override { visualizerSupport=true; outputsSupport=true; clockSupport=true; };
   polybar = super.polybar.override { githubSupport = true; mpdSupport = true; };
-  sxiv = super.sxiv.override { conf = builtins.readFile /home/leo/nixos-config/files/config.h; };
+  sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
   oh-my-zsh-custom = super.callPackage ./zsh/oh-my-zsh.nix {};
   #ranger = super.callPackage ./ranger/default.nix {};
   # Global env for stupid programmes
