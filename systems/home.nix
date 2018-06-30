@@ -340,6 +340,7 @@
     EDITOR = [ "vim" ];
     TERMINAL = [ "urxvt" ];
     RANGER_LOAD_DEFAULT_RC = [ "FALSE" ];
+    OH_MY_ZSH = [ "${pkgs.oh-my-zsh-custom}/share/oh-my-zsh" ];
   };
 
   environment.shellAliases = {
