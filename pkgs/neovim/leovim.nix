@@ -23,7 +23,7 @@ pkgs.neovim.override {
     "multiple-cursors"
     #"multiselect"
     "vim-sexp"
-    "endwise"
+    #"endwise"
     "shot-f"
     #"clever-f"
     "vim-swap"
