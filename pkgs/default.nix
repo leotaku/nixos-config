@@ -28,6 +28,7 @@ self: super:
   num9menu = super.callPackage ./9menu/default.nix {};
   catimg = super.callPackage ./catimg/default.nix {};
   gohufont-ttf = super.callPackage ./gohufont-ttf/default.nix {};
+  chroma = super.callPackage ./chroma/default.nix {};
   #xero-figlet-fonts = super.callPackage ./xero-figlet-fonts/default.nix {};
   #meson = super.callPackage ./meson/default.nix {};
   # Not currently working
