@@ -79,7 +79,6 @@
       #terminus_font
     ];
     
-    # does fucking nothing, I really don't know anymore
     home.sessionVariables = {
       TERMINAL = "urxvt";
       EDITOR = "vim";
