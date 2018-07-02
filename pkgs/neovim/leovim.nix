@@ -7,28 +7,30 @@ pkgs.neovim.override {
   configure.vam.knownPlugins = pkgs.vimPlugins // pkgs.customVimPlugins;
   configure.vam.pluginDictionaries = [
     # General
-    "vim-startify"
     "Mundo"
-    "fzf-vim"
-    "fzfWrapper"
-    #"vimshell"
+    "The_NERD_tree" 
     "ctrlp"
     "denite"
+    "fzf-vim"
+    "fzfWrapper"
     "neomru"
-    "The_NERD_tree" 
     "nerdtree-git-plugin"
+    "vim-startify"
+    "winresizer"
+    #"vimshell"
 
     # Editing
     "surround"
+    "CamelCaseMotion"
     "multiple-cursors"
-    #"multiselect"
-    "vim-sexp"
-    #"endwise"
     "shot-f"
-    #"clever-f"
+    "vim-sexp"
     "vim-swap"
     #"auto-pairs"
+    #"clever-f"
     #"easymotion"
+    #"endwise"
+    #"multiselect"
     #"vim-sneak"
 
     # Completion + Other
@@ -47,8 +49,9 @@ pkgs.neovim.override {
 
     # Ctags
     "Tagbar"
-    #"vim-easytags"
     "vim-gutentags"
+    "TagHighlight"
+    #"vim-easytags"
 
     # Writing
     "vim-grammarous"
@@ -71,11 +74,12 @@ pkgs.neovim.override {
     #"slimv"
     "vim-go"
     "vim-delve"
+    "vim-toml"
     "neco-vim"
 
     # Source Control
     "fugitive"
-    "gitgutter"
+    #"gitgutter"
     "gitv"
 
     # Org
@@ -90,6 +94,7 @@ pkgs.neovim.override {
     "goyo"
     "limelight-vim"
     "lightline-vim"
+    "rainbow"
     "vim-minimap"
     #"airline"
     #"vim-airline-themes"

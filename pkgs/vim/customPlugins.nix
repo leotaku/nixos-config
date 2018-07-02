@@ -1,6 +1,37 @@
 { pkgs, ... }: 
 
 {
+  TagHighlight = 
+  let 
+    version = "05449e727b55";
+  in
+  pkgs.vimUtils.buildVimPlugin {
+    name = "TagHighlight";
+    src = pkgs.fetchhg {
+      url = "https://bitbucket.org/abudden/taghighlight/get/${version}.zip";
+      sha256 = "0ch6nhvsw2jblcf06hrs8kkrqkqnh0rh3ln968wxc9gfdphf657y";
+    };
+  };
+
+  winresizer = pkgs.vimUtils.buildVimPlugin {
+    name = "winresizer";
+    src = pkgs.fetchFromGitHub {
+      owner = "simeji";
+      repo = "winresizer";
+      rev = "530e5b4";
+      sha256 = "13fx10ign796f9z3gdi32rw6psv9b7y17grs8k8dm17mjpv60940";
+    };
+  };
+
+  CamelCaseMotion = pkgs.vimUtils.buildVimPlugin {
+    name = "CamelCaseMotion";
+    src = pkgs.fetchFromGitHub {
+      owner = "bkad";
+      repo = "CamelCaseMotion";
+      rev = "e2816c7";
+      sha256 = "1g9hl6rxabbijs8hp53ra08iqgbc34bv4sbifkcjkjdr3r6fikas";
+    };
+  };
   vim-delve = pkgs.vimUtils.buildVimPlugin {
     name = "vim-delve";
     src = pkgs.fetchFromGitHub {
