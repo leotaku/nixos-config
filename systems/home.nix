@@ -333,6 +333,8 @@
   environment.variables = {
     EDITOR = [ "vim" ];
     TERMINAL = [ "urxvt" ];
+    # TODO: find better solution for this
+    NIXOS_DESCRIPTIVE_NAME = [ "home" ];
   };
   
   # TODO: Refactor this to be more flexible
