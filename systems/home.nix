@@ -64,7 +64,7 @@
     tree
     stow
     ncdu
-    chron
+    cron
     wget
     curl
     aria
@@ -82,7 +82,6 @@
     micro
     kakoune
     # Monitors
-    top
     htop
     atop
     bmon

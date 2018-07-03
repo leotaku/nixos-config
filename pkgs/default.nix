@@ -18,7 +18,7 @@ self: super:
   oh-my-zsh-custom = super.callPackage ./zsh/oh-my-zsh.nix {};
   orgEmacs = super.callPackage ./emacs/orgmode.nix {};
   orgEmacsConfig = super.callPackage ./emacs/configuration-package.nix {};
-  sxiv = super.sxiv.override { conf = builtins.readFile /home/leo/nixos-config/files/config.h; }; # TODO fix path
+  sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
 
   # Collections
   customPythonPackages = super.callPackage ./python/customPackages.nix {};
