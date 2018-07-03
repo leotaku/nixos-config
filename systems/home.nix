@@ -58,255 +58,69 @@
   nixpkgs.config.allowUnfree = true;
   # TODO: Move this to separate home manager file
   environment.systemPackages = with pkgs; [
-    # Nix
-    nixUnstable
-    nix-repl
-    nox
-    nix-index
-    python2nix 
-    nodePackages.node2nix
-    bundix
-    nix-prefetch-scripts
+    # Utils
+    moreutils
+    file
+    tree
+    stow
+    ncdu
+    chron
+    wget
+    curl
+    aria
     # Terminal toys
     figlet
     toilet
     fortune
     cowsay
     lolcat
-    cmatrix
-    pipes
     neofetch
-    screenfetch
-    sl
-    bashSnippets
-    tty-clock
-    # File managers
+    # Terminal basics
     ranger
-    vifm
-    xfce.thunar
-    gnome3.nautilus
-    dolphin
-    #fzf
-    # Text editors + plugins
     vim_configurable
-    instant-markdown-d
+    neovim
     micro
     kakoune
-    # IDEs
-    vscode-with-extensions
-    #jetbrains.pycharm-community
-    #python36Packages.notebook
-    #currently only works when loaded with python env
-    # Office
-    #libreoffice-fresh
-    scim
-    libqalculate
-    # Performance monitoring
-    python36Packages.glances
+    # Monitors
+    top
     htop
     atop
-    #gtop
-    # Network utils
-    #wireshark-gtk
-    nmap-graphical
-    netcat-gnu
-    speedtest-cli
     bmon
-    vnstat
-    iptables
-    bind
-    mtr
-    liboping
-    # Audio
-    alsaUtils
-    pulsemixer
-    ncpamixer
-    pamix
-    # Recording
-    audacity
-    # Music
-    mpd
-    mpc_cli
-    ncmpcpp
-    cava
-    cli-visualizer
-    projectm
     # Browsers
     firefox
-    vivaldi
-    qutebrowser
-    surf
-    w3m
-    elinks
     lynx
-    # Mail
-    neomutt
-    offlineimap
-    notmuch
-    dialog
-    thunderbird
-    # Chat
+    elinks
+    w3m
+    # Internet
     weechat
-    irssi
-    discord
-    # Other Internet
-    rtv
-    canto-curses
-    youtube-dl
-    seashells
-    # Life  
-    taskwarrior
-    # Terminals
+    # Terminal
     xterm
     rxvt_unicode
-    urxvt_perls 
-    #alacritty
-    termite
-    kitty
-    st
-    mlterm
-    # Terminal multiplexers
     tmux
     screen
-    # Games
-    steam
-    # Images
-    feh
-    meh
+    # Files
     sxiv
     imagemagick
-    krita
-    gimp
-    inkscape
-    gcolor3
-    # PDF
     zathura
-    evince
-    # Video
-    vlc
     mplayer
-    mpv
-    gnome-mpv
-    ffmpegthumbnailer
+    vlc
     ffmpeg-full
-    # Ebook
-    calibre
-    # Font management
-    gnome3.gucharmap
-    font-manager
-    fontmatrix
-    # Xorg
-    xorg.xbacklight
-    xorg.xev
-    xdo
-    xdotool
-    xvkbd
-    xautolock
-    wmname
-    wmctrl
-    xclip
-    xorg.xinit
-    xorg.xauth
-    libnotify
-    inotifyTools
-    # Misc graphical apps
-    gcolor3
-    # Systems
-    tpacpi-bat
-    acpi
-    efibootmgr
+    pandoc
+    # Archives
+    p7zip
     # Version control
     gitFull
-    gitAndTools.git-hub
-    gitAndTools.gitRemoteGcrypt
     mercurial
-    #darcs
-    # Security
-    gnupg
-    gpa
-    tomb
-    pass
-    openssh
-    libressl
-    # Base
-    coreutils
-    binutils-unwrapped
-    utillinux
-    utillinuxCurses
-    sutils
-    pciutils
-    file
-    fd
-    tree
-    wget
-    curl
-    stow
-    psmisc
-    wirelesstools
-    ethtool
-    cron
-    # Base +
-    ncdu
-    exa
-    aria
-    # Screenshots + screen recording
-    scrot
-    maim
-    slop
-    simplescreenrecorder
-    screenkey
-    asciinema
+    darcs
+    bazaar
+    cvs
     # Shells
     bash
     zsh
-    #oh-my-zsh
-    zsh-completions
-    #athame-zsh
+    fish
     dash
-    # Filesystems
-    bashmount
-    usbutils
-    mtpfs
-    libmtp
-    # Archiving
-    p7zip
-    libarchive
-    # Misc Filetype
-    pandoc
-    exiftool
-    poppler_utils
-    mediainfo
-    atool
-    highlight
-    #unoconv
-    discount
-    python36Packages.pygments
-    id3v2
-    # Torrent
-    torrench
-    transmission-remote-gtk
-    transmission-remote-cli
-    #deluge
-    #qbittorrent
-    # WMs
-    windowchef
-    herbstluftwm
-    num2bwm
-    wmutils-core
-    wmutils-opt
-    #howm
-    #cottage
-    # Other rice related
-    lxappearance-gtk3
-    sxhkd
-    compton-git
-    #interrobang
-    dmenu
-    polybar
-    dzen2
-    dunst
-    num9menu
-    i3lock-color
+    elvish
+    xonsh
   ];
   
   #fonts.fontconfig.antialias = false;
