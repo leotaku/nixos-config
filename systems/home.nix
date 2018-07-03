@@ -11,9 +11,11 @@
     ../plugables/openvpn/serverlist.nix
     # Enable transmission service
     ../plugables/transmission/default.nix
-    # Enable zsh and add plugins to env
-    #../plugables/zsh/default.nix
+    # Enable throwaway account
+    ../plugables/throwaway/default.nix
   ];
+
+  services.netdata.enable = true;
 
   nix.nixPath = [
     "/etc/nixos/nixos-config"
@@ -428,4 +430,10 @@
   services.logind.lidSwitch = "ignore";
   
   services.acpid.enable = true;
+  services.acpid.lidEventCommands = ''
+    LID_STATE=/proc/acpi/button/lid/LID/state 
+    if [[ $(${pkgs.gawk}/bin/awk '{print $2}' $LID_STATE) == 'closed' ]]; then
+      ${pkgs.systemd}/bin/systemctl suspend
+    fi
+  '';
 }
