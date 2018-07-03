@@ -31,7 +31,7 @@ pkgs.neovim.override {
     #"easymotion"
     #"endwise"
     #"multiselect"
-    #"vim-sneak"
+    "vim-sneak"
 
     # Completion + Other
     "ale"
@@ -50,7 +50,7 @@ pkgs.neovim.override {
     # Ctags
     "Tagbar"
     "vim-gutentags"
-    "TagHighlight"
+    #"TagHighlight"
     #"vim-easytags"
 
     # Writing
@@ -84,8 +84,8 @@ pkgs.neovim.override {
 
     # Org
     #"vimwiki"
-    "vim-orgmode"
-    "vim-speeddating"
+    #"vim-orgmode"
+    #"vim-speeddating"
 
     # Tools
     #"vim-tutor-mode"
@@ -94,7 +94,7 @@ pkgs.neovim.override {
     "goyo"
     "limelight-vim"
     "lightline-vim"
-    "rainbow"
+    #"rainbow"
     "vim-minimap"
     #"airline"
     #"vim-airline-themes"
