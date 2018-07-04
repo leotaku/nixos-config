@@ -276,12 +276,20 @@
 
   parinfer-rust = 
   let
+    src = pkgs.fetchFromGitHub {
+      owner = "eraserhd";
+      repo = "parinfer-rust";
+      rev = "642fec5";
+      sha256 = "09gr3klm057l0ix9l4qxg65s2pw669k9l4prrr9gp7z30q1y5bi8";
+    };
+  in
+  let
   parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {
     name = "parinfer-rust-${version}";
     version = "a26808b";
 
-    src = ./parinfer;
-    cargoSha256 = "07dmalpnikrzvx9rg2dziijjhrnw8z2pxv3im6vsj458dydzkwri";
+    inherit src;
+    cargoSha256 = "01rx3p9hl7gs8yrl770ng2izsnaghyygsmcdzn3z2l0984aizmwp";
 
     doCheck = false;  
   };
@@ -290,7 +298,7 @@
     name = "parinfer-rust";
     version = "a26808b";
 
-    src = ./parinfer;
+    inherit src;
     postBuild = ''
       mkdir -p ./target/release
       cp ${parinfer-rust-package}/bin/libparinfer_rust.so target/release
