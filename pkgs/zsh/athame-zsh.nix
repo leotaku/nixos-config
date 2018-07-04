@@ -1,4 +1,4 @@
-{ zsh, fetchurl, fetchFromGitHub, ncurses, pcre, athameVim , which, ... }:
+{ zsh, fetchurl, fetchFromGitHub, which, ncurses, pcre, athameVim , ... }:
 
 let 
   srcs = { 

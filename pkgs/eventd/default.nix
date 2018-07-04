@@ -27,45 +27,56 @@ stdenv.mkDerivation rec {
 
   src = srcs.eventd; 
 
-  #buildPhase = ''
-  #meson ./build "-Dnd-wayland=false"
-  #ninja -C ./build
-  #'';
-
-  #hardeningDisable = [ "format" ];
-
   prePatch = ''
   substitute ./meson.build ./meson.build --replace ">=0.44.1" ">=0.43.1"
   cp ${srcs.libgwater}/* -r src/libgwater
   cp ${srcs.libnkutils}/* -r src/libnkutils
   '';
 
-  mesonFlags = [ "-Dnd-wayland=false" "-Ddbussessionservicedir=$(out)/dbus"];
+  mesonFlags = [ 
+    "-Dnd-wayland=false" 
+    "-Dlibcanberra=false"
+    "-Dipv6=false"
+    "-Dsystemd=false"
+    "-Dnotification-daemon=true"
+    "-Dnd-xcb=true"
+    "-Dnd-fbdev=false"
+    "-Dim=false"
+    "-Dsound=false"
+    "-Dtts=false"
+    "-Dwebhook=false"
+    "-Dlibnotify=true"
+    "-Dlibcanberra=false"
+    "-Dgobject-introspection=false"
+    "-Ddebug=false"
+
+    "-Ddbussessionservicedir=$(out)/dbus"
+  ];
   
   propagatedBuildInputs = with pkgs; [
     cairo
-    gdk_pixbuf
-    glibc
-    glib-networking
-    pango
-    systemd
-    libudev
     dbus_glib
-    xorg.libxcb
+    gdk_pixbuf
     libxkbcommon
-    avahi
-    gssdp
-    pidgin
-    librsvg
-    libsoup
-    libsndfile
-    libcanberra
-    libpulseaudio
-    speechd
-    #xorg.libxkbcommon-x11
+    pango
     utillinux
-    xorg.xcbutil
     xorg.xcbutilwm
+    #xorg.xcbutil
+    #xorg.libxcb
+    #speechd
+    #libxkbcommon
+    #libsoup
+    #libsndfile
+    #librsvg
+    #libpulseaudio
+    #systemd
+    #pidgin
+    #libudev
+    #libcanberra
+    #gssdp
+    #glibc
+    #glib-networking
+    #avahi
   ];
 
   buildInputs = with pkgs; [

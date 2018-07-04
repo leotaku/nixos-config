@@ -287,14 +287,13 @@
   };
   in
   pkgs.vimUtils.buildVimPlugin rec {
-      name = "parinfer-rust";
-      version = "a26808b";
+    name = "parinfer-rust";
+    version = "a26808b";
 
-      src = ./parinfer;
-      postBuild = ''
-        mkdir -p ./target/release
-        cp ${parinfer-rust-package}/bin/libparinfer_rust.so target/release
-      '';
-    };
-
-  }
+    src = ./parinfer;
+    postBuild = ''
+      mkdir -p ./target/release
+      cp ${parinfer-rust-package}/bin/libparinfer_rust.so target/release
+    '';
+  };
+}

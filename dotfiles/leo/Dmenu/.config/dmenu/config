@@ -1,8 +1,0 @@
-#!/bin/sh
-DMENU="dmenu \
-	-fn GohuFont:pixelsize=13 \
-#	-nb \#efefef \
-#	-nf \#00dd00 \
-#	-sb \#ff0000 \
-#	-sf \#ffffff \
-	"

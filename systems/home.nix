@@ -5,11 +5,9 @@
 { config, pkgs, lib, ... }:
 { 
   imports = [
-    # Enable working Avahi
+    # Import plugable configurations
     ../plugables/avahi/default.nix
-    # Add all known OpenVPN servers
     ../plugables/openvpn/serverlist.nix
-    # Enable transmission service
     ../plugables/transmission/default.nix
     # Enable throwaway account
     ../plugables/throwaway/default.nix
@@ -23,7 +21,6 @@
     "nixos=/etc/nixos/nixos-config/nixpkgs/nixos"
     "nixos-config=/etc/nixos/configuration.nix"
     "home-manager=/etc/nixos/nixos-config/modules/home-manager"
-    #"nixpkgs-overlays=/etc/nixos/nixos-config/pkgs"
   ];
 
   nixpkgs.overlays = [ (import ../pkgs) ];
@@ -41,7 +38,7 @@
   # less verbose boot log
   boot.consoleLogLevel = 3;
   boot.kernelParams = [ "quiet" "udev.log_priority=3" ];
-  #boot.earlyVconsoleSetup = true;
+  boot.earlyVconsoleSetup = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = false;
@@ -51,9 +48,6 @@
     enable = true;
     packages = with pkgs; [ networkmanager_openvpn ];
   };
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  #services.dhcpd4.enable = true;
 
   # Select internationalisation properties.
   i18n = {
@@ -66,326 +60,98 @@
   time.timeZone = "Europe/Vienna";
   
   nixpkgs.config.allowUnfree = true;
+  # TODO: Move this to separate home manager file
   environment.systemPackages = with pkgs; [
-    # Nix
-    nixUnstable
-    nix-repl
-    nox
-    nix-index
-    python2nix 
-    nodePackages.node2nix
-    bundix
-    nix-prefetch-scripts
+    # Utils
+    moreutils
+    file
+    tree
+    stow
+    ncdu
+    cron
+    wget
+    curl
+    aria
     # Terminal toys
     figlet
     toilet
     fortune
     cowsay
     lolcat
-    cmatrix
-    pipes
     neofetch
-    screenfetch
-    sl
-    bashSnippets
-    tty-clock
-    # File managers
+    # Terminal basics
     ranger
-    vifm
-    xfce.thunar
-    gnome3.nautilus
-    dolphin
-    #fzf
-    # Text editors + plugins
     vim_configurable
-    instant-markdown-d
+    neovim
     micro
     kakoune
-    # IDEs
-    vscode-with-extensions
-    #jetbrains.pycharm-community
-    #python36Packages.notebook
-    #currently only works when loaded with python env
-    # Office
-    #libreoffice-fresh
-    scim
-    libqalculate
-    # Performance monitoring
-    python36Packages.glances
+    # Monitors
     htop
     atop
-    #gtop
-    # Network utils
-    #wireshark-gtk
-    nmap-graphical
-    netcat-gnu
-    speedtest-cli
     bmon
-    vnstat
-    iptables
-    bind
-    mtr
-    liboping
-    # Audio
-    alsaUtils
-    pulsemixer
-    ncpamixer
-    pamix
-    # Recording
-    audacity
-    # Music
-    mpd
-    mpc_cli
-    ncmpcpp
-    cava
-    cli-visualizer
-    projectm
     # Browsers
     firefox
-    vivaldi
-    qutebrowser
-    surf
-    w3m
-    elinks
     lynx
-    # Mail
-    neomutt
-    offlineimap
-    notmuch
-    dialog
-    thunderbird
-    # Chat
+    elinks
+    w3m
+    # Internet
     weechat
-    irssi
-    discord
-    # Other Internet
-    rtv
-    canto-curses
-    youtube-dl
-    seashells
-    # Life  
-    taskwarrior
-    # Terminals
+    # Terminal
     xterm
     rxvt_unicode
-    urxvt_perls 
-    #alacritty
-    termite
-    kitty
-    st
-    mlterm
-    # Terminal multiplexers
     tmux
     screen
-    # Games
-    steam
-    # Images
-    feh
-    meh
+    # Files
     sxiv
     imagemagick
-    krita
-    gimp
-    inkscape
-    gcolor3
-    # PDF
     zathura
-    evince
-    # Video
-    vlc
     mplayer
-    mpv
-    gnome-mpv
-    ffmpegthumbnailer
+    vlc
     ffmpeg-full
-    # Ebook
-    calibre
-    # Font management
-    gnome3.gucharmap
-    font-manager
-    fontmatrix
-    # Xorg
-    xorg.xbacklight
-    xorg.xev
-    xdo
-    xdotool
-    xvkbd
-    xautolock
-    wmname
-    wmctrl
-    xclip
-    xorg.xinit
-    xorg.xauth
-    libnotify
-    inotifyTools
-    # Misc graphical apps
-    gcolor3
-    # Systems
-    tpacpi-bat
-    acpi
-    efibootmgr
+    pandoc
+    # Archives
+    p7zip
     # Version control
     gitFull
-    gitAndTools.git-hub
-    gitAndTools.gitRemoteGcrypt
     mercurial
-    #darcs
-    # Security
-    gnupg
-    gpa
-    tomb
-    pass
-    openssh
-    libressl
-    # Base
-    coreutils
-    binutils-unwrapped
-    utillinux
-    utillinuxCurses
-    sutils
-    pciutils
-    file
-    fd
-    tree
-    wget
-    curl
-    stow
-    psmisc
-    wirelesstools
-    ethtool
-    cron
-    # Base +
-    ncdu
-    exa
-    aria
-    # Screenshots + screen recording
-    scrot
-    maim
-    slop
-    simplescreenrecorder
-    screenkey
-    asciinema
+    darcs
+    bazaar
+    cvs
     # Shells
     bash
     zsh
-    #oh-my-zsh
-    zsh-completions
-    #athame-zsh
+    fish
     dash
-    # Filesystems
-    bashmount
-    usbutils
-    mtpfs
-    libmtp
-    # Archiving
-    p7zip
-    libarchive
-    # Misc Filetype
-    pandoc
-    exiftool
-    poppler_utils
-    mediainfo
-    atool
-    highlight
-    #unoconv
-    discount
-    python36Packages.pygments
-    id3v2
-    # Torrent
-    torrench
-    transmission-remote-gtk
-    transmission-remote-cli
-    #deluge
-    #qbittorrent
-    # WMs
-    windowchef
-    herbstluftwm
-    num2bwm
-    wmutils-core
-    wmutils-opt
-    #howm
-    #cottage
-    # Other rice related
-    lxappearance-gtk3
-    sxhkd
-    compton-git
-    #interrobang
-    dmenu
-    polybar
-    dzen2
-    dunst
-    num9menu
-    i3lock-color
-  ];
-  
-  #fonts.fontconfig.antialias = false;
-  #fonts.fontconfig.subpixel.lcdfilter = "none";
-  fonts.fonts = with pkgs; [
-    siji
-    font-awesome-ttf
-    google-fonts
-    noto-fonts
-    noto-fonts-emoji
-    lmmath
-    #nerdfonts
-    gohufont
-    terminus_font
-    tewi-font
-    dina-font
-    fira-code
-    fira-mono
-    roboto
-    montserrat
+    elvish
+    xonsh
   ];
   
   environment.variables = {
     EDITOR = [ "vim" ];
     TERMINAL = [ "urxvt" ];
-    RANGER_LOAD_DEFAULT_RC = [ "FALSE" ];
+    PAGER = [ "less" ];
     OH_MY_ZSH = [ "${pkgs.oh-my-zsh-custom}/share/oh-my-zsh" ];
+    # TODO: find better solution for this
+    NIXOS_DESCRIPTIVE_NAME = [ "home" ];
   };
-
-  environment.shellAliases = {
-    nix-env = "nix-env -f /etc/nixos/nixos-config/files/fake-channel.nix";
-  };
-
-  # Some programs need SUID wrappeas, can be configured further or are
-  # started in user sessions.
-  # programs.bash.enableCompletion = true;
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-
-  # List services that you want to enable:
   
-  # Test Test
-  #programs.ibus.enable = true;
+  # TODO: Refactor this to be more flexible
+  environment.shellAliases = {
+    nix-env = "nix-env -f /etc/nixos/nixos-config/modules/fake-channels/default.nix";
+  };
 
-  # Enable upower
+  # List simple services that you want to enable:
   services.upower.enable = true;
-
-  # Enable powerManagement
   powerManagement.enable = true;
-
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.cron.enable = false;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
-
-  # Enable Cron
-  services.cron.enable = true;
-
-  # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [ hplip gutenprint gutenprintBin splix ];
 
-  # Enable the X11 windowing system.
+  # X11 windowing system.
   services.xserver.enable = true; 
- 
-  # Enable the DE/WM + DM 
+  services.xserver.libinput.enable = true;
   services.xserver.displayManager.lightdm = { 
     enable = true;
     #background = "${pkgs.nixos-artwork.wallpapers.stripes-logo}/share/artwork/gnome/nix-wallpaper-stripes-logo.png";
@@ -398,37 +164,33 @@
     };
   };
 
-  # Enable PulseAudio
+  # Sound
   hardware.pulseaudio.enable = true;
-  # For Steam
   hardware.pulseaudio.support32Bit = true;
   hardware.opengl.driSupport32Bit = true;
-  
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
 
-  # Enable clipboard manager
-  services.gnome3.gpaste.enable = false;
+  # Firewall configuration
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  networking.firewall.enable = false;
 
   # Enable Virtualbox
   virtualisation.virtualbox.host = { 
     enable = true;
     #enableHardening = false; 
   };
-
   nixpkgs.config.virtualbox.enableExtensionPack = false;
-
-  # Enable Deluge torrent server
-  services.deluge.enable = false;
 
   # Add wireshark permissions
   programs.wireshark = { 
     enable = true;
     package = pkgs.wireshark-gtk;
   };
-
-  services.logind.lidSwitch = "ignore";
   
+  # Fix broken lid-suspend
+  services.logind.lidSwitch = "ignore";
   services.acpid.enable = true;
   services.acpid.lidEventCommands = ''
     LID_STATE=/proc/acpi/button/lid/LID/state 
