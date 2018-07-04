@@ -122,67 +122,31 @@
     xonsh
   ];
   
-  #fonts.fontconfig.antialias = false;
-  #fonts.fontconfig.subpixel.lcdfilter = "none";
-  # TODO: move this
-  fonts.fonts = with pkgs; [
-    siji
-    font-awesome-ttf
-    google-fonts
-    noto-fonts
-    noto-fonts-emoji
-    lmmath
-    #nerdfonts
-    gohufont
-    terminus_font
-    tewi-font
-    dina-font
-    fira-code
-    fira-mono
-    roboto
-    montserrat
-  ];
-  
   environment.variables = {
     EDITOR = [ "vim" ];
     TERMINAL = [ "urxvt" ];
+    PAGER = [ "less" ];
     # TODO: find better solution for this
     NIXOS_DESCRIPTIVE_NAME = [ "home" ];
   };
   
   # TODO: Refactor this to be more flexible
   environment.shellAliases = {
-    nix-env = "nix-env -f /etc/nixos/nixos-config/files/fake-channel.nix";
+    nix-env = "nix-env -f /etc/nixos/nixos-config/modules/fake-channels/default.nix";
   };
 
-  # List services that you want to enable:
-  
-  # Enable upower
+  # List simple services that you want to enable:
   services.upower.enable = true;
-
-  # Enable powerManagement
   powerManagement.enable = true;
-
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.cron.enable = false;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
-
-  # Enable Cron
-  services.cron.enable = true;
-
-  # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [ hplip gutenprint gutenprintBin splix ];
 
-  # Enable the X11 windowing system.
+  # X11 windowing system.
   services.xserver.enable = true; 
- 
-  # Enable the DE/WM + DM 
+  services.xserver.libinput.enable = true;
   services.xserver.displayManager.lightdm = { 
     enable = true;
     #background = "${pkgs.nixos-artwork.wallpapers.stripes-logo}/share/artwork/gnome/nix-wallpaper-stripes-logo.png";
@@ -195,21 +159,23 @@
     };
   };
 
-  # Enable PulseAudio
+  # Sound
   hardware.pulseaudio.enable = true;
-  # For Steam
   hardware.pulseaudio.support32Bit = true;
   hardware.opengl.driSupport32Bit = true;
-  
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
+
+  # Firewall configuration
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  networking.firewall.enable = false;
 
   # Enable Virtualbox
   virtualisation.virtualbox.host = { 
     enable = true;
     #enableHardening = false; 
   };
-
   nixpkgs.config.virtualbox.enableExtensionPack = false;
 
   # Add wireshark permissions
@@ -217,8 +183,14 @@
     enable = true;
     package = pkgs.wireshark-gtk;
   };
-
-  services.logind.lidSwitch = "ignore";
   
+  # Fix broken lid-suspend
+  services.logind.lidSwitch = "ignore";
   services.acpid.enable = true;
+  services.acpid.lidEventCommands = ''
+    LID_STATE=/proc/acpi/button/lid/LID/state 
+    if [[ $(${pkgs.gawk}/bin/awk '{print $2}' $LID_STATE) == 'closed' ]]; then
+      ${pkgs.systemd}/bin/systemctl suspend
+    fi
+  '';
 }
