@@ -1,5 +1,21 @@
 { config, pkgs, lib, ... }:
+
 {
+  imports = [ ];
+
+  environment.variables = {
+    NIXOS_DESCRIPTIVE_HARDWARE = [ "thinkpad" ];
+  };
+
+  # NixOS wants to enable GRUB by default
+  boot.loader.grub.enable = false;
+  boot.loader.generic-extlinux-compatible.enable = true;
+ 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  
+  # Needed for the virtual console to work on the RPi 3, as the default of 16M doesn't seem to be enough.
+  boot.kernelParams = ["cma=32M"];
+ 
   # New broadcom drivers (wireless)
   hardware.enableRedistributableFirmware = true;
   hardware.firmware = [
@@ -16,16 +32,7 @@
      '';
      })
   ];
-
-  # NixOS wants to enable GRUB by default
-  boot.loader.grub.enable = false;
-  boot.loader.generic-extlinux-compatible.enable = true;
- 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  
-  # Needed for the virtual console to work on the RPi 3, as the default of 16M doesn't seem to be enough.
-  boot.kernelParams = ["cma=32M"];
-    
+   
   # File systems configuration for using the installer's partition layout
   fileSystems = {
     "/boot" = {

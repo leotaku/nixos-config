@@ -16,5 +16,3 @@ stdenv.mkDerivation rec {
 
   buildPhase = "cmake .";
 }
-
-

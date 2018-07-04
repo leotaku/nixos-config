@@ -69,14 +69,14 @@ stdenv.mkDerivation rec {
     #libsndfile
     #librsvg
     #libpulseaudio
-    ##systemd
-    ##pidgin
-    ##libudev
-    ##libcanberra
-    ##gssdp
-    ##glibc
-    ##glib-networking
-    ##avahi
+    #systemd
+    #pidgin
+    #libudev
+    #libcanberra
+    #gssdp
+    #glibc
+    #glib-networking
+    #avahi
   ];
 
   buildInputs = with pkgs; [
