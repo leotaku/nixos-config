@@ -160,7 +160,7 @@
     fd
     ripgrep
     progress
-    ###chroma
+    chroma
     tealdeer
     bro
     most
@@ -221,21 +221,23 @@
     # Webdev
     hugo
     # Fonts
-    siji
-    font-awesome-ttf
-    google-fonts
-    noto-fonts
-    noto-fonts-emoji
-    lmmath
-    #nerdfonts
+    # TODO: sowehow fix font colls
+    # TODO: fix fc search path
+    #siji
+    #font-awesome-ttf
+    #google-fonts
+    #noto-fonts
+    #noto-fonts-emoji
+    #lmmath
+    ##nerdfonts
     gohufont
-    terminus_font
-    tewi-font
-    dina-font
-    fira-code
-    fira-mono
+    #terminus_font
+    ##tewi-font
+    #dina-font
+    #fira-code
+    #fira-mono
     roboto
-    montserrat
+    #montserrat
   ];
   
   home.sessionVariables = {
@@ -249,7 +251,7 @@
   home.keyboard.variant = "nodeadkeys";
   #home.keyboard.options = "eurosign:e";
 
-  fonts.fontconfig.enableProfileFonts = true;
+  #fonts.fontconfig.enableProfileFonts = true;
   
   xsession = {
     enable = true;

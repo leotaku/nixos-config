@@ -64,6 +64,7 @@
   environment.systemPackages = with pkgs; [
     # Utils
     moreutils
+    psmisc
     file
     tree
     stow
@@ -126,6 +127,11 @@
     xonsh
   ];
   
+  #TODO: fix fc cache in home-manager
+  fonts.fonts = with pkgs; [
+    gohufont 
+  ];
+  
   environment.variables = {
     EDITOR = [ "vim" ];
     TERMINAL = [ "urxvt" ];
@@ -139,6 +145,10 @@
   environment.shellAliases = {
     nix-env = "nix-env -f /etc/nixos/nixos-config/modules/fake-channels/default.nix";
   };
+
+  # List programs that need nix init
+  programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   # List simple services that you want to enable:
   services.upower.enable = true;
