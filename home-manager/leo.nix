@@ -43,7 +43,7 @@
     notmuch
     dialog
     # TODO: this
-    #vmail
+    ###vmail
     thunderbird
     # Chat
     weechat
@@ -69,7 +69,7 @@
     # Images
     feh
     meh
-    ###sxiv
+    sxiv
     imagemagick
     krita
     gimp
@@ -108,7 +108,7 @@
     wine
     # Terminal
     xterm
-    ###urxvtWithExtensions
+    urxvtWithExtensions
     tmux
     # Performance monitoring
     python36Packages.glances
@@ -220,6 +220,22 @@
     universal-ctags
     # Webdev
     hugo
+    # Fonts
+    siji
+    font-awesome-ttf
+    google-fonts
+    noto-fonts
+    noto-fonts-emoji
+    lmmath
+    #nerdfonts
+    gohufont
+    terminus_font
+    tewi-font
+    dina-font
+    fira-code
+    fira-mono
+    roboto
+    montserrat
   ];
   
   home.sessionVariables = {
