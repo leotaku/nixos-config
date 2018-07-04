@@ -19,6 +19,7 @@ self: super:
   orgEmacs = super.callPackage ./emacs/orgmode.nix {};
   orgEmacsConfig = super.callPackage ./emacs/configuration-package.nix {};
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
+  urxvtWithExtensions = super.rxvt_unicode_with-plugins.override { plugins = with super; [ urxvt_vtwheel urxvt_perls ]; };
 
   # Collections
   customPythonPackages = super.callPackage ./python/customPackages.nix {};

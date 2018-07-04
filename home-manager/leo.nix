@@ -11,7 +11,7 @@
   
   home.packages = with pkgs; [
     # Text editors
-    ###leovim
+    leovim
     instant-markdown-d
     vscode-with-extensions
     # File Manager
@@ -108,8 +108,7 @@
     wine
     # Terminal
     xterm
-    rxvt_unicode
-    urxvt_perls
+    ###urxvtWithExtensions
     tmux
     # Performance monitoring
     python36Packages.glances
