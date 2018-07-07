@@ -8,15 +8,15 @@ pkgs.neovim.override {
   configure.vam.pluginDictionaries = [
     # General
     "Mundo"
-    "The_NERD_tree" 
-    "ctrlp"
     "denite"
     "fzf-vim"
     "fzfWrapper"
     "neomru"
-    "nerdtree-git-plugin"
     "vim-startify"
     "winresizer"
+    #"ctrlp"
+    #"The_NERD_tree" 
+    #"nerdtree-git-plugin"
     #"vimshell"
 
     # Editing
@@ -26,12 +26,12 @@ pkgs.neovim.override {
     "shot-f"
     "vim-sexp"
     "vim-swap"
+    "vim-sneak"
     #"auto-pairs"
     #"clever-f"
     #"easymotion"
     #"endwise"
     #"multiselect"
-    "vim-sneak"
 
     # Completion + Other
     "ale"
@@ -54,15 +54,17 @@ pkgs.neovim.override {
     #"vim-easytags"
 
     # Writing
+    "vim-pencil"
     "vim-grammarous"
     #"vim-wordy"
 
     # Markup Languages
-    "vim-instant-markdown"
+    "vimtex"
     "vim-pandoc-syntax"
-    #"vim-rmarkdown"
     "vim-pandoc"
     "vim-pandoc-after"
+    "vim-instant-markdown"
+    #"vim-rmarkdown"
     #"vimpreviewpandoc"
     #"table-mode"
 
@@ -95,7 +97,7 @@ pkgs.neovim.override {
     "limelight-vim"
     "lightline-vim"
     #"rainbow"
-    "vim-minimap"
+    #"vim-minimap"
     #"airline"
     #"vim-airline-themes"
     #"disco"
