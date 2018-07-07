@@ -15,7 +15,7 @@ self: super:
   ncmpcpp = super.ncmpcpp.override { visualizerSupport=true; outputsSupport=true; clockSupport=true; };
   polybar = super.polybar.override { githubSupport = true; mpdSupport = true; };
   leovim = super.callPackage ./neovim/leovim.nix {};
-  num2bwm = super.callPackage ./2bwm/default.nix {};
+  _2bwm = super.callPackage ./2bwm/default.nix {};
   oh-my-zsh-custom = super.callPackage ./zsh/oh-my-zsh.nix {};
   orgEmacs = super.callPackage ./emacs/orgmode.nix {};
   orgEmacsConfig = super.callPackage ./emacs/configuration-package.nix {};

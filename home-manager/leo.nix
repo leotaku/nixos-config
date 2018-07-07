@@ -197,7 +197,7 @@
     transmission-remote-gtk
     transmission-remote-cli
     # WMs
-    num2bwm
+    _2bwm
     fvwm
     awesome
     openbox
@@ -209,7 +209,7 @@
     dmenu
     polybar
     dzen2
-    dunst
+    #dunst
     i3lock-color
     eventd
     # Programming
