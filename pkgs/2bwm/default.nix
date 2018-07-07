@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
  #   sha256 = "1la1ixpm5knsj2gvdcmxzj1jfbzxvhmgzps4f5kbvx5047xc6ici";
  # };
 
-  src = /home/leo/2bwm;
+  src = ./2bwm;
 
   buildInputs = [ libxcb xcbutilkeysyms xcbutilwm libX11 xcbutil xcbutilxrm ];
 
