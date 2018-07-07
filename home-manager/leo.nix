@@ -230,13 +230,13 @@
     #noto-fonts-emoji
     #lmmath
     ##nerdfonts
-    gohufont
+    #gohufont
     #terminus_font
     ##tewi-font
     #dina-font
     #fira-code
     #fira-mono
-    roboto
+    #roboto
     #montserrat
   ];
   
@@ -274,7 +274,7 @@
     enable = true;
     theme.package = pkgs.adapta-gtk-theme;
     theme.name = "Adapta-Eta";
-    iconTheme.package = pkgs.papirus-icon-theme;
+    iconTheme.package = pkgs.paper-icon-theme;
     iconTheme.name = "Paper";
   };
     
