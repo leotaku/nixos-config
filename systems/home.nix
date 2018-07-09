@@ -134,6 +134,7 @@
     unifont
     siji
     google-fonts
+    go-font
     lmmath
     tewi-font
     dina-font

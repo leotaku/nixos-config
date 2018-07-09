@@ -33,8 +33,8 @@ stdenv.mkDerivation rec {
   cp ${srcs.libnkutils}/* -r src/libnkutils
   '';
 
-  mesonFlags = [ 
-    "-Dnd-wayland=false" 
+  mesonFlags = [
+    "-Dnd-wayland=false"
     "-Dlibcanberra=false"
     "-Dipv6=false"
     "-Dsystemd=false"
@@ -50,9 +50,9 @@ stdenv.mkDerivation rec {
     "-Dgobject-introspection=false"
     "-Ddebug=false"
 
-    "-Ddbussessionservicedir=$(out)/dbus"
+    "-Ddbussessionservicedir=etc/dbus"
   ];
-  
+
   propagatedBuildInputs = with pkgs; [
     cairo
     dbus_glib
