@@ -14,6 +14,7 @@
   ];
 
   services.netdata.enable = true;
+  virtualisation.docker.enable = true;
 
   nix.nixPath = [
     "/etc/nixos/nixos-config"
@@ -22,6 +23,8 @@
     "nixos-config=/etc/nixos/configuration.nix"
     "home-manager=/etc/nixos/nixos-config/modules/home-manager"
   ];
+
+  nix.useSandbox = true;
 
   nixpkgs.overlays = [ (import ../pkgs) ];
 
@@ -82,7 +85,7 @@
     neofetch
     # Terminal basics
     ranger
-    vim_configurable
+    nvi
     neovim
     micro
     kakoune
@@ -152,11 +155,6 @@
     NIXOS_DESCRIPTIVE_NAME = [ "home" ];
   };
   
-  # TODO: Refactor this to be more flexible
-  #environment.shellAliases = {
-  #  nix-env = "nix-env -f /etc/nixos/nixos-config/modules/fake-channels/default.nix";
-  #};
-
   # List programs that need nix init
   programs.zsh.enable = true;
   programs.fish.enable = true;
@@ -173,16 +171,21 @@
   # X11 windowing system.
   services.xserver.enable = true; 
   services.xserver.libinput.enable = true;
-  services.xserver.displayManager.lightdm = { 
+  services.xserver.displayManager.sddm = {
     enable = true;
-    #background = "${pkgs.nixos-artwork.wallpapers.stripes-logo}/share/artwork/gnome/nix-wallpaper-stripes-logo.png";
-    background = "${pkgs.adapta-backgrounds}/share/backgrounds/adapta/tealized.jpg";
-    greeters.gtk = {
-      theme.package = pkgs.adapta-gtk-theme;
-      theme.name = "Adapta-Eta";
-      iconTheme.package = pkgs.paper-icon-theme;
-      iconTheme.name = "Paper";
-    };
+    theme = "test";
+    extraConfig = ''
+      [Autologin]
+      Relogin=false
+      Session=
+      User=
+
+      [General]
+      InputMethod=
+      
+      [Theme]
+      ThemeDir=${pkgs.sddm_theme}/share/sddm/themes
+    '';
   };
 
   # Sound
