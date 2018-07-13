@@ -4,8 +4,8 @@ let
     eventd = fetchFromGitHub {
       owner = "sardemff7";
       repo = "eventd";
-      rev = "v0.24.1";
-      sha256 = "1qgna5ff5jjldhpqzwfkakd02fg07ysaawsjq47drgqjky8hhxxp";
+      rev = "87c742d";
+      sha256 = "0ygckfngq7bk0350h2z5ip7ksglhrxlikqg58vwy484j6iwvd33p";
     };
     libgwater = fetchFromGitHub {
       owner = "sardemff7";
@@ -16,19 +16,19 @@ let
     libnkutils = fetchFromGitHub {
       owner = "sardemff7";
       repo = "libnkutils";
-      rev = "04362cb";
-      sha256 = "0lb4d10pvp9j3cjzz4ksxr591f1q3l95i4yai8jkd5p1wk5ps5wb";
+      rev = "4431565";
+      sha256 = "0aba6lf7jslysvpbsqh0ch9bz41s9xcpr5xydp6b2rr8xra1lvqz";
     };
   };
 in
 stdenv.mkDerivation rec {
   name = "eventd-${version}";
-  version = "v0.24.1";
+  version = "master";
 
   src = srcs.eventd; 
 
   prePatch = ''
-  substitute ./meson.build ./meson.build --replace ">=0.44.1" ">=0.43.1"
+  #substitute ./meson.build ./meson.build --replace ">=0.47.0" ">=0.43.1"
   cp ${srcs.libgwater}/* -r src/libgwater
   cp ${srcs.libnkutils}/* -r src/libnkutils
   '';
@@ -40,7 +40,7 @@ stdenv.mkDerivation rec {
     "-Dsystemd=false"
     "-Dnotification-daemon=true"
     "-Dnd-xcb=true"
-    "-Dnd-fbdev=false"
+    "-Dnd-fbdev=true"
     "-Dim=false"
     "-Dsound=false"
     "-Dtts=false"
@@ -48,7 +48,7 @@ stdenv.mkDerivation rec {
     "-Dlibnotify=true"
     "-Dlibcanberra=false"
     "-Dgobject-introspection=false"
-    "-Ddebug=false"
+    "-Ddebug=true"
 
     "-Ddbussessionservicedir=etc/dbus"
   ];
@@ -61,6 +61,7 @@ stdenv.mkDerivation rec {
     pango
     utillinux
     xorg.xcbutilwm
+    xkeyboard_config
     #xorg.xcbutil
     #xorg.libxcb
     #speechd

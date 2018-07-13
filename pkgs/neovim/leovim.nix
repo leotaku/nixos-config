@@ -95,7 +95,7 @@ pkgs.neovim.override {
     # Visual
     "goyo"
     "limelight-vim"
-    "lightline-vim"
+    #"lightline-vim"
     #"rainbow"
     #"vim-minimap"
     #"airline"

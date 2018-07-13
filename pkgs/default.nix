@@ -5,10 +5,12 @@ self: super:
   athame-zsh = super.callPackage ./zsh/athame-zsh.nix {};
   athameVim = super.callPackage ./vim/athameVim.nix {};
   catimg = super.callPackage ./catimg/default.nix {};
+  chroma = super.callPackage ./chroma/default.nix {};
   eventd = super.callPackage ./eventd/default.nix {};
   gotop = super.callPackage ./gotop/default.nix {};
-  chroma = super.callPackage ./chroma/default.nix {};
   instant-markdown-d = (super.callPackage ./instant-markdown-d/default.nix {}).package;
+  n30f = super.callPackage ./n30f/default.nix {};
+  sddm_theme = super.callPackage ./sddm/default.nix {};
   torrench = super.callPackage ./torrench/default.nix {};
 
   # Customized packages
