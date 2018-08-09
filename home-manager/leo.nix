@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   ## Home manager configuration for this account
@@ -211,7 +211,7 @@
     dzen2
     #dunst
     i3lock-color
-    eventd
+    #eventd
     # Programming
     gocode
     gotags
@@ -256,18 +256,16 @@
   xsession = {
     enable = true;
     #profileExtra = "";
-    windowManager.command = "2bwm";
-    initExtra = "
-    feh --bg-fill ~/Images/white.png
+    windowManager.command = "fvwm";
+    initExtra = ''
     mpd
     compton -b
     eventd &
-    polybar float &
+    #polybar float &
     urxvtd &
-    xautolock -locker ~/Scripts/screenlock &
-    $HOME/Scripts/update_workspaces.sh &
-    $HOME/Scripts/waitlock &
-    ";
+    xautolock -locker "$HOME/Scripts/screenlock" &
+    screen -d -m -S NcmpcppContainer "$HOME/.config/ncmpcpp/spawn-script"
+    '';
   };
   
   gtk = {
