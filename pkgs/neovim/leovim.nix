@@ -70,6 +70,7 @@ pkgs.neovim.override {
 
     # Programming Languages
     "vim-nix"
+    "elm-vim"
     "vim-fish"
     "vim-slime"
     "parinfer-rust"

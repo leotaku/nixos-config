@@ -28,7 +28,8 @@ stdenv.mkDerivation rec {
   src = srcs.eventd; 
 
   prePatch = ''
-  #substitute ./meson.build ./meson.build --replace ">=0.47.0" ">=0.43.1"
+  substitute ./meson.build ./meson.build --replace ">=0.47.0" ">=0.43.1"
+  substitute ${srcs.libnkutils}/meson.build ./meson.build --replace ">=0.47.0" ">=0.43.1"
   cp ${srcs.libgwater}/* -r src/libgwater
   cp ${srcs.libnkutils}/* -r src/libnkutils
   '';
