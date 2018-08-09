@@ -13,8 +13,14 @@
     ../plugables/throwaway/default.nix
   ];
 
-  services.netdata.enable = true;
-  virtualisation.docker.enable = true;
+  services.nginx = {
+    enable = true;
+    virtualHosts."blog.example.com" = {
+      enableACME = false;
+      forceSSL = false;
+      root = "/var/www/blog";
+    };
+  };
 
   nix.nixPath = [
     "/etc/nixos/nixos-config"
@@ -27,10 +33,6 @@
   nix.useSandbox = true;
 
   nixpkgs.overlays = [ (import ../pkgs) ];
-
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.memtest86.enable = true;
 
   # Override default nixos stuff
   boot.loader.grub.splashImage = null;
@@ -164,6 +166,7 @@
   powerManagement.enable = true;
   services.openssh.enable = true;
   services.cron.enable = false;
+  services.netdata.enable = true;
 
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [ hplip gutenprint gutenprintBin splix ];
@@ -200,12 +203,14 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  # Enable Virtualbox
+  # Enable Virtuaisation
   virtualisation.virtualbox.host = { 
     enable = true;
     #enableHardening = false; 
   };
   nixpkgs.config.virtualbox.enableExtensionPack = false;
+
+  virtualisation.docker.enable = true;
 
   # Add wireshark permissions
   programs.wireshark = { 
@@ -219,6 +224,7 @@
   services.acpid.lidEventCommands = ''
     LID_STATE=/proc/acpi/button/lid/LID/state 
     if [[ $(${pkgs.gawk}/bin/awk '{print $2}' $LID_STATE) == 'closed' ]]; then
+      sleep 2
       ${pkgs.systemd}/bin/systemctl suspend
     fi
   '';
