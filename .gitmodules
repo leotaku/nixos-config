@@ -7,3 +7,6 @@
 [submodule "modules/infinisil"]
 	path = modules/infinisil
 	url = https://github.com/Infinisil/system.git
+[submodule "private"]
+	path = private
+	url = https://github.com/LeOtaku/private.git
