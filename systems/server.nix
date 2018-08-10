@@ -19,19 +19,20 @@
   ];
 
   nixpkgs.overlays = [ (import ../pkgs) ];
-  programs.man.enable = false;
+  documentation.man.enable = false;
   services.nixosManual.enable = false;
 
   networking.hostName = "nixos-rpi"; # Define your hostname.
   networking.networkmanager.enable = true;
+  #networking.interfaces."eth0" = {
+  #  ip4 = [ { address = "192.168.1.251"; prefixLength = 24; } ];
+  #};
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   
   hardware.enableRedistributableFirmware = true;
   hardware.firmware = [
     pkgs.broadcom-rpi3-extra
   ];
-
-  #services.dhcpd4.enable = true;
 
   # Select internationalisation properties.
   i18n = {
