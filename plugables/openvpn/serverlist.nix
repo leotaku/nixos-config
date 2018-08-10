@@ -15,6 +15,6 @@
   };
 
   powerManagement.resumeCommands = ''
-  PATH=$PATH:${pkgs.systemd}/bin:${pkgs.gnugrep}/bin:${pkgs.bash}/bin /etc/nixos/nixos-config/files/restart-openvpn.sh
+  PATH=$PATH:${pkgs.systemd}/bin:${pkgs.gnugrep}/bin:${pkgs.bash}/bin ${./.}/restart-openvpn.sh
   '';
 }

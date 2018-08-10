@@ -13,7 +13,14 @@
     ../plugables/throwaway/default.nix
   ];
 
-  services.netdata.enable = true;
+  services.nginx = {
+    enable = true;
+    virtualHosts."blog.example.com" = {
+      enableACME = false;
+      forceSSL = false;
+      root = "/var/www/blog";
+    };
+  };
 
   nix.nixPath = [
     "/etc/nixos/nixos-config"
@@ -23,11 +30,9 @@
     "home-manager=/etc/nixos/nixos-config/modules/home-manager"
   ];
 
-  nixpkgs.overlays = [ (import ../pkgs) ];
+  nix.useSandbox = true;
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.memtest86.enable = true;
+  nixpkgs.overlays = [ (import ../pkgs) ];
 
   # Override default nixos stuff
   boot.loader.grub.splashImage = null;
@@ -82,7 +87,7 @@
     neofetch
     # Terminal basics
     ranger
-    vim_configurable
+    nvi
     neovim
     micro
     kakoune
@@ -152,11 +157,6 @@
     NIXOS_DESCRIPTIVE_NAME = [ "home" ];
   };
   
-  # TODO: Refactor this to be more flexible
-  #environment.shellAliases = {
-  #  nix-env = "nix-env -f /etc/nixos/nixos-config/modules/fake-channels/default.nix";
-  #};
-
   # List programs that need nix init
   programs.zsh.enable = true;
   programs.fish.enable = true;
@@ -166,6 +166,7 @@
   powerManagement.enable = true;
   services.openssh.enable = true;
   services.cron.enable = false;
+  services.netdata.enable = true;
 
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [ hplip gutenprint gutenprintBin splix ];
@@ -173,16 +174,21 @@
   # X11 windowing system.
   services.xserver.enable = true; 
   services.xserver.libinput.enable = true;
-  services.xserver.displayManager.lightdm = { 
+  services.xserver.displayManager.sddm = {
     enable = true;
-    #background = "${pkgs.nixos-artwork.wallpapers.stripes-logo}/share/artwork/gnome/nix-wallpaper-stripes-logo.png";
-    background = "${pkgs.adapta-backgrounds}/share/backgrounds/adapta/tealized.jpg";
-    greeters.gtk = {
-      theme.package = pkgs.adapta-gtk-theme;
-      theme.name = "Adapta-Eta";
-      iconTheme.package = pkgs.paper-icon-theme;
-      iconTheme.name = "Paper";
-    };
+    theme = "test";
+    extraConfig = ''
+      [Autologin]
+      Relogin=false
+      Session=
+      User=
+
+      [General]
+      InputMethod=
+      
+      [Theme]
+      ThemeDir=${pkgs.sddm_theme}/share/sddm/themes
+    '';
   };
 
   # Sound
@@ -197,12 +203,14 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  # Enable Virtualbox
+  # Enable Virtuaisation
   virtualisation.virtualbox.host = { 
     enable = true;
     #enableHardening = false; 
   };
   nixpkgs.config.virtualbox.enableExtensionPack = false;
+
+  virtualisation.docker.enable = true;
 
   # Add wireshark permissions
   programs.wireshark = { 
@@ -216,6 +224,7 @@
   services.acpid.lidEventCommands = ''
     LID_STATE=/proc/acpi/button/lid/LID/state 
     if [[ $(${pkgs.gawk}/bin/awk '{print $2}' $LID_STATE) == 'closed' ]]; then
+      sleep 2
       ${pkgs.systemd}/bin/systemctl suspend
     fi
   '';

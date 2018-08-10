@@ -11,15 +11,20 @@
   };
 
   # Kernel modules + other
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.availableKernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "acpi_call" ];
-  boot.extraModulePackages = [ pkgs.linuxPackages.acpi_call ];
+  boot.extraModulePackages = [ pkgs.linuxPackages_latest.acpi_call ];
 
   # Boot loader
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.version = 2;
+  boot.loader.grub.memtest86.enable = true;
+
+  boot.loader.efi.canTouchEfiVariables = false;
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.grub.efiSupport = true;
-  boot.loader.grub.efiInstallAsRemovable = false;
+  boot.loader.grub.efiInstallAsRemovable = true;
   boot.loader.grub.device = "nodev";
 
   # Filesystem (configured by nixos-install)

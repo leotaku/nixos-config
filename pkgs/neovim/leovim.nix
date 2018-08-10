@@ -70,6 +70,7 @@ pkgs.neovim.override {
 
     # Programming Languages
     "vim-nix"
+    "elm-vim"
     "vim-fish"
     "vim-slime"
     "parinfer-rust"
@@ -95,7 +96,7 @@ pkgs.neovim.override {
     # Visual
     "goyo"
     "limelight-vim"
-    "lightline-vim"
+    #"lightline-vim"
     #"rainbow"
     #"vim-minimap"
     #"airline"
