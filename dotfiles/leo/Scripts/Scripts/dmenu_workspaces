@@ -1,3 +1,0 @@
-#!/bin/bash
-. $HOME/.config/dmenu/config
-(bspc query -D --names) | eval $DMENU -p "Workspaces:" | xargs bspc desktop -f

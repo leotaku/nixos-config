@@ -1,23 +1,84 @@
 { pkgs, ... }: 
 
 {
+  TagHighlight = 
+  let 
+    version = "05449e727b55";
+  in
+  pkgs.vimUtils.buildVimPlugin {
+    name = "TagHighlight";
+    src = pkgs.fetchhg {
+      url = "https://bitbucket.org/abudden/taghighlight/get/${version}.zip";
+      sha256 = "0ch6nhvsw2jblcf06hrs8kkrqkqnh0rh3ln968wxc9gfdphf657y";
+    };
+  };
+
+  winresizer = pkgs.vimUtils.buildVimPlugin {
+    name = "winresizer";
+    src = pkgs.fetchFromGitHub {
+      owner = "simeji";
+      repo = "winresizer";
+      rev = "530e5b4";
+      sha256 = "13fx10ign796f9z3gdi32rw6psv9b7y17grs8k8dm17mjpv60940";
+    };
+  };
+
+  CamelCaseMotion = pkgs.vimUtils.buildVimPlugin {
+    name = "CamelCaseMotion";
+    src = pkgs.fetchFromGitHub {
+      owner = "bkad";
+      repo = "CamelCaseMotion";
+      rev = "e2816c7";
+      sha256 = "1g9hl6rxabbijs8hp53ra08iqgbc34bv4sbifkcjkjdr3r6fikas";
+    };
+  };
+  vim-delve = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-delve";
+    src = pkgs.fetchFromGitHub {
+      owner = "sebdah";
+      repo = "vim-delve";
+      rev = "2f2a61e";
+      sha256 = "15wz19ar2agnkiznawywfps3ia8syv7c2c9f0h5ycd2r1bij1l8s";
+    };
+  };
+
+  Mundo = pkgs.vimUtils.buildVimPlugin {
+    name = "Mundo";
+    src = pkgs.fetchFromGitHub {
+      owner = "simnalamburt";
+      repo = "vim-mundo";
+      rev = "2540b4f";
+      sha256 = "0a5qxfsvrw7y6s00dfxhn9b2xr0h55wsx2cpl54havjwqcr5fs1s";
+    };
+  };
+
   vim-instant-markdown = pkgs.vimUtils.buildVimPlugin {
     name = "vim-instant-markdown";
     src = pkgs.fetchFromGitHub {
       owner = "suan";
       repo = "vim-instant-markdown";
-      rev = "master";
+      rev = "5f592bd";
       sha256 = "10zfm1isqv1mgx8598bfghf2zwzxgba74k0h658lnw59inwz7dkr";
     };
   };
 
-  vim-surround = pkgs.vimUtils.buildVimPlugin {
-    name = "vim-surround";
+  endwise = pkgs.vimUtils.buildVimPlugin {
+    name = "endwise";
     src = pkgs.fetchFromGitHub {
       owner = "tpope";
-      repo = "vim-surround";
-      rev = "v2.1";
-      sha256 = "0pcs8f6cv7k6wi7krah025gax3ms23fgflg2cr3fq9fpssrlf1ws";
+      repo = "vim-endwise";
+      rev = "1f76f7a";
+      sha256 = "1dqa7yn4kxybvaqqgqmzv7dcdqp93h15y7vfi2kxavgmlzin858f";
+    };
+  };
+
+  vim-autoswap = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-autoswap";
+    src = pkgs.fetchFromGitHub {
+      owner = "gioele";
+      repo = "vim-autoswap";
+      rev = "347a6fd";
+      sha256 = "0wr78mxw76hazy1rzb3nfcl20y99xw0xxaialqs2fl0lw807kqqb";
     };
   };
 
@@ -38,6 +99,16 @@
       repo = "Conque-Shell";
       rev = "202";
       sha256 = "09c63fnby8nnawg1psp0nbkphw9s7vrdj2wrf2ixlpiv357x478i";
+    };
+  };
+
+  vim-minimap = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-minimap";
+    src = pkgs.fetchFromGitHub {
+      owner = "severin-lemaignan";
+      repo = "vim-minimap";
+      rev = "1bc36a0";
+      sha256 = "0x89im2w86q8fkhhw0yrvc0ih4b10518kmk7q0ck7d7dczy7qzyn";
     };
   };
 
@@ -90,12 +161,10 @@
       sha256 = "0b2h2rvfyn44zxg88037qjrwi7g86xzshn4kiicrzhx0lxx05102";
     };
 
-    prePatch = ''
-    rm ./Makefile
-    '';
+    prePatch = "rm ./Makefile";
   };
 
- vim-slime = pkgs.vimUtils.buildVimPlugin {
+  vim-slime = pkgs.vimUtils.buildVimPlugin {
     name = "vim-slime";
     src = pkgs.fetchFromGitHub {
       owner = "LeOtaku";
@@ -125,27 +194,114 @@
     };
   };
 
+  vim-gutentags = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-gutentags";
+    src = pkgs.fetchFromGitHub {
+      owner = "ludovicchabant";
+      repo = "vim-gutentags";
+      rev = "327bd97";
+      sha256 = "02bfbbc12my3b4mpfykk3mvq0dg5b8wmscfnf6i87jbxni6ara69";
+    };
+  };
+  
+  vim-mucomplete = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-mucomplete";
+    src = pkgs.fetchFromGitHub {
+      owner = "lifepillar";
+      repo = "vim-mucomplete";
+      rev = "bdccec8";
+      sha256 = "0794c4xl17cgpzrdpmqwal9kdisd2q7yirk6c639nhqgv67cipx1";
+    };
+  };
+
+  shot-f = pkgs.vimUtils.buildVimPlugin {
+    name = "shot-f";
+    src = pkgs.fetchFromGitHub {
+      owner = "deris";
+      repo = "vim-shot-f";
+      rev = "eea71d2";
+      sha256 = "1rxv0z3nfvsi4nms5dl6y28zzc7pk2k68ls1wsq6z1g5rwify0w8";
+    };
+  };
+
+  clever-f = pkgs.vimUtils.buildVimPlugin {
+    name = "clever-f";
+    src = pkgs.fetchFromGitHub {
+      owner = "rhysd";
+      repo = "clever-f.vim";
+      rev = "89d99b5";
+      sha256 = "0nqki67zrhadmj8hwxdpikw7zqwqyhc4ykrsfrjfllvmqwigynv2";
+    };
+  };
+
+  multiselect = pkgs.vimUtils.buildVimPlugin {
+    name = "multiselect";
+    src = pkgs.fetchFromGitHub {
+      owner = "vim-scripts";
+      repo = "multiselect";
+      rev = "2.2";
+      sha256 = "10gwywfimxsvk3h352cpwaabcdr462rwbnyk4djdlm1dgyfyn296";
+    };
+  };
+
+  genutils = pkgs.vimUtils.buildVimPlugin {
+    name = "genutils";
+    src = pkgs.fetchFromGitHub {
+      owner = "vim-scripts";
+      repo = "genutils";
+      rev = "2.5";
+      sha256 = "0dzcm7xwgy7kzs4wmgp4w6js1x4w4wxwcwpybqvmfvbjsa6vgyxk";
+    };
+  };
+
+  vim-swap = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-swap";
+    src = pkgs.fetchFromGitHub {
+      owner = "machakann";
+      repo = "vim-swap";
+      rev = "80c783d";
+      sha256 = "1xw0pmmw6fdliw7hfkplmkgl24472qdfmgsvld9rgbndliybln9r";
+    };
+  };
+
+  vim-fish = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-fish";
+    src = pkgs.fetchFromGitHub {
+      owner = "dag";
+      repo = "vim-fish";
+      rev = "50b95cb";
+      sha256 = "1yvjlm90alc4zsdsppkmsja33wsgm2q6kkn9dxn6xqwnq4jw5s7h";
+    };
+  };
+
   parinfer-rust = 
+  let
+    src = pkgs.fetchFromGitHub {
+      owner = "eraserhd";
+      repo = "parinfer-rust";
+      rev = "642fec5";
+      sha256 = "09gr3klm057l0ix9l4qxg65s2pw669k9l4prrr9gp7z30q1y5bi8";
+    };
+  in
   let
   parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {
     name = "parinfer-rust-${version}";
     version = "a26808b";
 
-    src = ./parinfer;
-    cargoSha256 = "07dmalpnikrzvx9rg2dziijjhrnw8z2pxv3im6vsj458dydzkwri";
+    inherit src;
+    cargoSha256 = "01rx3p9hl7gs8yrl770ng2izsnaghyygsmcdzn3z2l0984aizmwp";
 
     doCheck = false;  
   };
   in
   pkgs.vimUtils.buildVimPlugin rec {
-      name = "parinfer-rust";
-      version = "a26808b";
+    name = "parinfer-rust";
+    version = "a26808b";
 
-      src = ./parinfer;
-      postBuild = ''
-        mkdir -p ./target/release
-        cp ${parinfer-rust-package}/bin/libparinfer_rust.so target/release
-      '';
-    };
-
-  }
+    inherit src;
+    postBuild = ''
+      mkdir -p ./target/release
+      cp ${parinfer-rust-package}/bin/libparinfer_rust.so target/release
+    '';
+  };
+}

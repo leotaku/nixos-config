@@ -1,4 +1,0 @@
-{
-  nixos = (import <nixpkgs> {});
-  nixpkgs = {};
-}

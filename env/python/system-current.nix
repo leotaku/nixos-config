@@ -10,7 +10,7 @@ pkgs.python3.buildEnv.override {
     jupyter 
     notebook 
     flake8 
-    jedi 
+    jedi
   ];
   ignoreCollisions = true;
 }

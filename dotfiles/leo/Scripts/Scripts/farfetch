@@ -1,4 +1,0 @@
-#!/bin/sh
-CONFIG_PATH=~/.config/farfetch/
-CONFIG="${CONFIG_PATH}${1}.ini"
-ff $CONFIG

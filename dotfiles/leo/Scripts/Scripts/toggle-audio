@@ -1,7 +1,0 @@
-#!/bin/bash
-STATE=$(amixer get Master)
-if [[ $STATE =~ "off"  ]]
-then amixer set Master unmute && echo on
-else amixer set Master mute && echo off
-fi
-

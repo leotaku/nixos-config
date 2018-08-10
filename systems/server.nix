@@ -46,9 +46,7 @@
   
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    ## Nixos
-    nixUnstable
-    ## Terminal Apps
+    # Terminal Apps
     vim
     ranger
     htop
@@ -57,8 +55,8 @@
     python3Packages.glances
     vnstat
     neofetch
-    ## Graphical Apps
-    ## Utilities
+    # Graphical Apps
+    # Utilities
     tree
     wget
     git
@@ -69,18 +67,8 @@
     tmux
     libarchive
     dash
-    ## Other
+    # Other
     zsh
-    oh-my-zsh
-    zsh-completions
-    # Vim
-    ## Languages
-    #R
-    # Python
-    #python3Full
-    #python36Packages.pip
-    #python36Packages.virtualenv
-    #python36Packages.pylint
   ];
 
   fonts.fonts = with pkgs; [
@@ -90,7 +78,6 @@
     OH_MY_ZSH = [ "${pkgs.oh-my-zsh}/share/oh-my-zsh" ];
     EDITOR = [ "vim" ];
     TERMINAL = [ "urxvt" ];
-    RANGER_LOAD_DEFAULT_RC = [ "FALSE" ];
   };
 
   # Some programs need SUID wrappeas, can be configured further or are
@@ -98,6 +85,7 @@
   # programs.bash.enableCompletion = true;
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
+  programs.zsh.enable = true;
 
   # List services that you want to enable:
   

@@ -12,33 +12,4 @@
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
     shell = pkgs.zsh;
   };
- 
-  # Enable Zsh to get features + stupid nl
-  programs.zsh.enable = true;
-
-  ## Home manager configuration for this account
-  home-manager.users.pi = {
-    
-    home.file."coolTEST".text = "foo";
-
-    nixpkgs = {
-      config = { allowUnfree = true; };
-      overlays = [ (import ../pkgs/default.nix) ];
-    };
-
-    home.packages = with pkgs; [
-      hello
-    ];
-    
-    home.sessionVariables = {
-      EDITOR = "vim";
-    };
-
-    programs.git = {
-      enable = true;
-      userName  = "LeOtaku";
-      userEmail = "leo.gaskin@brg-feldkirchen.at";
-    };
-
-  };
 }
