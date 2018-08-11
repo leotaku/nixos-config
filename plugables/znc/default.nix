@@ -2,7 +2,7 @@
 {
   services.znc = {
     enable = true;
-    mutable = true;
+    mutable = false;
     openFirewall = true;
     confOptions = {
       port = 6667;
@@ -16,12 +16,30 @@
         Salt = 9vpyWS6!(5wkCR3uv:_5
        </Pass>
       '';
-      networks.freenode = {
-        port = 6697; 
-        server = "chat.freenode.net"; 
-        useSSL = true;
-        channels = [ "nixos" ];
-        modules = [ "simple_away" ];
+      networks = {
+        freenode = {
+          port = 6697; 
+          server = "chat.freenode.net"; 
+          useSSL = true;
+          channels = [ "nixos" ];
+          modules = [ "sasl" ];
+        };
+        rizon = {
+          port = 6697;
+          server = "irc.rizon.net";
+          useSSL = true;
+        };
+        unix = {
+          port = 6697;
+          server = "unix.chat";
+          useSSL = true;
+        };
+        irchighway = {
+          port = 6697;
+          server = "irc.irchighway.net";
+          useSSL = true;
+        };
+
       };
       extraZncConf = ''
         MaxBufferSize=10000
