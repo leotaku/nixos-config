@@ -10,3 +10,6 @@
 [submodule "private"]
 	path = private
 	url = https://github.com/LeOtaku/private.git
+[submodule "modules/clever"]
+	path = modules/clever
+	url = https://github.com/cleverca22/nixos-configs.git
