@@ -12,7 +12,7 @@
     # Enable throwaway account
     ../plugables/throwaway/default.nix
     ../containers/test.nix
-    ../modules/clever/qemu.nix
+    ../external/clever/qemu.nix
   ];
 
   qemu-user.aarch64 = true;
@@ -23,8 +23,8 @@
   
   nix.nixPath = [
     "/etc/nixos/nixos-config"
-    "nixpkgs=/etc/nixos/nixos-config/nixpkgs"
-    "nixos=/etc/nixos/nixos-config/nixpkgs/nixos"
+    "nixpkgs=/etc/nixos/nixos-config/external/nixpkgs"
+    "nixos=/etc/nixos/nixos-config/external/nixpkgs/nixos"
     "nixos-config=/etc/nixos/configuration.nix"
     "home-manager=/etc/nixos/nixos-config/modules/home-manager"
   ];
