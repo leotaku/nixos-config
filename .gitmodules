@@ -8,7 +8,7 @@
 	path = external/infinisil
 	url = https://github.com/Infinisil/system.git
 [submodule "private"]
-	path = private
+	path = external/private
 	url = https://github.com/LeOtaku/private.git
 [submodule "modules/clever"]
 	path = external/clever
