@@ -7,7 +7,7 @@
 {
   imports = [ 
     # Import home manager module
-    ./modules/home-manager/nixos
+    ./external/home-manager/nixos
     # Import Files
     ./users/leo.nix
     ./systems/home.nix
