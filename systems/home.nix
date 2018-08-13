@@ -11,17 +11,16 @@
     ../plugables/transmission/default.nix
     # Enable throwaway account
     ../plugables/throwaway/default.nix
+    ../containers/test.nix
+    ../modules/clever/qemu.nix
   ];
 
-  services.nginx = {
-    enable = true;
-    virtualHosts."blog.example.com" = {
-      enableACME = false;
-      forceSSL = false;
-      root = "/var/www/blog";
-    };
-  };
-
+  qemu-user.aarch64 = true;
+  
+  #networking.nat.enable = true;
+  #networking.nat.internalInterfaces = ["ve-+"];
+  #networking.nat.externalInterface = "wlp3s0";
+  
   nix.nixPath = [
     "/etc/nixos/nixos-config"
     "nixpkgs=/etc/nixos/nixos-config/nixpkgs"
@@ -51,6 +50,7 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager = {
     enable = true;
+    unmanaged = [ "interface-name:ve-*" ];
     packages = with pkgs; [ networkmanager_openvpn ];
   };
 
@@ -67,6 +67,9 @@
   nixpkgs.config.allowUnfree = true;
   # TODO: Move this to separate home manager file
   environment.systemPackages = with pkgs; [
+    # Needed
+    git
+    gitAndTools.gitRemoteGcrypt
     # Utils
     moreutils
     psmisc

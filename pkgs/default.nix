@@ -10,7 +10,7 @@ self: super:
   gotop = super.callPackage ./gotop/default.nix {};
   instant-markdown-d = (super.callPackage ./instant-markdown-d/default.nix {}).package;
   n30f = super.callPackage ./n30f/default.nix {};
-  sddm_theme = super.callPackage ./sddm/default.nix {};
+  sddm_theme = super.callPackage ./sddm/theme.nix {};
   torrench = super.callPackage ./torrench/default.nix {};
 
   # Customized packages
@@ -21,6 +21,7 @@ self: super:
   oh-my-zsh-custom = super.callPackage ./zsh/oh-my-zsh.nix {};
   orgEmacs = super.callPackage ./emacs/orgmode.nix {};
   orgEmacsConfig = super.callPackage ./emacs/configuration-package.nix {};
+  #sddm = super.callPackage ./sddm/default.nix {};
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
   urxvtWithExtensions = super.rxvt_unicode_with-plugins.override { plugins = with super; [ urxvt_vtwheel urxvt_perls ]; };
 
