@@ -1,0 +1,24 @@
+modules:
+
+  nixpkgs: 
+    sources:
+      origin: "https://github.com/LeOtaku/nixpkgs.git"
+      upstream: "https://github.com/NixOS/nixpkgs.git"
+      channels: "https://github.com/NixOS/nixpkgs-channels.git"
+
+  home-manager: 
+    sources:
+      origin: "https://github.com/rycee/home-manager.git"
+
+deployments:
+
+  home-thinkpad:
+    modules:
+      nixpkgs: "channels/nixos-unstable"
+      home-manager: "origin/master"
+    frozen: false
+    main: true
+
+  nixos-rpi:
+    modules:
+      nixpkgs: "channels/nixos-18.03"

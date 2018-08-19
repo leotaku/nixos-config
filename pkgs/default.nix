@@ -2,6 +2,7 @@ self: super:
 
 {
   # Custom packages
+  nixos-cli = super.callPackage ./nixos-cli/default.nix {};
   athame-zsh = super.callPackage ./zsh/athame-zsh.nix {};
   athameVim = super.callPackage ./vim/athameVim.nix {};
   catimg = super.callPackage ./catimg/default.nix {};
@@ -21,7 +22,7 @@ self: super:
   oh-my-zsh-custom = super.callPackage ./zsh/oh-my-zsh.nix {};
   orgEmacs = super.callPackage ./emacs/orgmode.nix {};
   orgEmacsConfig = super.callPackage ./emacs/configuration-package.nix {};
-  #sddm = super.callPackage ./sddm/default.nix {};
+  sddm = super.sddm.overrideAttrs (old: { buildInputs = with super; [ qt5Full ] ++ old.buildInputs; });
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
   urxvtWithExtensions = super.rxvt_unicode_with-plugins.override { plugins = with super; [ urxvt_vtwheel urxvt_perls ]; };
 
