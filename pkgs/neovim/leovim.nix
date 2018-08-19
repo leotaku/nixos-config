@@ -73,6 +73,7 @@ pkgs.neovim.override {
     "elm-vim"
     "vim-fish"
     "vim-slime"
+    "vim-javascript"
     "parinfer-rust"
     #"slimv"
     "vim-go"

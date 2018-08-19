@@ -26,7 +26,7 @@
     "nixpkgs=/etc/nixos/nixos-config/external/nixpkgs"
     "nixos=/etc/nixos/nixos-config/external/nixpkgs/nixos"
     "nixos-config=/etc/nixos/configuration.nix"
-    "home-manager=/etc/nixos/nixos-config/modules/home-manager"
+    "home-manager=/etc/nixos/nixos-config/external/home-manager"
   ];
 
   nix.useSandbox = true;
@@ -68,7 +68,7 @@
   # TODO: Move this to separate home manager file
   environment.systemPackages = with pkgs; [
     # Needed
-    git
+    gitFull
     gitAndTools.gitRemoteGcrypt
     # Utils
     moreutils
@@ -121,7 +121,6 @@
     # Archives
     p7zip
     # Version control
-    gitFull
     mercurial
     darcs
     bazaar
