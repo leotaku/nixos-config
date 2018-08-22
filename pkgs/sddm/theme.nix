@@ -1,7 +1,7 @@
 { stdenv }:
 stdenv.mkDerivation rec {
   name="sddm-theme";
-  src = /home/leo/sddm-theme/test;
+  src = ./src;
     
   installPhase = ''
     echo $out
