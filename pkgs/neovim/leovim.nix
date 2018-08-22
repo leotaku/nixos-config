@@ -27,7 +27,7 @@ pkgs.neovim.override {
     "vim-sexp"
     "vim-swap"
     "vim-sneak"
-    #"auto-pairs"
+    "auto-pairs"
     #"clever-f"
     #"easymotion"
     #"endwise"
@@ -35,19 +35,29 @@ pkgs.neovim.override {
 
     # Completion + Other
     "ale"
+    "UltiSnips"
     #"vim-mucomplete"
     #"deoplete-nvim"
     #"deoplete-jedi"
     #"deoplete-go"
     #"deoplete-rust"
     #"Supertab"
-    "nvim-completion-manager"
-    "UltiSnips"
+    #"nvim-completion-manager"
     #"snipmate"
-    "vim-snippets"
-    "neco-syntax"
+    #"vim-snippets"
 
-    # Ctags
+    # Ncm2
+    "nvim-yarp"
+    "ncm2"
+    "ncm2-ultisnips"
+    "ncm2-path"
+    "ncm2-syntax"
+    "neco-syntax"
+    #"ncm2-bufword"
+    "ncm2-tmux"
+    "ncm2-racer"
+
+    ## Ctags
     "Tagbar"
     "vim-gutentags"
     #"TagHighlight"
@@ -71,6 +81,7 @@ pkgs.neovim.override {
     # Programming Languages
     "vim-nix"
     "elm-vim"
+    "rust-vim"
     "vim-fish"
     "vim-slime"
     "vim-javascript"
@@ -97,7 +108,7 @@ pkgs.neovim.override {
     # Visual
     "goyo"
     "limelight-vim"
-    #"lightline-vim"
+    "lightline-vim"
     #"rainbow"
     #"vim-minimap"
     #"airline"
@@ -107,13 +118,13 @@ pkgs.neovim.override {
     # Input Handling
     #"vim-autoswap"
 
-    # Lib
+    ## Lib
     "vim-express"
     "vim-operator-user"
     "repeat"
-    "SyntaxRange"
-    #"genutils"
-    #"vimproc"
+    #"SyntaxRange"
+    ##"genutils"
+    ##"vimproc"
   ];
   configure.customRC = ''
     set laststatus=0
