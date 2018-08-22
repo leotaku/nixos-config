@@ -10,6 +10,23 @@ modules:
     sources:
       origin: "https://github.com/rycee/home-manager.git"
 
+  clever:
+    sources:
+      origin: "https://github.com/cleverca22/nixos-configs.git"
+
+  infinisil:
+    sources:
+      origin: "https://github.com/Infinisil/system.git"
+
+  nixpkgs-mozilla:
+    sources:
+      origin: "https://github.com/mozilla/nixpkgs-mozilla.git"
+
+  private:
+    sources:
+      origin: "gcrypt::git@github.com:LeOtaku/private.git"
+
+
 deployments:
 
   home-thinkpad:

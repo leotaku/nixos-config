@@ -13,3 +13,6 @@
 [submodule "modules/clever"]
 	path = external/clever
 	url = https://github.com/cleverca22/nixos-configs.git
+[submodule "external/nixpkgs-mozilla"]
+	path = external/nixpkgs-mozilla
+	url = https://github.com/mozilla/nixpkgs-mozilla.git
