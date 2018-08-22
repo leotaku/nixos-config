@@ -21,8 +21,12 @@
           port = 6697; 
           server = "chat.freenode.net"; 
           useSSL = true;
-          channels = [ "nixos" ];
           modules = [ "sasl" ];
+        };
+        mozilla = {
+          port = 6697;
+          server = "irc.mozilla.org";
+          useSSL = true;
         };
         rizon = {
           port = 6697;

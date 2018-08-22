@@ -258,12 +258,14 @@
     #profileExtra = "";
     windowManager.command = "fvwm";
     initExtra = ''
+    feh --bg-fill $HOME/Wallpaper/agape.jpg
     mpd
     compton -b
     eventd &
     #polybar float &
     urxvtd &
-    xautolock -locker "$HOME/Scripts/screenlock" &
+    xset 600 300
+    xss-lock -- $HOME/Scripts/screenlock &
     screen -d -m -S NcmpcppContainer "$HOME/.config/ncmpcpp/spawn-script"
     '';
   };
