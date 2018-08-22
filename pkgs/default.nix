@@ -26,6 +26,9 @@ self: super:
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
   urxvtWithExtensions = super.rxvt_unicode_with-plugins.override { plugins = with super; [ urxvt_vtwheel urxvt_perls ]; };
 
+  # Mozilla
+  mozilla = (import ../external/nixpkgs-mozilla/default.nix) self super;
+
   # Collections
   customPythonPackages = super.callPackage ./python/customPackages.nix {};
   customVimPlugins = super.callPackage ./vim/customPlugins.nix {};
