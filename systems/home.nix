@@ -11,7 +11,8 @@
     ../plugables/transmission/default.nix
     # Enable throwaway account
     ../plugables/throwaway/default.nix
-    ../containers/test.nix
+    # Test stuff
+    #../containers/test.nix
     ../external/clever/qemu.nix
   ];
 
@@ -226,6 +227,7 @@
   services.acpid.lidEventCommands = ''
     LID_STATE=/proc/acpi/button/lid/LID/state 
     if [[ $(${pkgs.gawk}/bin/awk '{print $2}' $LID_STATE) == 'closed' ]]; then
+      ${pkgs.systemd}/bin/loginctl lock-sessions
       sleep 2
       ${pkgs.systemd}/bin/systemctl suspend
     fi

@@ -264,7 +264,7 @@
     eventd &
     #polybar float &
     urxvtd &
-    xset 600 300
+    xset s 600 300
     xss-lock -- $HOME/Scripts/screenlock &
     screen -d -m -S NcmpcppContainer "$HOME/.config/ncmpcpp/spawn-script"
     '';
