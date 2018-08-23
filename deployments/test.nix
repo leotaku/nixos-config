@@ -24,7 +24,7 @@
       services.avahi.enable = true;
 
       networking.firewall.allowedTCPPorts = [ 80 ];
-      deployment.targetHost = "192.168.1.148";
+      deployment.targetHost = "nixos-rpi.local";
        
       # NixOS wants to enable GRUB by default
       boot.loader.grub.enable = false;
