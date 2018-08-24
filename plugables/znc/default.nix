@@ -2,7 +2,7 @@
 {
   services.znc = {
     enable = true;
-    mutable = false;
+    mutable = true;
     openFirewall = true;
     confOptions = {
       port = 6667;

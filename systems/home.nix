@@ -156,7 +156,8 @@
     TERMINAL = [ "urxvt" ];
     PAGER = [ "less" ];
     OH_MY_ZSH = [ "${pkgs.oh-my-zsh-custom}/share/oh-my-zsh" ];
-    # TODO: find better solution for this
+    AUTOJUMP = [ "${pkgs.autojump}/share/zsh/" ];
+    # TODO: remove this
     NIXOS_DESCRIPTIVE_NAME = [ "home" ];
   };
   

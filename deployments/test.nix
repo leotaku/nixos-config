@@ -10,11 +10,11 @@
       ];
 
       services.nginx = {
-        enable = true;
+        enable = false;
         virtualHosts."blog.example.com" = {
           enableACME = false;
           forceSSL = false;
-          root = "${pkgs.callPackage /home/leo/site.nix {}}/";
+          #root = "${pkgs.callPackage /home/leo/site.nix {}}/";
         };
       };
 
