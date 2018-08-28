@@ -17,6 +17,7 @@
   ];
 
   qemu-user.aarch64 = true;
+  hardware.opengl.enable = true;
   
   #networking.nat.enable = true;
   #networking.nat.internalInterfaces = ["ve-+"];
@@ -82,6 +83,7 @@
     wget
     curl
     aria
+    autojump
     # Terminal toys
     figlet
     toilet
@@ -154,6 +156,7 @@
   environment.variables = {
     EDITOR = [ "vim" ];
     TERMINAL = [ "urxvt" ];
+    SHELL = [ "zsh" ];
     PAGER = [ "less" ];
     OH_MY_ZSH = [ "${pkgs.oh-my-zsh-custom}/share/oh-my-zsh" ];
     AUTOJUMP = [ "${pkgs.autojump}/share/zsh/" ];

@@ -53,7 +53,7 @@ pkgs.neovim.override {
     "ncm2-path"
     "ncm2-syntax"
     "neco-syntax"
-    #"ncm2-bufword"
+    "ncm2-bufword"
     "ncm2-tmux"
     "ncm2-racer"
 

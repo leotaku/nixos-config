@@ -204,13 +204,16 @@
     wmutils-core
     wmutils-opt
     # Other rice related
+    xorg.xwd
     sxhkd
     compton-git
     dmenu
     polybar
     dzen2
-    #dunst
+    dunst
+    #eventd
     i3lock-color
+    xss-lock
     #eventd
     # Programming
     gocode
@@ -276,6 +279,13 @@
     theme.name = "Adapta-Eta";
     iconTheme.package = pkgs.paper-icon-theme;
     iconTheme.name = "Paper";
+    gtk3 = {
+      extraCss = ''
+      .termite {
+        padding: 15px;
+      }
+      '';
+    };
   };
     
   programs.git = {
