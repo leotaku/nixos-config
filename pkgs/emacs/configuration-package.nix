@@ -32,6 +32,8 @@ writeText "default.el" ''
     :defer 2
     :config (global-flycheck-mode))
   
+  (use-package select-themes)
+
   (use-package ivy
     :defer 1
     :bind (("C-c C-r" . ivy-resume)

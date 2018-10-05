@@ -1,7 +1,7 @@
-{ emacs25-nox, emacsPackagesNg, orgEmacsConfig, lib, runCommand, ... }:
+{ emacs26, emacsPackagesNg, orgEmacsConfig, lib, runCommand, ... }:
 let 
   customEmacsPackages = emacsPackagesNg.overrideScope (super: self: {
-    emacs = emacs25-nox;
+    emacs = emacs26;
   });
 in
 
@@ -12,6 +12,9 @@ customEmacsPackages.emacsWithPackages (epkgs: (with epkgs; [
   '')
   evil
   evil-org
+  evil-collection
   org
   use-package
+  ivy
+  select-themes
 ]))

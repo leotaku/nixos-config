@@ -11,7 +11,7 @@
   
   home.packages = with pkgs; [
     # Text editors
-    leovim
+    # leovim
     instant-markdown-d
     vscode-with-extensions
     # File Manager
@@ -76,7 +76,7 @@
     inkscape
     gcolor3
     # PDF
-    zathura
+    #zathura
     evince
     # Video
     vlc
@@ -265,7 +265,7 @@
     mpd
     compton -b
     eventd &
-    #polybar float &
+    polybar small &
     urxvtd &
     xset s 600 300
     xss-lock -- $HOME/Scripts/screenlock &

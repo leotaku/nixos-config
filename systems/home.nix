@@ -13,10 +13,10 @@
     ../plugables/throwaway/default.nix
     # Test stuff
     #../containers/test.nix
-    ../external/clever/qemu.nix
+    # ../external/clever/qemu.nix
   ];
 
-  qemu-user.aarch64 = true;
+  # qemu-user.aarch64 = true;
   hardware.opengl.enable = true;
   
   #networking.nat.enable = true;
@@ -116,7 +116,7 @@
     # Files
     sxiv
     imagemagick
-    zathura
+    #zathura
     mplayer
     vlc
     ffmpeg-full
