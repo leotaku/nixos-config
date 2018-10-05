@@ -1,4 +1,3 @@
-{ config, pkgs, lib, ... }:
 let
   name = "blog";
   domain = "blog.com";
