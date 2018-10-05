@@ -23,7 +23,7 @@ def run_as(system, cmd):
 
 @cli.command()
 @click.argument('mode')
-def build(mode):
+def system(mode):
     cmd = "nixos-rebuild {0}".format(mode)
     config.run_as("main", cmd)
 
