@@ -38,4 +38,4 @@ deployments:
 
   nixos-rpi:
     modules:
-      nixpkgs: "channels/nixos-18.03"
+      nixpkgs: "origin/unstable-aarch64"

@@ -10,11 +10,11 @@
       ];
 
       services.nginx = {
-        enable = false;
-        virtualHosts."blog.example.com" = {
-          enableACME = false;
+        enable = true;
+        virtualHosts."le0.gs" = {
+          enableACME = true;
           forceSSL = false;
-          #root = "${pkgs.callPackage /home/leo/site.nix {}}/";
+          root = "${pkgs.callPackage ./site/default.nix {}}/";
         };
       };
 
@@ -23,7 +23,9 @@
 
       services.avahi.enable = true;
 
-      networking.firewall.allowedTCPPorts = [ 80 ];
+      networking.firewall.enable = true;
+      networking.firewall.allowedTCPPorts = [ 22 80 443 ];
+
       deployment.targetHost = "nixos-rpi.local";
        
       # NixOS wants to enable GRUB by default
@@ -68,5 +70,7 @@
       swapDevices = [ { device = "/swapfile"; size = 1024; } ];
 
       nixpkgs.system = "aarch64-linux";
+      nixpkgs.config.allowBroken = false;
+
     };
 }
