@@ -20,8 +20,7 @@ self: super:
   leovim = super.callPackage ./neovim/leovim.nix {};
   _2bwm = super.callPackage ./2bwm/default.nix {};
   oh-my-zsh-custom = super.callPackage ./zsh/oh-my-zsh.nix {};
-  orgEmacs = super.callPackage ./emacs/orgmode.nix {};
-  orgEmacsConfig = super.callPackage ./emacs/configuration-package.nix {};
+  lemacs = super.callPackage ./emacs/default.nix {};
   sddm = super.sddm.overrideAttrs (old: { buildInputs = with super; [ qt5Full ] ++ old.buildInputs; });
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
   urxvtWithExtensions = super.rxvt_unicode_with-plugins.override { plugins = with super; [ urxvt_vtwheel urxvt_perls ]; };
