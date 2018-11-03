@@ -65,7 +65,8 @@
     ncmpcpp
     cava
     cli-visualizer
-    projectm   freeciv_gtk
+    projectm
+    freeciv_gtk
     # Images
     feh
     meh
@@ -220,7 +221,7 @@
     gotags
     delve
     chez
-    universal-ctags
+    #universal-ctags
     # Webdev
     hugo
     # Fonts
@@ -275,11 +276,25 @@
   
   gtk = {
     enable = true;
-    theme.package = pkgs.adapta-gtk-theme;
-    theme.name = "Adapta-Eta";
-    iconTheme.package = pkgs.paper-icon-theme;
-    iconTheme.name = "Paper";
+    theme.package = pkgs.arc-theme;
+    theme.name = "Arc-Darker";
+    iconTheme.package = pkgs.gnome3.adwaita-icon-theme;
+    iconTheme.name = "Adwaita";
+    # theme.package = pkgs.adapta-gtk-theme;
+    # theme.name = "Adapta-Eta";
+    # iconTheme.package = pkgs.paper-icon-theme;
+    # iconTheme.name = "Paper";
+    gtk2 = {
+      extraConfig = ''
+        gtk-toolbar-style=GTK_TOOLBAR_ICONS
+        gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR
+      '';
+      };
     gtk3 = {
+      extraConfig = {
+        gtk-toolbar-style = "GTK_TOOLBAR_ICONS";
+        gtk-toolbar-icon-size = "GTK_ICON_SIZE_SMALL_TOOLBAR";
+      };
       extraCss = ''
       .termite {
         padding: 15px;
@@ -293,4 +308,6 @@
     userName  = "LeOtaku";
     userEmail = "leo.gaskin@brg-feldkirchen.at";
   };
+
+  programs.emacs.enable = false;
 }
