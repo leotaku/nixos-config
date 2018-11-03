@@ -59,7 +59,7 @@ pkgs.neovim.override {
 
     ## Ctags
     "Tagbar"
-    "vim-gutentags"
+    #"vim-gutentags"
     #"TagHighlight"
     #"vim-easytags"
 
@@ -95,7 +95,7 @@ pkgs.neovim.override {
     # Source Control
     "fugitive"
     #"gitgutter"
-    "gitv"
+    #"gitv"
 
     # Org
     #"vimwiki"

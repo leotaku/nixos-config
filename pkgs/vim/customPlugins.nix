@@ -128,8 +128,8 @@
     src = fetchFromGitHub {
       owner = "chriskempson";
       repo = "base16-vim";
-      rev = "fcce6bce6a2f4b14eea7ea388031c0aa65e4b67d";
-      sha256 = "0wi8k80v2brmxqbkk0lrvl4v2sslkjfwpvflm55b3n0ii8qy39nk";
+      rev = "7e9af12d680d81cc1277c07ef5acee8c83828f3f";
+      sha256 = "1al00wf0bf61r0bfsfbq8g2qq8sbzj6z8c85787d3qfinvniz0cl";
     };
   };
 
@@ -148,8 +148,8 @@
     src = fetchFromGitHub {
       owner = "kovisoft";
       repo = "slimv";
-      rev = "d32a9ebe4d5c803f595cb3d1b213f1048bdc8b3e";
-      sha256 = "0wbi9421pncyciq9p5xwiqyrkld63c7icpjq1ym6iim5rdaxzyx2";
+      rev = "93e6275693cac5c55f706f531c054a29f4ce5550";
+      sha256 = "0id5p34nln55ngs15v59a043lqwb0cj024kal37y6p48a2c5p6x2";
     };
   };
 
@@ -158,8 +158,8 @@
     src = fetchFromGitHub {
       owner = "justinmk";
       repo = "vim-sneak";
-      rev = "e4eb91a44a61b0d764d3276226ba901c793a7a6b";
-      sha256 = "0z8ivzckrhc5aqw47sms2n0w6345v0j79hgashnj82p2pcra55kp";
+      rev = "91192d8969af1d86c98beff4001612976ea25d7a";
+      sha256 = "0nmbrp0ma9s3yfzb8z70l0pcxv8p115zv6fz4injxn1c436x9337";
     };
 
     prePatch = "rm ./Makefile";
@@ -210,8 +210,8 @@
     src = fetchFromGitHub {
       owner = "lifepillar";
       repo = "vim-mucomplete";
-      rev = "43a97046a8451b27134bfeaf6e2af59189e2b334";
-      sha256 = "1hm33jn5nkwi3261v543n5szd9bzvvv4bwf7lg8yif4p8aikjlbf";
+      rev = "a5ed766beaf34046d00ebf8dbc2adbaab1526eea";
+      sha256 = "1s0yl82y7n5jac5wm9xgcj7lhqa7fj4g697qzjwcnwllz7d0biys";
     };
   };
 
@@ -280,8 +280,8 @@
     src = fetchFromGitHub {
       owner = "eraserhd";
       repo = "parinfer-rust";
-      rev = "697aece26f6b2dd504c2bf0f6e12a6b74a68fdcc";
-      sha256 = "09gz16z56iizznqrz91cq07x2s2fk203sqdl228afcbr49ir7gz0";
+      rev = "674824e89005cfd2fcab71477b495f4bae0970f9";
+      sha256 = "1j451a38c57djz00rs0vs0202bb7clf4lrib045d1w8l540srmbp";
     };
   in
   let
@@ -290,7 +290,7 @@
     version = "a26808b";
 
     inherit src;
-    cargoSha256 = "0mwjvrip2imjy5qy90avsd02745wwcff9aycasv50mwfkgj5py8y";
+    cargoSha256 = "080ji43p3plr489vkwnbcv3c5nxfx0giqhipqiq0f5plm84ql1k5";
 
     doCheck = false;  
   };
@@ -300,6 +300,9 @@
     version = "a26808b";
 
     inherit src;
+    preConfigure = ''
+    rm ./Makefile
+    '';
     postBuild = ''
       mkdir -p ./target/release
       cp ${parinfer-rust-package}/bin/libparinfer_rust.so target/release
