@@ -3,7 +3,7 @@ with python3Packages;
 {
   nixos = buildPythonApplication rec {
     pname = "nixos-cli";
-    version = "0.1";
+    version = "0.1.1";
 
     src = ./src;
 

@@ -7,8 +7,10 @@ import os
 
 def lineprint(string):
     sys.stdout.flush()
+    sys.stdout.write(u"\u001b[1000D" + " "*100)
     sys.stdout.write(u"\u001b[1000D" + string)
     sys.stdout.flush()
+    sys.stdout.write(u"\u001b[1000D")
 
 class Progress(RemoteProgress):
     def update(self, op_code, cur_count, max_count=None, message=''):
@@ -34,8 +36,7 @@ class Module():
 
     def update(self):
         for robj in self.repo.remotes:
-            robj.fetch(progress=Progress())
-            print("Updated remote '{0}'".format(robj))
+            robj.fetch()
 
     def checkout(self, ref):
         self.repo.git.checkout(ref)
@@ -65,8 +66,25 @@ class ConfigObject():
 
     def update_modules(self):
         for name, module in self.modules.items():
-            print("Updating repo '{0}'".format(name))
+            lineprint("Updating: " + name )
             module.update()
+        
+        self.checkout("main")
+        self.show_refs()
+
+        print("\nThis system is terrible and you should feel bad for writing it.")
+
+    def get_refs(self):
+        result = []
+        for name, module in self.modules.items():
+            ref = module.repo.git.rev_parse("HEAD")
+            result.append((name, ref))
+
+        return result;
+
+    def show_refs(self):
+        for (name, ref) in self.get_refs():
+            print(name + ":" + (" "*(20-len(name)))  +  ref)
     
     def checkout(self, depl_name, silent=True):
         depl = self.deployments[depl_name]

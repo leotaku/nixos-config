@@ -1,0 +1,9 @@
+nixos.py
+lib/__init__.py
+lib/main.py
+nixos.egg-info/PKG-INFO
+nixos.egg-info/SOURCES.txt
+nixos.egg-info/dependency_links.txt
+nixos.egg-info/entry_points.txt
+nixos.egg-info/requires.txt
+nixos.egg-info/top_level.txt

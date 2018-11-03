@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 import click
 import lib as lib
@@ -5,6 +6,10 @@ import lib as lib
 @click.group()
 def cli():
     pass
+
+@cli.command()
+def show():
+    config.show_refs()
 
 @cli.command()
 def update():
