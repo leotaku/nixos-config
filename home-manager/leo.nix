@@ -54,7 +54,7 @@
     canto-curses
     youtube-dl
     # Games
-    steam
+    #steam
     # Audio
     alsaUtils
     pulsemixer
@@ -85,7 +85,7 @@
     mpv
     ffmpegthumbnailer
     ffmpeg-full
-    kdeApplications.kdenlive
+    #kdeApplications.kdenlive
     # Recording
     maim
     slop
