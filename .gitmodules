@@ -16,3 +16,9 @@
 [submodule "external/nixpkgs-mozilla"]
 	path = external/nixpkgs-mozilla
 	url = https://github.com/mozilla/nixpkgs-mozilla.git
+[submodule "external/extra-container"]
+	path = external/extra-container
+	url = git://github.com/erikarvstedt/extra-container.git
+[submodule "external/hocker"]
+	path = external/hocker
+	url = git://github.com/awakesecurity/hocker.git
