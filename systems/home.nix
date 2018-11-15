@@ -19,9 +19,9 @@
   qemu-user.aarch64 = true;
   hardware.opengl.enable = true;
   
-  #networking.nat.enable = true;
-  #networking.nat.internalInterfaces = ["ve-+"];
-  #networking.nat.externalInterface = "wlp3s0";
+  networking.nat.enable = true;
+  networking.nat.internalInterfaces = ["ve-+"];
+  networking.nat.externalInterface = "wlp3s0";
   
   nix.nixPath = [
     "/etc/nixos/nixos-config"

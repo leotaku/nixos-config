@@ -22,9 +22,9 @@ modules:
     sources:
       origin: "https://github.com/mozilla/nixpkgs-mozilla.git"
 
-  private:
-    sources:
-      origin: "gcrypt::git@github.com:LeOtaku/private.git"
+#  private:
+#   sources:
+#     origin: "gcrypt::git@github.com:LeOtaku/private.git"
 
 
 deployments:
