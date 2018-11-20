@@ -6,7 +6,7 @@ NC='\033[0m' # No Color
 
 dir="$(realpath $(dirname $0))"
 cd $dir
-old="$dir/.cache"
+old="$dir/.cachefile"
 
 [[ -d "in"  ]] || exit 1
 [[ -d "out" ]] || mkdir out
