@@ -1,0 +1,6 @@
+{
+  "type": "fetchFromGitHub",
+  "repo": "home-manager",
+  "owner": "rycee",
+  "rev": "master"
+}

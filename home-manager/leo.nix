@@ -3,6 +3,8 @@
 {
   ## Home manager configuration for this account
   programs.home-manager.enable = true;
+  programs.home-manager.path = toString /etc/nixos/nixos-config/sources/mutable/home-manager;
+ #programs.home-manager.path = toString (import ../sources).libs.home-manager;
   
   nixpkgs = {
     config = { allowUnfree = true; };

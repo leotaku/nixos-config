@@ -1,0 +1,15 @@
+{
+  "fetch": {
+    "args": {
+      "owner": "cleverca22",
+      "repo": "nixos-configs",
+      "rev": "master",
+      "sha256": "0q07dxzriy7jxydg2bfsj72zlzd09pxw7bwrdfjcrlw47zv2n1qp"
+    },
+    "fn": "fetchFromGitHub"
+  },
+  "owner": "cleverca22",
+  "repo": "nixos-configs",
+  "rev": "master",
+  "type": "fetchFromGitHub"
+}

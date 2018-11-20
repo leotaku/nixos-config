@@ -7,13 +7,12 @@
   imports = [
     # Import plugable configurations
     ../plugables/avahi/default.nix
-    ../plugables/openvpn/serverlist.nix
+   #../plugables/openvpn/serverlist.nix
     ../plugables/transmission/default.nix
     # Enable throwaway account
     ../plugables/throwaway/default.nix
     # Test stuff
     #../containers/test.nix
-    ../external/clever/qemu.nix
   ];
 
   qemu-user.aarch64 = true;
@@ -23,14 +22,6 @@
   networking.nat.internalInterfaces = ["ve-+"];
   networking.nat.externalInterface = "wlp3s0";
   
-  nix.nixPath = [
-    "/etc/nixos/nixos-config"
-    "nixpkgs=/etc/nixos/nixos-config/external/nixpkgs"
-    "nixos=/etc/nixos/nixos-config/external/nixpkgs/nixos"
-    "nixos-config=/etc/nixos/configuration.nix"
-    "home-manager=/etc/nixos/nixos-config/external/home-manager"
-  ];
-
   nix.useSandbox = true;
 
   nixpkgs.overlays = [ (import ../pkgs) ];

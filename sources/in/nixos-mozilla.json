@@ -1,0 +1,6 @@
+{
+  "type": "fetchFromGitHub",
+  "repo": "nixpkgs-mozilla",
+  "owner": "mozilla",
+  "rev": "master"
+}
