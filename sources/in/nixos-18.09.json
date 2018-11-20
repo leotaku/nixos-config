@@ -1,0 +1,6 @@
+{
+  "type": "fetchFromGitHub",
+  "repo": "nixpkgs-channels",
+  "owner": "NixOS",
+  "rev": "nixos-18.09"
+}

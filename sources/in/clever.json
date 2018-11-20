@@ -1,0 +1,6 @@
+{
+  "type": "fetchFromGitHub",
+  "repo": "nixos-configs",
+  "owner": "cleverca22",
+  "rev": "master"
+}

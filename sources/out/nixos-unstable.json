@@ -1,0 +1,15 @@
+{
+  "fetch": {
+    "args": {
+      "owner": "NixOS",
+      "repo": "nixpkgs-channels",
+      "rev": "nixos-unstable",
+      "sha256": "0anmvr6b47gbbyl9v2fn86mfkcwgpbd5lf0yf3drgm8pbv57c1dc"
+    },
+    "fn": "fetchFromGitHub"
+  },
+  "owner": "NixOS",
+  "repo": "nixpkgs-channels",
+  "rev": "nixos-unstable",
+  "type": "fetchFromGitHub"
+}
