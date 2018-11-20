@@ -8,4 +8,13 @@ environment.systemPackages = with pkgs; [
   nixops
   ctop
   htop
+  ((import <nixpkgs> {}).stdenv.mkDerivation {
+    name = "deployments";
+    src = /home/leo/nixos-config/deployments;
+
+    installPhase = ''
+      mkdir $out
+      mv ./* $out
+    '';
+  })
 ];

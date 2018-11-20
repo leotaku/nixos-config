@@ -9,6 +9,20 @@
         ../plugables/znc/default.nix
       ];
 
+      nix.trustedUsers = [ "root" "remote-builder" ];
+
+      users.extraUsers.remote-builder = {
+        isNormalUser = true;
+        shell = pkgs.bash;
+      };
+
+      environment.systemPackages = with pkgs; [
+        htop
+        cowsay
+        hello
+        ncdu
+      ];
+
       services.nginx = {
         enable = true;
         package = pkgs.nginxMainline;
@@ -60,13 +74,14 @@
       networking.firewall.enable = true;
       networking.firewall.allowedTCPPorts = [ 22 80 443 6667 ];
 
-      deployment.targetHost = "nixos-rpi.local";
+      #deployment.targetHost = "nixos-rpi.local";
+      deployment.targetHost = "192.168.178.23";
        
       # NixOS wants to enable GRUB by default
       boot.loader.grub.enable = false;
       boot.loader.generic-extlinux-compatible.enable = true;
  
-      #boot.kernelPackages = pkgs.linuxPackages_latest;
+      boot.kernelPackages = pkgs.linuxPackages_latest;
       
       # Needed for the virtual console to work on the RPi 3, as the default of 16M doesn't seem to be enough.
       boot.kernelParams = ["cma=32M"];
@@ -90,10 +105,10 @@
        
       # File systems configuration for using the installer's partition layout
       fileSystems = {
-        "/boot" = {
-          device = "/dev/disk/by-label/NIXOS_BOOT";
-          fsType = "vfat";
-        };
+        #"/boot" = {
+        #  device = "/dev/disk/by-label/NIXOS_BOOT";
+        #  fsType = "vfat";
+        #};
         "/" = {
           device = "/dev/disk/by-label/NIXOS_SD";
           fsType = "ext4";
