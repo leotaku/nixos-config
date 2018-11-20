@@ -26,7 +26,7 @@ self: super:
   urxvtWithExtensions = super.rxvt_unicode_with-plugins.override { plugins = with super; [ urxvt_vtwheel urxvt_perls ]; };
 
   # Mozilla
-  mozilla = (import ../external/nixpkgs-mozilla/default.nix) self super;
+  mozilla = (import (import ../sources).libs.nixpkgs-mozilla) self super;
 
   # Collections
   customPythonPackages = super.callPackage ./python/customPackages.nix {};

@@ -1,6 +1,6 @@
 { emacs, emacsPackagesNg, lib, runCommand, ... }:
 let 
-  customEmacsPackages = emacsPackagesNg.overrideScope (self: super: {
+  customEmacsPackages = emacsPackagesNg.overrideScope' (self: super: {
     emacs = emacs;
   });
 in

@@ -85,10 +85,11 @@ pkgs.neovim.override {
     "vim-fish"
     "vim-slime"
     "vim-javascript"
-    "parinfer-rust"
+    #"parinfer-rust"
     #"slimv"
     "vim-go"
     "vim-delve"
+    "julia-vim"
     "vim-toml"
     "neco-vim"
 
