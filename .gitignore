@@ -1,4 +1,4 @@
 *.swp
 tags
 .notags
-/nixpkgs
+/sources/.cachefile
