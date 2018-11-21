@@ -16,3 +16,4 @@ function link() {
 
 link nixpkgs.system "system"
 link libs.home-manager "home-manager"
+link libs.nixpkgs-mozilla "mozilla"

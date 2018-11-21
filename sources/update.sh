@@ -26,6 +26,11 @@ for file in *; do
     (cat $outfile > $old) &>/dev/null || echo -e "${YELLOW}initializing new source${NC}"
 
     nix-update-source "$file" -o "$outfile" &> /dev/null
-    diff $outfile $old && echo -e "${RED}no diff${NC}"
+    diff $outfile $old && echo -e "${RED}no diff${NC}" || LINK="true"
     echo ""
 done
+
+cd ..
+
+diff <(ls ./in) <(ls ./out) || echo -e "${RED}Source in and out differ!${NC}"
+[[ -n "$LINK" ]] && ./link.sh
