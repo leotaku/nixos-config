@@ -1,0 +1,40 @@
+{ pkgs ? import <nixpkgs> {}, ... }:
+with pkgs;
+hunspellWithDicts (with hunspellDicts; [
+  de-at
+  en-gb-ize
+  es-cl
+  es-ec
+  es-ni
+  es-sv
+  fr-classique
+  sv-fi
+  de-ch
+  en-us
+  es-co
+  es-es
+  es-pa
+  es-uy
+  fr-moderne
+  sv-se
+  de-de
+  es-any
+  es-cr
+  es-gt
+  es-pe
+  es-ve
+  fr-reforme1990
+  en-ca
+  es-ar
+  es-cu
+  es-hn
+  es-pr
+  eu-es
+  it-it
+  en-gb-ise
+  es-bo
+  es-do
+  es-mx
+  es-py
+  fr-any
+])
