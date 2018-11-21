@@ -2,14 +2,17 @@
 dir="$(realpath $(dirname $0))"
 cd $dir
 
-path="$(nix-build . --no-out-link -A nixpkgs.system)"
-echo $path
+function link() {
+    pkg="$1"
+    link_path="mutable/$2"
 
-rm ./mutable/system
-ln -s "$path" ./mutable/system
+    store_path="$(nix-build . --no-out-link -A $pkg)"
+    echo $store_path
+    
+    rm "$link_path"
+    ln -s "$store_path" "$link_path"
+    nix-store --add-root "$link_path" --indirect -r "$link_path" &>/dev/null
+}
 
-path="$(nix-build . --no-out-link -A libs.home-manager)"
-echo $path
-
-rm ./mutable/home-manager
-ln -s "$path" ./mutable/home-manager
+link nixpkgs.system "system"
+link libs.home-manager "home-manager"
