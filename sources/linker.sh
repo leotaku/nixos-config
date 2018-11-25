@@ -18,7 +18,7 @@ function link() {
 link "/nix/store/ajalscnhi23n7wc5sjkwzbhispkzrddy-source" "libs/clever"
 link "/nix/store/wn93nm3jf4k1ljxzqpq021jfxdj8lvfj-source" "libs/home-manager"
 link "/nix/store/vrxaca2sz1srvmq00q22nj4wvziz12mk-source" "libs/nixpkgs-mozilla"
-link "/nix/store/zdcsifa7cr4qfywyz3k71jqf2fpv7szr-source" "nixpkgs/master"
+link "/nix/store/cq155md2522yhjyzyxvxpy8rds1wiva3-source" "nixpkgs/master"
 link "/nix/store/jxfrahgls8zyfry44zsphin0myfkm1g3-source" "nixpkgs/nixos-18_09"
 link "/nix/store/1yv5hf9x11kjwd5rc1pfbc3c05mszpqp-source" "nixpkgs/nixos-unstable"
 link "/nix/store/jxfrahgls8zyfry44zsphin0myfkm1g3-source" "nixpkgs/rpi"
