@@ -2,35 +2,38 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 dir="$(realpath $(dirname $0))"
 cd $dir
-old="$dir/.cachefile"
 
-[[ -d "in"  ]] || exit 1
-[[ -d "out" ]] || mkdir out
-
-cd in;
-for file in *; do
-    outfile="$dir/out/$file"
-
-    if [[ -n "$1" ]]; then
-        if [[ ! $file =~ "$1" ]]; then
-            echo -e "${YELLOW}Skipping $file${NC}"
-            continue
-        fi
+function build () {
+    file="$(nix-build builder.nix --no-out-link)"
+    if [[ -n "$file" ]]; then
+        printf "${GREEN}"
+        diff lock.nix "$file" && echo -e "${RED}no updates"
+        printf "${NC}"
+        cat "$file" > lock.nix
     fi
+}
 
-    echo -e "${GREEN}updating${NC} $file"
-    (cat $outfile > $old) &>/dev/null || echo -e "${YELLOW}initializing new source${NC}"
+function buildLinker () {
+    file="$(nix-build linker.nix --no-out-link)"
+    if [[ -n "$file" ]]; then
+        diff linker.sh "$file" &>/dev/null && echo -e "${YELLOW}linker not updated" || echo -e "${YELLOW}updated linker"
+        printf "${GREEN}"
+        diff linker.sh "$file"
+        printf "${NC}"
+        cat "$file" > linker.sh
+        chmod u+x linker.sh
+    fi
+}
 
-    nix-update-source "$file" -o "$outfile" &> /dev/null
-    diff $outfile $old && echo -e "${RED}no diff${NC}" || LINK="true"
-    echo ""
-done
+function relink () {
+    ./linker.sh && echo -e "${BLUE}relinked sources${NC}"
+}
 
-cd ..
-
-diff <(ls ./in) <(ls ./out) || echo -e "${RED}Source in and out differ!${NC}"
-[[ -n "$LINK" ]] && ./link.sh
+build
+buildLinker
+relink

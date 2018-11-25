@@ -1,3 +1,0 @@
-[submodule "sources/nixpkgs"]
-	path = sources/nixpkgs
-	url = git://github.com/NixOS/nixpkgs.git

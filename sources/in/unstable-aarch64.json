@@ -1,6 +1,0 @@
-{
-  "type": "fetchFromGitHub",
-  "repo": "nixpkgs",
-  "owner": "NixOS",
-  "rev": "unstable-aarch64"
-}
