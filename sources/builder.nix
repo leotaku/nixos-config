@@ -1,6 +1,5 @@
 let
   lib = import ./lib.nix;
-  pkgs = import <nixpkgs> {};
 
   gitString = { owner, repo, rev, path, ... }:
     ''${builtins.concatStringsSep "." path} = (fetchGithub "${owner}" "${repo}" "${rev}");'';
@@ -14,15 +13,20 @@ ${gitString v}'') "" (lib.mapAttrsToList 1 attrs));
   let
     sourceStr = makeSources attrs;
   in
-  pkgs.writeText "sources"
 ''
 let
 fetchGithub = owner: repo: ref:
     let
+      toPath = str: assert builtins.substring 0 1 str == "/"; /. + builtins.substring 1 (-1) (builtins.unsafeDiscardStringContext str);
+
       githubBase = "github.com";
       url = "https://" + githubBase + "/" + owner + "/" + repo;
     in
-      builtins.fetchGit { inherit url ref; };
+      with builtins.fetchGit { inherit url ref; };
+      { 
+        inherit rev shortRev revCount outPath;
+        path = toPath outPath;
+      };
 in
 {${sourceStr}
 }

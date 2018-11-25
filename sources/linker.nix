@@ -1,12 +1,11 @@
 let
   lib = import ./lib.nix;
-  pkgs = import <nixpkgs> {};
 
-  gitString = { owner, repo, rev, path, outPath }:
+  gitString = { path, ... }:
   let
     concat = builtins.concatStringsSep;
   in
-''link "${outPath}" "${concat "/" path}"'';
+''link "${concat "." path}" "${concat "/" path}"'';
 
   makeSources = attrs:
       (builtins.foldl' (acc: v: 
@@ -17,7 +16,6 @@ ${gitString v}'') "" (lib.mapAttrsToList 1 attrs));
   let
     sourceStr = makeSources attrs;
   in
-  pkgs.writeText "linker"
 ''
 #!/usr/bin/env bash
 dir="$(realpath $(dirname $0))"
@@ -26,8 +24,12 @@ cd $dir
 rm -r links/*
 
 function link() {
-    store_path="$1"
+    attrs_path="$1"
     link_path="links/$2"
+    outPath=".outPath"
+
+    #echo nix-instantiate ./lock.nix --eval -A "$attrs_path$outPath"
+    store_path=$(nix-instantiate ./lock.nix --eval -A "$attrs_path$outPath" | tr -d '"')
 
     mkdir -p "$link_path"
     rm -r "$link_path"
@@ -39,4 +41,4 @@ ${sourceStr}
 '';
 
 in
-  writeLinker (import ./sources.nix)
+  writeLinker (import ./lock.nix)

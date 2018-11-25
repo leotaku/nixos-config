@@ -6,11 +6,18 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 dir="$(realpath $(dirname $0))"
+file="${dir}/.tmpfile"
 cd $dir
 
 function build () {
-    file="$(nix-build builder.nix --no-out-link)"
-    if [[ -n "$file" ]]; then
+    contents="$(nix-instantiate builder.nix --eval)"
+    contents="${contents%\"}"
+    contents="${contents#\"}"
+    contents="${contents//\\\"/\"}"
+    contents="${contents//\\\\/}"
+    
+    if [[ -n "$contents" ]]; then
+        echo -e $contents > $file
         printf "${GREEN}"
         diff lock.nix "$file" && echo -e "${RED}no updates"
         printf "${NC}"
@@ -19,8 +26,14 @@ function build () {
 }
 
 function buildLinker () {
-    file="$(nix-build linker.nix --no-out-link)"
-    if [[ -n "$file" ]]; then
+    contents="$(nix-instantiate linker.nix --eval)"
+    contents="${contents%\"}"
+    contents="${contents#\"}"
+    contents="${contents//\\\"/\"}"
+    contents="${contents//\\\\/}"
+
+    if [[ -n "$contents" ]]; then
+        echo -e $contents > $file
         diff linker.sh "$file" &>/dev/null && echo -e "${YELLOW}linker not updated" || echo -e "${YELLOW}updated linker"
         printf "${GREEN}"
         diff linker.sh "$file"
@@ -37,3 +50,5 @@ function relink () {
 build
 buildLinker
 relink
+
+rm "$file"
