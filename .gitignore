@@ -1,5 +1,4 @@
 *.swp
 tags
 .notags
-/sources/.cachefile
-/sources/mutable/*
+/sources/links/*

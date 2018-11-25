@@ -5,12 +5,12 @@
 {
   imports = [ 
     # Import home manager module
-    "${(import ./sources).libs.home-manager}/nixos"
+    "${(import ./sources/lock.nix).libs.home-manager}/nixos"
     # Import Files
     ./users/leo.nix
     ./systems/home.nix
     ./machines/thinkpad.nix
-    "${(import ./sources).libs.clever}/qemu.nix"
+    "${(import ./sources/lock.nix).libs.clever}/qemu.nix"
   ];
 
   #nixpkgs.pkgs = pkgs;
@@ -31,9 +31,9 @@
   
   nix.nixPath = [
     "/etc/nixos/nixos-config"
-    "nixpkgs=/etc/nixos/nixos-config/sources/mutable/system"
+    "nixpkgs=/etc/nixos/nixos-config/sources/links/nixpkgs/system"
     "nixos-config=/etc/nixos/configuration.nix"
-    "sources=/etc/nixos/sources"
+    "sources=/etc/nixos/nixos-config/sources/lock.nix"
     
     #"home-manager=/etc/nixos/nixos-config/sources/mutable/home-manager"
   ];
