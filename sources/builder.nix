@@ -3,7 +3,7 @@ let
   pkgs = import <nixpkgs> {};
 
   gitString = { owner, repo, rev, path, ... }:
-    ''${builtins.concatStringsSep "." path} = (fetchGithub "${owner}" "${repo}" "${rev}").outPath;'';
+    ''${builtins.concatStringsSep "." path} = (fetchGithub "${owner}" "${repo}" "${rev}");'';
 
   makeSources = attrs:
       (builtins.foldl' (acc: v: 
