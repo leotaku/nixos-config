@@ -18,12 +18,15 @@
     vscode-with-extensions
     # File Manager
     ranger
+    lf
     vifm
+    clex
     fzf
     fzy
     gnome3.nautilus
     # Office
-    ###libreoffice-fresh
+    libreoffice-fresh
+    calligra
     scim
     libqalculate
     # Version control
@@ -53,6 +56,7 @@
     discord
     # Other Web
     rtv
+    ddgr
     canto-curses
     youtube-dl
     # Games
@@ -61,6 +65,7 @@
     alsaUtils
     pulsemixer
     ncpamixer
+    pavucontrol
     audacity
     mpd
     mpc_cli
@@ -74,12 +79,13 @@
     meh
     sxiv
     imagemagick
+    pinta
     krita
     gimp
     inkscape
     gcolor3
     # PDF
-    #zathura
+    zathura
     evince
     # Video
     vlc
@@ -118,6 +124,8 @@
     htop
     atop
     gotop
+    lshw
+    hwinfo
     # Network utils
     #wireshark-gtk
     nmap-graphical
@@ -142,6 +150,7 @@
     tty-clock
     terminal-parrot
     catimg
+    libcaca
     # Xorg
     xsel
     xorg.xbacklight
@@ -167,10 +176,11 @@
     tealdeer
     bro
     most
+    loc
     # ++
     rlwrap
     reptyr
-    autojump
+    fasd
     hyperfine
     thefuck
     # Filesystems
@@ -244,6 +254,11 @@
     #fira-mono
     #roboto
     #montserrat
+    # Nix
+    nix-top
+    nix-du
+    nix-index
+    nix-prefetch-scripts
   ];
   
   home.sessionVariables = {
