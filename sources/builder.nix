@@ -23,7 +23,7 @@ fetchGithub = owner: repo: ref:
       url = "https://" + githubBase + "/" + owner + "/" + repo;
     in
       with builtins.fetchGit { inherit url ref; };
-      { 
+      {
         inherit rev shortRev revCount outPath;
         path = toPath outPath;
       };
