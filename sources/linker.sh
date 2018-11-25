@@ -5,22 +5,28 @@ cd $dir
 rm -r links/*
 
 function link() {
-    store_path="$1"
-    link_path="links/$2"
+ attrs_path="$1"
+ link_path="links/$2"
+ outPath=".outPath"
 
-    mkdir -p "$link_path"
-    rm -r "$link_path"
-    ln -s "$store_path" "$link_path"
-    nix-store --add-root "$link_path" --indirect -r "$link_path" &>/dev/null
+ #echo nix-instantiate ./lock.nix --eval -A "$attrs_path$outPath"
+ store_path=$(nix-instantiate ./lock.nix --eval -A "$attrs_path$outPath" | tr -d '"')
+
+ mkdir -p "$link_path"
+ rm -r "$link_path"
+ ln -s "$store_path" "$link_path"
+ nix-store --add-root "$link_path" --indirect -r "$link_path" &>/dev/null
 }
 
 
-link "/nix/store/ajalscnhi23n7wc5sjkwzbhispkzrddy-source" "libs/clever"
-link "/nix/store/wn93nm3jf4k1ljxzqpq021jfxdj8lvfj-source" "libs/home-manager"
-link "/nix/store/vrxaca2sz1srvmq00q22nj4wvziz12mk-source" "libs/nixpkgs-mozilla"
-link "/nix/store/cq155md2522yhjyzyxvxpy8rds1wiva3-source" "nixpkgs/master"
-link "/nix/store/jxfrahgls8zyfry44zsphin0myfkm1g3-source" "nixpkgs/nixos-18_09"
-link "/nix/store/1yv5hf9x11kjwd5rc1pfbc3c05mszpqp-source" "nixpkgs/nixos-unstable"
-link "/nix/store/jxfrahgls8zyfry44zsphin0myfkm1g3-source" "nixpkgs/rpi"
-link "/nix/store/1yv5hf9x11kjwd5rc1pfbc3c05mszpqp-source" "nixpkgs/system"
-link "/nix/store/5jc2ca2kvy96bshfngmwcn3wfi9wphsw-source" "nixpkgs/unstable-aarch64"
+link "libs.clever" "libs/clever"
+link "libs.home-manager" "libs/home-manager"
+link "libs.nixpkgs-mozilla" "libs/nixpkgs-mozilla"
+link "nixpkgs.iwanttodie" "nixpkgs/iwanttodie"
+link "nixpkgs.master" "nixpkgs/master"
+link "nixpkgs.nixos-18_09" "nixpkgs/nixos-18_09"
+link "nixpkgs.nixos-unstable" "nixpkgs/nixos-unstable"
+link "nixpkgs.rpi" "nixpkgs/rpi"
+link "nixpkgs.system" "nixpkgs/system"
+link "nixpkgs.unstable-aarch64" "nixpkgs/unstable-aarch64"
+
