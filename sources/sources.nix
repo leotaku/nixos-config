@@ -3,10 +3,10 @@ let
     let
       url = "${base}/${owner}/${repo}";
     in
+    
+    with (builtins.fetchGit { inherit url ref; });
     { 
-      inherit owner repo;
-      rev = (builtins.fetchGit { inherit url ref; }).rev;
-      outPath = (builtins.fetchGit { inherit url ref; }).outPath;
+      inherit owner repo rev outPath;
     };
 
   fetchGithub =
@@ -28,6 +28,7 @@ rec {
     
     system = nixpkgs.nixos-unstable;
     rpi = nixpkgs.nixos-18_09;
+    iwanttodie = fetchNixpkgs "master";
   };
   libs = {
     nixpkgs-mozilla = fetchGithub "mozilla" "nixpkgs-mozilla" "master";
