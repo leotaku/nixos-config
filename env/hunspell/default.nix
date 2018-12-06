@@ -1,40 +1,45 @@
 { pkgs ? import <nixpkgs> {}, ... }:
 with pkgs;
-hunspellWithDicts (with hunspellDicts; [
-  de-at
-  en-gb-ize
-  es-cl
-  es-ec
-  es-ni
-  es-sv
-  fr-classique
-  sv-fi
-  de-ch
-  en-us
-  es-co
-  es-es
-  es-pa
-  es-uy
-  fr-moderne
-  sv-se
-  de-de
-  es-any
-  es-cr
-  es-gt
-  es-pe
-  es-ve
-  fr-reforme1990
-  en-ca
-  es-ar
-  es-cu
-  es-hn
-  es-pr
-  eu-es
-  it-it
-  en-gb-ise
-  es-bo
-  es-do
-  es-mx
-  es-py
-  fr-any
-])
+hunspellWithDicts 
+  (lib.mapAttrsToList 
+    (n: v: if (lib.isDerivation v) then v else null)
+    hunspellDicts)
+
+# hunspellWithDicts (with hunspellDicts; [
+#   de-at         
+#   de-ch         
+#   de-de         
+#   en-ca         
+#   en-gb-ise     
+#   en-gb-ize     
+#   en-us         
+#   es-any        
+#   es-ar         
+#   es-bo         
+#   es-cl         
+#   es-co         
+#   es-cr         
+#   es-cu         
+#   es-do         
+#   es-ec         
+#   es-es         
+#   es-gt         
+#   es-hn         
+#   es-mx         
+#   es-ni         
+#   es-pa         
+#   es-pe         
+#   es-pr         
+#   es-py         
+#   es-sv         
+#   es-uy         
+#   es-ve         
+#   eu-es         
+#   fr-any        
+#   fr-classique  
+#   fr-moderne    
+#   fr-reforme1990
+#   it-it         
+#   sv-fi         
+#   sv-se         
+# ])
