@@ -15,7 +15,6 @@
     #../containers/test.nix
   ];
 
-  qemu-user.aarch64 = true;
   hardware.opengl.enable = true;
   
   networking.nat.enable = true;
@@ -205,7 +204,7 @@
 
   # Enable Virtuaisation
   virtualisation.virtualbox.host = { 
-    enable = true;
+    enable = false;
     #enableHardening = false; 
   };
   nixpkgs.config.virtualbox.enableExtensionPack = false;
