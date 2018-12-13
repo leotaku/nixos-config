@@ -1,5 +1,6 @@
 {
   network.description = "Web server";
+  network.enableRollback = true;
 
   nixos-rpi =
     { config, pkgs, ... }:
@@ -18,9 +19,8 @@
 
       environment.systemPackages = with pkgs; [
         htop
-        cowsay
-        hello
         ncdu
+        nix-top
       ];
 
       services.nginx = {
@@ -74,14 +74,14 @@
       networking.firewall.enable = true;
       networking.firewall.allowedTCPPorts = [ 22 80 443 6667 ];
 
-      #deployment.targetHost = "nixos-rpi.local";
-      deployment.targetHost = "192.168.178.23";
+      deployment.targetHost = "nixos-rpi.local";
+      #deployment.targetHost = "192.168.178.23";
        
       # NixOS wants to enable GRUB by default
       boot.loader.grub.enable = false;
       boot.loader.generic-extlinux-compatible.enable = true;
  
-      boot.kernelPackages = pkgs.linuxPackages_latest;
+      # boot.kernelPackages = pkgs.linuxPackages_latest;
       
       # Needed for the virtual console to work on the RPi 3, as the default of 16M doesn't seem to be enough.
       boot.kernelParams = ["cma=32M"];

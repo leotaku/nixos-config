@@ -4,31 +4,38 @@
 { config, pkgs, ... }:
 {
   imports = [ 
-    # Import home manager module
-    "${(import ./sources/lock.nix).libs.home-manager}/nixos"
-    # Import Files
+    # Import configuration
     ./users/leo.nix
     ./systems/home.nix
     ./machines/thinkpad.nix
-    "${(import ./sources/lock.nix).libs.clever}/qemu.nix"
+    # Import home manager module
+    ./sources/links/libs/home-manager/nixos
+    # Import quemu module
+    ./sources/links/libs/clever/qemu.nix
+    #./sources/external/clever/qemu.nix
   ];
 
-  #nixpkgs.pkgs = pkgs;
-
-  qemu-user.aarch64 = true;
+  #qemu-user.aarch64 = true;
 
   nix.trustedUsers = [ "root" "@wheel" ];
 
   nix.distributedBuilds = true;
-  nix.buildMachines = [
-    { hostName = "nixos-rpi.local";
-      sshUser = "root";
-      sshKey = "/home/leo/.ssh/id_rsa";
-      system = "aarch64-linux";
-      maxJobs = 2;
-    }
-  ];
+  nix.buildMachines = [ {
+    sshUser = "root";
+    sshKey = "/root/.ssh/test_builder";
+	  hostName = "nixos-rpi.local";
+	  system = "aarch64-linux";
+	  maxJobs = 2;
+	  speedFactor = 2;
+	  supportedFeatures = [ " big-parallel" ];
+	  mandatoryFeatures = [ ];
+	}];
   
+  # optional, useful when the builder has a faster internet connection than yours
+	nix.extraOptions = ''
+		builders-use-substitutes = true
+	'';
+
   nix.nixPath = [
     "/etc/nixos/nixos-config"
     "nixpkgs=/etc/nixos/nixos-config/sources/links/nixpkgs/system"

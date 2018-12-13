@@ -10,6 +10,12 @@
     config = { allowUnfree = true; };
     overlays = [ (import ../pkgs/default.nix) ];
   };
+
+  accounts.email.accounts.leo = {
+    address = "leo.gaskin@brg-feldkirchen.at";
+    flavor = "plain";
+    primary = true;
+  };
   
   home.packages = with pkgs; [
     # Text editors
@@ -25,7 +31,7 @@
     fzy
     gnome3.nautilus
     # Office
-    libreoffice-fresh
+    #libreoffice-fresh
     calligra
     scim
     libqalculate
@@ -47,8 +53,7 @@
     offlineimap
     notmuch
     dialog
-    # TODO: this
-    ###vmail
+    #vmail
     thunderbird
     # Chat
     weechat
