@@ -226,6 +226,7 @@
     sxhkd
     compton-git
     dmenu
+    networkmanager_dmenu
     polybar
     dzen2
     dunst
