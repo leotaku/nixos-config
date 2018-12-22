@@ -5,10 +5,20 @@
   nixos-rpi =
     { config, pkgs, ... }:
     { 
-      imports = [ 
+      imports = [
+        ../modules/dns-records.nix
         ../plugables/avahi/default.nix
         ../plugables/znc/default.nix
       ];
+
+      services.dns-records-update = {
+        enable = true;
+        timer = "01:00:00";
+        urls = {
+          "le0.gs" = "https://api.1984.is/1.0/freedns/?apikey=l5Ux3Xl7Pi0Mo7Tg4Ad5Rg3Xn6Pp9Pf7Wi3Ul3Sk2Nx6Ll0Xq2To5Fl8Tl0Tb1K&domain=le0.gs&ip=";
+          "test.le0.gs" = "https://api.1984.is/1.0/freedns/?apikey=l5Ux3Xl7Pi0Mo7Tg4Ad5Rg3Xn6Pp9Pf7Wi3Ul3Sk2Nx6Ll0Xq2To5Fl8Tl0Tb1K&domain=test.le0.gs&ip=";
+        };
+      };
 
       nix.trustedUsers = [ "root" "remote-builder" ];
 
