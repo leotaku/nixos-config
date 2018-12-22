@@ -216,6 +216,12 @@
     enable = true;
     package = pkgs.wireshark-gtk;
   };
+
+  services.locate = {
+    enable = true;
+    interval = "hourly";
+    localuser = "root";
+  };
   
   # Fix broken lid-suspend
   services.logind.lidSwitch = "ignore";
