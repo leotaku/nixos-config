@@ -1,7 +1,7 @@
-{ emacs, emacsPackagesNg, lib, runCommand, ... }:
+{ emacs, emacsPackagesNg, lib, runCommand, imagemagick, ... }:
 let 
   customEmacsPackages = emacsPackagesNg.overrideScope' (self: super: {
-    emacs = emacs;
+    emacs = (emacs.override { inherit imagemagick; });
   });
 in
 
