@@ -11,11 +11,11 @@
     # Import home manager module
     ./sources/links/libs/home-manager/nixos
     # Import quemu module
-    ./sources/links/libs/clever/qemu.nix
-    #./sources/external/clever/qemu.nix
+    #./sources/links/libs/clever/qemu.nix
+    ./sources/external/clever/qemu.nix
   ];
 
-  #qemu-user.aarch64 = true;
+  qemu-user.aarch64 = true;
 
   nix.trustedUsers = [ "root" "@wheel" ];
 
@@ -41,8 +41,6 @@
     "nixpkgs=/etc/nixos/nixos-config/sources/links/nixpkgs/system"
     "nixos-config=/etc/nixos/configuration.nix"
     "sources=/etc/nixos/nixos-config/sources/lock.nix"
-    
-    #"home-manager=/etc/nixos/nixos-config/sources/mutable/home-manager"
   ];
 
   # This value determines the NixOS release with which your system is to be
