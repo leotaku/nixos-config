@@ -5,14 +5,14 @@
 {
   imports = [ 
     # Import configuration
-    ./users/leo.nix
-    ./systems/home.nix
-    ./machines/thinkpad.nix
+    ./leo.nix
+    ./system.nix
+    ../hardware/thinkpad.nix
     # Import home manager module
-    ./sources/links/libs/home-manager/nixos
+    ../sources/links/libs/home-manager/nixos
     # Import quemu module
     #./sources/links/libs/clever/qemu.nix
-    ./sources/external/clever/qemu.nix
+    ../sources/external/clever/qemu.nix
   ];
 
   qemu-user.aarch64 = true;
@@ -20,16 +20,26 @@
   nix.trustedUsers = [ "root" "@wheel" ];
 
   nix.distributedBuilds = true;
-  nix.buildMachines = [ {
-    sshUser = "root";
-    sshKey = "/root/.ssh/test_builder";
-	  hostName = "nixos-rpi.local";
-	  system = "aarch64-linux";
-	  maxJobs = 2;
-	  speedFactor = 2;
-	  supportedFeatures = [ " big-parallel" ];
-	  mandatoryFeatures = [ ];
-	}];
+  nix.buildMachines = [ 
+    { sshUser = "root";
+      sshKey = "/root/.ssh/test_builder";
+	    hostName = "nixos-rpi.local";
+	    system = "aarch64-linux";
+	    maxJobs = 2;
+	    speedFactor = 2;
+	    supportedFeatures = [ ];
+	    mandatoryFeatures = [ ];
+    }
+    { sshUser = "root";
+      sshKey = "/root/.ssh/test_builder";
+	    hostName = "nixos-fujitsu.local";
+	    system = "x86_64-linux";
+	    maxJobs = 12;
+	    speedFactor = 2;
+	    supportedFeatures = [ "big-parallel" ];
+	    mandatoryFeatures = [ ];
+    }
+  ];
   
   # optional, useful when the builder has a faster internet connection than yours
 	nix.extraOptions = ''
