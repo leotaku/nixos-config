@@ -6,10 +6,6 @@
 {
   imports = [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
 
-  environment.variables = {
-    NIXOS_DESCRIPTIVE_HARDWARE = [ "thinkpad" ];
-  };
-
   # Kernel modules + other
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.availableKernelModules = [ ];
