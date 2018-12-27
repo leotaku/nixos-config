@@ -7,7 +7,7 @@
   imports = [
     # Import plugable configurations
     ../plugables/avahi/default.nix
-   #../plugables/openvpn/serverlist.nix
+    ../plugables/openvpn/serverlist.nix
     ../plugables/transmission/default.nix
     # Enable throwaway account
     ../plugables/throwaway/default.nix
@@ -108,14 +108,14 @@
     imagemagick
     #zathura
     mplayer
-    vlc
+    #vlc
     ffmpeg-full
-    pandoc
+    #pandoc
     # Archives
     p7zip
     # Version control
     mercurial
-    darcs
+    #darcs
     bazaar
     cvs
     # Shells
@@ -124,7 +124,7 @@
     fish
     dash
     elvish
-    xonsh
+    #xonsh
   ];
   
   #TODO: fix fc cache in home-manager
@@ -150,8 +150,6 @@
     PAGER = [ "less" ];
     OH_MY_ZSH = [ "${pkgs.oh-my-zsh-custom}/share/oh-my-zsh" ];
     AUTOJUMP = [ "${pkgs.autojump}/share/zsh/" ];
-    # TODO: remove this
-    NIXOS_DESCRIPTIVE_NAME = [ "home" ];
   };
   
   # List programs that need nix init
@@ -167,6 +165,9 @@
 
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [ hplip gutenprint gutenprintBin splix ];
+
+  # Needed for home-manager to work
+  services.dbus.packages = with pkgs; [ gnome3.dconf ];
 
   # X11 windowing system.
   services.xserver.enable = true; 
@@ -222,6 +223,44 @@
     interval = "hourly";
     localuser = "root";
   };
+
+  # services.grafana = {
+  #   enable = true;
+  #   port     = 3000;
+  #   domain   = "localhost";
+  #   protocol = "http";
+  #   dataDir  = "/var/lib/grafana";
+  #   auth.anonymous.enable = true;
+  # };
+
+  # services.graphite.api = {
+  #   enable = true;
+  #   port = 3030;
+  # };
+
+# services.prometheus = {
+#     enable = true;
+#     configText = ''
+# scrape_configs:
+#   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+#   - job_name: 'prometheus'
+# 
+#     # metrics_path defaults to '/metrics'
+#     # scheme defaults to 'http'.
+# 
+#     static_configs:
+#       - targets: ['localhost:9090']
+# 
+#   - job_name: 'netdata'
+# 
+#     metrics_path: /api/v1/allmetrics
+#     params:
+#       format: [ prometheus ]
+# 
+#     static_configs:
+#       - targets: ['localhost:19999']
+# '';
+#   };
   
   # Fix broken lid-suspend
   services.logind.lidSwitch = "ignore";
