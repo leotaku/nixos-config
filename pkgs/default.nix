@@ -8,8 +8,6 @@ self: super:
   catimg = super.callPackage ./catimg/default.nix {};
   chroma = super.callPackage ./chroma/default.nix {};
   eventd = super.callPackage ./eventd/default.nix {};
-  gotop = super.callPackage ./gotop/default.nix {};
-  instant-markdown-d = (super.callPackage ./instant-markdown-d/default.nix {}).package;
   n30f = super.callPackage ./n30f/default.nix {};
   sddm_theme = super.callPackage ./sddm/theme.nix {};
   torrench = super.callPackage ./torrench/default.nix {};

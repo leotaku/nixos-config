@@ -2,13 +2,13 @@
 
 python3Packages.buildPythonApplication rec {
   name = "torrench-${version}";
-  version = "v1.0.61";
+  version = "2018-04-11";
 
   src = fetchFromGitHub {
     owner = "kryptxy";
     repo = "torrench";
-    rev = "${version}";
-    sha256 = "1aqwrka5h1chbl93985z6pad8yb1blglfyk6xciwyn80h3g3zv3s";
+    rev = "2c4869ebc48012531689830351159da7b3f104b5";
+    sha256 = "0lz976im6ssvr5qlrm807md3h0sglx7chd61jry4vr67dg7g0248";
   };
 
   propagatedBuildInputs = with pkgs; with python3Packages; [ configparser tabulate beautifulsoup4 lxml requests colorama pyperclip xclip ];

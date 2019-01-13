@@ -1,8 +1,11 @@
 { emacs, emacsPackagesNg, lib, runCommand, imagemagick, ... }:
 let 
   customEmacsPackages = emacsPackagesNg.overrideScope' (self: super: {
-    emacs = (emacs.override { inherit imagemagick; });
+    emacs = (emacs.override { inherit imagemagick; } ).overrideAttrs (old: { configureFlags = 
+    [ "--with-modules" "--with-x-toolkit=no" "--without-toolkit-scroll-bars" "--with-xft" # "--with-xwidgets" 
+    ];
   });
+});
 in
 
 customEmacsPackages.emacsWithPackages (epkgs: (with epkgs; [
@@ -11,19 +14,4 @@ customEmacsPackages.emacsWithPackages (epkgs: (with epkgs; [
   #   cp ${orgEmacsConfig} $out/share/emacs/site-lisp/default.el
   # '')
   use-package
-  # evil
-  # org-evil
-  # evil-collection
-
-  # ivy
-  # helm
-
-  # org
-  # auctex
-  # nix-mode
-  # rust-mode
-
-  # parinfer
-
-  # select-themes
 ]))

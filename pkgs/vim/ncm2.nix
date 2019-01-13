@@ -5,8 +5,8 @@
     src = fetchFromGitHub {
       owner = "ncm2";
       repo = "ncm2";
-      rev = "9470f96c53e897ac63fb08b72b05176de423081a";
-      sha256 = "0h8q0yssn95lfp91vbk2ki7yb0rbp51f337ymy1n13xk160i41jv";
+      rev = "ec1b0c917d1b2086bff1b67b86ff54cfaf4aadd0";
+      sha256 = "18nbr7d7y60l87q8rc4r85ngknbf1x5q5zmnxicxh6xrkl1hmf58";
     };
   };
   
@@ -15,8 +15,8 @@
     src = fetchFromGitHub {
       owner = "roxma";
       repo = "nvim-yarp";
-      rev = "5443ac06b3989baa9262adec810503e0234c316e";
-      sha256 = "0b6gmsbgzgwidl0rpkwzr2l1qxd9aw5pvj8izflf6gz36r2irszq";
+      rev = "1524cf7988d1e1ed7475ead3654987f64943a1f0";
+      sha256 = "1iblb9hy4svbabhkid1qh7v085dkpq7dwg4aj38d8xvhj9b7mf6v";
     };
   };
 
@@ -25,8 +25,8 @@
     src = fetchFromGitHub {
       owner = "ncm2";
       repo = "ncm2-ultisnips";
-      rev = "15432d7933cfb855599442a67d6f39ddb706c737";
-      sha256 = "0ixajh08fd5dgdz4h1sdxgiaind1nksk1d4lwyb6n4ijf672pms2";
+      rev = "304f0c6d911991a1c6dbcba4de12e55a029a02c7";
+      sha256 = "1ny3fazx70853zdw5nj7yjqwjj7ggb7f6hh2nym6ks9dmfpfp486";
     };
   };
 
@@ -55,8 +55,8 @@
     src = fetchFromGitHub {
       owner = "ncm2";
       repo = "ncm2-syntax";
-      rev = "b13180a39ec1be77d19ece47ed91deed9fca200b";
-      sha256 = "1rlycny5mivli02nnn8874pmr82qad393i4mrb08iqf8zrczvxd5";
+      rev = "7cd3857001a219be4bc7593b7378034b462415e4";
+      sha256 = "0l36qvsclhg8vr1ix1kpdl0kh739gp6b7s03f18vf9f0aj0im6w2";
     };
   };
   
@@ -65,8 +65,8 @@
     src = fetchFromGitHub {
       owner = "ncm2";
       repo = "ncm2-bufword";
-      rev = "86a92eb3fb217f9ea1e93f890b7e5e0eb1671ca9";
-      sha256 = "02f43rr9apgcjpz4ipnin4v3cvdlx931a0787x87iyr8a0aljg3y";
+      rev = "183843100999d021e5d52c09c61faa6c64ac6e2f";
+      sha256 = "11ma0wfzxjd0mv1ykxjwqk9ixlr6grpkk1md85flqqdngnyif6di";
     };
   };
 
@@ -75,8 +75,8 @@
     src = fetchFromGitHub {
       owner = "ncm2";
       repo = "ncm2-tmux";
-      rev = "4f60ee1be57531295075d808e0006c83894096d1";
-      sha256 = "1ihbm65b9bc0y068w6r0k8f9lsc3603npb55chcchpj7z75539yh";
+      rev = "196131f285f05966bdd1126d6bd0c912d01b92c5";
+      sha256 = "0i9j9yn7ayisl3rwawjic7g3a07cg2541zh3jangjd9wz271l69r";
     };
   };
 }

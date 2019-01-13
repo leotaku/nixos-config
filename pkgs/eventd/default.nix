@@ -4,20 +4,20 @@ let
     eventd = fetchFromGitHub {
       owner = "sardemff7";
       repo = "eventd";
-      rev = "87c742d";
-      sha256 = "0ygckfngq7bk0350h2z5ip7ksglhrxlikqg58vwy484j6iwvd33p";
+      rev = "d7c7ba59aa6b225b3e2b8aebdd853137c05d8445";
+      sha256 = "1zabgn7l9ipn3f1bmd4pbjs702l5fp6r7bfz5fshia8iala49rxb";
     };
     libgwater = fetchFromGitHub {
       owner = "sardemff7";
       repo = "libgwater";
-      rev = "e6faf48";
-      sha256 = "16bfihwbfnbncqmqxqaj9ks5p1bi0rmlm73kbhq2wvmjz9py66if";
+      rev = "67fa66253ccdd9230397577cfa80226c41200a7a";
+      sha256 = "1xl9pqadam2pdx2isqj551g3v483kngw6wzhih44mbqay1wakk5b";
     };
     libnkutils = fetchFromGitHub {
       owner = "sardemff7";
       repo = "libnkutils";
-      rev = "4431565";
-      sha256 = "0aba6lf7jslysvpbsqh0ch9bz41s9xcpr5xydp6b2rr8xra1lvqz";
+      rev = "9015af623c88d17e7c361b955944ec006b77224d";
+      sha256 = "061ybccfl4kw6304zfnpjdrvpwi1gnmcw6ixgxns78xb0z1xz5c5";
     };
   };
 in
