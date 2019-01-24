@@ -284,7 +284,7 @@
     #profileExtra = "";
     windowManager.command = "fvwm";
     initExtra = ''
-    feh --bg-fill $HOME/Wallpaper/agape.jpg
+    feh --bg-fill $HOME/.wallpaper
     mpd
     compton -b
     eventd &
