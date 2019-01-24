@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  ## Define an user account. Don't forget to set a password with ‘passwd’.
+  # Define an user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.leo = {
     isNormalUser = true;
     uid = 1000;
