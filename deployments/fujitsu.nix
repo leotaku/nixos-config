@@ -7,7 +7,9 @@
     { 
       imports = [
         ../hardware/fujitsu.nix
+        ../modules/dns-records.nix
         ../plugables/avahi/default.nix
+        ../private/dns.nix
       ];
 
       nix.trustedUsers = [ "root" "remote-builder" ];
