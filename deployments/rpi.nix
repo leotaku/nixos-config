@@ -22,30 +22,20 @@
         htop
         ncdu
         nix-top
+        speedtest-cli
       ];
 
       services.nginx = {
         enable = true;
         package = pkgs.nginxMainline;
 
-      recommendedGzipSettings = true;
-      recommendedOptimisation = true;
-      recommendedProxySettings = true;
-      recommendedTlsSettings = true;
-
+        recommendedGzipSettings = true;
+        recommendedOptimisation = true;
+        recommendedProxySettings = true;
+        recommendedTlsSettings = true;
+        
         virtualHosts = {
-          "le0.gs" = {
-            enableACME = true;
-            #useACMEHost = "le0.gs";
-            #addSSL = true;
-            forceSSL = true;
-            root = "${pkgs.callPackage ./site/default.nix {}}/";
-          };
-          "test.le0.gs" = {
-            enableACME = true;
-            #useACMEHost = "le0.gs";
-            #addSSL = true;
-            forceSSL = true;
+          "localhost" = {
             locations = {
               "/".proxyPass = "http://localhost:19999/";
             };
@@ -55,25 +45,13 @@
 
       services.netdata.enable = true;
 
-      #security.acme.certs = {
-      #  "le0.gs" = { 
-      #    email = "leo.gaskin@brg-feldkirchen.at";
-      #    webroot = "/var/lib/acme/acme-challenges";
-      #    extraDomains = {
-      #      "le0.gs" = null;
-      #      "test.le0.gs" = null;
-      #    };
-      #    postRun = "systemctl restart nginx.service";
-      #  };
-      #};
-
       services.openssh.enable = true;
       services.openssh.permitRootLogin = "yes";
 
       services.avahi.enable = true;
 
       networking.firewall.enable = true;
-      networking.firewall.allowedTCPPorts = [ 22 80 443 6667 ];
+      networking.firewall.allowedTCPPorts = [ 22 80 443 ];
 
       deployment.targetHost = "nixos-rpi.local";
       #deployment.targetHost = "192.168.178.23";
