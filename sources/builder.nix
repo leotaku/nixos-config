@@ -1,8 +1,8 @@
 let
   lib = import ./lib.nix;
 
-  gitString = { owner, repo, rev, path, ... }:
-    ''${builtins.concatStringsSep "." path} = (fetchGithub "${owner}" "${repo}" "${rev}");'';
+  gitString = { base, owner, repo, rev, path, ... }:
+    ''${builtins.concatStringsSep "." path} = (fetchGit' "${base}" "${owner}" "${repo}" "${rev}");'';
 
   makeSources = attrs:
       (builtins.foldl' (acc: v: 
@@ -15,12 +15,11 @@ ${gitString v}'') "" (lib.mapAttrsToList 1 attrs));
   in
 ''
 let
-fetchGithub = owner: repo: ref:
+fetchGit' = base: owner: repo: ref:
     let
       toPath = str: assert builtins.substring 0 1 str == "/"; /. + builtins.substring 1 (-1) (builtins.unsafeDiscardStringContext str);
 
-      githubBase = "github.com";
-      url = "https://" + githubBase + "/" + owner + "/" + repo;
+      url = base + "/" + owner + "/" + repo;
     in
       with builtins.fetchGit { inherit url ref; };
       {
