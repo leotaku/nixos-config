@@ -4,7 +4,6 @@
   ## Home manager configuration for this account
   programs.home-manager.enable = true;
   programs.home-manager.path = toString /etc/nixos/nixos-config/sources/links/libs/home-manager;
- #programs.home-manager.path = toString (import ../sources).libs.home-manager;
   
   nixpkgs = {
     config = { allowUnfree = true; };
@@ -19,9 +18,8 @@
   
   home.packages = with pkgs; [
     # Text editors
-    # leovim
-    instant-markdown-d
-    vscode-with-extensions
+    #leovim
+    #vscode-with-extensions
     # File Manager
     ranger
     lf
@@ -32,7 +30,7 @@
     gnome3.nautilus
     # Office
     #libreoffice-fresh
-    calligra
+    #calligra
     scim
     libqalculate
     # Version control
@@ -42,7 +40,7 @@
     gource
     # Browsers
     firefox
-    vivaldi
+    #vivaldi
     qutebrowser
     surf
     w3m
@@ -53,7 +51,6 @@
     offlineimap
     notmuch
     dialog
-    #vmail
     thunderbird
     # Chat
     weechat
@@ -125,14 +122,14 @@
     urxvtWithExtensions
     tmux
     # Performance monitoring
-    python36Packages.glances
+    #python36Packages.glances
     htop
     atop
     gotop
     lshw
     hwinfo
     # Network utils
-    #wireshark-gtk
+    wireshark-gtk
     nmap-graphical
     netcat-gnu
     speedtest-cli
@@ -140,7 +137,7 @@
     vnstat
     iptables
     bind
-    #mtr
+    mtr
     liboping
     # Terminal toys
     figlet
@@ -154,7 +151,7 @@
     screenfetch
     tty-clock
     terminal-parrot
-    catimg
+    #catimg
     libcaca
     # Xorg
     xsel
@@ -178,16 +175,17 @@
     ripgrep
     progress
     chroma
-    tealdeer
-    bro
     most
     loc
-    # ++
     rlwrap
+    bvi
+    # ++
     reptyr
     fasd
     hyperfine
     thefuck
+    bro
+    tealdeer
     # Filesystems
     bashmount
     usbutils
@@ -197,7 +195,8 @@
     p7zip
     libarchive
     # Documents + Other
-    pandoc
+    #haskellPackages.pandoc
+    #haskellPackages.pandoc-citeproc
     asciidoctor
     graphviz
     # Misc Filetype
@@ -211,7 +210,7 @@
     python36Packages.pygments
     id3v2
     # Torrent
-    torrench
+    #torrench
     transmission-remote-gtk
     transmission-remote-cli
     # WMs
