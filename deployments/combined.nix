@@ -5,6 +5,3 @@
   nixos-fujitsu = (import ./fujitsu.nix).nixos-fujitsu;
   nixos-rpi = (import ./rpi.nix).nixos-rpi;
 }
-
-  
-
