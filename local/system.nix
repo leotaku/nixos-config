@@ -9,6 +9,7 @@
     ../plugables/avahi/default.nix
     ../plugables/openvpn/serverlist.nix
     ../plugables/transmission/default.nix
+    ../plugables/backup/restic-all.nix
     # Enable throwaway account
     ../plugables/throwaway/default.nix
     # Test stuff
