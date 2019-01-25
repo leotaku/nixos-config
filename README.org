@@ -13,7 +13,7 @@ New /"raw"/ NixOS systems can be installed on an existing NixOS machine by first
 ~REWORK PLANNED~
 
 Deploy the current (only) system by running:
-#+BEGIN_SRC bash
+#+BEGIN_SRC sh
 ln -s ./local/configuration.nix /etc/nixos/configuration.nix
 
 sudo nixos-rebuild switch --install-bootloader
@@ -23,12 +23,12 @@ sudo nixos-rebuild switch --install-bootloader
 Similarly NixOps deployments live in =/deployments=. Servers comprising a singular network should ideally all be contained in a single deployment (but may be split across multiple files). Hardware specific information should still always live in =/hardware=.
 
 Create the current (only) deployment by running:
-#+BEGIN_SRC bash
+#+BEGIN_SRC sh
 nixops create -d combined $(pwd)/deployments/combined.nix
 #+END_SRC
 
 And deploy it using:
-#+BEGIN_SRC bash
+#+BEGIN_SRC sh
 nixops deploy -d combined -I "nixpkgs=./sources/links/nixpkgs/nixos-18_09-small"
 #+END_SRC
 
@@ -84,4 +84,4 @@ This directory contains miscellaneous files needed for various parts of my NixOS
 
 
 #  LocalWords:  NixOS NixOps plugables pkgs env subdirs symlinked
-#  LocalWords:  nixpkgs workflow
+#  LocalWords:  nixpkgs workflow nixos config
