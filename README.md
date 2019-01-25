@@ -1,37 +1,35 @@
-
-# Table of Contents
-
-1.  [nixos-config](#org8d2c499)
-    1.  [Idea](#orgc191403)
-    2.  [Deploying](#orge6c1762)
-        1.  [Local Systems](#org5d793ae)
-        2.  [NixOps Deployments](#org9a14d51)
-        3.  [NixOS Images](#orgf429429)
-    3.  [File structure](#org00c0529)
-        1.  [`/local`](#orgedeb08b)
-        2.  [`/deployments`](#org966e8c8)
-        3.  [`/hardware`](#org590bf22)
-        4.  [`/home-manager`](#org1a20307)
-        5.  [`/modules`](#org9c5d6d9)
-        6.  [`/plugables`](#org7f9bfb0)
-        7.  [`/pkgs`](#orgb4e1c1e)
-        8.  [`/env`](#org9c3e79a)
-        9.  [`/sources`](#orgd9c71ce)
-        10. [`/files`](#org091aac0)
-    4.  [Additional](#orgc75894f)
-        1.  [incorporate nix-get](#orgc29ed69)
-        2.  [`/images` tools](#org2742cf9)
-        3.  [explain all in `/files`](#org3ce55a8)
+- [nixos-config](#org345afc7)
+  - [Idea](#org850a1f9)
+  - [Deploying](#orgf723d62)
+    - [Local Systems](#org4f839db)
+    - [NixOps Deployments](#org5a10311)
+    - [NixOS Images](#org757c2e5)
+  - [File structure](#org3cd7f56)
+    - [`/local`](#org016ec25)
+    - [`/deployments`](#orgce3e47a)
+    - [`/hardware`](#org9ec75cb)
+    - [`/home-manager`](#orgb7e8fa7)
+    - [`/modules`](#org29d536f)
+    - [`/plugables`](#org3bb6150)
+    - [`/pkgs`](#orgfc5eabe)
+    - [`/env`](#org2e77fcc)
+    - [`/sources`](#org04fa0e5)
+    - [`/files`](#orge4956d4)
+  - [Additional](#org0cc54ac)
+    - [incorporate nix-get](#orgc4cb4f8)
+    - [`/images` tools](#org525beb8)
+    - [explain all in `/files`](#org517d537)
 
 
-<a id="org8d2c499"></a>
+
+<a id="org345afc7"></a>
 
 # nixos-config
 
 A git repository to store my nix configurations in
 
 
-<a id="orgc191403"></a>
+<a id="org850a1f9"></a>
 
 ## Idea
 
@@ -40,27 +38,29 @@ This repository contains the configurations for my NixOS systems, with end-user 
 As soon as there are more than one end-user systems the file structure for them should be revised.
 
 
-<a id="orge6c1762"></a>
+<a id="orgf723d62"></a>
 
 ## Deploying
 
 
-<a id="org5d793ae"></a>
+<a id="org4f839db"></a>
 
 ### Local Systems
 
-New *"raw"* NixOS systems can be installed on an existing NixOS machine by first adding new system description to a subfolder in `/local`, creating a matching hardware configuration in `/hardware` and then linking the configuration to `/etc/nixos/configuration.nix`.
+New _"raw"_ NixOS systems can be installed on an existing NixOS machine by first adding new system description to a subfolder in `/local`, creating a matching hardware configuration in `/hardware` and then linking the configuration to `/etc/nixos/configuration.nix`.
 
 `REWORK PLANNED`
 
 Deploy the current (only) system by running:
 
-    ln -s ./local/configuration.nix /etc/nixos/configuration.nix
-    
-    sudo nixos-rebuild switch --install-bootloader
+```sh
+ln -s ./local/configuration.nix /etc/nixos/configuration.nix
+
+sudo nixos-rebuild switch --install-bootloader
+```
 
 
-<a id="org9a14d51"></a>
+<a id="org5a10311"></a>
 
 ### NixOps Deployments
 
@@ -68,24 +68,28 @@ Similarly NixOps deployments live in `/deployments`. Servers comprising a singul
 
 Create the current (only) deployment by running:
 
-    nixops create -d combined $(pwd)/deployments/combined.nix
+```sh
+nixops create -d combined $(pwd)/deployments/combined.nix
+```
 
 And deploy it using:
 
-    nixops deploy -d combined -I "nixpkgs=./sources/links/nixpkgs/nixos-18_09-small"
+```sh
+nixops deploy -d combined -I "nixpkgs=./sources/links/nixpkgs/nixos-18_09-small"
+```
 
 
-<a id="orgf429429"></a>
+<a id="org757c2e5"></a>
 
 ### TODO NixOS Images
 
 
-<a id="org00c0529"></a>
+<a id="org3cd7f56"></a>
 
 ## File structure
 
 
-<a id="orgedeb08b"></a>
+<a id="org016ec25"></a>
 
 ### `/local`
 
@@ -93,49 +97,51 @@ This directory contains system descriptions intended for local (read non-NixOps)
 
 The current structure is:
 
-    /local/configuration.nix
-    /local/system.nix
-    /local/user.nix
+```nil
+/local/configuration.nix
+/local/system.nix
+/local/user.nix
+```
 
 with `/local/configuration.nix` intended to be symlinked to `/etc/nixos/configuration.nix`.
 
 
-<a id="org966e8c8"></a>
+<a id="orgce3e47a"></a>
 
 ### `/deployments`
 
 This directory contains system deployments deployed using NixOps.
 
 
-<a id="org590bf22"></a>
+<a id="org9ec75cb"></a>
 
 ### `/hardware`
 
 This directory contains the hardware dependent configuration of all local and deployed systems in this repository.
 
 
-<a id="org1a20307"></a>
+<a id="orgb7e8fa7"></a>
 
 ### `/home-manager`
 
 This directory contains home-manager user configuration.
 
 
-<a id="org9c5d6d9"></a>
+<a id="org29d536f"></a>
 
 ### `/modules`
 
 This directory contains custom NixOS modules.
 
 
-<a id="org7f9bfb0"></a>
+<a id="org3bb6150"></a>
 
 ### `/plugables`
 
 This directory contains reusable snippets of configuration.
 
 
-<a id="orgb4e1c1e"></a>
+<a id="orgfc5eabe"></a>
 
 ### `/pkgs`
 
@@ -146,14 +152,14 @@ This directory contains custom Nix pkg descriptions.
     This directory contains custom Nix pkg descriptions that are not currently in use.
 
 
-<a id="org9c3e79a"></a>
+<a id="org2e77fcc"></a>
 
 ### `/env`
 
 This directory contains build instructions for development environments. They should usually be sorted by language and given descriptive names.
 
 
-<a id="orgd9c71ce"></a>
+<a id="org04fa0e5"></a>
 
 ### `/sources`
 
@@ -161,29 +167,28 @@ This directory contains files related to my automatic system for transparently m
 It is unnecessary complicated and needs to be majorly improved and well-documented before being useful to the public.
 
 
-<a id="org091aac0"></a>
+<a id="orge4956d4"></a>
 
 ### `/files`
 
 This directory contains miscellaneous files needed for various parts of my NixOS workflow. They should be individually documented.
 
 
-<a id="orgc75894f"></a>
+<a id="org0cc54ac"></a>
 
 ## Additional
 
 
-<a id="orgc29ed69"></a>
+<a id="orgc4cb4f8"></a>
 
 ### TODO incorporate nix-get
 
 
-<a id="org2742cf9"></a>
+<a id="org525beb8"></a>
 
 ### TODO `/images` tools
 
 
-<a id="org3ce55a8"></a>
+<a id="org517d537"></a>
 
 ### TODO explain all in `/files`
-
