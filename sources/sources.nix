@@ -1,16 +1,19 @@
 let
-  fetchGit = base: owner: repo: ref:
+  fetchGit' = base: owner: repo: ref:
     let
       url = "${base}/${owner}/${repo}";
     in
     
     with (builtins.fetchGit { inherit url ref; });
     { 
-      inherit owner repo rev outPath;
+      inherit base owner repo rev outPath;
     };
 
   fetchGithub =
-    fetchGit "https://github.com";
+    fetchGit' "https://github.com";
+
+  fetchGitlab =
+    fetchGit' "https://gitlab.com";
 
   fetchChannel =
     fetchGithub "NixOS" "nixpkgs-channels";
