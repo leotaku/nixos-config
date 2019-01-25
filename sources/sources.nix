@@ -25,17 +25,24 @@ in
 rec {
   nixpkgs = {
     nixos-unstable = fetchChannel "nixos-unstable"; 
+    #nixos-unstable-small = fetchChannel "nixos-unstable-small"; 
     nixos-18_09 = fetchChannel "nixos-18.09";
-    unstable-aarch64 = fetchNixpkgs "unstable-aarch64";
+    nixos-18_09-small = fetchChannel "nixos-18.09-small";
+    #nixos-18_09-upstream = fetchNixpkgs "release-18.09";
+    #nixos-18_03 = fetchNixpkgs "release-18.03";
+    #nixos-18_03-small = fetchChannel "nixos-18.03-small";
+    #unstable-aarch64 = fetchNixpkgs "unstable-aarch64";
     master = fetchNixpkgs "master";
     
     system = nixpkgs.nixos-unstable;
-    rpi = nixpkgs.nixos-18_09;
-    iwanttodie = fetchNixpkgs "master";
   };
   libs = {
     nixpkgs-mozilla = fetchGithub "mozilla" "nixpkgs-mozilla" "master";
     home-manager = fetchGithub "rycee" "home-manager" "master";
     clever = fetchGithub "cleverca22" "nixos-configs" "master";
+    simple-nixos-mailserver = fetchGitlab "simple-nixos-mailserver" "nixos-mailserver" "master";
+  };
+  tools = {
+    direnv = fetchGithub "direnv" "direnv" "master";
   };
 }
