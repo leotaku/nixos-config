@@ -1,33 +1,87 @@
 * nixos-config
 A git repository to store my nix configurations in
 
-!!! DESCRIPTION OUTDATED !!!
-
 ** Idea
-System configurations in this github repo are intended to be "installable" by linking any .nix file stored in the top level directory to =/etc/nixos/configuration.nix=. .nix files for machine, user, dotfile, etc. configurations should be stored in separate directories containing only other files configuring their one aspect of the system. These directories should also not contain other directories that contain files of other configuration-types. (eg. no "/users/dotfiles", but "/users" and "/dotfiles")
+This repository contains the configurations for my NixOS systems, with end-user systems being stored in =/local= and NixOps deployments being stored in =/deploments=.
 
+As soon as there are more than one end-user systems the file structure for them should be revised.
+
+** Deploying
+*** Local Systems
+New /"raw"/ NixOS systems can be installed on an existing NixOS machine by first adding new system description to a subfolder in =/local=, creating a matching hardware configuration in =/hardware= and then linking the configuration to =/etc/nixos/configuration.nix=.
+
+~REWORK PLANNED~
+
+Deploy the current (only) system by running:
+#+BEGIN_SRC bash
+ln -s ./local/configuration.nix /etc/nixos/configuration.nix
+
+sudo nixos-rebuild switch --install-bootloader
+#+END_SRC
+
+*** NixOps Deployments
+Similarly NixOps deployments live in =/deployments=. Servers comprising a singular network should ideally all be contained in a single deployment (but may be split across multiple files). Hardware specific information should still always live in =/hardware=.
+
+Create the current (only) deployment by running:
+#+BEGIN_SRC bash
+nixops create -d combined $(pwd)/deployments/combined.nix
+#+END_SRC
+
+And deploy it using:
+#+BEGIN_SRC bash
+nixops deploy -d combined -I "nixpkgs=./sources/links/nixpkgs/nixos-18_09-small"
+#+END_SRC
+
+*** TODO NixOS Images
 ** File structure
-*** Top level
-.nix files in this directory are intended to be linked to =/etc/nixos/configuration.nix= to provide a full nixos configuration. They should generally only contain imports from other files. They are to be labeled according to their purpose in the following format: =<usage>-<machine>-<user/group>.nix=
-Example: =home-thinkpad-leo.nix=
+*** =/local=
+This directory contains system descriptions intended for local (read non-NixOps) use. Possibly sorted in subdirs. ~TO BE IMPLEMENTED~
 
-*** Systems
-.nix files in this directory should contain system-wide configurations. 
+The current structure is:
+#+BEGIN_SRC 
+/local/configuration.nix
+/local/system.nix
+/local/user.nix
+#+END_SRC
 
-*** Machines
-.nix files in this directory should generally contain the results of the hardware scan, as well as, if possible, options that are directly related to specific NixOS installs. (eg. bootloader options)
+with =/local/configuration.nix= intended to be symlinked to =/etc/nixos/configuration.nix=.
 
-*** Users
-.nix files in this directory should contain configurations for individual users, they should not depend on any specific systems. Ideally all configurations in this directory should be managed through a user-configuration NixOS module (eg. nixup, home-manager), however none of these tools currently cover everything I need, which leads to some system-wide configurations having to be set.
+*** =/deployments=
+This directory contains system deployments deployed using NixOps.
 
-*** Groups
-.nix files in this directory are used for importing different users into one file on multi-user systems. Top level .nix files on those systems should then import these files instead of multiple user files.
+*** =/hardware=
+This directory contains the hardware dependent configuration of all local and deployed systems in this repository.
 
-*** Dotfiles
-This directory should contain non-.nix files for configuring different programmes. The configurations set here are only to be applied after a system rebuild. The files in this directory should be grouped by users folders containing arbitrary folders and files. 
+*** =/home-manager=
+This directory contains home-manager user configuration.
 
-*** Env (bad name)
-This directory may contain arbitrary folders containing build instructions for development environments. They should usually be sorted by language and given descriptive names.
+*** =/modules=
+This directory contains custom NixOS modules.
 
-** Additional Info
-Top level configuaration files should import systems, machines/hardware and users separately. Systems should not import users or hardware.
+*** =/plugables=
+This directory contains reusable snippets of configuration.
+
+*** =/pkgs=
+This directory contains custom Nix pkg descriptions.
+
+**** =pkgs/unused=
+This directory contains custom Nix pkg descriptions that are not currently in use.
+
+*** =/env=
+This directory contains build instructions for development environments. They should usually be sorted by language and given descriptive names.
+
+*** =/sources=
+This directory contains files related to my automatic system for transparently managing external Nix sources such as nixpkgs.
+It is unnecessary complicated and needs to be majorly improved and well-documented before being useful to the public.
+
+*** =/files=
+This directory contains miscellaneous files needed for various parts of my NixOS workflow. They should be individually documented.
+
+** Additional
+*** TODO incorporate nix-get
+*** TODO =/images= tools
+*** TODO explain all in =/files=
+
+
+#  LocalWords:  NixOS NixOps plugables pkgs env subdirs symlinked
+#  LocalWords:  nixpkgs workflow
