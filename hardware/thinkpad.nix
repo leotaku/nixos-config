@@ -7,10 +7,10 @@
   imports = [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
 
   # Kernel modules + other
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
   boot.initrd.availableKernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "acpi_call" ];
-  boot.extraModulePackages = [ pkgs.linuxPackages_latest.acpi_call ];
+  boot.extraModulePackages = [ pkgs.linuxPackages.acpi_call ];
 
   # Boot loader
   boot.loader.grub.enable = true;
