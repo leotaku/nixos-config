@@ -5,8 +5,8 @@
     src = fetchFromGitHub {
       owner = "ncm2";
       repo = "ncm2";
-      rev = "ec1b0c917d1b2086bff1b67b86ff54cfaf4aadd0";
-      sha256 = "18nbr7d7y60l87q8rc4r85ngknbf1x5q5zmnxicxh6xrkl1hmf58";
+      rev = "5bd16749b1f8aeb04ddde191c46fa9be237f2eea";
+      sha256 = "0nwf32y09lgiz20019ja72ah3bz5h48ama50lpbh6rl5miq4b5nk";
     };
   };
   
@@ -25,8 +25,8 @@
     src = fetchFromGitHub {
       owner = "ncm2";
       repo = "ncm2-ultisnips";
-      rev = "304f0c6d911991a1c6dbcba4de12e55a029a02c7";
-      sha256 = "1ny3fazx70853zdw5nj7yjqwjj7ggb7f6hh2nym6ks9dmfpfp486";
+      rev = "a7462f3b7036dce045a472d8ec9d8fb9fb090212";
+      sha256 = "0f3qp33s5nh9nha9cgxggcmh7c1a5yrwvyyrszlh0x8nrzm1v1ma";
     };
   };
 
@@ -45,8 +45,8 @@
     src = fetchFromGitHub {
       owner = "ncm2";
       repo = "ncm2-path";
-      rev = "d17deaceb3bc4da415cff25262762c99cdd34116";
-      sha256 = "16pbln1k6jw5yc79g7g736kf4m7hn6kdlsphml7dla7xnnzd2az3";
+      rev = "7315d39b6f55b87721fe0cbe5ebe64f2adff19d4";
+      sha256 = "1ijmlk5n7pr27a9hf7b5761vg9hhx0qqzvb73r2f4xdjdx5g3d8k";
     };
   };
   
@@ -65,8 +65,8 @@
     src = fetchFromGitHub {
       owner = "ncm2";
       repo = "ncm2-bufword";
-      rev = "183843100999d021e5d52c09c61faa6c64ac6e2f";
-      sha256 = "11ma0wfzxjd0mv1ykxjwqk9ixlr6grpkk1md85flqqdngnyif6di";
+      rev = "1d42750114e47a31286268880affcd66c6ae48d5";
+      sha256 = "14q76n5c70wvi48wm1alyckba71rp5300i35091ga197nkgphyaz";
     };
   };
 
@@ -75,8 +75,8 @@
     src = fetchFromGitHub {
       owner = "ncm2";
       repo = "ncm2-tmux";
-      rev = "196131f285f05966bdd1126d6bd0c912d01b92c5";
-      sha256 = "0i9j9yn7ayisl3rwawjic7g3a07cg2541zh3jangjd9wz271l69r";
+      rev = "17fa16ac1211af3d8e671f1591939d6f37bdd3bd";
+      sha256 = "1g99vbrdz06i36gpa95crwixj61my7c9miy7mbpfbiy4zykf2wl2";
     };
   };
 }
