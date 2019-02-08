@@ -10,8 +10,11 @@
         ../modules/dns-records.nix
         ../plugables/avahi/default.nix
         ../private/dns.nix
+        ../sources/external/clever/qemu.nix
         #../sources/links/libs/simple-nixos-mailserver/default.nix
       ];
+
+      qemu-user.aarch64 = true;
 
       nix.trustedUsers = [ "root" "remote-builder" ];
 

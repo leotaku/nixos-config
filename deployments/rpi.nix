@@ -8,7 +8,6 @@
       imports = [
         ../hardware/raspberry3.nix
         ../plugables/avahi/default.nix
-        ../plugables/znc/default.nix
       ];
 
       nix.trustedUsers = [ "root" "remote-builder" ];
