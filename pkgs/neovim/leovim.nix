@@ -11,7 +11,7 @@ pkgs.neovim.override {
     "denite"
     "fzf-vim"
     "fzfWrapper"
-    "neomru"
+    #"neomru"
     "vim-startify"
     "winresizer"
     #"ctrlp"
@@ -88,7 +88,7 @@ pkgs.neovim.override {
     #"parinfer-rust"
     #"slimv"
     "vim-go"
-    "vim-delve"
+    #"vim-delve"
     "julia-vim"
     "vim-toml"
     "neco-vim"
@@ -124,8 +124,8 @@ pkgs.neovim.override {
     "vim-operator-user"
     "repeat"
     #"SyntaxRange"
-    ##"genutils"
-    ##"vimproc"
+    #"genutils"
+    #"vimproc"
   ];
   configure.customRC = ''
     set laststatus=0
