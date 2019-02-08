@@ -82,8 +82,8 @@ This directory contains miscellaneous files needed for various parts of my NixOS
 *** TODO =/images= tools
 *** TODO explain all in =/files=
 
-* Customize                                                         :ARCHIVE:
+* Customize                                                :ARCHIVE:
 #+OPTIONS: toc:nil
 
 #  LocalWords:  NixOS NixOps plugables pkgs env subdirs symlinked
-#  LocalWords:  nixpkgs workflow nixos config
+#  LocalWords:  nixpkgs workflow nixos config noexport
