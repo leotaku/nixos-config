@@ -10,74 +10,12 @@
     ../plugables/openvpn/serverlist.nix
     ../plugables/transmission/default.nix
     ../plugables/backup/restic-all.nix
+    ../plugables/email/postfix-queue.nix
     # Enable throwaway account
     ../plugables/throwaway/default.nix
     # Test stuff
     #../containers/test.nix
   ];
-
-  # services.postfix = {
-  #   enable = true;
-  #   enableSmtp = true;
-
-  #   #relayHost = "smtp.outlook.com";
-  #   #relayPort = 587;
-
-  #   config = {
-  #     myhostname = "smtp.outlook.com";
-  #     relayhost = "";
-  #     smtp_always_send_ehlo = true;
-  #     smtpd_sasl_path = "smtpd";
-  #     smtp_use_tls = true;
-  #     smtpd_tls_security_level = "encrypt";
-  #     #smtpd_tls_cert_file = "/etc/ssl/certs/ca-certificates.crt";
-  #     smtp_sasl_security_options = "";
-
-  #     mydestination = "";
-  #     #smtp_use_starttls = true;
-  #     smtp_sasl_auth_enable = true;
-  #     smtp_tls_CAfile = "/etc/ssl/certs/ca-certificates.crt";
-  #     smtp_sasl_type = "cyrus";
-  #     smtpd_tls_loglevel = "2";
-  #     smtp_tls_loglevel = "2";
-
-  #     smtp_sender_dependent_authentication = true;
-  #     #smtp_sasl_password_maps = "/home/leo/passwd";
-  #     smtp_sasl_password_maps = "hash:/home/leo/passwd";
-  #     sender_dependent_relayhost_maps = "hash:/home/leo/relay_maps";
-  #   };
-  # };
-
-  services.postfix = {
-    enable = true;
-    config = {
-      # SASL SUPPORT FOR SERVERS
-      #
-      # The following options set parameters needed by Postfix to enable
-      # Cyrus-SASL support for authentication of mail servers.
-      #
-
-      myorigin = "$mydomain";
-      relayhost = "[smtp.outlook.com]:587";
-
-      smtp_always_send_ehlo = true;
-
-      smtp_sasl_auth_enable = "yes";
-      smtp_sasl_security_options = "noanonymous";
-      smtp_sasl_password_maps = "hash:/etc/nixos/nixos-config/private/postfix/sasl_password_map_default";
-      smtp_sasl_mechanism_filter = "plain, login";
-      
-      smtpd_sasl_auth_enable = "no";
-      #smtpd_sasl_path = "smtpd";
-      #smtpd_sasl_security_options = "noanonymous";
-      #smtpd_sasl_password_maps = "hash:/path/to/file";
-      #smtpd_sasl_mechanism_filter = "plain, login";
-
-      smtpd_use_tls = "no";
-      smtp_use_tls = "yes";
-      smtp_tls_security_level = "encrypt";
-    }; 
-  };
 
   hardware.opengl.enable = true;
   
