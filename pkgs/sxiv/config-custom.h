@@ -14,11 +14,13 @@ static const char * const BAR_FONT = "GohuFont:size=8";
 /* colors:
  * (see X(7) section "COLOR NAMES" for valid values)
  */
-static const char * const WIN_BG_COLOR = "#151718";
-static const char * const WIN_FS_COLOR = "#000000";
-static const char * const SEL_COLOR    = "#55dbbe";
-static const char * const BAR_BG_COLOR = "#151718";
-static const char * const BAR_FG_COLOR = "#d6d6d6";
+
+//// now managed using Xresources
+static const char * const BG_COLOR = "#151718";
+static const char * const FG_COLOR = "#55dbbe";
+// static const char * const SEL_COLOR    = "#55dbbe";
+// static const char * const BAR_BG_COLOR = "#151718";
+// static const char * const BAR_FG_COLOR = "#d6d6d6";
 
 #endif
 #ifdef _IMAGE_CONFIG
