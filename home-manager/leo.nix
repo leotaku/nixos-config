@@ -1,21 +1,103 @@
 { config, lib, pkgs, ... }:
 
-{
+rec {
   ## Home manager configuration for this account
   programs.home-manager.enable = true;
   programs.home-manager.path = toString /etc/nixos/nixos-config/sources/links/libs/home-manager;
-  
+
   nixpkgs = {
     config = { allowUnfree = true; };
     overlays = [ (import ../pkgs/default.nix) ];
   };
-
-  accounts.email.accounts.leo = {
-    address = "leo.gaskin@brg-feldkirchen.at";
+  
+  accounts.email.maildirBasePath = ".maildir";
+  accounts.email.accounts.outlook = {
+    userName = "email@email.em";
+    realName = "Email Mail";
+    address = "email.mail@email.em";
+    passwordCommand = "${pkgs.coreutils}/bin/cat UNSAFE-FILE";
     flavor = "plain";
     primary = true;
+    
+    imap = {
+      host = "imap.provider.nz";
+      port = 993;
+      tls = {
+        enable = true;
+        #useStartTls = true;
+      };
+    };
+
+    # smtp = {
+    #   host = "smtp.provider.nz";
+    #   port = 587;
+    #   tls = {
+    #     enable = true;
+    #     useStartTls = true;
+    #   };
+    # };
+
+    mbsync = {
+      enable = true;
+      create = "maildir";
+      expunge = "both";
+      flatten = ".";
+      patterns = [ "*" "!.*" ];
+
+      extraConfig.local = {
+        Subfolders = "Verbatim";
+      };
+    };
+
+    # msmtp = {
+    #   enable = true;
+    # };
+
+    notmuch.enable = true;
+
   };
-  
+
+  # Use msmtp with postfix!
+  home.file.".msmtprc".text = ''
+    account account1
+    auth off
+    from email.mail@email.em
+    host localhost
+    port 25
+    tls off
+    tls_starttls off
+    user email.mail@email.em
+    
+    account default : account1
+  '';
+
+  programs.notmuch = {
+    enable = true;
+    extraConfig = {
+      maildir = {
+        synchronize_flags = "true";
+      };
+    };
+  };
+
+  programs.mbsync.enable = true;
+  services.mbsync =  {
+    enable = true;
+    postExec = ''
+      ${pkgs.dash}/bin/dash -c '\
+      ${pkgs.notmuch}/bin/notmuch --config=${config.xdg.configHome}/notmuch/notmuchrc new'
+    '';
+      #${pkgs.mu}/bin/mu index --maildir=${accounts.email.maildirBasePath}'
+  };
+
+  programs.msmtp.enable = true;
+
+
+  home.file.".mailcap".text = ''
+      text/html; ${pkgs.w3m}/bin/w3m -dump %s; nametemplate=%s.html; copiousoutput
+    '';
+
+
   home.packages = with pkgs; [
     # Text editors
     #leovim
