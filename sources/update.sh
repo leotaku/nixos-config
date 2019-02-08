@@ -18,9 +18,7 @@ function build () {
     
     if [[ -n "$contents" ]]; then
         echo -e $contents > $file
-        printf "${GREEN}"
-        diff lock.nix "$file" && echo -e "${RED}no updates"
-        printf "${NC}"
+        diff lock.nix "$file" --color=auto && echo -e "${RED}no updates${NC}"
         cat "$file" > lock.nix
     fi
 }
@@ -34,10 +32,8 @@ function buildLinker () {
 
     if [[ -n "$contents" ]]; then
         echo -e $contents > $file
-        diff linker.sh "$file" &>/dev/null && echo -e "${YELLOW}linker not updated" || echo -e "${YELLOW}updated linker"
-        printf "${GREEN}"
-        diff linker.sh "$file"
-        printf "${NC}"
+        diff linker.sh "$file" &>/dev/null && echo -e "${YELLOW}linker not updated" || echo -e "${YELLOW}updated linker${NC}"
+        diff linker.sh "$file" --color=auto
         cat "$file" > linker.sh
         chmod u+x linker.sh
     fi
