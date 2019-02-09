@@ -25,10 +25,8 @@
     clex
     fzf
     fzy
-    gnome3.nautilus
     # Office
-    #libreoffice-fresh
-    #calligra
+    libreoffice-fresh
     scim
     libqalculate
     # Version control
@@ -37,23 +35,20 @@
     gitAndTools.gitRemoteGcrypt
     gource
     # Browsers
-    firefox
-    #vivaldi
-    qutebrowser
+    mozilla.firefox-devedition-bin-unwrapped
     surf
     w3m
     elinks
     lynx
     # Mail
     neomutt
-    offlineimap
     notmuch
     dialog
     thunderbird
     # Chat
     weechat
     irssi
-    discord
+    #discord
     # Other Web
     rtv
     ddgr
@@ -239,31 +234,31 @@
     #universal-ctags
     # Webdev
     hugo
-    # Fonts
-    # TODO: sowehow fix font colls
-    # TODO: fix fc search path
-    #siji
-    #font-awesome-ttf
-    #google-fonts
-    #noto-fonts
-    #noto-fonts-emoji
-    #lmmath
-    ##nerdfonts
-    #gohufont
-    #terminus_font
-    ##tewi-font
-    #dina-font
-    #fira-code
-    #fira-mono
-    #roboto
-    #montserrat
     # Nix
     nix-top
     nix-du
     nix-index
     nix-prefetch-scripts
+    # Fonts
+    # TODO: sowehow fix font colls
+    # TODO: fix fc search path
+    gohufont
+    terminus_font
+    unifont
+    siji
+    google-fonts
+    go-font
+    lmmath
+    #tewi-font
+    dina-font
+    fira-code
+    fira-mono
+    #roboto
+    emacs-all-the-icons-fonts
   ];
   
+  fonts.fontconfig.enableProfileFonts = true;
+
   home.sessionVariables = {
     TERMINAL = "urxvt";
     EDITOR = "vim";
@@ -274,8 +269,6 @@
   home.keyboard.layout = "de";
   home.keyboard.variant = "nodeadkeys";
   #home.keyboard.options = "eurosign:e";
-
-  #fonts.fontconfig.enableProfileFonts = true;
   
   xsession = {
     enable = true;
@@ -283,16 +276,22 @@
     windowManager.command = "fvwm";
     initExtra = ''
     feh --bg-fill $HOME/.wallpaper
-    mpd
     compton -b
-    eventd &
     polybar small &
     urxvtd &
+    mpd
+    screen -d -m -S NcmpcppContainer "$HOME/.config/ncmpcpp/spawn-script"
+    # Setup locksreen
     xset s 600 300
     xss-lock -- $HOME/Scripts/screenlock &
-    screen -d -m -S NcmpcppContainer "$HOME/.config/ncmpcpp/spawn-script"
     '';
   };
+
+  #services.compton = {
+  #  enable = true;
+  #  package = pkgs.compton-git;
+  #  extraOptions = lib.readFile (config.xdg.configHome +  "/compton.conf");
+  #};
   
   gtk = {
     enable = true;

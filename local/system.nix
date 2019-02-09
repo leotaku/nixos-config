@@ -106,18 +106,14 @@
     tmux
     screen
     # Files
-    sxiv
     imagemagick
-    #zathura
-    mplayer
-    #vlc
     ffmpeg-full
-    #pandoc
+    pandoc
     # Archives
     p7zip
     # Version control
     mercurial
-    #darcs
+    darcs
     bazaar
     cvs
     # Shells
@@ -126,24 +122,10 @@
     fish
     dash
     elvish
-    #xonsh
   ];
   
   #TODO: fix fc cache in home-manager
-  fonts.fonts = with pkgs; [
-    gohufont
-    terminus_font
-    unifont
-    siji
-    google-fonts
-    go-font
-    lmmath
-    tewi-font
-    dina-font
-    fira-code
-    fira-mono
-    roboto
-  ];
+  fonts.fonts = with pkgs; [ terminus_font ];
   
   environment.variables = {
     EDITOR = [ "vim" ];
