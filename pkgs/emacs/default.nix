@@ -8,10 +8,4 @@ let
 });
 in
 
-customEmacsPackages.emacsWithPackages (epkgs: (with epkgs; [
-  # (runCommand "default.el" {} ''
-  #   mkdir -p $out/share/emacs/site-lisp
-  #   cp ${orgEmacsConfig} $out/share/emacs/site-lisp/default.el
-  # '')
-  use-package
-]))
+customEmacsPackages.emacsWithPackages (epkgs: (with epkgs; []))
