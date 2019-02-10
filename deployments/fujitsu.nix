@@ -9,6 +9,7 @@
         ../hardware/fujitsu.nix
         ../modules/dns-records.nix
         ../plugables/avahi/default.nix
+        ../plugables/znc/default.nix
         ../private/dns.nix
         ../sources/external/clever/qemu.nix
         #../sources/links/libs/simple-nixos-mailserver/default.nix
