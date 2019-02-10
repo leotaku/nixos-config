@@ -12,15 +12,15 @@ fetchGit' = base: owner: repo: ref:
  };
 in
 {
-libs.clever = (fetchGit' "https://github.com" "cleverca22" "nixos-configs" "738e551c261fce79869c92723ded657b0346e0e1");
-libs.home-manager = (fetchGit' "https://github.com" "rycee" "home-manager" "601619660de5a86ae6eb95936b7bffc03227dbc2");
+libs.clever = (fetchGit' "https://github.com" "cleverca22" "nixos-configs" "a37fddeb4e3a105bb24971111a8a7aeead696951");
+libs.home-manager = (fetchGit' "https://github.com" "rycee" "home-manager" "1cdb8abf301f5c5ac99849d3754d1477b5d2b3e5");
 libs.nixpkgs-mozilla = (fetchGit' "https://github.com" "mozilla" "nixpkgs-mozilla" "507efc7f62427ded829b770a06dd0e30db0a24fe");
-libs.simple-nixos-mailserver = (fetchGit' "https://gitlab.com" "simple-nixos-mailserver" "nixos-mailserver" "c2ca4d1bb05a5c3886b433dc10b2c4d55bfa1f29");
-nixpkgs.master = (fetchGit' "https://github.com" "NixOS" "nixpkgs" "5f106e8aae930c7f48a50cf20c1c92d80ca733c8");
-nixpkgs.nixos-18_09 = (fetchGit' "https://github.com" "NixOS" "nixpkgs-channels" "749a3a0d00b5d4cb3f039ea53e7d5efc23c296a2");
-nixpkgs.nixos-18_09-small = (fetchGit' "https://github.com" "NixOS" "nixpkgs-channels" "119a93190a86794179e13ec38d51140e953a8ca9");
-nixpkgs.nixos-unstable = (fetchGit' "https://github.com" "NixOS" "nixpkgs-channels" "bc41317e24317b0f506287f2d5bab00140b9b50e");
-nixpkgs.system = (fetchGit' "https://github.com" "NixOS" "nixpkgs-channels" "bc41317e24317b0f506287f2d5bab00140b9b50e");
-tools.direnv = (fetchGit' "https://github.com" "direnv" "direnv" "08a64e8a1a4a786b77ec4e344c111df0fb4394cf");
+libs.simple-nixos-mailserver = (fetchGit' "https://gitlab.com" "simple-nixos-mailserver" "nixos-mailserver" "2c59de8dcba6ec7ca386391cb139b06e40450bdd");
+nixpkgs.master = (fetchGit' "https://github.com" "NixOS" "nixpkgs" "929cc78363e6878e044556bd291382eab37bcbed");
+nixpkgs.nixos-18_09 = (fetchGit' "https://github.com" "NixOS" "nixpkgs-channels" "5225d4bf0193b51cfb1a200faa4ae50958f98c62");
+nixpkgs.nixos-18_09-small = (fetchGit' "https://github.com" "NixOS" "nixpkgs-channels" "5225d4bf0193b51cfb1a200faa4ae50958f98c62");
+nixpkgs.nixos-unstable = (fetchGit' "https://github.com" "NixOS" "nixpkgs-channels" "64825dfd26ace38ffa2c0de971a5fafb87fdfd30");
+nixpkgs.system = (fetchGit' "https://github.com" "NixOS" "nixpkgs-channels" "64825dfd26ace38ffa2c0de971a5fafb87fdfd30");
+tools.direnv = (fetchGit' "https://github.com" "direnv" "direnv" "0dcb17f5a0b77222a76785dd427f29c1d27d3d81");
 }
 
