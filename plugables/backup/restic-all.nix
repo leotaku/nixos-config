@@ -9,10 +9,8 @@ let
     timerConfig = timer;
   };
 in
-  {
-    imports = [ ../../modules/restic-fix.nix ];
-
-    services.restic-fix.backups = {
-      "home-bidaily"  = runAt { OnCalendar = [ "*-*-* 11:00" "*-*-* 22:00" ]; Persistent = "true"; };
-    };
-  }
+{
+  services.restic.backups = {
+    "home-bidaily" = runAt { OnCalendar = [ "*-*-* 11:00" "*-*-* 22:00" ]; Persistent = "true"; };
+  };
+}
