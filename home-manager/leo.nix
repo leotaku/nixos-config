@@ -35,7 +35,8 @@
     gitAndTools.gitRemoteGcrypt
     gource
     # Browsers
-    mozilla.firefox-devedition-bin-unwrapped
+    #mozilla.firefox-devedition-bin-unwrapped
+    mozilla.firefox
     surf
     w3m
     elinks
