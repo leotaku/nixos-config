@@ -2,7 +2,7 @@
 pkgs.neovim.override {
   vimAlias = true; 
   withPython3 = true;
-  extraPython3Packages = with pkgs.python3Packages; [ jedi typing ];
+  extraPython3Packages = (ps: with ps; [ jedi typing ]);
 
   configure.vam.knownPlugins = pkgs.vimPlugins // pkgs.customVimPlugins;
   configure.vam.pluginDictionaries = [
@@ -64,8 +64,8 @@ pkgs.neovim.override {
     #"vim-easytags"
 
     # Writing
-    "vim-pencil"
-    "vim-grammarous"
+    #"vim-pencil"
+    #"vim-grammarous"
     #"vim-wordy"
 
     # Markup Languages
