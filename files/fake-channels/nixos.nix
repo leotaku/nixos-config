@@ -1,3 +1,2 @@
-#(import ((import <sources>).nixpkgs.system) 
-#  { config.allowUnfree = true; })
+# goes into "~/.nix-defexpr/nixos/default.nix"
 (import <nixpkgs> {})

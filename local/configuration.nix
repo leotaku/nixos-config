@@ -10,7 +10,7 @@
     ../hardware/thinkpad.nix
     ../plugables/builders/all.nix
     # Import home manager module
-    ../sources/links/libs/home-manager/nixos
+    ../sources/links/home-manager/nixos
     # Import quemu module
     ../sources/external/clever/qemu.nix
   ];
@@ -22,9 +22,9 @@
   
   nix.nixPath = [
     "/etc/nixos/nixos-config"
-    "nixpkgs=/etc/nixos/nixos-config/sources/links/nixpkgs/system"
+    "nixpkgs=/etc/nixos/nixos-config/sources/links/nixos-unstable"
     "nixos-config=/etc/nixos/configuration.nix"
-    "sources=/etc/nixos/nixos-config/sources/lock.nix"
+    "sources=/etc/nixos/nixos-config/sources/nix/sources.nix"
   ];
 
   # This value determines the NixOS release with which your system is to be

@@ -1,0 +1,9 @@
+[submodule "sources/external/niv"]
+	path = sources/external/niv
+	url = https://github.com/nmattia/niv
+[submodule "sources/external/nixpkgs"]
+	path = sources/external/nixpkgs
+	url = https://github.com/NixOS/nixpkgs
+[submodule "sources/external/clever"]
+	path = sources/external/clever
+	url = https://github.com/cleverca22/nixos-configs

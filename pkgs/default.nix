@@ -25,7 +25,7 @@ self: super:
   mu = super.callPackage ./mu/default.nix {};
 
   # Mozilla
-  mozilla = (import ../sources/links/libs/nixpkgs-mozilla) self super;
+  mozilla = (import ../sources/links/nixpkgs-mozilla) self super;
 
   # Collections
   customPythonPackages = super.callPackage ./python/customPackages.nix {};

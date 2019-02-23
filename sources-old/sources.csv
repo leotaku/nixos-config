@@ -1,0 +1,10 @@
+nixpkgs/master,https://github.com/NixOS/nixpkgs,origin/master,origin
+nixpkgs/system,https://github.com/NixOS/nixpkgs-channels,origin/nixos-unstable,origin
+nixpkgs/nixos-unstable,https://github.com/NixOS/nixpkgs-channels,origin/nixos-unstable,origin
+nixpkgs/nixos-18_09,https://github.com/NixOS/nixpkgs-channels,origin/nixos-18.09,origin
+nixpkgs/nixos-18_09-small,https://github.com/NixOS/nixpkgs-channels,origin/nixos-18.09-small,origin
+libs/clever,https://github.com/cleverca22/nixos-configs,origin/master,origin
+libs/home-manager,https://github.com/rycee/home-manager,origin/master,origin
+libs/nixpkgs-mozilla,https://github.com/mozilla/nixpkgs-mozilla,origin/master,origin
+libs/simple-nixos-mailserver,https://gitlab.com/simple-nixos-mailserver/nixos-mailserver,origin/master,origin
+tools/direnv,https://github.com/direnv/direnv,origin/master,origin

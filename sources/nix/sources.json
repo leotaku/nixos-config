@@ -1,0 +1,83 @@
+{
+    "nixos-18_09-small": {
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/23453d2d8c7189d479e26de0cf87906cb5189870.tar.gz",
+        "owner": "NixOS",
+        "branch": "nixos-18.09-small",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "repo": "nixpkgs-channels",
+        "sha256": "1ga9iw1jhzsxgq1ssxwm6cgw8hl47h8ldwmfczfn4pmb6fsna0dx",
+        "description": "Nixpkgs/NixOS branches that track the Nixpkgs/NixOS channels",
+        "rev": "23453d2d8c7189d479e26de0cf87906cb5189870"
+    },
+    "direnv": {
+        "homepage": "http://direnv.net",
+        "url": "https://github.com/direnv/direnv/archive/6c9056671dd5b0f25eaa9a891a2bdd8cfd113b1d.tar.gz",
+        "owner": "direnv",
+        "branch": "master",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "repo": "direnv",
+        "sha256": "01jfidmfl8lx2nfq7ssvyakwr3im9dwy8psx3dmyasgsbjmar43c",
+        "description": "Unclutter your .profile",
+        "rev": "6c9056671dd5b0f25eaa9a891a2bdd8cfd113b1d"
+    },
+    "nixpkgs-mozilla": {
+        "url": "https://github.com/mozilla/nixpkgs-mozilla/archive/e37160aaf4de5c4968378e7ce6fe5212f4be239f.tar.gz",
+        "owner": "mozilla",
+        "branch": "master",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "repo": "nixpkgs-mozilla",
+        "sha256": "013hapfp76s87wiwyc02mzq1mbva2akqxyh37p27ngqiz0kq5f2n",
+        "description": "mozilla related nixpkgs (extends nixos/nixpkgs repo)",
+        "rev": "e37160aaf4de5c4968378e7ce6fe5212f4be239f"
+    },
+    "nixos-unstable": {
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/2a81eceeba6d9b0499c0a9dc569921765321cdd0.tar.gz",
+        "owner": "NixOS",
+        "branch": "nixos-unstable",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "repo": "nixpkgs-channels",
+        "sha256": "0zhg87ialczrz4yb4zy104l8wsw45bivpq33qg8czvnsisq77735",
+        "description": "Nixpkgs/NixOS branches that track the Nixpkgs/NixOS channels",
+        "rev": "2a81eceeba6d9b0499c0a9dc569921765321cdd0"
+    },
+    "clever": {
+        "url": "https://github.com/cleverca22/nixos-configs/archive/b1077a5a604b37c254530570e6f62d7b3051a629.tar.gz",
+        "owner": "cleverca22",
+        "branch": "master",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "repo": "nixos-configs",
+        "sha256": "0qzalxsy3xs7x69yyply6g3bj6gvgkvxd8b8zrmr7cm271wxw4jk",
+        "rev": "b1077a5a604b37c254530570e6f62d7b3051a629"
+    },
+    "nixpkgs-master": {
+        "url": "https://github.com/NixOS/nixpkgs/archive/8b5c59219b03b6d60e7c6ba21b64aec98a642822.tar.gz",
+        "owner": "NixOS",
+        "branch": "master",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "repo": "nixpkgs",
+        "sha256": "1v3ihqjn8xmf46zp23svggqkknydb9r8gf8wh042kkly1v3n1wvm",
+        "description": "Nix Packages collection",
+        "rev": "8b5c59219b03b6d60e7c6ba21b64aec98a642822"
+    },
+    "nixos-18_09": {
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/23453d2d8c7189d479e26de0cf87906cb5189870.tar.gz",
+        "owner": "NixOS",
+        "branch": "nixos-18.09",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "repo": "nixpkgs-channels",
+        "sha256": "1ga9iw1jhzsxgq1ssxwm6cgw8hl47h8ldwmfczfn4pmb6fsna0dx",
+        "description": "Nixpkgs/NixOS branches that track the Nixpkgs/NixOS channels",
+        "rev": "23453d2d8c7189d479e26de0cf87906cb5189870"
+    },
+    "home-manager": {
+        "homepage": "",
+        "url": "https://github.com/rycee/home-manager/archive/81dae2f88eaff306f36b9072d2cb752f82dbc60a.tar.gz",
+        "owner": "rycee",
+        "branch": "master",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "repo": "home-manager",
+        "sha256": "08d8z38p5mw9cinzh0naf7559vkgdfrfbsapqnpg7cf78qkgz4jl",
+        "description": "Manage a user environment using Nix",
+        "rev": "81dae2f88eaff306f36b9072d2cb752f82dbc60a"
+    }
+}

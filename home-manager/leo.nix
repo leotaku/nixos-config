@@ -3,7 +3,7 @@
 {
   ## Home manager configuration for this account
   programs.home-manager.enable = true;
-  programs.home-manager.path = toString /etc/nixos/nixos-config/sources/links/libs/home-manager;
+  programs.home-manager.path = toString /etc/nixos/nixos-config/sources/links/home-manager;
 
   nixpkgs = {
     config = { allowUnfree = true; };
