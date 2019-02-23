@@ -1,7 +1,6 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, lib, ... }:
 { 
   imports = [
@@ -42,12 +41,24 @@
   boot.loader.systemd-boot.enable = false;
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.networkmanager = {
-    enable = true;
-    unmanaged = [ "interface-name:ve-*" ];
-    packages = with pkgs; [ networkmanager_openvpn ];
-  };
 
+  # I use connman instead of the traditional networkmanager
+  # it works much better than networkmanager, but does require
+  # wpa_supplicant, which I do not completely grasp
+  # It also requires an empty configuration file at "/etc/wpa_supplicant.conf"
+  # TODO: Ideally I would switch to "iwd", but I will have to change the connman 
+  # nix expression to achieve that
+
+  environment.etc."wpa_supplicant.conf".text = "";
+  networking.wireless = {
+    enable = true;
+    iwd.enable = false;
+  };
+  networking.connman = {
+    enable = true;
+    # blacklist is set automatically
+  };
+  
   # Select internationalisation properties.
   i18n = {
     consoleFont = "Lat2-Terminus16";
@@ -64,6 +75,9 @@
     # Needed
     gitFull
     gitAndTools.gitRemoteGcrypt
+    # Connman
+    connman-gtk
+    connman-ncurses
     # Utils
     moreutils
     psmisc
