@@ -208,7 +208,7 @@
   };
   nixpkgs.config.virtualbox.enableExtensionPack = false;
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker.enable = false;
 
   # Add wireshark permissions
   programs.wireshark = { 
