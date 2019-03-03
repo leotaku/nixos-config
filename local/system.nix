@@ -152,7 +152,10 @@
   
   # List programs that need nix init
   programs.zsh.enable = true;
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = false;
+    vendor.completions.enable = false;
+  };
 
   # List simple services that you want to enable:
   services.upower.enable = true;
@@ -222,44 +225,6 @@
     localuser = "root";
   };
 
-  # services.grafana = {
-  #   enable = true;
-  #   port     = 3000;
-  #   domain   = "localhost";
-  #   protocol = "http";
-  #   dataDir  = "/var/lib/grafana";
-  #   auth.anonymous.enable = true;
-  # };
-
-  # services.graphite.api = {
-  #   enable = true;
-  #   port = 3030;
-  # };
-
-# services.prometheus = {
-#     enable = true;
-#     configText = ''
-# scrape_configs:
-#   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-#   - job_name: 'prometheus'
-# 
-#     # metrics_path defaults to '/metrics'
-#     # scheme defaults to 'http'.
-# 
-#     static_configs:
-#       - targets: ['localhost:9090']
-# 
-#   - job_name: 'netdata'
-# 
-#     metrics_path: /api/v1/allmetrics
-#     params:
-#       format: [ prometheus ]
-# 
-#     static_configs:
-#       - targets: ['localhost:19999']
-# '';
-#   };
-  
   # Fix broken lid-suspend
   services.logind.lidSwitch = "ignore";
   services.acpid.enable = true;
