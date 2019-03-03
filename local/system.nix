@@ -183,6 +183,7 @@
   services.upower.enable = true;
   powerManagement.enable = true;
   services.openssh.enable = true;
+  programs.light.enable = true;
   services.cron.enable = false;
   services.netdata.enable = true;
 
