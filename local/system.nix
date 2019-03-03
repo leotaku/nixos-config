@@ -10,6 +10,7 @@
     ../plugables/transmission/default.nix
     ../plugables/backup/restic-all.nix
     ../plugables/email/postfix-queue.nix
+    ../plugables/user-networking/nm-iwd.nix
     # Enable throwaway account
     ../plugables/throwaway/default.nix
     # Test stuff
@@ -17,10 +18,6 @@
   ];
 
   hardware.opengl.enable = true;
-  
-  networking.nat.enable = true;
-  networking.nat.internalInterfaces = ["ve-+"];
-  networking.nat.externalInterface = "wlp3s0";
   
   nix.useSandbox = true;
 
@@ -40,25 +37,48 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = false;
 
+  # Networking
   networking.hostName = "nixos"; # Define your hostname.
+  # networkmanager settings are managed in separate file
 
-  # I use connman instead of the traditional networkmanager
-  # it works much better than networkmanager, but does require
-  # wpa_supplicant, which I do not completely grasp
-  # It also requires an empty configuration file at "/etc/wpa_supplicant.conf"
-  # TODO: Ideally I would switch to "iwd", but I will have to change the connman 
-  # nix expression to achieve that
+  networking.nat.enable = true;
+  networking.nat.internalInterfaces = ["ve-+"];
+  networking.nat.externalInterface = "wlp3s0";
 
-  environment.etc."wpa_supplicant.conf".text = "";
-  networking.wireless = {
-    enable = true;
-    iwd.enable = false;
-  };
-  networking.connman = {
-    enable = true;
-    # blacklist is set automatically
-  };
-  
+  # TODO: report these don't work as advertised
+  #powerManagement.powerUpCommands = "
+  #${pkgs.systemd}/bin/systemctl restart network-manager.service
+  #";
+
+  #powerManagement.powerDownCommands = "
+  #${pkgs.systemd}/bin/systemctl stop network-manager.service
+  #";
+
+  # TODO: these will be removed when iwd support officially lands
+  #environment.etc."wpa_supplicant.conf".text = ''
+  #    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel
+  #    update_config=1
+  #  '';
+
+  #networking.wireless = {
+  #  enable = false;
+  #  userControlled.enable = true;
+  #  #iwd.enable = false;
+  #};
+
+  ##networking.useDHCP = false;
+  #
+  #networking.connman = {
+  #  enable = false;
+  #  enableVPN = false;
+  #  extraConfig = ''
+  #    [General]
+  #    AllowHostnameUpdates=false
+  #    PreferredTechnologies=ethernet,wifi
+  #  '';
+  #  # blacklist is set automatically
+  #};
+
   # Select internationalisation properties.
   i18n = {
     consoleFont = "Lat2-Terminus16";
@@ -75,6 +95,8 @@
     # Needed
     gitFull
     gitAndTools.gitRemoteGcrypt
+    # NetworkManager
+    networkmanagerapplet
     # Connman
     connman-gtk
     connman-ncurses
@@ -228,12 +250,15 @@
   # Fix broken lid-suspend
   services.logind.lidSwitch = "ignore";
   services.acpid.enable = true;
-  services.acpid.lidEventCommands = ''
-    LID_STATE=/proc/acpi/button/lid/LID/state 
-    if [[ $(${pkgs.gawk}/bin/awk '{print $2}' $LID_STATE) == 'closed' ]]; then
+  services.acpid.logEvents = true;
+  services.acpid.handlers = {
+    "lid-close-suspend" = {
+      event = "button/lid LID close";
+      action = ''
       ${pkgs.systemd}/bin/loginctl lock-sessions
       sleep 2
       ${pkgs.systemd}/bin/systemctl suspend
-    fi
-  '';
+      '';
+    };
+  };
 }
