@@ -227,7 +227,7 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  # Enable Virtuaisation
+  # Enable virtuaisation/container technologies
   virtualisation.virtualbox.host = { 
     enable = false;
     #enableHardening = false; 
@@ -236,12 +236,15 @@
 
   virtualisation.docker.enable = false;
 
+  services.flatpak.enable = true;
+
   # Add wireshark permissions
   programs.wireshark = { 
     enable = true;
     package = pkgs.wireshark-gtk;
   };
 
+  # run locatedb every hour
   services.locate = {
     enable = true;
     interval = "hourly";
