@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-dir="$(realpath $(dirname $0))"
+dir="$(dirname $(realpath $0))"
 linkdir="${dir}/links"
 if ! [[ -d "$linkdir"  ]]; then
     mkdir "$linkdir"
