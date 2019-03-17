@@ -12,7 +12,7 @@
     # Import home manager module
     ../sources/links/home-manager/nixos
     # Import quemu module
-    ../sources/external/clever/qemu.nix
+    ../sources/links/clever/qemu.nix
   ];
 
   nix.trustedUsers = [ "root" "@wheel" ];
