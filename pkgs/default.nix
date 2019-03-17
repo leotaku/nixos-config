@@ -18,7 +18,7 @@ self: super:
   leovim = super.callPackage ./neovim/leovim.nix {};
   _2bwm = super.callPackage ./2bwm/default.nix {};
   oh-my-zsh-custom = super.callPackage ./zsh/oh-my-zsh.nix {};
-  emacs_custom = super.callPackage ./emacs/default.nix {};
+  emacs-custom = super.callPackage ./emacs/default.nix {};
   sddm = super.sddm.overrideAttrs (old: { buildInputs = with super; [ qt5Full ] ++ old.buildInputs; });
   urxvtWithExtensions = super.rxvt_unicode_with-plugins.override { plugins = with super; [ urxvt_vtwheel urxvt_perls ]; };
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config-custom.h; };
