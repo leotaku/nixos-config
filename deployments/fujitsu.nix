@@ -12,7 +12,6 @@
         ../plugables/znc/default.nix
         ../private/dns.nix
         ../sources/external/clever/qemu.nix
-        #../sources/links/libs/simple-nixos-mailserver/default.nix
       ];
 
       qemu-user.aarch64 = true;
@@ -33,13 +32,6 @@
         fd
         ripgrep
       ];
-
-      services.haveged.enable = true;
-
-      services.restic.server = {
-        enable = true;
-        prometheus = true;
-      };
 
       services.nginx = {
         enable = true;
@@ -102,42 +94,18 @@
       #  };
       #};
       
+      services.restic.server = {
+        enable = true;
+        prometheus = true;
+      };
+
       services.netdata.enable = true;
 
-      # mailserver = {
-      #   enable = false;
-      #   fqdn = "mail.le0.gs";
-      #   domains = [ "le0.gs" ];
-      #   loginAccounts = {
-      #       "leo@le0.gs" = {
-      #           hashedPassword = "$6$/z4n8AQl6K$kiOkBTWlZfBd7PvF5GsJ8PmPgdZsFGN1jPGZufxxr60PoR0oUsrvzm2oQiflyz5ir9fFJ.d/zKm/NgLXNUsNX/";
-    
-      #           aliases = [
-      #               "info@example.com"
-      #               "postmaster@example.com"
-      #               "postmaster@example2.com"
-      #           ];
-      #       };
-      #   };
+      services.haveged.enable = true;
 
-      #   # Use Let's Encrypt certificates. Note that this needs to set up a stripped
-      #   # down nginx and opens port 80.
-      #   # certificateScheme = 3;
+      # udisks depends on gtk+ which I don't want on my headless servers
+      services.udisks2.enable = false;
 
-      #   # Enable IMAP and POP3
-      #   enableImap = true;
-      #   enablePop3 = true;
-      #   enableImapSsl = true;
-      #   enablePop3Ssl = true;
-
-      #   # Enable the ManageSieve protocol
-      #   enableManageSieve = true;
-
-      #   # whether to scan inbound emails for viruses (note that this requires at least
-      #     # 1 Gb RAM for the server. Without virus scanning 256 MB RAM should be plenty)
-      #   virusScanning = true;
-      # };
-      
       services.openssh.enable = true;
       services.openssh.permitRootLogin = "yes";
 

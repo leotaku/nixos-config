@@ -24,6 +24,7 @@
         speedtest-cli
       ];
 
+      # netdata monitoring
       services.nginx = {
         enable = true;
         package = pkgs.nginxMainline;
@@ -44,10 +45,11 @@
 
       services.netdata.enable = true;
 
+      # udisks depends on gtk+ which I don't want on my headless servers
+      services.udisks2.enable = false;
+
       services.openssh.enable = true;
       services.openssh.permitRootLogin = "yes";
-
-      services.avahi.enable = true;
 
       networking.firewall.enable = true;
       networking.firewall.allowedTCPPorts = [ 22 80 443 ];
@@ -55,7 +57,7 @@
       deployment.targetHost = "nixos-rpi.local";
       #deployment.targetHost = "192.168.178.23";
 
-      # boot.kernelPackages = pkgs.linuxPackages_latest;
+      #boot.kernelPackages = pkgs.linuxPackages_latest;
       nixpkgs.system = "aarch64-linux";
       nixpkgs.config.allowBroken = false;
     };
