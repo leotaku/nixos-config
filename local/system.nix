@@ -196,6 +196,9 @@
   # X11 windowing system.
   services.xserver.enable = true; 
   services.xserver.libinput.enable = true;
+  services.xserver.wacom.enable = true;
+
+  # SDDM
   services.xserver.displayManager.sddm = {
     enable = true;
     theme = "test";
@@ -235,7 +238,6 @@
   nixpkgs.config.virtualbox.enableExtensionPack = false;
 
   virtualisation.docker.enable = false;
-
   services.flatpak.enable = true;
 
   # Add wireshark permissions
@@ -244,7 +246,7 @@
     package = pkgs.wireshark-gtk;
   };
 
-  # run locatedb every hour
+  # Run locatedb every hour
   services.locate = {
     enable = true;
     interval = "hourly";
