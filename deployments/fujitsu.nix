@@ -60,6 +60,11 @@
           };
           "test.le0.gs" = {
             enableACME = true;
+            addSSL = true;
+            globalRedirect = "vwa.le0.gs";
+          };
+          "vwa.le0.gs" = {
+            enableACME = true;
             forceSSL = true;
             locations = {
               "/".root = "/var/web/hugo/public";
