@@ -21,7 +21,7 @@ self: super:
   emacs-custom = super.callPackage ./emacs/default.nix {};
   sddm = super.sddm.overrideAttrs (old: { buildInputs = with super; [ qt5Full ] ++ old.buildInputs; });
   urxvtWithExtensions = super.rxvt_unicode_with-plugins.override { plugins = with super; [ urxvt_vtwheel urxvt_perls ]; };
-  sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config-custom.h; };
+  sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
   mu = super.callPackage ./mu/default.nix {};
 
   # Mozilla
