@@ -164,12 +164,10 @@
   fonts.fonts = with pkgs; [ terminus_font ];
   
   environment.variables = {
-    EDITOR = [ "vim" ];
-    TERMINAL = [ "urxvt" ];
-    SHELL = [ "zsh" ];
-    PAGER = [ "less" ];
-    OH_MY_ZSH = [ "${pkgs.oh-my-zsh-custom}/share/oh-my-zsh" ];
-    AUTOJUMP = [ "${pkgs.autojump}/share/zsh/" ];
+    EDITOR = "vim";
+    TERMINAL = "urxvt";
+    SHELL = "zsh";
+    PAGER = "less";
   };
   
   # List programs that need nix init
