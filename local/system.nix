@@ -176,15 +176,26 @@
     enable = false;
     vendor.completions.enable = false;
   };
+  programs.light.enable = true;
 
   # List simple services that you want to enable:
   services.upower.enable = true;
   powerManagement.enable = true;
   services.openssh.enable = true;
-  programs.light.enable = true;
   services.cron.enable = false;
   services.netdata.enable = true;
 
+  # Redshift
+  services.redshift = {
+    enable = true;
+    provider = "geoclue2";
+  };
+  services.geoclue2 = {
+    enable = true;
+    enableDemoAgent = true;
+  };
+
+  # Printing
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [ hplip gutenprint gutenprintBin splix ];
 
