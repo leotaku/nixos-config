@@ -275,7 +275,7 @@
     screen -d -m -S NcmpcppContainer "$HOME/.config/ncmpcpp/spawn-script"
     # Setup locksreen
     xset s 600 300
-    xss-lock -- $HOME/Scripts/screenlock &
+    xss-lock -- $HOME/.scripts/screenlock &
     '';
   };
 
