@@ -16,13 +16,14 @@
   
   home.packages = with pkgs; [
     # Text editors
-    #leovim
-    #vscode-with-extensions
+    leovim
+    vscode-with-extensions
     # File Manager
     ranger
     lf
     vifm
     clex
+    emv
     fzf
     fzy
     # Office
@@ -30,7 +31,6 @@
     scim
     libqalculate
     # Version control
-    #gitFull
     gitAndTools.hub
     gitAndTools.gitRemoteGcrypt
     gource
@@ -53,7 +53,6 @@
     # Other Web
     rtv
     ddgr
-    canto-curses
     youtube-dl
     # Games
     #steam
@@ -97,7 +96,7 @@
     screenkey
     asciinema
     # Ebook
-    calibre
+    #calibre
     # Fonts
     gnome3.gucharmap
     font-manager
@@ -150,7 +149,11 @@
     # Xorg
     xsel
     xorg.xbacklight
+    xorg.xwd
     xorg.xev
+    xorg.xmodmap
+    xorg.xinit
+    xorg.xauth
     xdo
     xdotool
     xvkbd
@@ -158,8 +161,6 @@
     wmname
     wmctrl
     xclip
-    xorg.xinit
-    xorg.xauth
     libnotify
     inotifyTools
     # Base +
@@ -169,8 +170,10 @@
     ripgrep
     progress
     chroma
+    jq
     most
     loc
+    tokei
     rlwrap
     bvi
     # ++
@@ -189,6 +192,7 @@
     p7zip
     libarchive
     # Documents + Other
+    pandoc
     #haskellPackages.pandoc
     #haskellPackages.pandoc-citeproc
     asciidoctor
@@ -199,12 +203,10 @@
     mediainfo
     atool
     highlight
-    ###unoconv
     discount
     python36Packages.pygments
     id3v2
     # Torrent
-    #torrench
     transmission-remote-gtk
     transmission-remote-cli
     # WMs
@@ -215,7 +217,6 @@
     wmutils-core
     wmutils-opt
     # Other rice related
-    xorg.xwd
     sxhkd
     compton-git
     dmenu
@@ -223,16 +224,8 @@
     polybar
     dzen2
     dunst
-    #eventd
     i3lock-color
     xss-lock
-    #eventd
-    # Programming
-    gocode
-    gotags
-    delve
-    chez
-    #universal-ctags
     # Webdev
     hugo
     # Nix
@@ -241,8 +234,6 @@
     nix-index
     nix-prefetch-scripts
     # Fonts
-    # TODO: sowehow fix font colls
-    # TODO: fix fc search path
     gohufont
     terminus_font
     unifont

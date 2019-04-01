@@ -102,6 +102,7 @@
     connman-ncurses
     # Utils
     moreutils
+    bc
     psmisc
     file
     tree
@@ -111,7 +112,6 @@
     wget
     curl
     aria
-    autojump
     # Terminal toys
     figlet
     toilet
