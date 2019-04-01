@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     owner  = "djcb";
     repo   = "mu";
     rev    = "master";
-    sha256 = "1jbz2yijblz70brwpkl7jvzkx178zjlnjrfv4vywfqg964i05jqw";
+    sha256 = "0g1igi5yskhqaw11484mhm8gkwx5b110dsa08850qfh31jcf7an2";
   };
 
   # 0.9.18 and 1.0 have 2 failing tests but previously we had no tests
