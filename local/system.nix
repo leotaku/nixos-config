@@ -161,7 +161,22 @@
   ];
   
   #TODO: fix fc cache in home-manager
-  fonts.fonts = with pkgs; [ terminus_font ];
+  fonts.fonts = with pkgs; [ terminus_font siji ] ++
+  [
+    gohufont
+    terminus_font
+    unifont
+    siji
+    google-fonts
+    go-font
+    lmmath
+    #tewi-font
+    dina-font
+    fira-code
+    fira-mono
+    #roboto
+    emacs-all-the-icons-fonts
+  ];
   
   environment.variables = {
     EDITOR = "vim";

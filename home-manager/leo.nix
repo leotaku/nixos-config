@@ -15,6 +15,8 @@
   ];
   
   home.packages = with pkgs; [
+    # Dependencies
+    lua
     # Text editors
     leovim
     vscode-with-extensions
@@ -176,6 +178,7 @@
     tokei
     rlwrap
     bvi
+    direnv
     # ++
     reptyr
     fasd
@@ -233,20 +236,6 @@
     nix-du
     nix-index
     nix-prefetch-scripts
-    # Fonts
-    gohufont
-    terminus_font
-    unifont
-    siji
-    google-fonts
-    go-font
-    lmmath
-    #tewi-font
-    dina-font
-    fira-code
-    fira-mono
-    #roboto
-    emacs-all-the-icons-fonts
   ];
   
   fonts.fontconfig.enableProfileFonts = true;
@@ -269,9 +258,11 @@
     initExtra = ''
     feh --bg-fill $HOME/.wallpaper
     compton -b
-    polybar small &
+    polybar mail &
+    polybar battery &
     urxvtd &
     mpd
+    $HOME/.scripts/xmodmap.sh
     screen -d -m -S NcmpcppContainer "$HOME/.config/ncmpcpp/spawn-script"
     # Setup locksreen
     xset s 600 300
