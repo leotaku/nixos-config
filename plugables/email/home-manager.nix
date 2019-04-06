@@ -71,6 +71,14 @@ rec {
         synchronize_flags = "true";
       };
     };
+    new = {
+      tags = [ "unread" "new" ];
+    };
+    # TODO: make initial tagging more general
+    hooks.postNew = ''
+    notmuch tag +inbox folder:outlook/Inbox tag:new
+    notmuch tag -new tag:new
+    '';
   };
 
   home.file.".mailcap".text = ''
