@@ -19,7 +19,7 @@
       networks = {
         freenode = {
           port = 6697; 
-          server = "chat.freenode.net"; 
+          server = "irc.freenode.net"; 
           useSSL = true;
           modules = [ "sasl" ];
         };
