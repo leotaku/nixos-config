@@ -10,16 +10,27 @@
         "description": "A program to automatically update fetchgit values in Nix expressions",
         "rev": "c820f7bfad87ba9dc54fdcb61ad0ca19ce355c94"
     },
+    "nixpkgs": {
+        "url": "https://github.com/NixOS/nixpkgs/archive/68f7f25706225aef65bcac95dc28c51ccd116941.tar.gz",
+        "owner": "NixOS",
+        "branch": "nixos-unstable",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "repo": "nixpkgs",
+        "type": "tarball",
+        "sha256": "08w49smxpaddbw3b7a4hk2rb5iq93s6v97jm19w79wk4zvkrllb9",
+        "description": "Nix Packages collection",
+        "rev": "68f7f25706225aef65bcac95dc28c51ccd116941"
+    },
     "nixos-18_09-small": {
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/222950952f15f6b1e9f036b80440b597f23e652d.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/46d3867a08a9206685e2b6a8e19f5ad9f6ab4b39.tar.gz",
         "owner": "NixOS",
         "branch": "nixos-18.09-small",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "nixpkgs-channels",
         "type": "tarball",
-        "sha256": "1hfchhy8vlc333sglabk1glkcnv4mrnarm9j4havqn7g5ri68vrd",
+        "sha256": "16nryjvfaw2dq55yp34hcw5bz8nlidhdi3yvr2ilr7lrlm4k54p1",
         "description": "Nixpkgs/NixOS branches that track the Nixpkgs/NixOS channels",
-        "rev": "222950952f15f6b1e9f036b80440b597f23e652d"
+        "rev": "46d3867a08a9206685e2b6a8e19f5ad9f6ab4b39"
     },
     "nixpkgs-unfg": {
         "url": "https://github.com/NixOS/nixpkgs/archive/a9f054c8348bf8cd7630cd99def2fd86d22c78bd.tar.gz",
@@ -56,15 +67,15 @@
         "rev": "50bae918794d3c283aeb335b209efd71e75e3954"
     },
     "nixos-unstable": {
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/d956f2279b8ac02bd9e48cf2a09dcb66383ab6be.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/acbdaa569f4ee387386ebe1b9e60b9f95b4ab21b.tar.gz",
         "owner": "NixOS",
         "branch": "nixos-unstable",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "nixpkgs-channels",
         "type": "tarball",
-        "sha256": "1pqrgimx9j8l8vrdwx4lrwl5lj7d5cpwx86azx8z5wrciv98za8w",
+        "sha256": "0xzyghyxk3hwhicgdbi8yv8b8ijy1rgdsj5wb26y5j322v96zlpz",
         "description": "Nixpkgs/NixOS branches that track the Nixpkgs/NixOS channels",
-        "rev": "d956f2279b8ac02bd9e48cf2a09dcb66383ab6be"
+        "rev": "acbdaa569f4ee387386ebe1b9e60b9f95b4ab21b"
     },
     "clever": {
         "url": "https://github.com/cleverca22/nixos-configs/archive/c410e40dd6fcd722e7d6ccf292b6eec483f32b36.tar.gz",
@@ -77,26 +88,26 @@
         "rev": "c410e40dd6fcd722e7d6ccf292b6eec483f32b36"
     },
     "nixos-18_09": {
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/222950952f15f6b1e9f036b80440b597f23e652d.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/46d3867a08a9206685e2b6a8e19f5ad9f6ab4b39.tar.gz",
         "owner": "NixOS",
         "branch": "nixos-18.09",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "nixpkgs-channels",
         "type": "tarball",
-        "sha256": "1hfchhy8vlc333sglabk1glkcnv4mrnarm9j4havqn7g5ri68vrd",
+        "sha256": "16nryjvfaw2dq55yp34hcw5bz8nlidhdi3yvr2ilr7lrlm4k54p1",
         "description": "Nixpkgs/NixOS branches that track the Nixpkgs/NixOS channels",
-        "rev": "222950952f15f6b1e9f036b80440b597f23e652d"
+        "rev": "46d3867a08a9206685e2b6a8e19f5ad9f6ab4b39"
     },
     "home-manager": {
         "homepage": "",
-        "url": "https://github.com/rycee/home-manager/archive/652c69424411e332fb9caaa6e1d8ee05aff90af4.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/3db46fa9bf08e22c0d1615a4ba2325b6af64dc76.tar.gz",
         "owner": "rycee",
         "branch": "master",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "home-manager",
         "type": "tarball",
-        "sha256": "1fz6j3bjgkawpc7259yki39mp0gr7ljj7zjbqhb8q3a183qi0v3n",
+        "sha256": "1hrqq939d9yrnlylxc1vifc98nb15fpgzq8cfsgw8jypzklwcb4g",
         "description": "Manage a user environment using Nix",
-        "rev": "652c69424411e332fb9caaa6e1d8ee05aff90af4"
+        "rev": "3db46fa9bf08e22c0d1615a4ba2325b6af64dc76"
     }
 }

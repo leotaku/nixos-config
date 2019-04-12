@@ -7,10 +7,13 @@ fi
 
 json="$(nix-instantiate --eval --strict --json ${dir}/nix/sources.nix)"
 
-jq -r 'keys | .[]' <<< $json |\
 while read key; do
-    val="$(jq -r --arg k $key '.[$k]' <<< $json)"
-    nix-store --add-root "${linkdir}/${key}" --indirect -r "$val" >/dev/null
-    echo "key: $key"
-    echo "val: $val"
-done
+    {
+        nix build -f "${dir}/nix/sources.nix" "$key" --out-link "${linkdir}/${key}"\
+            2>&1 | read -r output
+        echo "key: $key"
+        [ -n "$output" ] && echo "output: $output"
+    } &
+done <<< $(jq -r 'keys | .[]' <<< $json)
+
+wait $(jobs -p)
