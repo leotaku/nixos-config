@@ -74,9 +74,13 @@ rec {
     new = {
       tags = [ "unread" "new" ];
     };
-    # TODO: make initial tagging more general
     hooks.postNew = ''
-    notmuch tag +inbox folder:outlook/Inbox tag:new
+    # Accounts
+    notmuch tag +outlook path:outlook/** tag:new
+    notmuch tag +gmail   path:gmail/**   tag:new
+    # Directory
+    notmuch tag +inbox path:/Inbox/ tag:new
+    # Remove new tag
     notmuch tag -new tag:new
     '';
   };
