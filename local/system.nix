@@ -10,7 +10,6 @@
     ../plugables/transmission/default.nix
     ../plugables/backup/restic-all.nix
     ../plugables/email/postfix-queue.nix
-    ../plugables/user-networking/nm-iwd.nix
     # Enable throwaway account
     ../plugables/throwaway/default.nix
     # Test stuff
@@ -39,7 +38,11 @@
 
   # Networking
   networking.hostName = "nixos"; # Define your hostname.
-  # networkmanager settings are managed in separate file
+
+  # manager settings are managed here
+  networking.networkmanager.enable = false;
+  networking.connman.enable = true;
+  environment.etc."wpa_supplicant.conf".text = "";
 
   networking.nat.enable = true;
   networking.nat.internalInterfaces = ["ve-+"];
