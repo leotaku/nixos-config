@@ -74,7 +74,7 @@
             enableACME = true;
             forceSSL = true;
             locations = {
-              "/".proxyPass = "http://localhost:8000/";
+              "/".root = "/var/web/restic";
             };
           };
           "stats.le0.gs" = {
