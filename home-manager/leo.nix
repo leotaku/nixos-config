@@ -43,6 +43,8 @@
     w3m
     elinks
     lynx
+    # Backup
+    restic
     # Mail
     neomutt
     notmuch
@@ -124,7 +126,6 @@
     lshw
     hwinfo
     # Network utils
-    wireshark-gtk
     nmap-graphical
     netcat-gnu
     speedtest-cli
