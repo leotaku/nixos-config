@@ -270,7 +270,7 @@
   # Add wireshark permissions
   programs.wireshark = { 
     enable = true;
-    package = pkgs.wireshark-gtk;
+    package = pkgs.wireshark-qt;
   };
 
   # Run locatedb every hour
