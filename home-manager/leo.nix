@@ -311,6 +311,4 @@
     userName  = "LeOtaku";
     userEmail = "leo.gaskin@brg-feldkirchen.at";
   };
-
-  programs.emacs.enable = false;
 }
