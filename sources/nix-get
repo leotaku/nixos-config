@@ -2,10 +2,4 @@
 dir="$(dirname $(realpath $0))"
 linkdir="${dir}/links"
 
-if [[ "-r" == "${1}" ]]; then
-    shift
-    cat "${dir}/nix/sources.json" | jq -r ".\"${1}\".rev"
-else
-    nix-instantiate --eval "${dir}/nix/sources.nix" -A "\"${1}\".outPath" | tr -d '"'
-fi
-
+realpath "${linkdir}/${1}"

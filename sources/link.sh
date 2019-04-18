@@ -6,6 +6,7 @@ if ! [[ -d "$linkdir"  ]]; then
 fi
 
 json="$(nix-instantiate --eval --strict --json ${dir}/nix/sources.nix)"
+keys="$(jq -r 'keys | .[]' <<< $json)"
 
 while read key; do
     {
@@ -14,6 +15,7 @@ while read key; do
         echo "key: $key"
         [ -n "$output" ] && echo "output: $output"
     } &
-done <<< $(jq -r 'keys | .[]' <<< $json)
+done <<< $keys
 
 wait $(jobs -p)
+exit 0
