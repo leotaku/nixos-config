@@ -3,7 +3,7 @@ let
   users = [ "leo" ];
   runAt = timer: {
     paths = map (u: "/home/${u}") users;
-    repository = "rest:https://restic.le0.gs";
+    repository = "rest:http://le0.gs:8000";
     passwordFile = "/etc/nixos/nixos-config/private/restic/default-repo-pass.txt";
     extraBackupArgs = [ 
       "--exclude '.cache'" 
