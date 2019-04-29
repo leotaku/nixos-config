@@ -167,7 +167,7 @@
     elvish
   ];
   
-  #TODO: fix fc cache in home-manager
+  # TODO: fix fc cache in home-manager
   fonts.fonts = with pkgs; [ terminus_font siji ] ++
   [
     gohufont
