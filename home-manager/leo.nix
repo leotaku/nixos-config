@@ -100,7 +100,7 @@
     screenkey
     asciinema
     # Ebook
-    #calibre
+    calibre
     # Fonts
     gnome3.gucharmap
     font-manager
