@@ -103,6 +103,9 @@
     # Connman
     connman-gtk
     connman-ncurses
+    # Networking
+    iw
+    iperf
     # Utils
     moreutils
     bc
@@ -114,6 +117,7 @@
     cron
     wget
     curl
+    rsync
     aria
     # Terminal toys
     figlet
