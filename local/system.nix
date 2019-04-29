@@ -268,7 +268,7 @@
   };
   nixpkgs.config.virtualbox.enableExtensionPack = false;
 
-  virtualisation.docker.enable = false;
+  virtualisation.docker.enable = true;
   services.flatpak.enable = true;
 
   # Add wireshark permissions
