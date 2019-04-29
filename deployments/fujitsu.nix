@@ -7,6 +7,7 @@
     { 
       imports = [
         ../hardware/fujitsu.nix
+        # ../plugables/wireguard/mullvad.nix
         ../modules/dns-records.nix
         ../plugables/avahi/default.nix
         ../plugables/znc/default.nix

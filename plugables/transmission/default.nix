@@ -10,7 +10,8 @@
       pex-enabled = true;
       lpd-enabled = false;
       port-forwarding-enabled = true;
-      peer-port = 9969;
+      # Forwarded port (set in mullvad web conf)
+      peer-port = 13525;
       cache-size-mb = 32;
       peer-limit-global = 400;
       peer-limit-per-torrent = 100;

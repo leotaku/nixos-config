@@ -6,7 +6,7 @@
   imports = [
     # Import plugable configurations
     ../plugables/avahi/default.nix
-    ../plugables/openvpn/serverlist.nix
+    ../plugables/wireguard/wg-quick.nix
     ../plugables/transmission/default.nix
     ../plugables/backup/restic-all.nix
     ../plugables/email/postfix-queue.nix
@@ -41,46 +41,26 @@
 
   # manager settings are managed here
   networking.networkmanager.enable = false;
-  networking.connman.enable = true;
+  networking.connman = {
+    enable = true;
+    enableVPN = true;
+    extraConfig = ''
+      [General]
+      AllowHostnameUpdates=false
+      PreferredTechnologies=ethernet,wifi
+    '';
+  };
   environment.etc."wpa_supplicant.conf".text = "";
 
   networking.nat.enable = true;
   networking.nat.internalInterfaces = ["ve-+"];
   networking.nat.externalInterface = "wlp3s0";
 
-  # TODO: report these don't work as advertised
-  #powerManagement.powerUpCommands = "
-  #${pkgs.systemd}/bin/systemctl restart network-manager.service
-  #";
-
-  #powerManagement.powerDownCommands = "
-  #${pkgs.systemd}/bin/systemctl stop network-manager.service
-  #";
-
   # TODO: these will be removed when iwd support officially lands
-  #environment.etc."wpa_supplicant.conf".text = ''
-  #    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel
-  #    update_config=1
-  #  '';
-
-  #networking.wireless = {
-  #  enable = false;
-  #  userControlled.enable = true;
-  #  #iwd.enable = false;
-  #};
-
-  ##networking.useDHCP = false;
-  #
-  #networking.connman = {
-  #  enable = false;
-  #  enableVPN = false;
-  #  extraConfig = ''
-  #    [General]
-  #    AllowHostnameUpdates=false
-  #    PreferredTechnologies=ethernet,wifi
-  #  '';
-  #  # blacklist is set automatically
-  #};
+  # environment.etc."wpa_supplicant.conf".text = ''
+  # ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel
+  # update_config=1
+  # '';
 
   # Select internationalisation properties.
   i18n = {
