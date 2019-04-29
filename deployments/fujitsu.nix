@@ -31,6 +31,7 @@
         speedtest-cli
         fd
         ripgrep
+        iperf
       ];
 
       services.nginx = {

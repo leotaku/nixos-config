@@ -22,6 +22,7 @@
         ncdu
         nix-top
         speedtest-cli
+        iperf
       ];
 
       # netdata monitoring

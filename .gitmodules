@@ -7,3 +7,6 @@
 [submodule "sources/external/clever"]
 	path = sources/external/clever
 	url = https://github.com/cleverca22/nixos-configs
+[submodule "sources/external/home-manager"]
+	path = sources/external/home-manager
+	url = git://github.com/rycee/home-manager.git
