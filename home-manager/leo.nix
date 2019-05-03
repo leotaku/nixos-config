@@ -239,7 +239,7 @@
     nix-prefetch-scripts
   ];
   
-  fonts.fontconfig.enableProfileFonts = true;
+  fonts.fontconfig.enable = true;
 
   home.sessionVariables = {
     TERMINAL = "urxvt";
