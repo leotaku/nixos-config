@@ -1,69 +1,66 @@
-{ config, lib, pkgs, ... }:
-
+{ config, pkgs, lib, ... }:
 let
-  # This has to match "smtp_sasl_password_maps" in ./postfix-queue.nix
+  # path to postfix-style sasl password map
   pass_map_file = "/etc/nixos/nixos-config/private/postfix/sasl_password_maps";
-  createAccount = {fakePrimary, realName, userName, address, imap }:
-  {
-    inherit realName userName address;
-    passwordCommand = ''${pkgs.gnugrep}/bin/grep "${address}" ${pass_map_file} | ${pkgs.gnugrep}/bin/grep -o "[^:]*$" ${pass_map_file}'';
-    flavor = "plain";
-    primary = fakePrimary;
+  # generate a working email config for a dir placed in ".maildir" and some other attributes
+  myGenAccounts = dir: { name, pre, post, imap, primary ? false, flavor ? "plain", syncBoxes ? [ ] }:
+  rec {
+    # Attributes directly read from record
+    realName = name;
+    userName = address;
+    address = "${pre}@${post}";
+    inherit imap primary flavor;
 
-    inherit imap;
+    # read password from postfix-style sasl password map
+    passwordCommand = ''${pkgs.gnugrep}/bin/grep '${address}' ${pass_map_file} | ${pkgs.gnugrep}/bin/grep -o '[^:]*$' '';
+
+    # misc settings for home-manager email modules
+    
+    imapnotify = {
+      enable = true;
+      boxes = syncBoxes;
+      onNotify = "${pkgs.isync}/bin/mbsync ${dir}";
+      onNotifyPost = {
+        mail = ''
+          ${pkgs.notmuch}/bin/notmuch --config=${config.xdg.configHome}/notmuch/notmuchrc new &&\
+          ${pkgs.libnotify}/bin/notify-send "You got mail!" "${userName}"
+        '';
+      };
+    };
 
     mbsync = {
       enable = true;
       create = "maildir";
-      expunge = "both";
+      expunge = "none";
       flatten = ".";
       patterns = [ "*" "!.*" ];
     };
+
+    smtp = {
+      host = "localhost";
+      port = 25;
+      tls = {
+        enable = false;
+      };
+    };
     
     msmtp = {
-      enable = false;
+      enable = true;
+      extraConfig = { auth = "off"; };
     };
 
     notmuch.enable = true;
     
   };
-
-  createMsmtprc = symbol: value: 
-  ''
-account ${symbol}
-auth off
-from ${value.address}
-host localhost
-port 25
-tls off
-tls_starttls off
-user ${value.userName}
-  '';
 in
-
-rec {
+{
+  # Generate accounts from (hidden) attrsets
   accounts.email = {
     maildirBasePath = ".maildir";
-    accounts = {
-      outlook = createAccount (import ./../../private/mail/accounts.nix).outlook;
-    };
+    accounts = lib.mapAttrs myGenAccounts (import ../../private/mail-accounts.nix).accounts;
   };
 
-  home.file.".msmtprc".text = lib.concatStringsSep "\n\n"
-    ((lib.mapAttrsToList createMsmtprc accounts.email.accounts) ++ ["account default : outlook"]);
-
-  programs.mbsync.enable = true;
-  programs.msmtp.enable = true;
-  
-  services.mbsync =  {
-    enable = true;
-    postExec = ''
-      ${pkgs.dash}/bin/dash -c '\
-      ${pkgs.notmuch}/bin/notmuch --config=${config.xdg.configHome}/notmuch/notmuchrc new'
-    '';
-      #${pkgs.mu}/bin/mu index --maildir=${accounts.email.maildirBasePath}'
-  };
-
+  # notmuch mail indexer
   programs.notmuch = {
     enable = true;
     extraConfig = {
@@ -75,18 +72,25 @@ rec {
       tags = [ "unread" "new" ];
     };
     hooks.postNew = ''
-    # Accounts
-    notmuch tag +outlook path:outlook/** tag:new
-    notmuch tag +gmail   path:gmail/**   tag:new
-    # Directory
-    notmuch tag +inbox path:/Inbox/ tag:new
-    # Remove new tag
-    notmuch tag -new tag:new
+      # Accounts
+      notmuch tag +outlook path:outlook/** tag:new
+      notmuch tag +gmail   path:gmail/**   tag:new
+      # Directory
+      notmuch tag +inbox path:/Inbox/ tag:new
+      notmuch tag +junk  path:/Junk/  tag:new
+      # Remove new tag
+      notmuch tag -new tag:new
     '';
   };
 
-  home.file.".mailcap".text = ''
-      text/html; ${pkgs.w3m}/bin/w3m -dump %s; nametemplate=%s.html; copiousoutput
-    '';
+  # Generate configs for all needed programs
+  programs.mbsync.enable = true;
+  programs.msmtp.enable = true;
 
+  services.mbsync =  {
+    enable = true;
+    frequency = "*:0/15";
+    postExec = "${pkgs.notmuch}/bin/notmuch --config=${config.xdg.configHome}/notmuch/notmuchrc new";
+  };
+  services.imapnotify.enable = true;
 }
