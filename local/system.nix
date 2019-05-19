@@ -41,6 +41,7 @@
 
   # manager settings are managed here
   networking.networkmanager.enable = false;
+  networking.wireless.iwd.enable = false;
   networking.connman = {
     enable = true;
     enableVPN = true;
