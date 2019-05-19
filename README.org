@@ -78,7 +78,7 @@ It is unnecessary complicated and needs to be majorly improved and well-document
 This directory contains miscellaneous files needed for various parts of my NixOS workflow. They should be individually documented.
 
 ** Additional
-*** TODO incorporate nix-get
+*** TODO move in nix-get
 *** TODO =/images= tools
 *** TODO explain all in =/files=
 
