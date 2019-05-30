@@ -22,4 +22,8 @@ in
       inherit address privateKeyFile peers;
     };
   };
+
+  systemd.services.wg-quick-wg0 = {
+    wantedBy = lib.mkIf true (lib.mkForce []);
+  };
 }
