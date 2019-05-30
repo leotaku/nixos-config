@@ -89,17 +89,17 @@
         };
       };
 
-      #security.acme.certs = {
-      #  "le0.gs" = { 
-      #    email = "leo.gaskin@brg-feldkirchen.at";
-      #    webroot = "/var/lib/acme/acme-challenges";
-      #    extraDomains = {
-      #      "le0.gs" = null;
-      #      "test.le0.gs" = null;
-      #    };
-      #    postRun = "systemctl restart nginx.service";
-      #  };
-      #};
+      # security.acme.certs = {
+      #   "le0.gs" = { 
+      #     email = "leo.gaskin@brg-feldkirchen.at";
+      #     webroot = "/var/lib/acme/acme-challenges";
+      #     extraDomains = {
+      #       "le0.gs" = null;
+      #       "test.le0.gs" = null;
+      #     };
+      #     postRun = "systemctl restart nginx.service";
+      #   };
+      # };
       
       services.restic.server = {
         enable = true;
@@ -119,13 +119,22 @@
       services.avahi.enable = true;
 
       networking.firewall.enable = true;
-      networking.firewall.allowedTCPPorts = [ 22 80 443 6667 8000 ];
+      networking.firewall.allowedTCPPorts = [
+        # ssh
+        22
+        # http(s)
+        80 443
+        # stuff
+        6667
+        8000
+        666
+        8384
+      ];
 
       deployment.targetHost = "nixos-fujitsu.local";
-      #deployment.targetHost = "192.168.178.40";
+      # deployment.targetHost = "192.168.178.40";
        
       nixpkgs.config.allowUnfree = true;
       nixpkgs.config.allowBroken = false;
-
     };
 }
