@@ -188,14 +188,11 @@
   services.cron.enable = false;
   services.netdata.enable = true;
 
-  # Redshift
-  services.redshift = {
-    enable = true;
-    provider = "geoclue2";
-  };
+  # Geoclue2 for redshift
   services.geoclue2 = {
     enable = true;
-    enableDemoAgent = true;
+    enableDemoAgent = false;
+    geoProviderUrl = "https://location.services.mozilla.com/v1/geolocate?key=16674381-f021-49de-8622-3021c5942aff";
   };
 
   # Printing

@@ -276,6 +276,12 @@
   #  package = pkgs.compton-git;
   #  extraOptions = lib.readFile (config.xdg.configHome +  "/compton.conf");
   #};
+
+  # Redshift
+  services.redshift = {
+    enable = true;
+    provider = "geoclue2";
+  };
   
   gtk = {
     enable = true;
