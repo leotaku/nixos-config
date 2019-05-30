@@ -7,8 +7,8 @@ let
     passwordFile = "/etc/nixos/nixos-config/private/restic/default-repo-pass.txt";
     extraBackupArgs = [ 
       "--exclude '.cache'" 
-      "--exclude='.mozilla'"
-      "--exclude='.weechat'" 
+      # "--exclude='.mozilla'"
+      # "--exclude='.weechat'" 
       "--exclude='.local/share/flatpak'"
       "--exclude='.maildir/.notmuch'"
     ];
