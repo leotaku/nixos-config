@@ -57,7 +57,7 @@ pkgs.neovim.override {
     "ncm2-tmux"
     "ncm2-racer"
 
-    ## Ctags
+    # Ctags
     "Tagbar"
     #"vim-gutentags"
     #"TagHighlight"
