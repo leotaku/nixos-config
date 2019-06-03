@@ -8,6 +8,7 @@
     ./leo.nix
     ./system.nix
     ../hardware/thinkpad.nix
+    # Activate remote builders
     ../plugables/builders/all.nix
     # Import home manager module
     ../sources/links/home-manager/nixos
