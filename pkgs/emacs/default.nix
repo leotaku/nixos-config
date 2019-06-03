@@ -1,11 +1,15 @@
 { emacs, emacsPackagesNg, lib, runCommand, imagemagick, ... }:
-let 
+let
   customEmacsPackages = emacsPackagesNg.overrideScope' (self: super: {
-    emacs = (emacs.override { inherit imagemagick; } ).overrideAttrs (old: { configureFlags = 
-    [ "--with-modules" "--with-x-toolkit=yes" "--without-toolkit-scroll-bars" "--with-xft" # "--with-xwidgets" 
-    ];
+    emacs = (emacs.override { inherit imagemagick; }).overrideAttrs (old: {
+      configureFlags = [
+        "--with-modules"
+        "--with-x-toolkit=yes"
+        "--without-toolkit-scroll-bars"
+        "--with-xft" 
+        # "--with-xwidgets"
+      ];
+    });
   });
-});
-in
 
-customEmacsPackages.emacsWithPackages (epkgs: (with epkgs; []))
+in customEmacsPackages.emacsWithPackages (epkgs: (with epkgs; [ ]))
