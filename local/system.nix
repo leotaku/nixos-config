@@ -118,7 +118,6 @@
     atop
     bmon
     # Browsers
-    firefox
     lynx
     elinks
     w3m

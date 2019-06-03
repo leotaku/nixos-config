@@ -38,7 +38,7 @@
     gource
     # Browsers
     #mozilla.firefox-devedition-bin-unwrapped
-    mozilla.firefox
+    #mozilla.firefox
     surf
     w3m
     elinks
