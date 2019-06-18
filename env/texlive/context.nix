@@ -1,5 +1,3 @@
-{ pkgs ? import <nixpkgs> {}, ... }:
+{ pkgs ? import <nixpkgs> { }, ... }:
 with pkgs;
-(texlive.combine {
-  inherit (texlive) scheme-context;
-})
+(texlive.combine { inherit (texlive) scheme-context; })

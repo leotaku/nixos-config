@@ -1,9 +1,8 @@
-{ pkgs ? import <nixpkgs> {}, ... }:
+{ pkgs ? import <nixpkgs> { }, ... }:
 with pkgs;
-hunspellWithDicts 
-  (lib.mapAttrsToList 
-    (n: v: if (lib.isDerivation v) then v else null)
-    hunspellDicts)
+hunspellWithDicts
+(lib.mapAttrsToList (n: v: if (lib.isDerivation v) then v else null)
+hunspellDicts)
 
 # hunspellWithDicts (with hunspellDicts; [
 #   de-at         
