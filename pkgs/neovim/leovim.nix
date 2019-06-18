@@ -1,6 +1,6 @@
 { pkgs, ... }:
 pkgs.neovim.override {
-  vimAlias = true; 
+  vimAlias = true;
   withPython3 = true;
   extraPython3Packages = (ps: with ps; [ jedi typing ]);
 

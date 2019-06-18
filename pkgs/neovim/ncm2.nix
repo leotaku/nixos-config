@@ -1,5 +1,4 @@
-{ fetchFromGitHub, vimUtils, pkgs, ... }:
-{
+{ fetchFromGitHub, vimUtils, pkgs, ... }: {
   ncm2 = vimUtils.buildVimPlugin {
     name = "ncm2";
     src = fetchFromGitHub {
@@ -9,7 +8,7 @@
       sha256 = "0nwf32y09lgiz20019ja72ah3bz5h48ama50lpbh6rl5miq4b5nk";
     };
   };
-  
+
   nvim-yarp = vimUtils.buildVimPlugin {
     name = "nvim-yarp";
     src = fetchFromGitHub {
@@ -39,7 +38,7 @@
       sha256 = "03vd252qm6b3isd45jz7wah3p9sm73pf4gxngwsfb1hc1hn7c1cf";
     };
   };
-  
+
   ncm2-path = vimUtils.buildVimPlugin {
     name = "ncm2-path";
     src = fetchFromGitHub {
@@ -49,7 +48,7 @@
       sha256 = "1ijmlk5n7pr27a9hf7b5761vg9hhx0qqzvb73r2f4xdjdx5g3d8k";
     };
   };
-  
+
   ncm2-syntax = vimUtils.buildVimPlugin {
     name = "ncm2-syntax";
     src = fetchFromGitHub {
@@ -59,7 +58,7 @@
       sha256 = "0l36qvsclhg8vr1ix1kpdl0kh739gp6b7s03f18vf9f0aj0im6w2";
     };
   };
-  
+
   ncm2-bufword = vimUtils.buildVimPlugin {
     name = "ncm2-bufword";
     src = fetchFromGitHub {

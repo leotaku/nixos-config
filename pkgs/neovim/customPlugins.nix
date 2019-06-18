@@ -1,11 +1,8 @@
-{ callPackage, vimUtils, fetchFromGitHub, pkgs, ... }: 
+{ callPackage, vimUtils, fetchFromGitHub, pkgs, ... }:
 
 {
-  TagHighlight = 
-  let 
-    version = "05449e727b55";
-  in
-  vimUtils.buildVimPlugin {
+  TagHighlight = let version = "05449e727b55";
+  in vimUtils.buildVimPlugin {
     name = "TagHighlight";
     src = pkgs.fetchhg {
       url = "https://bitbucket.org/abudden/taghighlight/get/${version}.zip";
@@ -32,7 +29,7 @@
       sha256 = "1g9hl6rxabbijs8hp53ra08iqgbc34bv4sbifkcjkjdr3r6fikas";
     };
   };
-  
+
   vim-delve = vimUtils.buildVimPlugin {
     name = "vim-delve";
     src = fetchFromGitHub {
@@ -92,7 +89,7 @@
       sha256 = "0r3h0z4wpmq1vjb3blv4lvdbj44j4ja9x85bk741n6mmsyf24ifm";
     };
   };
-  
+
   conque = vimUtils.buildVimPlugin {
     name = "conque";
     src = fetchFromGitHub {
@@ -142,7 +139,7 @@
       sha256 = "1inz64ziaj45wv917ajhmw108sz7ch33mfncfvzgk45raif97173";
     };
   };
-  
+
   slimv = vimUtils.buildVimPlugin {
     name = "slimv";
     src = fetchFromGitHub {
@@ -173,7 +170,7 @@
       rev = "6f05a53a672ff0787f641fe10da302bf75b3386e";
       sha256 = "0sd2kcndzf1l3w6gvjhyfj7al4ryxsmlcjq80nda6888f1vximcf";
     };
-  }; 
+  };
 
   vim-sexp = vimUtils.buildVimPlugin {
     name = "vim-sexp";
@@ -183,8 +180,8 @@
       rev = "12292941903d9ac8151513189d2007e1ccfc95f0";
       sha256 = "1mfqbmrbqgnsc34pmcsrc0c5zvgxhhnw4hx4g5wbssfk1ddyx6y0";
     };
-  }; 
-  
+  };
+
   vim-express = vimUtils.buildVimPlugin {
     name = "vim-express";
     src = fetchFromGitHub {
@@ -204,7 +201,7 @@
       sha256 = "12qcf34fxgzsilx1wkh219avvkq7a5q9x3kdcqy3ai8g05fpx619";
     };
   };
-  
+
   vim-mucomplete = vimUtils.buildVimPlugin {
     name = "vim-mucomplete";
     src = fetchFromGitHub {
@@ -275,37 +272,34 @@
     };
   };
 
-  parinfer-rust = 
-  let
+  parinfer-rust = let
     src = fetchFromGitHub {
       owner = "eraserhd";
       repo = "parinfer-rust";
       rev = "506ae2b25a9b84d964804c07ab359f0b108d6df5";
       sha256 = "1jir8krysz7gnvq0gdha9canvc4gw19f8kyniqnm90pb9wmlp582";
     };
-  in
-  let
-  parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {
-    name = "parinfer-rust-${version}";
-    version = "a26808b";
+  in let
+    parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {
+      name = "parinfer-rust-${version}";
+      version = "a26808b";
 
-    inherit src;
-    cargoSha256 = "080ji43p3plr489vkwnbcv3c5nxfx0giqhipqiq0f5plm84ql1k5";
+      inherit src;
+      cargoSha256 = "080ji43p3plr489vkwnbcv3c5nxfx0giqhipqiq0f5plm84ql1k5";
 
-    doCheck = false;  
-  };
-  in
-  vimUtils.buildVimPlugin rec {
+      doCheck = false;
+    };
+  in vimUtils.buildVimPlugin rec {
     name = "parinfer-rust";
     version = "a26808b";
 
     inherit src;
     preConfigure = ''
-    rm ./Makefile
+      rm ./Makefile
     '';
     postBuild = ''
       mkdir -p ./target/release
       cp ${parinfer-rust-package}/bin/libparinfer_rust.so target/release
     '';
   };
-} // (callPackage ./ncm2.nix {})
+} // (callPackage ./ncm2.nix { })

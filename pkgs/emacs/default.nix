@@ -6,7 +6,7 @@ let
         "--with-modules"
         "--with-x-toolkit=yes"
         "--without-toolkit-scroll-bars"
-        "--with-xft" 
+        "--with-xft"
         # "--with-xwidgets"
       ];
     });

@@ -15,9 +15,9 @@ buildGoModule rec {
 
   meta = with lib; {
     description = "nil";
-    homepage = https://github.com/alecthomas/chroma/;
+    homepage = "https://github.com/alecthomas/chroma/";
     license = licenses.mit;
-    maintainers = with maintainers; [];
+    maintainers = with maintainers; [ ];
     platforms = platforms.linux ++ platforms.darwin;
   };
 }
