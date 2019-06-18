@@ -16,12 +16,10 @@ self: super:
   sddm = super.sddm.overrideAttrs (old: { buildInputs = with super; [ qt5Full ] ++ old.buildInputs; });
   urxvtWithExtensions = super.rxvt_unicode_with-plugins.override { plugins = with super; [ urxvt_vtwheel urxvt_perls ]; };
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
-  mu = super.callPackage ./mu/default.nix {};
 
   # Mozilla
   mozilla = (import ../sources/links/nixpkgs-mozilla) self super;
 
   # Collections
-  customPythonPackages = super.callPackage ./python/customPackages.nix {};
-  customVimPlugins = super.callPackage ./vim/customPlugins.nix {};
+  customVimPlugins = super.callPackage ./neovim/customPlugins.nix {};
 }
