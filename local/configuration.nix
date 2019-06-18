@@ -12,13 +12,13 @@
     ../plugables/builders/all.nix
     # Import home manager module
     ../sources/links/home-manager/nixos
-    # Import quemu module
+    # Import qemu module
     ../sources/links/clever/qemu.nix
   ];
 
   nix.trustedUsers = [ "root" "@wheel" ];
   
-  qemu-user.aarch64 = true;
+  qemu-user.aarch64 = false;
   nix.distributedBuilds = true;
   
   nix.nixPath = [
