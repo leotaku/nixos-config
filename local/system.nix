@@ -1,6 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
+
 { config, pkgs, lib, ... }:
 { 
   imports = [
@@ -110,7 +111,7 @@
     # Terminal basics
     ranger
     nvi
-    neovim
+    #neovim
     micro
     kakoune
     # Monitors
@@ -166,7 +167,7 @@
   ];
   
   environment.variables = {
-    EDITOR = "vim";
+    EDITOR = "vi";
     TERMINAL = "urxvt";
     SHELL = "zsh";
     PAGER = "less";
