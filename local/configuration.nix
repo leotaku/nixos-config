@@ -7,7 +7,7 @@
     # Import configuration
     ./leo.nix
     ./system.nix
-    ../hardware/thinkpad.nix
+    ../hardware/thinkpad-x220.nix
     # Activate remote builders
     ../plugables/builders/all.nix
     # Import home manager module
