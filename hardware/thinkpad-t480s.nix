@@ -20,7 +20,7 @@
   boot.blacklistedKernelModules = [ "i915" ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = false;
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Filesystem (configured by nixos-install)
