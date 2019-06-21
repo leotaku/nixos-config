@@ -5,7 +5,7 @@
 {
   imports = [ 
     # Import configuration
-    ./leo.nix
+    ./users.nix
     ./system.nix
     ../hardware/thinkpad-x220.nix
     # Activate remote builders
