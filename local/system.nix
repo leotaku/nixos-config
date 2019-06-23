@@ -17,10 +17,7 @@
     #../containers/test.nix
   ];
 
-  hardware.opengl.enable = true;
-  
   nix.useSandbox = true;
-
   nixpkgs.overlays = [ (import ../pkgs) ];
 
   # Override default nixos stuff
@@ -75,7 +72,6 @@
   time.timeZone = "Europe/Vienna";
   
   nixpkgs.config.allowUnfree = true;
-  # TODO: Move this to separate home manager file
   environment.systemPackages = with pkgs; [
     # Needed
     gitFull
@@ -221,7 +217,7 @@
       InputMethod=
       
       [Theme]
-      ThemeDir=${pkgs.sddm_theme}/share/sddm/themes
+      ThemeDir=${pkgs.sddm-themes}/share/sddm/themes
     '';
   };
 

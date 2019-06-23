@@ -5,7 +5,7 @@ self: super:
   catimg = super.callPackage ./catimg/default.nix { };
   chroma = super.callPackage ./chroma/default.nix { };
   n30f = super.callPackage ./n30f/default.nix { };
-  sddm_theme = super.callPackage ./sddm/theme.nix { };
+  sddm-themes = super.callPackage ./sddm/default.nix { };
 
   # Customized packages
   ncmpcpp = super.ncmpcpp.override {

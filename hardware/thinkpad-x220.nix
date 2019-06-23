@@ -22,6 +22,9 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
   boot.loader.grub.device = "nodev";
+ 
+  # Enable OpenGL
+  hardware.opengl.enable = true;
 
   # Filesystem (configured by nixos-install)
   fileSystems."/" =
