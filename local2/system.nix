@@ -175,4 +175,19 @@
     interval = "hourly";
     localuser = "root";
   };
+  
+  # Fix broken lid-suspend
+  services.logind.lidSwitch = "ignore";
+  services.acpid.enable = true;
+  services.acpid.logEvents = true;
+  services.acpid.handlers = {
+    "lid-close-suspend" = {
+      event = "button/lid LID close";
+      action = ''
+      ${pkgs.systemd}/bin/loginctl lock-sessions
+      sleep 2
+      ${pkgs.systemd}/bin/systemctl suspend
+      '';
+    };
+  };
 }
