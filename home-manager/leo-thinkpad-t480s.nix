@@ -129,7 +129,6 @@
     provider = "geoclue2";
   };
   
-
   # X settings
   xsession = {
     enable = true;
