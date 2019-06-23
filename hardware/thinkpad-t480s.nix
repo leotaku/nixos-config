@@ -16,6 +16,7 @@
 
   # Enable basic NVIDIA support (needs testing)
   services.xserver.videoDrivers = [ "noveau" "intel" ];
+  hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
   boot.blacklistedKernelModules = [ "i915" ];
 

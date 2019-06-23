@@ -17,10 +17,7 @@
     #../containers/test.nix
   ];
 
-  hardware.opengl.enable = true;
-  
   nix.useSandbox = true;
-
   nixpkgs.overlays = [ (import ../pkgs) ];
 
   # Override default nixos stuff
