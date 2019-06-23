@@ -165,7 +165,7 @@
       InputMethod=
       
       [Theme]
-      ThemeDir=${pkgs.sddm_theme}/share/sddm/themes
+      ThemeDir=${pkgs.sddm-themes}/share/sddm/themes
     '';
   };
 
