@@ -123,6 +123,7 @@
   # SDDM
   services.xserver.displayManager.sddm = {
     enable = true;
+    enableHidpi = true;
     theme = "test";
     extraConfig = ''
       [Autologin]
