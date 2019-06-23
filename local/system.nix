@@ -72,7 +72,6 @@
   time.timeZone = "Europe/Vienna";
   
   nixpkgs.config.allowUnfree = true;
-  # TODO: Move this to separate home manager file
   environment.systemPackages = with pkgs; [
     # Needed
     gitFull
