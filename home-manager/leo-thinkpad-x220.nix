@@ -176,6 +176,9 @@
     nix-du
     nix-index
     nix-prefetch-scripts
+    # Syncthing
+    syncthing-gtk
+    syncthing-cli
   ];
 
   # make fonts work (fonts still don't work)
@@ -248,4 +251,7 @@
     userName = "LeOtaku";
     userEmail = "leo.gaskin@brg-feldkirchen.at";
   };
+
+  # Syncthing client
+  services.syncthing.enable = true;
 }

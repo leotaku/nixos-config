@@ -102,6 +102,9 @@
     # Torrent
     transmission-remote-gtk
     transmission-remote-cli
+    # Syncthing
+    syncthing-gtk
+    syncthing-cli
   ] ++ [
     fira-code
   ];
@@ -195,4 +198,7 @@
     userName = "LeOtaku";
     userEmail = "leo.gaskin@brg-feldkirchen.at";
   };
+
+  # Syncthing client
+  services.syncthing.enable = true;
 }
