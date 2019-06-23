@@ -31,6 +31,7 @@
       fd
       ripgrep
       iperf
+      syncthing-cli
     ];
 
     services.nginx = {
@@ -92,23 +93,30 @@
     #   };
     # };
 
+    # Backup and syncing
     services.restic.server = {
       enable = true;
       prometheus = true;
     };
+    services.syncthing = {
+      enable = true;
+      openDefaultPorts = true;
+    };
 
-    services.syncthing.enable = true;
-
+    # enable netdata monitoring
     services.netdata.enable = true;
 
+    # enable haveged service for more entropy
     services.haveged.enable = true;
-
-    # udisks depends on gtk+ which I don't want on my headless servers
+    
+    # Udisks depends on gtk+ which I don't want on my headless servers
     services.udisks2.enable = false;
 
+    # enable SSH
     services.openssh.enable = true;
     services.openssh.permitRootLogin = "yes";
 
+    # Avahi
     services.avahi.enable = true;
 
     networking.firewall.enable = true;
@@ -118,11 +126,13 @@
       # http(s)
       80
       443
+      # netdata
+      8000
+      # syncthing
+      8384
       # stuff
       6667
-      8000
       666
-      8384
     ];
 
     deployment.targetHost = "nixos-fujitsu.local";
