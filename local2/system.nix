@@ -11,6 +11,9 @@
     #../plugables/transmission/default.nix
     #../plugables/backup/restic-all.nix
     #../plugables/email/postfix-queue.nix
+    # Import package collections
+    ../plugables/packages/base.nix
+    ../plugables/packages/usability.nix
     # Enable throwaway account
     #../plugables/throwaway/default.nix
     # Test stuff
@@ -32,7 +35,7 @@
   # Networking
   networking.hostName = "nixos"; # Define your hostname.
 
-  # manager settings are managed here
+  # Enable connman
   networking.networkmanager.enable = false;
   networking.wireless.iwd.enable = false;
   networking.connman = {
@@ -52,6 +55,7 @@
 
   # Select internationalisation properties.
   i18n = {
+    # TODO: find how to increase console font size
     consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "de";
     defaultLocale = "en_US.UTF-8";
@@ -62,56 +66,21 @@
   
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    # Connman
-    connman-gtk
+    # Control
+    pulsemixer
     connman-ncurses
-    # Standard utils
-    file
-    tree
-    curl
-    moreutils
-    psmisc
-    stow
-    ncdu
-    cron
-    rsync
-    aria
-    bc
-    # Terminal toys
-    figlet
-    toilet
-    fortune
-    cowsay
-    lolcat
-    neofetch
     # Editors
-    nvi
     micro
     kakoune
     # Text-mode utils
-    htop
-    bmon
-    lynx
-    w3m
     weechat
-    # Terminal
-    xterm
-    tmux
-    screen
     # Files
     imagemagick
     ffmpeg-full
     pandoc
-    # Archives
-    p7zip
-    # Version control
-    mercurial
-    darcs
-    bazaar
-    cvs
     # Shells
-    bash
-    dash
+    zsh
+    fish
   ];
   
   environment.variables = {
