@@ -1,4 +1,15 @@
 {
+    "nixos-19_03": {
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/30a82bba734bc8d74fd291a0f7152809fb2cd037.tar.gz",
+        "owner": "NixOS",
+        "branch": "nixos-19.03",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "repo": "nixpkgs-channels",
+        "type": "tarball",
+        "sha256": "1zf7svfmgfx64lpwf19a1q87rlqx6clwwfd1dir769n86hz5b0yr",
+        "description": "Nixpkgs/NixOS branches that track the Nixpkgs/NixOS channels",
+        "rev": "30a82bba734bc8d74fd291a0f7152809fb2cd037"
+    },
     "update-nix-fetchgit": {
         "url": "https://github.com/expipiplus1/update-nix-fetchgit/archive/c820f7bfad87ba9dc54fdcb61ad0ca19ce355c94.tar.gz",
         "owner": "expipiplus1",
@@ -57,37 +68,37 @@
     },
     "nixfmt": {
         "homepage": "https://nixfmt.serokell.io",
-        "url": "https://github.com/serokell/nixfmt/archive/03715a86b20fc2cdd4242e06107199e62aba8228.tar.gz",
+        "url": "https://github.com/serokell/nixfmt/archive/dbed3c31c777899f0273cb6584486028cd0836d8.tar.gz",
         "owner": "serokell",
         "branch": "master",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "nixfmt",
         "type": "tarball",
-        "sha256": "1pqf39xfa5vbfy32ngmkz0gxhq37sas0m2gz0aa1gp7pvx362c2a",
+        "sha256": "0gsj5ywkncl8rahc8lcij7pw9v9214lk23wspirlva8hwyxl279q",
         "description": "A formatter for Nix code",
-        "rev": "03715a86b20fc2cdd4242e06107199e62aba8228"
+        "rev": "dbed3c31c777899f0273cb6584486028cd0836d8"
     },
     "nixos-19_03-small": {
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/c916ad95925599d6df4ad61425fba3f448f27ede.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/303729afa024a8bbf2b72ff9ee17cf7acf8cdbb3.tar.gz",
         "owner": "NixOS",
         "branch": "nixos-19.03-small",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "nixpkgs-channels",
         "type": "tarball",
-        "sha256": "0jwncaws22mw275pgq1138fjr6l1ap4q85hvl127vw6rjyzkxc9f",
+        "sha256": "1fdcx0nmj5kl3gfgklcvc4v5dfw04lsifjcqf1nlcby2y9g86jfv",
         "description": "Nixpkgs/NixOS branches that track the Nixpkgs/NixOS channels",
-        "rev": "c916ad95925599d6df4ad61425fba3f448f27ede"
+        "rev": "303729afa024a8bbf2b72ff9ee17cf7acf8cdbb3"
     },
     "nixos-unstable": {
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/a1dd419c1ffacea87eba066a2bb332e03cb68f66.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/83ba5afcc9682b52b39a9a958f730b966cc369c5.tar.gz",
         "owner": "NixOS",
         "branch": "nixos-unstable",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "nixpkgs-channels",
         "type": "tarball",
-        "sha256": "0j92bs0rjxsh1wh0hkic8bmqnyfj154za7q8ad2gv9ks5x8hfwps",
+        "sha256": "0swh1i3rm8a7fij6drz11s5nyzr145yh4n17k0572pp8knpxw762",
         "description": "Nixpkgs/NixOS branches that track the Nixpkgs/NixOS channels",
-        "rev": "a1dd419c1ffacea87eba066a2bb332e03cb68f66"
+        "rev": "83ba5afcc9682b52b39a9a958f730b966cc369c5"
     },
     "clever": {
         "url": "https://github.com/cleverca22/nixos-configs/archive/bd0d30c6ac0c0d40f295fda9675338b832dd317b.tar.gz",
@@ -101,14 +112,14 @@
     },
     "home-manager": {
         "homepage": "",
-        "url": "https://github.com/rycee/home-manager/archive/cf0aad391c10473fa7613dcc41b1f6a366d03148.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/f83c49baa3cf4de627bcfd3c70730478aaa3998a.tar.gz",
         "owner": "rycee",
         "branch": "master",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "home-manager",
         "type": "tarball",
-        "sha256": "0qpci9xns9gfq9b2a6c5cg99az1q3955iayq4rvk0w8gf8hixy8i",
+        "sha256": "16paqdhslldlyqask6q07vvx8kzxl4mzmqz3913c8vbnvyhaycqd",
         "description": "Manage a user environment using Nix",
-        "rev": "cf0aad391c10473fa7613dcc41b1f6a366d03148"
+        "rev": "f83c49baa3cf4de627bcfd3c70730478aaa3998a"
     }
 }
