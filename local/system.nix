@@ -9,7 +9,7 @@
     ../plugables/avahi/default.nix
     ../plugables/wireguard/wg-quick.nix
     ../plugables/transmission/default.nix
-    ../plugables/backup/restic-all.nix
+    ../modules/backup.nix
     ../plugables/email/postfix-queue.nix
     # Test stuff
     #../containers/test.nix
@@ -249,6 +249,23 @@
     package = pkgs.wireshark-qt;
   };
 
+  # Backup important directories
+  backup = {
+    enable = true;
+    timer = [ "*-*-* 11:00" "*-*-* 22:00" ];
+    repository = "rest:http://le0.gs:8000";
+    passwordFile = ../private/restic/default-repo-pass.txt;
+    paths = [
+      {
+        path = "/home/leo";
+        exclude = [
+          ".local/share/flatpak"
+          ".maildir/.notmuch"
+        ];
+      }
+    ];
+  };
+  
   # Run locatedb every hour
   services.locate = {
     enable = true;
