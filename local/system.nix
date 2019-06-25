@@ -11,8 +11,6 @@
     ../plugables/transmission/default.nix
     ../plugables/backup/restic-all.nix
     ../plugables/email/postfix-queue.nix
-    # Enable throwaway account
-    ../plugables/throwaway/default.nix
     # Test stuff
     #../containers/test.nix
   ];
