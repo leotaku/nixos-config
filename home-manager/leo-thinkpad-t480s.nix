@@ -130,14 +130,19 @@
     enable = true;
     provider = "geoclue2";
   };
-  
+
+  # Compton
+  services.compton = {
+    enable = true;
+  };
+
   # X settings
   xsession = {
     enable = true;
     pointerCursor = {
-     name = "Adwaita";
-     package = pkgs.gnome3.adwaita-icon-theme;
-     size = 32;
+      name = "Adwaita";
+      package = pkgs.gnome3.adwaita-icon-theme;
+      size = 32;
     };
 
     # AwesomeWM
