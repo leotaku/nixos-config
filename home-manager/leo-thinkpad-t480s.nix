@@ -107,6 +107,8 @@
     syncthing-cli
   ] ++ [
     fira-code
+    source-code-pro
+    ibm-plex
   ];
 
   # make fonts work (fonts still don't work)
