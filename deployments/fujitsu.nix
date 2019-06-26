@@ -51,27 +51,30 @@
           forceSSL = true;
           locations = {
             "/".root = "${pkgs.callPackage ./site/default.nix { }}/";
-            "/rustdoc" = {
-              root = "/var/web/";
-              index = "settings.html";
-            };
-            #extraConfig = "autoindex on;";
           };
-        };
-        "test.le0.gs" = {
-          enableACME = true;
-          addSSL = true;
-          globalRedirect = "vwa.le0.gs";
         };
         "vwa.le0.gs" = {
           enableACME = true;
           forceSSL = true;
-          locations = { "/".root = "/var/web/hugo/public"; };
+          locations = {
+            "/".root = "/var/web/hugo/public";
+            "/rustdoc" = {
+              root = "/var/web/";
+              index = "settings.html";
+            };
+          };
         };
-        "restic.le0.gs" = {
+        "sync.le0.gs" = {
           enableACME = true;
           forceSSL = true;
-          locations = { "/".root = "/var/web/restic"; };
+          basicAuthFile = "/run/keys/htpasswd";
+          locations = {
+            "/" = {
+              root = "/var/web/stuff";
+              extraConfig = "autoindex on;";
+            };
+            "/restic".root = "/var/web";
+          };
         };
         "stats.le0.gs" = {
           enableACME = true;
@@ -80,6 +83,7 @@
         };
       };
     };
+    users.users.nginx.extraGroups = [ "keys" "syncthing" ];
 
     # security.acme.certs = {
     #   "le0.gs" = { 
@@ -102,6 +106,7 @@
       enable = true;
       guiAddress = "0.0.0.0:8384";
       openDefaultPorts = true;
+      group = "syncthing";
     };
 
     # enable netdata monitoring
@@ -138,6 +143,14 @@
 
     deployment.targetHost = "nixos-fujitsu.local";
     # deployment.targetHost = "192.168.178.40";
+    
+    deployment.keys = {
+      "htpasswd" = {
+        keyFile = ../private/htpasswd;
+        user = "nginx";
+        group = "nginx";
+      };
+    };
 
     nixpkgs.config.allowUnfree = true;
     nixpkgs.config.allowBroken = false;
