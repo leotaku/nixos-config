@@ -204,7 +204,7 @@
   # SDDM
   services.xserver.displayManager.sddm = {
     enable = true;
-    theme = "test";
+    theme = "haze";
     extraConfig = ''
       [Autologin]
       Relogin=false
