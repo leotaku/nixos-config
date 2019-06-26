@@ -7,7 +7,7 @@ let
     (mapAttrs' (n: url:
       nameValuePair ("dns-records-update-${n}")
       ({
-        wantedBy = [ "multi-user.target" ];
+        wantedBy = [ "dns-records-update.target" ];
         startAt = cfg.timer;
         serviceConfig.ExecStart = "${pkgs.curl}/bin/curl ${url}";
       })));
@@ -28,5 +28,8 @@ in {
 
   config = lib.mkIf cfg.enable {
     systemd.services = createServices cfg.urls;
+    systemd.targets.dns-records-update = {
+      wantedBy = [ "multi-user.target" ];
+    };
   };
 }
