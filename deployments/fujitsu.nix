@@ -127,7 +127,7 @@
       # http(s)
       80
       443
-      # netdata
+      # restic
       8000
       # syncthing
       8384
