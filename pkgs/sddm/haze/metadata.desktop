@@ -1,0 +1,16 @@
+[SddmGreeterTheme]
+Name=Haze
+Description=A minimal theme with a clock and random wallpapers
+Author=Leo Gaskin
+Copyright=(c) 2019, Leo Gaskin
+License=None
+Type=sddm-theme
+Version=1.0
+Website=https://github.com/leotaku/nixos-config
+#Screenshot=screenshot.jpg
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Email=leo.gaskin@brg-feldkirchen.at
+Theme-Id=haze-theme
+Theme-API=2.0
