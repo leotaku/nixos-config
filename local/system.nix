@@ -254,7 +254,7 @@
     enable = true;
     timer = [ "*-*-* 11:00" "*-*-* 22:00" ];
     repository = "rest:http://le0.gs:8000";
-    passwordFile = ../private/restic/default-repo-pass.txt;
+    passwordFile = "/etc/nixos/nixos-config/private/restic/default-repo-pass.txt";
     paths = [
       {
         path = "/home/leo";
