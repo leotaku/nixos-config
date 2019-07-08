@@ -3,8 +3,7 @@
 {
   # home-manager bootstrap idiocy
   programs.home-manager.enable = true;
-  programs.home-manager.path =
-  toString /etc/nixos/nixos-config/sources/links/home-manager;
+  programs.home-manager.path = toString /etc/nixos/nixos-config/sources/links/home-manager;
 
   # nixpkgs like everywhere else
   nixpkgs = {
