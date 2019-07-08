@@ -11,12 +11,11 @@ Rectangle {
     height: Screen.height
     color: "white"
 
-    // Constant values
-    Item {
-        id: c
-        readonly property int unit: 1 * Screen.height / 768
+    // This theme was initially created for a low-res screen
+    function dpi(x) {
+        return x * Screen.height / 768
     }
-
+    
     // Setup
     Timer {
         id: notificationResetTimer
@@ -142,15 +141,15 @@ Rectangle {
         id: root
         anchors.horizontalCenter: parent.horizontalCenter
         y: (parent.height - root.height) * 0.5
-        width: 350 * c.unit
-        height: 400 * c.unit
+        width: dpi(350)
+        height: dpi(400)
         color: "transparent"
         Rectangle {
             id: loginRectangleTemplate
             y: parent.height * 0.5 + avatarBorder.height * 0.3
-            height: 80 * c.unit
-            width: 150 * c.unit
-            radius: 4 * c.unit
+            height: dpi(80)
+            width: dpi(150)
+            radius: dpi(4)
             visible: false
         }
         Rectangle {
@@ -166,7 +165,7 @@ Rectangle {
                 id: loginContainer
                 visible: false
                 anchors.fill: parent
-                property int textMargin: 10
+                property int textMargin: dpi(10)
                 Item {
                     id:loginUser
                     width: parent.width
@@ -174,12 +173,13 @@ Rectangle {
                     Text {
                         id: userName
                         anchors.fill: parent
+                        anchors.topMargin: loginContainer.textMargin
                         anchors.leftMargin: loginContainer.textMargin
                         anchors.rightMargin: loginContainer.textMargin
                         clip: true
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        font.pixelSize: 20
+                        font.pixelSize: dpi(20)
                         text: if (userList.complete) (userList.get(userList.currentIndex).name == "" ? userList.get(userList.currentIndex).realName : userList.get(userList.currentIndex).name)
                     }
                 }
@@ -194,14 +194,15 @@ Rectangle {
                         anchors.fill: parent
                         anchors.leftMargin: loginContainer.textMargin
                         anchors.rightMargin: loginContainer.textMargin
+                        anchors.bottomMargin: loginContainer.textMargin
                         verticalAlignment: Text.AlignVCenter
-                        font.pixelSize: 13
+                        font.pixelSize: dpi(13)
                         clip: true
                         echoMode: TextInput.Password
                         Text {
                             id: passwordText
                             anchors.fill: parent
-                            font.pixelSize: 13
+                            font.pixelSize: dpi(13)
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
                             text: password.text ? "" : "Password"
@@ -211,7 +212,7 @@ Rectangle {
                             id: passwordIncorrect
                             anchors.fill: parent
                             visible: false
-                            font.pixelSize: 13
+                            font.pixelSize: dpi(13)
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
                             text: password.text ? "" : "Incorrect password"
@@ -365,7 +366,7 @@ Rectangle {
             }
             Rectangle {
                 id: avatarBorder
-                width: 150 * c.unit
+                width: dpi(150)
                 height: avatarBorder.width
                 radius: avatarBorder.width
                 color: "white"
@@ -424,18 +425,18 @@ Rectangle {
     // Session Buttons
     Column {
         id: buttonContainer
-        x: 15 * c.unit
-        y: 15 * c.unit
+        x: dpi(15)
+        y: dpi(15)
 
         // Customizing properties
-        width: 100 * c.unit
-        height: 150 * c.unit
+        width: dpi(100)
+        height: dpi(150)
         spacing: buttonContainer.height * 0.04
         property double buttonOpacity: 0.70
         property string buttonColor: "white"
         property string iconColor: "grey"
         property string fontColor: "#20000000"
-        property int fontSize: 12
+        property int fontSize: dpi(12)
         Rectangle {
             id: suspend
             height: (buttonContainer.height - (3 * buttonContainer.spacing)) / 4
@@ -664,22 +665,22 @@ Rectangle {
         states: [
             State {
                 when: suspendBorder.focus
-                PropertyChanges { target: suspendBorder; width: buttonContainer.width; radius: 5; }
+                PropertyChanges { target: suspendBorder; width: buttonContainer.width; radius: dpi(5); }
                 PropertyChanges { target: suspendText; opacity: 1; }
             },
             State {
                 when: hibernateBorder.focus
-                PropertyChanges { target: hibernateBorder; width: buttonContainer.width; radius: 5; }
+                PropertyChanges { target: hibernateBorder; width: buttonContainer.width; radius: dpi(5); }
                 PropertyChanges { target: hibernateText; opacity: 1; }
             },
             State {
                 when: rebootBorder.focus
-                PropertyChanges { target: rebootBorder; width: buttonContainer.width; radius: 5; }
+                PropertyChanges { target: rebootBorder; width: buttonContainer.width; radius: dpi(5); }
                 PropertyChanges { target: rebootText; opacity: 1; }
             },
             State {
                 when: shutdownBorder.focus
-                PropertyChanges { target: shutdownBorder; width: buttonContainer.width; radius: 5; }
+                PropertyChanges { target: shutdownBorder; width: buttonContainer.width; radius: dpi(5); }
                 PropertyChanges { target: shutdownText; opacity: 1; }
             }
         ]
@@ -706,10 +707,13 @@ Rectangle {
     Clock { 
         id: clock
         x: Screen.width/2 - clock.width/2
-        y: 70 * c.unit
+        y: dpi(70)
 
-        width: 100 * c.unit
-        height: 40 * c.unit
+        width: dpi(100)
+        height: dpi(40)
+
+        timeFont.pixelSize: dpi(96)
+        dateFont.pixelSize: dpi(32)
     }
 
     Component.onCompleted: {
