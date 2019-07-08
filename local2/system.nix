@@ -66,6 +66,8 @@
   
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+    # Laptop
+    acpi
     # Control
     pulsemixer
     connman-ncurses
