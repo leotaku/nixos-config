@@ -188,7 +188,7 @@
       action = ''
       ${pkgs.systemd}/bin/loginctl lock-sessions
       sleep 2
-      ${pkgs.systemd}/bin/systemctl suspend
+      ${pkgs.systemd}/bin/systemctl start suspend.target
       '';
     };
   };
