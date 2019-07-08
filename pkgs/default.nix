@@ -18,7 +18,6 @@ self: super:
     mpdSupport = true;
   };
   leovim = super.callPackage ./neovim/leovim.nix { };
-  _2bwm = super.callPackage ./2bwm/default.nix { };
   emacs-custom = super.callPackage ./emacs/default.nix { };
   sddm = super.sddm.overrideAttrs
   (old: { buildInputs = with super; [ qt5Full ] ++ old.buildInputs; });
