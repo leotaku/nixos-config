@@ -20,7 +20,6 @@
   nix.distributedBuilds = true;
   
   nix.nixPath = [
-    "/etc/nixos/nixos-config"
     "nixpkgs=/etc/nixos/nixos-config/sources/links/nixos-unstable"
     "nixos-config=/etc/nixos/configuration.nix"
     "sources=/etc/nixos/nixos-config/sources/nix/sources.nix"
