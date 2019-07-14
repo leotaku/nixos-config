@@ -6,6 +6,8 @@
     imports = [
       ../hardware/fujitsu.nix
       # ../plugables/wireguard/mullvad.nix
+      ../plugables/packages/base.nix
+      ../plugables/packages/usability.nix
       ../modules/dns-records.nix
       ../plugables/avahi/default.nix
       ../plugables/znc/default.nix
@@ -23,14 +25,7 @@
     };
 
     environment.systemPackages = with pkgs; [
-      htop
-      ncdu
-      nix-top
       vim
-      speedtest-cli
-      fd
-      ripgrep
-      iperf
       syncthing-cli
     ];
 

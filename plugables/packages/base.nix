@@ -2,21 +2,18 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # Nix Tools
-    nix-top
-    nix-du
-    nix-index
-    nix-prefetch-scripts
     # Standard utils
     file
     tree
     curl
     wget
-    moreutils
     psmisc
     stow
     cron
     bc
+    # new utils
+    rsync
+    moreutils    
     # Version control
     gitAndTools.gitFull
     # Archives
@@ -27,12 +24,10 @@
     # Shells
     bash
     dash
-    # Terminal toys
-    figlet
-    toilet
-    fortune
-    cowsay
-    lolcat
-    neofetch
+    # Hardware
+    lm_sensors
+    # Ensure "special" terminfo
+    kitty.terminfo
+    rxvt_unicode.terminfo
   ];
 }
