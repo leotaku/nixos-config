@@ -16,6 +16,10 @@
   imports = [ ../plugables/email/home-manager.nix ];
 
   home.packages = with pkgs; [
+    # Misc
+    lua
+    slop
+    feh
     # Text editors
     vscode-with-extensions
     kakoune

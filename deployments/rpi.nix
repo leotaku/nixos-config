@@ -3,7 +3,11 @@
   network.enableRollback = true;
 
   nixos-rpi = { config, pkgs, ... }: {
-    imports = [ ../hardware/raspberry3.nix ../plugables/avahi/default.nix ];
+    imports = [
+      ../hardware/raspberry3.nix
+      ../plugables/packages/base.nix
+      ../plugables/avahi/default.nix
+    ];
 
     nix.trustedUsers = [ "root" "remote-builder" ];
 
@@ -12,13 +16,7 @@
       shell = pkgs.bash;
     };
 
-    environment.systemPackages = with pkgs; [
-      htop
-      ncdu
-      nix-top
-      speedtest-cli
-      iperf
-    ];
+    environment.systemPackages = with pkgs; [ ];
 
     # netdata monitoring
     services.nginx = {
