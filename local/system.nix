@@ -33,7 +33,7 @@
   boot.loader.systemd-boot.enable = false;
 
   # Networking
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos-old"; # Define your hostname.
 
   # manager settings are managed here
   networking.networkmanager.enable = false;
