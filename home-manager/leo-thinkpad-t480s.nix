@@ -209,4 +209,129 @@
 
   # Syncthing client
   services.syncthing.enable = true;
+
+  # Firefox settings
+  programs.firefox = {
+    enable = true;
+    package = pkgs.mozilla.firefox-devedition-bin-unwrapped.overrideAttrs
+    (oldAttrs: { name = "firefox"; });
+    profiles = {
+      "dev-edition-default" = {
+        id = 0;
+        isDefault = true;
+        settings = {
+          "xpinstall.signatures.required" = false;
+          "browser.urlbar.decodeURLsOnCopy" = true;
+          "network.IDN.whitelist.local" = true;
+          "places.history.expiration.max_pages" = 2147483647;
+        };
+      };
+    };
+  };
+  
+  # Xdg dirs
+  xdg.configFile."user-dirs.dirs".text = ''
+    XDG_DESKTOP_DIR="$HOME"
+    XDG_DOWNLOAD_DIR="$HOME/downloads"
+    XDG_DOCUMENTS_DIR="$HOME/sync/documents"
+    XDG_MUSIC_DIR="$HOME/sync/music"
+    XDG_PICTURES_DIR="$HOME/sync/images"
+    # Unused:
+    XDG_VIDEOS_DIR="$HOME/sync/videos"
+    XDG_TEMPLATES_DIR="$HOME/sync/templates"
+    # Wrogly used:
+    XDG_PUBLICSHARE_DIR="$HOME/repos"
+  '';
+
+  # Xdg default applications
+  xdg.configFile."mimeapps.list".text = ''
+    [Default Applications]
+    inode/directory=Thunar.desktop
+
+    image/bmp=sxiv.desktop
+    image/gif=sxiv.desktop
+    image/jpeg=sxiv.desktop
+    image/jpg=sxiv.desktop
+    image/png=sxiv.desktop
+    image/tiff=sxiv.desktop
+    image/x-bmp=sxiv.desktop
+    image/x-portable-anymap=sxiv.desktop
+    image/x-portable-bitmap=sxiv.desktop
+    image/x-portable-graymap=sxiv.desktop
+    image/x-tga=sxiv.desktop
+    image/x-xpixmap=sxiv.desktop
+
+    text/plain=emacs.desktop
+    text/english=emacs.desktop
+    text/x-makefile=emacs.desktop
+    text/x-c++hdr=emacs.desktop
+    text/x-c++src=emacs.desktop
+    text/x-chdr=emacs.desktop
+    text/x-csrc=emacs.desktop
+    text/x-java=emacs.desktop
+    text/x-moc=emacs.desktop
+    text/x-pascal=emacs.desktop
+    text/x-tcl=emacs.desktop
+    text/x-tex=emacs.desktop
+    application/x-shellscript=emacs.desktop
+    text/x-c=emacs.desktop
+    text/x-c++=emacs.desktop
+    
+    application/pdf=org.pwmt.zathura.desktop
+    
+    x-scheme-handler/http=firefox.desktop
+    x-scheme-handler/https=firefox.desktop
+    x-scheme-handler/ftp=userapp-firefox.desktop
+    x-scheme-handler/chrome=userapp-firefox.desktop
+    x-scheme-handler/about=firefox.desktop
+    x-scheme-handler/unknown=firefox.desktop
+
+    [Added Associations]
+    text/html=firefox.desktop;
+    x-scheme-handler/http=firefox.desktop;
+    x-scheme-handler/https=firefox.desktop;
+    x-scheme-handler/ftp=firefox.desktop;
+    x-scheme-handler/chrome=firefox.desktop;
+    application/x-extension-htm=firefox.desktop;
+    application/x-extension-html=firefox.desktop;
+    application/x-extension-shtml=firefox.desktop;
+    application/xhtml+xml=firefox.desktop;
+    application/x-extension-xhtml=firefox.desktop;
+    application/x-extension-xht=firefox.desktop;
+    
+    [Removed Associations]
+  '';
+
+  # Firefox does not register a proper entry by default
+  xdg.dataFile."applications/firefox.desktop".text = ''
+    [Desktop Entry]
+    Encoding=UTF-8
+    Name=Mozilla Firefox
+    GenericName=Web Browser
+    Comment=Browse the Web
+    Exec=firefox
+    Icon=firefox
+    Terminal=false
+    Type=Application
+    Categories=Application;Network;WebBrowser;
+    MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;
+    StartupNotify=True
+  '';
+
+  # Better emacs(client) desktop
+  xdg.dataFile."applications/emacs.desktop".text = ''
+    [Desktop Entry]
+    Name=Emacsclient
+    GenericName=Text Editor
+    Comment=Edit text
+    MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+    Exec=emacsclient -c %F --alternate-editor=""
+    Icon=emacs
+    Type=Application
+    Terminal=false
+    Categories=Development;TextEditor;
+    StartupWMClass=Emacs
+    Keywords=Text;Editor;
+
+  '';
 }
