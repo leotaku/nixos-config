@@ -43,6 +43,7 @@ in
   };
   
   config = mkIf cfg.enable {
+    # Enable a restic backup service
     services.restic.backups."backup-module" = mkIf cfg.enable {
       paths = map (p: p.path) cfg.paths;
       repository = cfg.repository;
@@ -54,5 +55,8 @@ in
         Persistent = "true";
       };
     };
+
+    # Include the restic package in the global environment
+    environment.systemPackages = [ pkgs.restic ];
   };
 }
