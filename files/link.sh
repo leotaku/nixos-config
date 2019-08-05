@@ -56,8 +56,8 @@ else
     maybe_link $DIR/files/config.nix $HOME/.config/nixpkgs/config.nix
     maybe_link $DIR/files/overlays.nix $HOME/.config/nixpkgs/overlays.nix
     maybe_link $DIR/home-manager $HOME/.config/nixpkgs/home.nix 1
-    mkdir -p $HOME/.nix-defexpr
-    maybe_link $DIR/files/nix-defexpr/nixos $HOME/.nix-defexpr/nixos
+    mkdir -p $HOME/.nix-defexpr/nixos/
+    maybe_link $DIR/files/nix-defexpr/nixos/default.nix $HOME/.nix-defexpr/nixos/default.nix
 
     echo ""
     echo "You have linked your user-specific .nix files."
