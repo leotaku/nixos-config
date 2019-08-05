@@ -12,13 +12,19 @@
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
+  boot.blacklistedKernelModules = [ "i915" ];
   boot.extraModulePackages = [ ];
 
   # Enable basic NVIDIA support (needs testing)
-  services.xserver.videoDrivers = [ "noveau" "intel" ];
+  # https://github.com/NixOS/nixpkgs/issues/53269#issuecomment-454726649
+  services.xserver.videoDrivers = [ "intel" ];
+  hardware.bumblebee.enable = true;
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
-  boot.blacklistedKernelModules = [ "i915" ];
+  hardware.opengl.extraPackages = [
+    pkgs.libGL_driver
+    pkgs.linuxPackages.nvidia_x11.out
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
