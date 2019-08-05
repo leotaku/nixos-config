@@ -110,6 +110,9 @@
     ibm-plex
   ];
 
+  # enable automatic indexing of info files
+  programs.info.enable = true;
+  
   # make fonts work (fonts still don't work)
   fonts.fontconfig.enable = true;
 
