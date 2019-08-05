@@ -18,6 +18,8 @@
   ];
 
   home.packages = with pkgs; [
+    # Required
+    lua
     # Control
     connman-gtk
     pulsemixer
@@ -25,6 +27,7 @@
     kakoune
     vscode-with-extensions
     # File Manager
+    xfce.thunar
     emv
     fzf
     # Chat
