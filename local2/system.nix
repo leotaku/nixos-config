@@ -11,6 +11,8 @@
     #../plugables/transmission/default.nix
     #../plugables/backup/restic-all.nix
     #../plugables/email/postfix-queue.nix
+    # Import custom modules
+    ../modules/backup.nix
     # Import package collections
     ../plugables/packages/base.nix
     ../plugables/packages/usability.nix
@@ -169,6 +171,24 @@
   programs.wireshark = { 
     enable = true;
     package = pkgs.wireshark-qt;
+  };
+
+  # Backup important directories
+  backup = {
+    enable = true;
+    timer = [ "*-*-* 11:00" "*-*-* 22:00" ];
+    repository = "rest:http://le0.gs:8000";
+    passwordFile = toString ../private/restic-pw;
+    paths = [
+      {
+        path = "/home/leo";
+        exclude = [
+          ".local/share/flatpak"
+          ".maildir/.notmuch"
+          "large"
+        ];
+      }
+    ];
   };
 
   # Run locatedb every hour
