@@ -11,12 +11,12 @@
     # Activate remote builders
     ../plugables/builders/all.nix
     # Import qemu module
-    ../sources/links/clever/qemu.nix
+    ../sources/external/clever/qemu.nix
   ];
 
   nix.trustedUsers = [ "root" "@wheel" ];
   
-  qemu-user.aarch64 = false;
+  qemu-user.aarch64 = true;
   nix.distributedBuilds = true;
   
   nix.nixPath = [
