@@ -1,14 +1,15 @@
 {
     "nixos-19_03": {
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/9ec7625cee5365c741dee7b45a19aff5d5d56205.tar.gz",
+        "homepage": "https://github.com/NixOS/nixpkgs",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/fb354a0ac875b9ab50f0eccc66342f5d3f4d7fe0.tar.gz",
         "owner": "NixOS",
         "branch": "nixos-19.03",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "nixpkgs-channels",
         "type": "tarball",
-        "sha256": "0rh26fhdvnp9ssk8g63ysyzigw9zg43k9bd2fzrvhrk75sav723h",
+        "sha256": "1myxmq04azwv8qcmds4gvj8p8pdm8dqiqjr3bxvr3zzh5wbcvqx5",
         "description": "Nixpkgs/NixOS branches that track the Nixpkgs/NixOS channels",
-        "rev": "9ec7625cee5365c741dee7b45a19aff5d5d56205"
+        "rev": "fb354a0ac875b9ab50f0eccc66342f5d3f4d7fe0"
     },
     "update-nix-fetchgit": {
         "url": "https://github.com/expipiplus1/update-nix-fetchgit/archive/c820f7bfad87ba9dc54fdcb61ad0ca19ce355c94.tar.gz",
@@ -45,60 +46,62 @@
     },
     "direnv": {
         "homepage": "http://direnv.net",
-        "url": "https://github.com/direnv/direnv/archive/be5c1d9fab9952ecde9aa0d0843faa966cd3da58.tar.gz",
+        "url": "https://github.com/direnv/direnv/archive/0bc462cc9f700c4ad0c31a4922eb812f228a4a80.tar.gz",
         "owner": "direnv",
         "branch": "master",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "direnv",
         "type": "tarball",
-        "sha256": "0z462m5pdjpjsihxwfvvm2i3326cgi0rd7cnak4fyhl7arw3bwnn",
+        "sha256": "1mn8a8qiysnx0achc2n0rw1gm0lvy3bmvazh50awnwxb91qqmb7s",
         "description": "Unclutter your .profile",
-        "rev": "be5c1d9fab9952ecde9aa0d0843faa966cd3da58"
+        "rev": "0bc462cc9f700c4ad0c31a4922eb812f228a4a80"
     },
     "nixpkgs-mozilla": {
-        "url": "https://github.com/mozilla/nixpkgs-mozilla/archive/200cf0640fd8fdff0e1a342db98c9e31e6f13cd7.tar.gz",
+        "url": "https://github.com/mozilla/nixpkgs-mozilla/archive/ac8e9d7bbda8fb5e45cae20c5b7e44c52da3ac0c.tar.gz",
         "owner": "mozilla",
         "branch": "master",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "nixpkgs-mozilla",
         "type": "tarball",
-        "sha256": "1am353ims43ylvay263alchzy3y87r1khnwr0x2fp35qr347bvxi",
+        "sha256": "1irlkqc0jdkxdfznq7r52ycnf0kcvvrz416qc7346xhmilrx2gy6",
         "description": "mozilla related nixpkgs (extends nixos/nixpkgs repo)",
-        "rev": "200cf0640fd8fdff0e1a342db98c9e31e6f13cd7"
+        "rev": "ac8e9d7bbda8fb5e45cae20c5b7e44c52da3ac0c"
     },
     "nixfmt": {
         "homepage": "https://nixfmt.serokell.io",
-        "url": "https://github.com/serokell/nixfmt/archive/dbed3c31c777899f0273cb6584486028cd0836d8.tar.gz",
+        "url": "https://github.com/serokell/nixfmt/archive/af09262aa7d08d2b0905b11d2e8958889aadcf46.tar.gz",
         "owner": "serokell",
         "branch": "master",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "nixfmt",
         "type": "tarball",
-        "sha256": "0gsj5ywkncl8rahc8lcij7pw9v9214lk23wspirlva8hwyxl279q",
+        "sha256": "0njgjv6syv3sk97v8kq0cb4mhgrb7nag2shsj7rphs6h5b7k9nbx",
         "description": "A formatter for Nix code",
-        "rev": "dbed3c31c777899f0273cb6584486028cd0836d8"
+        "rev": "af09262aa7d08d2b0905b11d2e8958889aadcf46"
     },
     "nixos-19_03-small": {
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/9ec7625cee5365c741dee7b45a19aff5d5d56205.tar.gz",
+        "homepage": "https://github.com/NixOS/nixpkgs",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/93ea6db29cc56f0f90c47014842c6cedc5eeb6de.tar.gz",
         "owner": "NixOS",
         "branch": "nixos-19.03-small",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "nixpkgs-channels",
         "type": "tarball",
-        "sha256": "0rh26fhdvnp9ssk8g63ysyzigw9zg43k9bd2fzrvhrk75sav723h",
+        "sha256": "07n8h4psnlhhj8zc9n0bl1v7yxmls51lj022lcmgh7v81gjknqi0",
         "description": "Nixpkgs/NixOS branches that track the Nixpkgs/NixOS channels",
-        "rev": "9ec7625cee5365c741dee7b45a19aff5d5d56205"
+        "rev": "93ea6db29cc56f0f90c47014842c6cedc5eeb6de"
     },
     "nixos-unstable": {
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/beff2f8d75ef2c65017fb25e251337c6bb2e950d.tar.gz",
+        "homepage": "https://github.com/NixOS/nixpkgs",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/239fffc90d792b5362a20ec1a009978de7b8f91a.tar.gz",
         "owner": "NixOS",
         "branch": "nixos-unstable",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "nixpkgs-channels",
         "type": "tarball",
-        "sha256": "1av1m2mibv9dgfrjv9r8n3ih9dyb0wi594s5xb4c135v121jpzs3",
+        "sha256": "0z0c438b5q1066x6p9qfriym5cipw8f52a456f91qzg6q1r296f8",
         "description": "Nixpkgs/NixOS branches that track the Nixpkgs/NixOS channels",
-        "rev": "beff2f8d75ef2c65017fb25e251337c6bb2e950d"
+        "rev": "239fffc90d792b5362a20ec1a009978de7b8f91a"
     },
     "clever": {
         "url": "https://github.com/cleverca22/nixos-configs/archive/bd0d30c6ac0c0d40f295fda9675338b832dd317b.tar.gz",
@@ -112,14 +115,14 @@
     },
     "home-manager": {
         "homepage": "",
-        "url": "https://github.com/rycee/home-manager/archive/c3520bfa52b30f984e73e9616abe4d11ab56de36.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/d625186ce599a663b0115b83b70ea0be0ba8afbf.tar.gz",
         "owner": "rycee",
         "branch": "master",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "repo": "home-manager",
         "type": "tarball",
-        "sha256": "042k9n80iighl89izqby6f4k579vij2hk5bh9x10y9rd78cg6gp3",
+        "sha256": "12hlaz5yfrhsgk8p7l7ma7sm3jkfq630rxwcig2s48wqsmnrh7km",
         "description": "Manage a user environment using Nix",
-        "rev": "c3520bfa52b30f984e73e9616abe4d11ab56de36"
+        "rev": "d625186ce599a663b0115b83b70ea0be0ba8afbf"
     }
 }
