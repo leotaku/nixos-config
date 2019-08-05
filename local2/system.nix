@@ -104,6 +104,7 @@
   services.openssh.enable = true;
   services.cron.enable = false;
   services.netdata.enable = true;
+  services.tumbler.enable = true;
 
   # Geoclue2 for redshift
   services.geoclue2 = {
@@ -123,6 +124,13 @@
   services.xserver.enable = true; 
   services.xserver.libinput.enable = true;
   services.xserver.wacom.enable = true;
+
+  # Basic xdg support
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-kde
+  ];
 
   # SDDM
   services.xserver.displayManager.sddm = {
