@@ -6,6 +6,8 @@ self: super:
   chroma = super.callPackage ./chroma/default.nix { };
   n30f = super.callPackage ./n30f/default.nix { };
   sddm-themes = super.callPackage ./sddm/default.nix { };
+  besley = super.callPackage ./besley/default.nix {  };
+  alegreya = super.callPackage ./alegreya/default.nix {  };
 
   # Customized packages
   ncmpcpp = super.ncmpcpp.override {
@@ -20,7 +22,7 @@ self: super:
   leovim = super.callPackage ./neovim/leovim.nix { };
   emacs-custom = super.callPackage ./emacs/default.nix { };
   sddm = super.sddm.overrideAttrs
-  (old: { buildInputs = with super.qt5; [ qtgraphicaleffects ] ++ old.buildInputs; });
+  (old: { buildInputs = with super.qt5; [ qtgraphicaleffects qtmultimedia ] ++ old.buildInputs; });
   urxvtWithExtensions = super.rxvt_unicode_with-plugins.override {
     plugins = with super; [ urxvt_vtwheel urxvt_perls ];
   };
