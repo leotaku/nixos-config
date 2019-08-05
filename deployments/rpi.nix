@@ -11,6 +11,13 @@
 
     nix.trustedUsers = [ "root" "remote-builder" ];
 
+    # overlays (quicker arm compilation)
+    nixpkgs.overlays = [ (self: super: {
+      openjpeg = super.openjpeg.override {
+        testsSupport = false;
+      };
+    })];
+
     users.extraUsers.remote-builder = {
       isNormalUser = true;
       shell = pkgs.bash;
