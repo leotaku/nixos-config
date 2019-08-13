@@ -16,7 +16,7 @@
     # Version control
     gitAndTools.gitFull
     mercurial
-    darcs
+    # BROKEN: darcs
     bazaar
     cvs
     # Archives

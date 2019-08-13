@@ -11,6 +11,7 @@
     stow
     cron
     bc
+    unzip
     # new utils
     rsync
     moreutils    
