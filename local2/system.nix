@@ -30,9 +30,9 @@
   boot.plymouth.enable = true;
 
   # less verbose boot log
-  #boot.consoleLogLevel = 3;
-  #boot.kernelParams = [ "quiet" "udev.log_priority=3" ];
-  #boot.earlyVconsoleSetup = true;
+  boot.consoleLogLevel = 3;
+  boot.kernelParams = [ "quiet" "udev.log_priority=3" ];
+  boot.earlyVconsoleSetup = true;
 
   # Networking
   networking.hostName = "nixos"; # Define your hostname.
