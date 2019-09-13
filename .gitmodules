@@ -10,3 +10,6 @@
 [submodule "sources/external/home-manager"]
 	path = sources/external/home-manager
 	url = git://github.com/rycee/home-manager.git
+[submodule "sources/external/morph"]
+	path = sources/external/morph
+	url = git://github.com/DBCDK/morph.git
