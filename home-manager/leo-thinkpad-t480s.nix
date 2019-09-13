@@ -19,6 +19,7 @@
 
   home.packages = with pkgs; [
     # Required
+    xcape
     lua
     # Control
     connman-gtk
@@ -30,6 +31,8 @@
     xfce.thunar
     emv
     fzf
+    # Other
+    zotero
     # Chat
     weechat
     # Images
@@ -121,7 +124,7 @@
 
   # user variables
   home.sessionVariables = {
-    TERMINAL = "urxvt";
+    TERMINAL = "kitty";
     EDITOR = "kak";
     PAGER = "less";
   };
@@ -187,8 +190,8 @@
     enable = true;
     theme.package = pkgs.arc-theme;
     theme.name = "Arc";
-    iconTheme.package = pkgs.gnome3.adwaita-icon-theme;
-    iconTheme.name = "Adwaita";
+    iconTheme.package = pkgs.papirus-icon-theme;
+    iconTheme.name = "Papirus";
     gtk2.extraConfig = lib.concatStringsSep "\n" (lib.mapAttrsToList (n: v: "${n}=${v}") {
       gtk-toolbar-style = "GTK_TOOLBAR_ICONS";
       gtk-toolbar-icon-size = "GTK_ICON_SIZE_SMALL_TOOLBAR";
@@ -210,8 +213,14 @@
     userEmail = "leo.gaskin@brg-feldkirchen.at";
   };
 
+  # Systemd settings
+  systemd.user.startServices = true;
+
   # Syncthing client
   services.syncthing.enable = true;
+
+  # Kdeconnect
+  services.kdeconnect.enable = true;
 
   # Firefox settings
   programs.firefox = {
@@ -335,6 +344,5 @@
     Categories=Development;TextEditor;
     StartupWMClass=Emacs
     Keywords=Text;Editor;
-
   '';
 }
