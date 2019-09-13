@@ -1,29 +1,40 @@
 {
-  network.description = "RPI3 Server";
-  network.enableRollback = true;
+  network = {
+    description = "RPI3 Server";
+    enableRollback = true;
+    pkgs = (import ../sources/links/nixos-19_03 {
+      system = "aarch64-linux";
+      config.allowBroken = false;
+      overlays = [
+        (self: super: {
+          openjpeg = super.openjpeg.override { testsSupport = false; };
+        })
+      ];
+    });
+  };
 
-  nixos-rpi = { config, pkgs, ... }: {
+  "nixos-rpi.local" = { config, pkgs, ... }: {
     imports = [
       ../hardware/raspberry3.nix
       ../plugables/packages/base.nix
       ../plugables/avahi/default.nix
     ];
 
-    nix.trustedUsers = [ "root" "remote-builder" ];
+    # IMPORTANT: removing this causes avahi to fail
+    networking.hostName = "nixos-rpi";
 
-    # overlays (quicker arm compilation)
-    nixpkgs.overlays = [ (self: super: {
-      openjpeg = super.openjpeg.override {
-        testsSupport = false;
-      };
-    })];
+    # Nixpkgs configurations
+    nixpkgs.localSystem.system = "aarch64-linux";
+    nixpkgs.overlays = [];
+    
+    nix.trustedUsers = [ "root" "remote-builder" ];
 
     users.extraUsers.remote-builder = {
       isNormalUser = true;
       shell = pkgs.bash;
     };
 
-    environment.systemPackages = with pkgs; [ ];
+    environment.systemPackages = with pkgs; [ hello ];
 
     # netdata monitoring
     services.nginx = {
@@ -53,11 +64,6 @@
     networking.firewall.enable = true;
     networking.firewall.allowedTCPPorts = [ 22 80 443 ];
 
-    deployment.targetHost = "nixos-rpi.local";
-    #deployment.targetHost = "192.168.178.23";
-
     #boot.kernelPackages = pkgs.linuxPackages_latest;
-    nixpkgs.system = "aarch64-linux";
-    nixpkgs.config.allowBroken = false;
   };
 }

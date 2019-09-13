@@ -1,8 +1,11 @@
 {
-  network.description = "Fujitsu Server";
-  network.enableRollback = true;
+  network = {
+    description = "Fujitsu Server";
+    enableRollback = true;
+    pkgs = (import ../sources/links/nixos-19_03 {});
+  };
 
-  nixos-fujitsu = { config, pkgs, ... }: {
+  "nixos-fujitsu.local" = { config, pkgs, ... }: {
     imports = [
       ../hardware/fujitsu.nix
       # ../plugables/wireguard/mullvad.nix
@@ -12,11 +15,16 @@
       ../plugables/avahi/default.nix
       ../plugables/znc/default.nix
       ../private/dns.nix
-      ../sources/external/clever/qemu.nix
+      #../sources/external/clever/qemu.nix
     ];
 
-    qemu-user.aarch64 = true;
+    # IMPORTANT: removing this causes avahi to fail
+    networking.hostName = "nixos-fujitsu";
 
+    # Nixpkgs configurations
+    # nixpkgs.localSystem.system = "x86_64-linux";
+    nixpkgs.overlays = [];
+    
     nix.trustedUsers = [ "root" "remote-builder" ];
 
     users.extraUsers.remote-builder = {
@@ -24,10 +32,7 @@
       shell = pkgs.bash;
     };
 
-    environment.systemPackages = with pkgs; [
-      vim
-      syncthing-cli
-    ];
+    environment.systemPackages = with pkgs; [ vim syncthing-cli ];
 
     services.nginx = {
       enable = true;
@@ -46,6 +51,10 @@
           forceSSL = true;
           locations = {
             "/".root = "${pkgs.callPackage ./site/default.nix { }}/";
+            "/public" = {
+              root = "/var/web/stuff/";
+              extraConfig = "autoindex on;";
+            };
           };
         };
         "vwa.le0.gs" = {
@@ -81,73 +90,69 @@
     users.users.nginx.extraGroups = [ "keys" "syncthing" ];
 
     # security.acme.certs = {
-    #   "le0.gs" = { 
-    #     email = "leo.gaskin@brg-feldkirchen.at";
-    #     webroot = "/var/lib/acme/acme-challenges";
-    #     extraDomains = {
-    #       "le0.gs" = null;
-    #       "test.le0.gs" = null;
-    #     };
-    #     postRun = "systemctl restart nginx.service";
-    #   };
-    # };
+      #   "le0.gs" = { 
+      #     email = "leo.gaskin@brg-feldkirchen.at";
+      #     webroot = "/var/lib/acme/acme-challenges";
+      #     extraDomains = {
+        #       "le0.gs" = null;
+        #       "test.le0.gs" = null;
+        #     };
+        #     postRun = "systemctl restart nginx.service";
+        #   };
+        # };
 
-    # Backup and syncing
-    services.restic.server = {
-      enable = true;
-      prometheus = true;
-    };
-    services.syncthing = {
-      enable = true;
-      guiAddress = "0.0.0.0:8384";
-      openDefaultPorts = true;
-      group = "syncthing";
-    };
+        # Backup and syncing
+        services.restic.server = {
+          enable = true;
+          prometheus = true;
+        };
+        services.syncthing = {
+          enable = true;
+          guiAddress = "0.0.0.0:8384";
+          openDefaultPorts = true;
+          group = "syncthing";
+        };
 
-    # enable netdata monitoring
-    services.netdata.enable = true;
+        # enable netdata monitoring
+        services.netdata.enable = true;
 
-    # enable haveged service for more entropy
-    services.haveged.enable = true;
-    
-    # Udisks depends on gtk+ which I don't want on my headless servers
-    services.udisks2.enable = false;
+        # enable haveged service for more entropy
+        services.haveged.enable = true;
 
-    # enable SSH
-    services.openssh.enable = true;
-    services.openssh.permitRootLogin = "yes";
+        # Udisks depends on gtk+ which I don't want on my headless servers
+        services.udisks2.enable = false;
 
-    # Avahi
-    services.avahi.enable = true;
+        # enable SSH
+        services.openssh.enable = true;
+        services.openssh.permitRootLogin = "yes";
 
-    networking.firewall.enable = true;
-    networking.firewall.allowedTCPPorts = [
-      # ssh
-      22
-      # http(s)
-      80
-      443
-      # restic
-      8000
-      # syncthing
-      8384
-      # stuff
-      6667
-      666
-    ];
+        # Avahi
+        services.avahi.enable = true;
 
-    deployment.targetHost = "nixos-fujitsu.local";
-    # deployment.targetHost = "192.168.178.40";
-    
-    deployment.keys = {
-      "htpasswd" = {
-        keyFile = ../private/htpasswd;
-        user = "nginx";
-        group = "nginx";
-      };
-    };
+        networking.firewall.enable = true;
+        networking.firewall.allowedTCPPorts = [
+          # ssh
+          22
+          # http(s)
+          80
+          443
+          # restic
+          8000
+          # syncthing
+          8384
+          # stuff
+          6667
+          666
+        ];
 
-    nixpkgs.config.allowUnfree = true;
-    nixpkgs.config.allowBroken = false;
+        deployment.secrets = {
+          "htpasswd" = {
+            source = builtins.toString ../private/htpasswd;
+            destination = "/run/keys/htpasswd";
+            owner.user = "nginx";
+            owner.group = "nginx";
+            action = ["sudo" "systemctl" "reload" "nginx.service"];
+          };
+        };
   };
 }
