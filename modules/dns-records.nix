@@ -15,12 +15,12 @@ in {
   options.services.dns-records-update = {
     enable = mkEnableOption "Automatically update DNS records";
     timer = mkOption {
-      type = types.string;
+      type = types.str;
       default = "01:00:00";
       description = "Interval at which the service is run (systemd time)";
     };
     urls = mkOption {
-      type = types.attrsOf types.string;
+      type = types.attrsOf types.str;
       default = {};
       description = "URLs to contact when service is run";
     };

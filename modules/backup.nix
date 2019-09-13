@@ -5,11 +5,11 @@ let
   backupPath = types.submodule {
     options = {
       path = mkOption {
-        type = types.string;
+        type = types.str;
         description = "Path that should be included in the backup.";
       };
       exclude = mkOption {
-        type = with types; listOf string;
+        type = with types; listOf str;
         description = "Paths that should be excluded from the backup, relative to the value of path.";
       };
     };
@@ -26,7 +26,7 @@ in
     };
     
     repository = mkOption {
-      type = types.string;
+      type = types.str;
       example = "rest:http://le0.gs:8000";
       description = "Location of the restic server.";
     };
