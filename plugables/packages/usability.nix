@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-
   # Also needs the base utils
   imports = [
     ./base.nix
@@ -16,7 +15,7 @@
     # Version control
     gitAndTools.gitFull
     mercurial
-    # BROKEN: darcs
+    darcs
     bazaar
     cvs
     # Archives
@@ -38,8 +37,10 @@
     hwinfo
     stress
     s-tui
-    # networking
+    # Networking
     speedtest-cli
     iperf
+    # Misc
+    qrencode
   ];
 }
