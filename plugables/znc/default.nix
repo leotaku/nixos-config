@@ -5,6 +5,7 @@
     mutable = true;
     openFirewall = true;
     confOptions = {
+      # Basics
       port = 6667;
       useSSL = false;
       nick = "leotaku";
@@ -16,6 +17,7 @@
         Salt = 9vpyWS6!(5wkCR3uv:_5
        </Pass>
       '';
+      # Networks
       networks = {
         freenode = {
           port = 6697; 
@@ -45,6 +47,8 @@
         };
 
       };
+      # Other
+      modules = [ "adminlog" "dcc" ];
       extraZncConf = ''
         MaxBufferSize=10000
       '';
