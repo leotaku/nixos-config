@@ -1,7 +1,7 @@
-{ emacs, emacsPackagesNg, lib, runCommand, imagemagick, ... }:
+{ stdenv, emacsPackagesNg, imagemagick, ... }:
 let
   customEmacsPackages = emacsPackagesNg.overrideScope' (self: super: {
-    emacs = (emacs.override { inherit imagemagick; }).overrideAttrs (old: {
+    emacs = (super.emacs.override { inherit imagemagick; }).overrideAttrs (oldAttrs: {
       configureFlags = [
         "--with-modules"
         "--with-x-toolkit=yes"
@@ -11,5 +11,4 @@ let
       ];
     });
   });
-
 in customEmacsPackages.emacsWithPackages (epkgs: (with epkgs; [ ]))
