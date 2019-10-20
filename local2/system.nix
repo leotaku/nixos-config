@@ -34,19 +34,11 @@
   # Networking
   networking.hostName = "nixos"; # Define your hostname.
 
-  # Enable connman
-  networking.networkmanager.enable = false;
-  networking.wireless.iwd.enable = false;
-  networking.connman = {
+  # Enable Networkmanager + iwd
+  networking.networkmanager = {
     enable = true;
-    enableVPN = true;
-    extraConfig = ''
-      [General]
-      AllowHostnameUpdates=false
-      PreferredTechnologies=ethernet,wifi
-    '';
+    wifi.backend = "iwd";
   };
-  environment.etc."wpa_supplicant.conf".text = "";
 
   networking.nat.enable = true;
   networking.nat.internalInterfaces = ["ve-+"];
@@ -57,6 +49,7 @@
     available = true;
     file = builtins.toString ../private/mullvad/ch.conf;
   };
+
   # Select internationalisation properties.
   i18n = {
     # TODO: find how to increase console font size
@@ -74,7 +67,6 @@
     acpi
     # Control
     pulsemixer
-    connman-ncurses
     # Editors
     micro
     kakoune
