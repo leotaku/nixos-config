@@ -1,17 +1,17 @@
 { config, lib, pkgs, options, ... }:
 
 {
-  # home-manager bootstrap idiocy
+  # Home-manager bootstrap idiocy
   programs.home-manager.enable = true;
   programs.home-manager.path = toString ../sources/links/home-manager;
 
-  # nixpkgs like everywhere else
+  # Nixpkgs like everywhere else
   nixpkgs = {
     config = { allowUnfree = true; };
     overlays = [ (import ../pkgs/default.nix) ];
   };
 
-  # modules and pluggable configurations
+  # Modules and pluggable configurations
   imports = [
     #../plugables/email/home-manager.nix
     ../modules/qt5ct.nix
@@ -116,13 +116,13 @@
     ibm-plex
   ];
 
-  # enable automatic indexing of info files
+  # Enable automatic indexing of info files
   programs.info.enable = true;
   
-  # make fonts work (fonts still don't work)
+  # Make fonts work (fonts still don't work)
   fonts.fontconfig.enable = true;
 
-  # user variables
+  # User variables
   home.sessionVariables = {
     TERMINAL = "kitty";
     EDITOR = "kak";
