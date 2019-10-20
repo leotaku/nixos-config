@@ -6,6 +6,9 @@
 {
   imports = [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
 
+  # Kernel version
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  
   # Default kernel modules 
   boot.initrd.availableKernelModules = [
     "xhci_pci" "nvme" "usb_storage" "sd_mod"
