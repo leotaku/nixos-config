@@ -14,10 +14,7 @@
     ../modules/backup.nix
     ../modules/wg-quicker.nix
     # Import package collections
-    ../plugables/packages/base.nix
-    ../plugables/packages/usability.nix
-    # Enable throwaway account
-    #../plugables/throwaway/default.nix
+    ../plugables/packages/large.nix
     # Test stuff
     #../containers/test.nix
   ];
