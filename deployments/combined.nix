@@ -1,4 +1,4 @@
-let pinned = import ../sources/links/nixos-19_03 {};
+let pinned = import ../sources/links/nixos-19_09 {};
 in with pinned.lib;
 let
   subnetwork = file:
@@ -10,7 +10,6 @@ let
 in {
   network = {
     description = "Home network";
-    enableRollback = true;
     overlays = [];
     config = {
       allowUnfree = true;

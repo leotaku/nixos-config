@@ -1,8 +1,7 @@
-{
+rec {
   network = {
     description = "Fujitsu Server";
-    enableRollback = true;
-    pkgs = (import ../sources/links/nixos-19_03 {});
+    pkgs = (import ../sources/links/nixos-19_09 {});
   };
 
   "nixos-fujitsu.local" = { config, pkgs, ... }: {
@@ -22,7 +21,7 @@
     networking.hostName = "nixos-fujitsu";
 
     # Nixpkgs configurations
-    # nixpkgs.localSystem.system = "x86_64-linux";
+    nixpkgs.pkgs = network.pkgs;
     nixpkgs.overlays = [];
     
     nix.trustedUsers = [ "root" "remote-builder" ];

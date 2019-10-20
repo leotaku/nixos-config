@@ -1,16 +1,7 @@
-{
+rec {
   network = {
     description = "RPI3 Server";
-    enableRollback = true;
-    pkgs = (import ../sources/links/nixos-19_03 {
-      system = "aarch64-linux";
-      config.allowBroken = false;
-      overlays = [
-        (self: super: {
-          openjpeg = super.openjpeg.override { testsSupport = false; };
-        })
-      ];
-    });
+    pkgs = (import ../sources/links/nixos-19_09 {});
   };
 
   "nixos-rpi.local" = { config, pkgs, ... }: {
@@ -24,8 +15,12 @@
     networking.hostName = "nixos-rpi";
 
     # Nixpkgs configurations
-    nixpkgs.localSystem.system = "aarch64-linux";
-    nixpkgs.overlays = [];
+    nixpkgs = rec {
+      # Tell the host system that it can, and should, build for aarch64.    
+      crossSystem = network.pkgs.pkgsCross.aarch64-multiplatform.stdenv.targetPlatform;
+      localSystem = crossSystem;
+      overlays = [];      
+    };
     
     nix.trustedUsers = [ "root" "remote-builder" ];
 
