@@ -7,7 +7,6 @@
   imports = [
     # Import plugable configurations
     ../plugables/avahi/default.nix
-    ../plugables/wireguard/wg-quick.nix
     ../plugables/transmission/default.nix
     ../modules/backup.nix
     ../plugables/email/postfix-queue.nix

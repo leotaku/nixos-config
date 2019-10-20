@@ -55,6 +55,11 @@
   networking.nat.internalInterfaces = ["ve-+"];
   networking.nat.externalInterface = "wlp3s0";
 
+  # Enable Wireguard VPN
+  services.wg-quicker = {
+    available = true;
+    file = builtins.toString ../private/mullvad/ch.conf;
+  };
   # Select internationalisation properties.
   i18n = {
     # TODO: find how to increase console font size
