@@ -81,7 +81,7 @@
     efibootmgr
     # Terminal
     xterm
-    urxvtWithExtensions
+    rxvt-unicode-custom
     tmux
     # Performance monitoring
     htop
