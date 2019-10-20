@@ -58,7 +58,5 @@ rec {
 
     networking.firewall.enable = true;
     networking.firewall.allowedTCPPorts = [ 22 80 443 ];
-
-    #boot.kernelPackages = pkgs.linuxPackages_latest;
   };
 }
