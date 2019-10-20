@@ -33,11 +33,13 @@
     fzf
     # Other
     zotero
+    youtube-dl
     # Chat
     weechat
     # Images
     imagemagick
     sxiv
+    feh
     pinta
     gcolor3
     # PDF
