@@ -7,12 +7,12 @@
   imports = [
     # Import plugable configurations
     ../plugables/avahi/default.nix
-    #../plugables/wireguard/wg-quick.nix
     #../plugables/transmission/default.nix
     #../plugables/backup/restic-all.nix
     #../plugables/email/postfix-queue.nix
     # Import custom modules
     ../modules/backup.nix
+    ../modules/wg-quicker.nix
     # Import package collections
     ../plugables/packages/base.nix
     ../plugables/packages/usability.nix
