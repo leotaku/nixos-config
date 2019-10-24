@@ -21,7 +21,7 @@
     gnutar
     libarchive
     # Editors
-    nvi
+    vim
     # Shells
     bash
     dash
