@@ -1,11 +1,14 @@
 { config, pkgs, lib, ... }:
 
 {
+  # NOTE: Target is managed in main deployment file for convenience.
+
+  # Kernel version
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # NixOS wants to enable GRUB by default
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
-
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
   
   # Needed for the virtual console to work on the RPi 3, as the default of 16M doesn't seem to be enough.
   boot.kernelParams = ["cma=32M"];
