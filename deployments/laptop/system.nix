@@ -6,20 +6,27 @@
 { 
   imports = [
     # Import plugable configurations
-    ../plugables/avahi/default.nix
-    ../plugables/transmission/default.nix
-    ../modules/backup.nix
-    ../plugables/email/postfix-queue.nix
+    ../../plugables/avahi/default.nix
+    #../plugables/transmission/default.nix
+    #../plugables/backup/restic-all.nix
+    #../plugables/email/postfix-queue.nix
+    # Import custom modules
+    ../../modules/backup.nix
+    ../../modules/wg-quicker.nix
+    # Import package collections
+    ../../plugables/packages/large.nix
     # Test stuff
     #../containers/test.nix
   ];
 
   nix.useSandbox = true;
-  nixpkgs.overlays = [ (import ../pkgs) ];
+
+  # Nixpkgs settings
+  nixpkgs.overlays = [ (import ../../pkgs) ];
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.virtualbox.enableExtensionPack = false;
 
   # Override default nixos stuff
-  boot.loader.grub.splashImage = null;
-  boot.loader.grub.gfxmodeBios = "1366x768";
   boot.loader.timeout = 10;
   boot.plymouth.enable = true;
 
@@ -28,38 +35,29 @@
   boot.kernelParams = [ "quiet" "udev.log_priority=3" ];
   boot.earlyVconsoleSetup = true;
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = false;
-
   # Networking
-  networking.hostName = "nixos-old"; # Define your hostname.
+  networking.hostName = "nixos-laptop"; # Define your hostname.
 
-  # manager settings are managed here
-  networking.networkmanager.enable = false;
-  networking.wireless.iwd.enable = false;
-  networking.connman = {
+  # Enable Networkmanager + iwd
+  networking.networkmanager = {
     enable = true;
-    enableVPN = true;
-    extraConfig = ''
-      [General]
-      AllowHostnameUpdates=false
-      PreferredTechnologies=ethernet,wifi
-    '';
+    wifi.backend = "iwd";
+    dns = "default";
   };
-  environment.etc."wpa_supplicant.conf".text = "";
 
   networking.nat.enable = true;
   networking.nat.internalInterfaces = ["ve-+"];
   networking.nat.externalInterface = "wlp3s0";
 
-  # TODO: these will be removed when iwd support officially lands
-  # environment.etc."wpa_supplicant.conf".text = ''
-  # ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel
-  # update_config=1
-  # '';
+  # Enable Wireguard VPN
+  services.wg-quicker = {
+    available = true;
+    file = builtins.toString ../../private/mullvad/ch.conf;
+  };
 
   # Select internationalisation properties.
   i18n = {
+    # TODO: find how to increase console font size
     consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "de";
     defaultLocale = "en_US.UTF-8";
@@ -68,110 +66,34 @@
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
   
-  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    # Needed
-    gitFull
-    gitAndTools.gitRemoteGcrypt
-    # NetworkManager
-    networkmanagerapplet
-    # Connman
-    connman-gtk
-    connman-ncurses
-    # Networking
-    iw
-    iperf
-    # Utils
-    moreutils
-    bc
-    psmisc
-    file
-    tree
-    stow
-    ncdu
-    cron
-    wget
-    curl
-    rsync
-    aria
-    # Terminal toys
-    figlet
-    toilet
-    fortune
-    cowsay
-    lolcat
-    neofetch
-    # Terminal basics
-    ranger
-    nvi
-    #neovim
+    # Laptop
+    acpi
+    # Control
+    pulsemixer
+    # Editors
     micro
     kakoune
-    # Monitors
-    htop
-    atop
-    bmon
-    # Browsers
-    lynx
-    elinks
-    w3m
-    # Internet
+    # Text-mode utils
     weechat
-    # Terminal
-    xterm
-    rxvt_unicode
-    tmux
-    screen
     # Files
     imagemagick
     ffmpeg-full
     pandoc
-    # Archives
-    p7zip
-    # Version control
-    mercurial
-    darcs
-    bazaar
-    cvs
     # Shells
-    bash
     zsh
     fish
-    dash
-    elvish
-  ];
-  
-  # TODO: fix fc cache in home-manager
-  fonts.fonts = with pkgs; [ terminus_font siji ] ++
-  [
-    gohufont
-    terminus_font
-    unifont
-    siji
-    google-fonts
-    go-font
-    lmmath
-    #tewi-font
-    dina-font
-    fira-code
-    fira-mono
-    #roboto
-    emacs-all-the-icons-fonts
   ];
   
   environment.variables = {
-    EDITOR = "vi";
+    EDITOR = "micro";
     TERMINAL = "urxvt";
     SHELL = "zsh";
     PAGER = "less";
   };
   
-  # List programs that need nix init
+  # List programs that need nix wrappers
   programs.zsh.enable = true;
-  programs.fish = {
-    enable = false;
-    vendor.completions.enable = false;
-  };
   programs.light.enable = true;
 
   # List simple services that you want to enable:
@@ -180,6 +102,7 @@
   services.openssh.enable = true;
   services.cron.enable = false;
   services.netdata.enable = true;
+  services.tumbler.enable = true;
 
   # Geoclue2 for redshift
   services.geoclue2 = {
@@ -200,9 +123,23 @@
   services.xserver.libinput.enable = true;
   services.xserver.wacom.enable = true;
 
+  # URxvt daemon
+  services.urxvtd = {
+    enable = true;
+    package = pkgs.rxvt-unicode-custom;
+  };
+
+  # Basic xdg support
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-kde
+  ];
+
   # SDDM
   services.xserver.displayManager.sddm = {
     enable = true;
+    enableHidpi = true;
     theme = "haze";
     extraConfig = ''
       [Autologin]
@@ -237,7 +174,6 @@
     enable = false;
     #enableHardening = false; 
   };
-  nixpkgs.config.virtualbox.enableExtensionPack = false;
 
   virtualisation.docker.enable = true;
   services.flatpak.enable = true;
@@ -253,25 +189,26 @@
     enable = true;
     timer = [ "*-*-* 11:00" "*-*-* 22:00" ];
     repository = "rest:http://le0.gs:8000";
-    passwordFile = "/etc/nixos/nixos-config/private/restic/default-repo-pass.txt";
+    passwordFile = toString ../private/restic-pw;
     paths = [
       {
         path = "/home/leo";
         exclude = [
           ".local/share/flatpak"
           ".maildir/.notmuch"
+          "large"
         ];
       }
     ];
   };
-  
+
   # Run locatedb every hour
   services.locate = {
     enable = true;
     interval = "hourly";
     localuser = "root";
   };
-
+  
   # Fix broken lid-suspend
   services.logind.lidSwitch = "ignore";
   services.acpid.enable = true;
@@ -282,7 +219,7 @@
       action = ''
       ${pkgs.systemd}/bin/loginctl lock-sessions
       sleep 2
-      ${pkgs.systemd}/bin/systemctl suspend
+      ${pkgs.systemd}/bin/systemctl start suspend.target
       '';
     };
   };

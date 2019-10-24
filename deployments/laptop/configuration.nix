@@ -7,11 +7,11 @@
     # Import configuration
     ./users.nix
     ./system.nix
-    ../hardware/thinkpad-t480s.nix
+    ../../hardware/thinkpad-t480s.nix
     # Activate remote builders
-    ../plugables/builders/all.nix
+    ../../plugables/builders/all.nix
     # Import qemu module
-    ../sources/external/clever/qemu.nix
+    ../../sources/external/clever/qemu.nix
   ];
 
   nix.trustedUsers = [ "root" "@wheel" ];
