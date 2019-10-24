@@ -7,8 +7,10 @@ let
     (mapAttrs' (n: url:
       nameValuePair ("dns-records-update-${n}")
       ({
-        wantedBy = [ "dns-records-update.target" ];
-        startAt = cfg.timer;
+        wantedBy = [
+          "dns-records-update.timer"
+          "dns-records-update.target"
+        ];
         serviceConfig.ExecStart = "${pkgs.curl}/bin/curl ${url}";
       })));
 in {
@@ -28,8 +30,17 @@ in {
 
   config = lib.mkIf cfg.enable {
     systemd.services = createServices cfg.urls;
-    systemd.targets.dns-records-update = {
-      wantedBy = [ "multi-user.target" ];
+
+    # Manual updates
+    systemd.targets."dns-records-update" = {};
+
+    # Automatic updates
+    systemd.timers."dns-records-update" = {
+      wants = [ "dns-records-update.target" ];
+      timerConfig = {
+        OnCalendar = cfg.timer;
+        Persistent = "true";
+      };
     };
   };
 }
