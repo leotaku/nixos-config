@@ -12,9 +12,9 @@ in {
   };
 } // {
   "nixos-laptop.local" = {
-    configuration = (import ./laptop/configuration.nix);
+    configuration = import ./laptop/configuration.nix;
     nixpkgs = ../sources/links/nixos-unstable;
   };
-  "nixos-fujitsu.local".configuration = (import ./fujitsu.nix);
-  "nixos-rpi.local".configuration = (import ./rpi.nix);
+  "nixos-fujitsu.local".configuration = import ./fujitsu.nix;
+  "nixos-rpi.local".configuration = import ./rpi.nix;
 }
