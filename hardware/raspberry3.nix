@@ -4,7 +4,7 @@
   # NOTE: Target is managed in main deployment file for convenience.
 
   # Kernel version
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # FIXME: boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # NixOS wants to enable GRUB by default
   boot.loader.grub.enable = false;
