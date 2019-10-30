@@ -191,7 +191,7 @@
     enable = true;
     timer = [ "*-*-* 11:00" "*-*-* 22:00" ];
     repository = "rest:http://le0.gs:8000";
-    passwordFile = toString ../../private/restic-pw;
+    passwordFile = ../../private/restic-pw;
     paths = [
       {
         path = "/home/leo";
