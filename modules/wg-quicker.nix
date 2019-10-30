@@ -1,26 +1,59 @@
 { lib, pkgs, config, ... }:
-with lib;                      
+with lib;
 let
   cfg = config.services.wg-quicker;
   kernel = config.boot.kernelPackages;
 
-  genDir = pkgs.writeTextFile {
-    name = "config-${cfg.interface}";
-    executable = false;
-    destination = "/${cfg.interface}.conf";
-    text = lib.fileContents cfg.file;
+  genDir = file:
+    pkgs.writeTextFile {
+      name = "config-${cfg.interface}";
+      executable = false;
+      destination = "/${cfg.interface}.conf";
+      text = lib.fileContents file;
+    };
+  genFile = file: (genDir file) + "/${cfg.interface}.conf";
+  genService = name: file: {
+    description = "${name} wg-quick WireGuard Tunnel";
+    requires = [ "network-online.target" ];
+    after = [ "network.target" "network-online.target" ];
+    wantedBy = [ ];
+    environment.DEVICE = cfg.interface;
+    path = [ pkgs.kmod pkgs.wireguard-tools ];
+
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+    };
+
+    script = ''
+      ${optionalString (!config.boot.isContainer) "modprobe wireguard"}
+      wg-quick up ${genFile file}
+    '';
+
+    preStop = ''
+      wg-quick down ${genFile file}
+    '';
   };
-  genFile = genDir + "/${cfg.interface}.conf";
-  
+
+  createServices = (mapAttrs' (name: submodule:
+    nameValuePair "wg-quicker-${name}" (genService name submodule)));
+
 in {
   ### Options
   options.services.wg-quicker = {
-    enable = mkEnableOption "Enable a Wireguard instance based on a wg-quick configuration.";
-    available = mkEnableOption "Make available a Wireguard instance based on a wg-quick configuration.";
+    available = mkEnableOption "Make Wireguard instances available.";
 
-    file = mkOption {
-      description = "File from which the wg-quick configuration is read.";
-      type = types.str;
+    setups = mkOption {
+      description = "Attrset of Wireguard configurations.";
+      type = with types; attrsOf path;
+
+      # (submodule {
+      #   conf = {
+      #     description =
+      #       "Location of the configuration file for this Wireguard instance.";
+      #     type = types.path;
+      #   };
+      # });
     };
 
     interface = mkOption {
@@ -31,12 +64,8 @@ in {
   };
 
   ### Implementation
-  config = lib.mkIf (cfg.available or cfg.enable) {
-    assertions = singleton {
-      assertion = !(cfg.available && cfg.enable);
-      message = "Having both 'enable' and 'avilable' in the wg-quicker service configuration is redundant.";
-    };
-    
+  config = lib.mkIf cfg.available {
+
     boot.extraModulePackages = [ kernel.wireguard ];
     environment.systemPackages = [ pkgs.wireguard-tools ];
     # This is forced to false for now because the default "--validmark" rpfilter we apply on reverse path filtering
@@ -44,27 +73,6 @@ in {
     networking.firewall.checkReversePath = false;
 
     ## Service
-    systemd.services.wg-quicker = {
-      description = "wg-quick WireGuard Tunnel";
-      requires = [ "network-online.target" ];
-      after = [ "network.target" "network-online.target" ];
-      wantedBy = [ (lib.mkIf cfg.enable "multi-user.target") ];
-      environment.DEVICE = cfg.interface;
-      path = [ pkgs.kmod pkgs.wireguard-tools ];
-
-      serviceConfig = {
-        Type = "oneshot";
-        RemainAfterExit = true;
-      };
-
-      script = ''
-        ${optionalString (!config.boot.isContainer) "modprobe wireguard"}
-        wg-quick up ${genFile}
-      '';
-
-      preStop = ''
-        wg-quick down ${genFile}
-      '';
-    };
+    systemd.services = createServices cfg.setups;
   };
 }

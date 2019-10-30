@@ -52,7 +52,9 @@
   # Enable Wireguard VPN
   services.wg-quicker = {
     available = true;
-    file = builtins.toString ../../private/mullvad/ch.conf;
+    setups = {
+      "ch" = ../../private/mullvad/ch.conf;
+    };
   };
 
   # Select internationalisation properties.
