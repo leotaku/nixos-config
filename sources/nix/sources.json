@@ -5,10 +5,10 @@
         "homepage": null,
         "owner": "cleverca22",
         "repo": "nixos-configs",
-        "rev": "36c6dfb5ce0e48ea7f24ad6602cb1203fa44e41c",
-        "sha256": "1hl303vxqzhdkkalbbybjrzl0q7xhjf58gg6m28s64rjk2s1cwvq",
+        "rev": "278d077ebcfe67a8c6eb2eb5087fb6d4f26ea4b1",
+        "sha256": "1z3hcimnp4fzl9il52hfi7kx5g1pcv05fb8miyglgpsfgxh7a7w7",
         "type": "tarball",
-        "url": "https://github.com/cleverca22/nixos-configs/archive/36c6dfb5ce0e48ea7f24ad6602cb1203fa44e41c.tar.gz",
+        "url": "https://github.com/cleverca22/nixos-configs/archive/278d077ebcfe67a8c6eb2eb5087fb6d4f26ea4b1.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "direnv": {
@@ -65,10 +65,10 @@
         "homepage": "https://github.com/NixOS/nixpkgs",
         "owner": "NixOS",
         "repo": "nixpkgs-channels",
-        "rev": "12f5d47ef277ba3106a50f91d41b3750cf68f8e7",
-        "sha256": "023fj3sma1ccbfa5w6bvi8cdrg8zax33y2ssk730c2zzdhga8y8f",
+        "rev": "d07702964756f885c0e4dcfe760854fe347f7ae5",
+        "sha256": "0lh8g6avdymf119cswzrss7qk4a14bsfiknybiz053szy2k72ja7",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/12f5d47ef277ba3106a50f91d41b3750cf68f8e7.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/d07702964756f885c0e4dcfe760854fe347f7ae5.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-unstable": {
@@ -93,18 +93,6 @@
         "sha256": "0icws1cbdscic8s8lx292chvh3fkkbjp571j89lmmha7vl2n71jg",
         "type": "tarball",
         "url": "https://github.com/mozilla/nixpkgs-mozilla/archive/d46240e8755d91bc36c0c38621af72bf5c489e13.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "nixpkgs-unfg": {
-        "branch": "a9f054c8348bf8cd7630cd99def2fd86d22c78bd",
-        "description": "Nix Packages collection",
-        "homepage": null,
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "a9f054c8348bf8cd7630cd99def2fd86d22c78bd",
-        "sha256": "17snmz70715cvhhk2w6av0g4didkk4hh5fzsf83p53vbmnpjg76j",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/a9f054c8348bf8cd7630cd99def2fd86d22c78bd.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "update-nix-fetchgit": {
