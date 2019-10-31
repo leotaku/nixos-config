@@ -196,9 +196,10 @@
       {
         path = "/home/leo";
         exclude = [
-          ".local/share/flatpak"
+          "large"          
           ".maildir/.notmuch"
-          "large"
+          ".local/share/flatpak"
+          ".cache/mozilla/firefox/dev-edition-default/cache2"
         ];
       }
     ];
