@@ -1,14 +1,15 @@
-{ stdenv, emacsPackagesNg, imagemagick, ... }:
+{ callPackage, stdenv, emacs, emacsPackagesNgGen, imagemagick, ... }:
 let
-  customEmacsPackages = emacsPackagesNg.overrideScope' (self: super: {
-    emacs = (super.emacs.override { inherit imagemagick; }).overrideAttrs (oldAttrs: {
-      configureFlags = [
-        "--with-modules"
-        "--with-x-toolkit=yes"
+  customEmacsPackages = emacsPackagesNgGen (
+    (emacs.override {
+      inherit imagemagick;
+      withX = true;
+      withGTK3 = true;
+      withXwidgets = true;
+    }).overrideAttrs (oldAttrs: {
+      configureFlags = oldAttrs.configureFlags ++ [
         "--without-toolkit-scroll-bars"
-        "--with-xft"
-        # "--with-xwidgets"
       ];
-    });
-  });
-in customEmacsPackages.emacsWithPackages (epkgs: (with epkgs; [ ]))
+    })
+  );
+in customEmacsPackages.emacsWithPackages (epkgs: (with epkgs; [ vterm ]))

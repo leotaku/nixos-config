@@ -20,14 +20,21 @@ self: super:
     mpdSupport = true;
   };
   leovim = super.callPackage ./neovim/leovim.nix { };
-  emacs-custom = super.callPackage ./emacs/default.nix { };
-  sddm = super.sddm.overrideAttrs
-  (old: { buildInputs = with super.qt5; [ qtgraphicaleffects qtmultimedia ] ++ old.buildInputs; });
+  sddm = super.sddm.overrideAttrs (oldAttrs: {
+    buildInputs = with super.qt5; oldAttrs.buildInputs ++ [ qtgraphicaleffects qtmultimedia ];
+  });
   rxvt-unicode-custom = super.rxvt_unicode_with-plugins.override {
     plugins = with super; [ urxvt_vtwheel urxvt_perls ];
   };
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
 
+  # Emacs
+  emacs-git = super.callPackage ./emacs/emacs-git.nix { };
+  emacs-custom = super.callPackage ./emacs/default.nix { };
+  emacs-git-custom = super.callPackage ./emacs/default.nix {
+    emacs = self.emacs-git;
+  };
+  
   # Mozilla
   mozilla = (import ../sources/links/nixpkgs-mozilla) self super;
 
