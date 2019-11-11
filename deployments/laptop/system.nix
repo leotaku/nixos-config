@@ -42,12 +42,27 @@
   networking.networkmanager = {
     enable = true;
     wifi.backend = "iwd";
-    dns = "default";
+    dns = "systemd-resolved";
   };
 
   networking.nat.enable = true;
   networking.nat.internalInterfaces = ["ve-+"];
   networking.nat.externalInterface = "wlp3s0";
+
+  # Use trusted DNS server
+  # 1: https://snopyta.org/service/dns/index.html
+  # 2: https://mullvad.net/de/help/dns-leaks
+  networking.nameservers = [ "95.216.24.230" "193.138.218.74" ];
+
+  # Use resolved instead of dhcpcd, as it respects resolv.conf
+  # TODO: Maybe enable DoT when it becomes safe
+  # TODO: Investigate why DNSSec never works
+  networking.dhcpcd.enable = false;
+  services.resolved = {
+    enable = true;
+    fallbackDns = [ "0.0.0.0" ];
+    dnssec = "allow-downgrade";
+  };
 
   # Enable Wireguard VPN
   services.wg-quicker = {

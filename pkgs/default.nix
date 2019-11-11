@@ -29,6 +29,9 @@ self: super:
     plugins = with super; [ urxvt_vtwheel urxvt_perls ];
   };
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
+  # NOTE: This only works while using systemd-resolved
+  wireguard-tools =
+    super.wireguard-tools.override { openresolv = self.systemd; };
 
   # Emacs
   emacs-git = super.callPackage ./emacs/emacs-git.nix { };
