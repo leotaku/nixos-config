@@ -1,4 +1,4 @@
-{ callPackage, stdenv, emacs, emacsPackagesNgGen, imagemagick, ... }:
+{ callPackage, stdenv, emacs, emacsPackagesNgGen, imagemagick, notmuch, ... }:
 let
   customEmacsPackages = emacsPackagesNgGen (
     (emacs.override {
@@ -12,4 +12,8 @@ let
       ];
     })
   );
-in customEmacsPackages.emacsWithPackages (epkgs: (with epkgs; [ vterm ]))
+in customEmacsPackages.emacsWithPackages (epkgs: [
+  # Native Emacs packages
+  epkgs.vterm
+  notmuch
+])
