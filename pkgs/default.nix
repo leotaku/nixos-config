@@ -4,10 +4,11 @@ self: super:
   # Custom packages
   catimg = super.callPackage ./catimg/default.nix { };
   chroma = super.callPackage ./chroma/default.nix { };
+  gitbatch = super.callPackage ./gitbatch/default.nix { };
   n30f = super.callPackage ./n30f/default.nix { };
   sddm-themes = super.callPackage ./sddm/default.nix { };
-  besley = super.callPackage ./besley/default.nix {  };
-  alegreya = super.callPackage ./alegreya/default.nix {  };
+  besley = super.callPackage ./besley/default.nix { };
+  alegreya = super.callPackage ./alegreya/default.nix { };
 
   # Customized packages
   ncmpcpp = super.ncmpcpp.override {
@@ -21,7 +22,8 @@ self: super:
   };
   leovim = super.callPackage ./neovim/leovim.nix { };
   sddm = super.sddm.overrideAttrs (oldAttrs: {
-    buildInputs = with super.qt5; oldAttrs.buildInputs ++ [ qtgraphicaleffects qtmultimedia ];
+    buildInputs = with super.qt5;
+      oldAttrs.buildInputs ++ [ qtgraphicaleffects qtmultimedia ];
   });
   rxvt-unicode-custom = super.rxvt_unicode_with-plugins.override {
     plugins = with super; [ urxvt_vtwheel urxvt_perls ];
@@ -34,7 +36,7 @@ self: super:
   emacs-git-custom = super.callPackage ./emacs/default.nix {
     emacs = self.emacs-git;
   };
-  
+
   # Mozilla
   mozilla = (import ../sources/links/nixpkgs-mozilla) self super;
 
