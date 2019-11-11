@@ -2,6 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
+    # Nix tools
+    nix-top
     # Standard utils
     file
     tree
@@ -15,8 +17,6 @@
     # new utils
     rsync
     moreutils    
-    # Version control
-    gitAndTools.gitFull
     # Archives
     gnutar
     libarchive
