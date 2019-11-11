@@ -9,6 +9,11 @@ in {
       default = false;
       description = "Allow changing settings through the qt5ct application";
     };
+    scale = mkOption {
+      type = with types; either (strMatching "auto") float;
+      default = "auto";
+      description = "Factor with which QT applications are scaled";
+    };
     theme.package = mkOption {
       type = types.package;
       default = pkgs.breeze-qt5;
@@ -22,13 +27,17 @@ in {
     fonts.general.package = mkOption {
       type = types.package;
       default = pkgs.dejavu-fonts;
-      description =
-      "Packages containing the modular-width font used in QT apps";
+      description = "Package containing the modular-width font used in QT apps";
     };
     fonts.fixed.package = mkOption {
       type = types.package;
       default = pkgs.dejavu-fonts;
-      description = "Packages containing the fixed-width font used in QT apps";
+      description = "Package containing the fixed-width font used in QT apps";
+    };
+    extraPackages = mkOption {
+      type = with types; listOf package;
+      default = [];
+      description = "Extra packages needed for QT configuration or testing";
     };
   };
 
@@ -48,13 +57,20 @@ in {
       }
     ];
 
-    home.sessionVariables = { "QT_QPA_PLATFORMTHEME" = "qt5ct"; };
+    home.sessionVariables = {
+      "QT_QPA_PLATFORMTHEME" = "qt5ct";
+    } // (if (cfg.scale == "auto") then {
+      "QT_AUTO_SCREEN_SCALE_FACTOR" = "1";
+    } else {
+      "QT_SCALE_FACTOR" = "${cfg.scale}";
+    });
+
     home.packages = [
       pkgs.qt5ct
       cfg.theme.package
       cfg.iconTheme.package
       cfg.fonts.general.package
       cfg.fonts.fixed.package
-    ];
+    ] ++ cfg.extraPackages;
   };
 }
