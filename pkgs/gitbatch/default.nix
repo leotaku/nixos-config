@@ -8,8 +8,8 @@ buildGoModule rec {
     owner = "isacikgoz";
     repo = "gitbatch";
     rev = "${version}";
-    sha256 = "1aw4179mdk5ywlj8r397q0s2xw7f2w4w3nrgh8h47bjl97r8w7np";
+    sha256 = "1bsi0s48mwmflx7g52729qi1cqd4jp2jl3gb2h13mf06lxg1m2zc";
   };
 
-  modSha256 = "0w9680bwwdgvkbachn2p9r4jdm6kllazvx93p46a7rriqxpspxpy";
+  modSha256 = "1i51lgzrnayxkyn2fzapngrcpbcr5bzzk4fsl4hc00c3csxbxa4q";
 }
