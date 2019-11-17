@@ -1,1 +1,1 @@
-{ arg }: (import <nixpkgs> {}).callPackage arg {}
+{ package, overrides ? {} }: (import <nixpkgs> {}).callPackage package overrides
