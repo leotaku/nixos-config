@@ -1,14 +1,26 @@
 {
+    "cachix": {
+        "branch": "master",
+        "description": "Command line client for Nix binary cache hosting:",
+        "homepage": "https://cachix.org",
+        "owner": "cachix",
+        "repo": "cachix",
+        "rev": "5523187c07dc7ae8ca0be5c6105dc86584cb87de",
+        "sha256": "022igls08khlf7zw80qx4lpljz4d3slzwnkz942p1ls7ba3yb7jl",
+        "type": "tarball",
+        "url": "https://github.com/cachix/cachix/archive/5523187c07dc7ae8ca0be5c6105dc86584cb87de.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "clever": {
         "branch": "master",
         "description": null,
         "homepage": null,
         "owner": "cleverca22",
         "repo": "nixos-configs",
-        "rev": "fe98de9f3018529151e3e0b48ccac6a83edd8ed7",
-        "sha256": "1r0gswran98zggaid05wycrivndmhd2cwcbp4d1d4ya6km886b0g",
+        "rev": "fde566fdd550c8c17361d3f871c7b20c03f54568",
+        "sha256": "0wlpcx703k8kqvjv51mhkfq1746ad0xi1a3l25ymxc0fs8x326gh",
         "type": "tarball",
-        "url": "https://github.com/cleverca22/nixos-configs/archive/fe98de9f3018529151e3e0b48ccac6a83edd8ed7.tar.gz",
+        "url": "https://github.com/cleverca22/nixos-configs/archive/fde566fdd550c8c17361d3f871c7b20c03f54568.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "direnv": {
@@ -23,16 +35,28 @@
         "url": "https://github.com/direnv/direnv/archive/1456c6c4a5794c56b2908413b818fed4f6a4a798.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "hercules-ci-agent": {
+        "branch": "stable",
+        "description": "https://hercules-ci.com build agent",
+        "homepage": "",
+        "owner": "hercules-ci",
+        "repo": "hercules-ci-agent",
+        "rev": "f4c307a8c64dc3876f507368d1419c1b3792fb50",
+        "sha256": "0ry0hy5kppwqj470zycfb7cfvfhzlmf5pg8g4j82yn5qv2h9pfw7",
+        "type": "tarball",
+        "url": "https://github.com/hercules-ci/hercules-ci-agent/archive/f4c307a8c64dc3876f507368d1419c1b3792fb50.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "home-manager": {
         "branch": "master",
         "description": "Manage a user environment using Nix",
         "homepage": "",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "450571056552c9311fcb2894328696b535265593",
-        "sha256": "1rlv234m0bqj9x2y9wnl8z3yq8mixzq8332nqlb8fw9k8mazis6s",
+        "rev": "286dd9b3088298e5a4625b517f8e72b1c62e4f74",
+        "sha256": "0p3ba287h9a7mpj8chdgvz5qryc15qxdis3fdmv9jvl0hwsr738d",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/450571056552c9311fcb2894328696b535265593.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/286dd9b3088298e5a4625b517f8e72b1c62e4f74.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixfmt": {
@@ -53,10 +77,10 @@
         "homepage": "https://github.com/NixOS/nixpkgs",
         "owner": "NixOS",
         "repo": "nixpkgs-channels",
-        "rev": "851d5bdfb04aa1f1f8e2a89323cdb9ba03daba99",
-        "sha256": "0srrspy7bpdywywy8w95zxkh8j7xsvq58msgsqymm5fphsfsyad6",
+        "rev": "5f506b95f9f6290f4c46f523cc3f5cef581c5666",
+        "sha256": "14ry2fs2pny2shlg2dq8c9vns636gv0zvfh0dmyy4bnq713k377n",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/851d5bdfb04aa1f1f8e2a89323cdb9ba03daba99.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/5f506b95f9f6290f4c46f523cc3f5cef581c5666.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-19_09-small": {
@@ -65,10 +89,10 @@
         "homepage": "https://github.com/NixOS/nixpkgs",
         "owner": "NixOS",
         "repo": "nixpkgs-channels",
-        "rev": "02380e784167cda7e454120f9bae9dd3618d5fa3",
-        "sha256": "00akwviiigsp0ziw62abdfgsblsd96jbc4k84cl5y2hl75s77fhz",
+        "rev": "e6d584f6dd22b587d5cdf5019f5e7dd2be370f61",
+        "sha256": "0ysb2017n8g0bpkxy3lsnlf6mcya5gqwggmwdjxlfnj1ilj3lnqz",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/02380e784167cda7e454120f9bae9dd3618d5fa3.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/e6d584f6dd22b587d5cdf5019f5e7dd2be370f61.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-unstable": {
@@ -77,10 +101,10 @@
         "homepage": "https://github.com/NixOS/nixpkgs",
         "owner": "NixOS",
         "repo": "nixpkgs-channels",
-        "rev": "7827d3f4497ed722fedca57fd4d5ca1a65c38256",
-        "sha256": "1ixjkb2ksri83iyhvl4a7hrfnb8zd3ps5jmirgaa7b617jn31cg6",
+        "rev": "41d921292e922a6cd1aba64259341c244d4c2cc7",
+        "sha256": "01iq7phnmyz78qddxsjy6lnpgmzcffxk9h7k69sy61dbjsyy9b4q",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/7827d3f4497ed722fedca57fd4d5ca1a65c38256.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/41d921292e922a6cd1aba64259341c244d4c2cc7.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-mozilla": {
