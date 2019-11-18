@@ -1,5 +1,6 @@
 let
-  pinned = import ../sources/links/nixos-19_09 {};
+  sources = import ../sources/nix/sources.nix;
+  pinned = import sources.nixos-19_09 {};
 in {
   network = {
     description = "Home network";
@@ -13,7 +14,7 @@ in {
 } // {
   "nixos-laptop.local" = {
     configuration = import ./laptop/configuration.nix;
-    nixpkgs = ../sources/links/nixos-unstable;
+    nixpkgs = sources.nixos-unstable;
   };
   "nixos-fujitsu.local".configuration = import ./fujitsu.nix;
   "nixos-rpi.local".configuration = import ./rpi.nix;
