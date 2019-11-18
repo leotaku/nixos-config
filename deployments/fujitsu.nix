@@ -1,15 +1,14 @@
 { config, pkgs, ... }: {
-  imports = [
+  imports = with (import ../sources/nix/sources.nix); [
     ../hardware/fujitsu.nix
-    ../sources/links/hercules-ci-agent/module.nix
-    # ../plugables/wireguard/mullvad.nix
+    #../plugables/wireguard/mullvad.nix
     ../plugables/packages/base.nix
     ../plugables/packages/usability.nix
-    ../modules/dns-records.nix
     ../plugables/avahi/default.nix
     ../plugables/znc/default.nix
     ../private/dns.nix
-    #../sources/external/clever/qemu.nix
+    ../modules/dns-records.nix
+    (hercules-ci-agent + "/module.nix")
   ];
 
   # IMPORTANT: removing this causes avahi to fail

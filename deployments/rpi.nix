@@ -1,4 +1,4 @@
-{ config, pkgs, nixos, ... }: {
+{ config, pkgs, lib, ... }: {
   
   imports = [
     ../hardware/raspberry3.nix
@@ -12,7 +12,9 @@
   # Nixpkgs configurations
   nixpkgs = rec {
     # Tell the host system that it can, and should, build for aarch64.    
-    crossSystem = (import ../sources/links/nixos-19_09 {}).pkgsCross.aarch64-multiplatform.stdenv.targetPlatform;
+    crossSystem = lib.systems.elaborate {
+      config = "aarch64-unknown-linux-gnu";
+    };
     localSystem = crossSystem;
     overlays = [];      
   };

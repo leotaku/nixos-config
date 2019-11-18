@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 { config, pkgs, ... }:
 {
-  imports = [ 
+  imports = with (import ../../sources/nix/sources.nix); [ 
     # Import configuration
     ./users.nix
     ./system.nix
@@ -11,7 +11,7 @@
     # Activate remote builders
     ../../plugables/builders/all.nix
     # Import qemu module
-    ../../sources/external/clever/qemu.nix
+    (clever + "/qemu.nix")
   ];
 
   nix.trustedUsers = [ "root" "@wheel" ];
