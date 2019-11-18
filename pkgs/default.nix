@@ -1,5 +1,8 @@
 self: super:
 
+let
+  sources = import ../sources/nix/sources.nix;
+in
 {
   # Custom packages
   catimg = super.callPackage ./catimg/default.nix { };
@@ -41,7 +44,7 @@ self: super:
   };
 
   # Mozilla
-  mozilla = (import ../sources/links/nixpkgs-mozilla) self super;
+  mozilla = import sources.nixpkgs-mozilla self super;
 
   # Collections
   customVimPlugins = super.callPackage ./neovim/customPlugins.nix { };
