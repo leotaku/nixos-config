@@ -4,8 +4,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
-
   # Kernel version
   boot.kernelPackages = pkgs.linuxPackages_latest;
   

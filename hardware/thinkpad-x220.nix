@@ -4,8 +4,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
-
   # Kernel modules + other
   boot.kernelPackages = pkgs.linuxPackages;
   boot.initrd.availableKernelModules = [ ];
