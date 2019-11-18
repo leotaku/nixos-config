@@ -3,22 +3,14 @@
 # A record, from name to path, of the third-party packages
 with rec
 {
-  pkgs =
-    if hasNixpkgsPath
-    then
-        if hasThisAsNixpkgsPath
-        then import (builtins_fetchTarball { inherit (sources_nixpkgs) url sha256; }) {}
-        else import <nixpkgs> {}
-    else
-        import (builtins_fetchTarball { inherit (sources_nixpkgs) url sha256; }) {};
+  pkgs = import (builtins_fetchTarball { inherit (sources_nixpkgs) url sha256; }) {};
 
   sources_nixpkgs =
-    if builtins.hasAttr "nixpkgs" sources
-    then sources.nixpkgs
+    if builtins.hasAttr "nixos-unstable" sources
+    then sources.nixos-unstable
     else abort
     ''
-        Please specify either <nixpkgs> (through -I or NIX_PATH=nixpkgs=...) or
-        add a package called "nixpkgs" to your sources.json.
+        Please add a package called "nixos-unstable" to your sources.json.
     '';
 
   # fetchTarball version that is compatible between all the versions of Nix
@@ -50,10 +42,6 @@ with rec
   # A wrapper around pkgs.fetchurl that has inspectable arguments,
   # annoyingly this means we have to specify them
   fetchurl = { url, sha256 }@attrs: pkgs.fetchurl attrs;
-
-  hasNixpkgsPath = (builtins.tryEval <nixpkgs>).success;
-  hasThisAsNixpkgsPath =
-    (builtins.tryEval <nixpkgs>).success && <nixpkgs> == ./.;
 
   sources = builtins.fromJSON (builtins.readFile ./sources.json);
 
