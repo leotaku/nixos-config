@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     ../hardware/fujitsu.nix
+    ../sources/links/hercules-ci-agent/module.nix
     # ../plugables/wireguard/mullvad.nix
     ../plugables/packages/base.nix
     ../plugables/packages/usability.nix
@@ -26,6 +27,11 @@
 
   environment.systemPackages = with pkgs; [ vim syncthing-cli ];
 
+  # Hercules-CI agent
+  services.hercules-ci-agent.enable = true;
+  services.hercules-ci-agent.concurrentTasks = config.nix.maxJobs;
+
+  # Nginx server
   services.nginx = {
     enable = true;
     package = pkgs.nginxMainline;
@@ -149,7 +155,21 @@
       destination = "/run/keys/htpasswd";
       owner.user = "nginx";
       owner.group = "nginx";
-      action = ["sudo" "systemctl" "reload" "nginx.service"];
+      action = ["systemctl" "reload" "nginx.service"];
+    };
+    "binary-caches.json" = {
+      source = builtins.toString ../private/binary-caches.json;
+      destination = "/var/lib/hercules-ci-agent/secrets/binary-caches.json";
+      owner.user = "hercules-ci-agent";
+      owner.group = "nogroup";
+      action = ["systemctl" "restart" "hercules-ci-agent.service"];
+    };
+    "cluster-join-token.key" = {
+      source = builtins.toString ../private/cluster-join-token.key;
+      destination = "/var/lib/hercules-ci-agent/secrets/cluster-join-token.key";
+      owner.user = "hercules-ci-agent";
+      owner.group = "nogroup";
+      action = ["systemctl" "restart" "hercules-ci-agent.service"];
     };
   };
 }
