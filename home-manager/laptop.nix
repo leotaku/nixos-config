@@ -1,9 +1,10 @@
-{ config, lib, pkgs, options, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   # Home-manager bootstrap idiocy
   programs.home-manager.enable = true;
-  programs.home-manager.path = toString ../sources/links/home-manager;
+  programs.home-manager.path = toString
+    (import ../sources/nix/sources.nix).home-manager;
 
   # Nixpkgs like everywhere else
   nixpkgs = {
@@ -13,14 +14,14 @@
 
   # Modules and pluggable configurations
   imports = [
-    #../plugables/email/home-manager.nix
+    ../plugables/email/home-manager.nix
     ../modules/qt5ct.nix
   ];
 
   home.packages = with pkgs; [
     # Required
     xcape
-    lua
+    z-lua
     # Control
     connman-gtk
     pulsemixer
@@ -131,9 +132,8 @@
     PAGER = "less";
   };
 
-  # Keyboard
-  home.keyboard.layout = "de";
-  home.keyboard.variant = "nodeadkeys";
+  # FIXME: Disable user keyboard configuration
+  home.keyboard = null;
 
   # Redshift
   services.redshift = {
@@ -179,12 +179,13 @@
   qt5ct = {
     enable = true;
     impure = true;
-    theme.package = pkgs.breeze-icons;
-    iconTheme.package = pkgs.breeze-qt5;
+    theme.package = pkgs.libsForQt5.qtstyleplugin-kvantum;
+    iconTheme.package = pkgs.papirus-icon-theme;
     fonts = {
       general.package = pkgs.fira;
       fixed.package = pkgs.fira-mono;
     };
+    extraPackages = with pkgs; [ breeze-qt5 breeze-icons ];
   };
   
   # GTK settings
