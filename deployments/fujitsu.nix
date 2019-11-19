@@ -6,8 +6,7 @@
     ../plugables/packages/usability.nix
     ../plugables/avahi/default.nix
     ../plugables/znc/default.nix
-    ../private/dns.nix
-    ../modules/dns-records.nix
+    ../modules/dns-safe.nix
     (hercules-ci-agent + "/module.nix")
   ];
 
@@ -25,6 +24,12 @@
   };
 
   environment.systemPackages = with pkgs; [ vim syncthing-cli ];
+
+  # Update DNS records
+  services.dns-records-update = {
+    enable = true;
+    urlsFile = "/run/dnsfile";
+  };
 
   # Hercules-CI agent
   services.hercules-ci-agent.enable = true;
@@ -149,6 +154,11 @@
   ];
 
   deployment.secrets = {
+    "dnsfile" = {
+      source = builtins.toString ../private/dnsfile;
+      destination = "/run/dnsfile";
+      action = ["systemctl" "reload" "dns-records-update.service"];
+    };
     "htpasswd" = {
       source = builtins.toString ../private/htpasswd;
       destination = "/run/keys/htpasswd";
