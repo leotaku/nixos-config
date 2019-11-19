@@ -5,6 +5,7 @@
     # Nix tools
     nix-top
     # Standard utils
+    parallel
     file
     tree
     curl
