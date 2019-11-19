@@ -33,7 +33,7 @@
 
   # Hercules-CI agent
   services.hercules-ci-agent.enable = true;
-  services.hercules-ci-agent.concurrentTasks = config.nix.maxJobs;
+  services.hercules-ci-agent.concurrentTasks = 4;
 
   # Nginx server
   services.nginx = {
