@@ -16,10 +16,7 @@ in
   x86_64-linux = pkgs.recurseIntoAttrs (
     # Build packages defined in overlays
     (import ./pkgs/default.nix pkgs pkgs) // {
-      # Build my Raspberry PI 3 system
-      rpi = (import "${pkgs-stable.path}/nixos" {
-        configuration = filter ./deployments/rpi.nix;
-      }).system;
+      # Other stuff
     }
   );
 }
