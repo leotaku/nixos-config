@@ -4,8 +4,8 @@
     src = fetchFromGitHub {
       owner = "ncm2";
       repo = "ncm2";
-      rev = "5bd16749b1f8aeb04ddde191c46fa9be237f2eea";
-      sha256 = "0nwf32y09lgiz20019ja72ah3bz5h48ama50lpbh6rl5miq4b5nk";
+      rev = "160e2e33d515f67154840844d8304722b679df90";
+      sha256 = "1jyssh84n3rv8lmmjligf5f6jjzmgjv1gc78fv5x2z79j9cg98jc";
     };
   };
 
@@ -14,8 +14,8 @@
     src = fetchFromGitHub {
       owner = "roxma";
       repo = "nvim-yarp";
-      rev = "1524cf7988d1e1ed7475ead3654987f64943a1f0";
-      sha256 = "1iblb9hy4svbabhkid1qh7v085dkpq7dwg4aj38d8xvhj9b7mf6v";
+      rev = "81caad80107abb9c2f5159e02e2cd95876370bec";
+      sha256 = "01x1jx7wxpjkv09l9wx1ygsjqrdvfy47pxqgjzmnx4x126ji9gw2";
     };
   };
 
@@ -44,8 +44,8 @@
     src = fetchFromGitHub {
       owner = "ncm2";
       repo = "ncm2-path";
-      rev = "7315d39b6f55b87721fe0cbe5ebe64f2adff19d4";
-      sha256 = "1ijmlk5n7pr27a9hf7b5761vg9hhx0qqzvb73r2f4xdjdx5g3d8k";
+      rev = "84b1e6b5f28ced2245ff08e6694101f029fdfca8";
+      sha256 = "0yqga8d423k2j6iknkyx1qs1shddpshi4sx78992sa15dax9d394";
     };
   };
 

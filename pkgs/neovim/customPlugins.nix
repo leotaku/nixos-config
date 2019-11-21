@@ -25,8 +25,8 @@
     src = fetchFromGitHub {
       owner = "bkad";
       repo = "CamelCaseMotion";
-      rev = "e2816c75c3b73f176af3e94576793b342976f0a1";
-      sha256 = "1g9hl6rxabbijs8hp53ra08iqgbc34bv4sbifkcjkjdr3r6fikas";
+      rev = "406368dea50303884aa321d2cdff714e010f951e";
+      sha256 = "0a1grafg05cb9mpk69j2y433ifm27ksy29wzlxlm5798dmb473mw";
     };
   };
 
@@ -35,8 +35,8 @@
     src = fetchFromGitHub {
       owner = "sebdah";
       repo = "vim-delve";
-      rev = "ad30cab549ab8b6014308fe7c095325c08dec211";
-      sha256 = "10qkmdy2i9nikn82sdfvsa712lclc2y35jg4lvj98rfnxwks0bvc";
+      rev = "67f176074f511ede910941c42bfc94c72c4f788d";
+      sha256 = "0ngbsd25qlkbg2psr4cc66c66rxip69hq8q6fj3f84b5i3f47rcj";
     };
   };
 
@@ -45,8 +45,8 @@
     src = fetchFromGitHub {
       owner = "simnalamburt";
       repo = "vim-mundo";
-      rev = "3eb20180e561da98d49a52b3a5d7af2bcda37162";
-      sha256 = "021lyyibqxkvjamb8yjmf6vvw6d1xfypnm1mw6jkjdp2zm46m40h";
+      rev = "fb866924ba0c64d3f9c57ebcf4d1b451d190a03e";
+      sha256 = "0q5v1lknm76k9a1abi8dw4lpa6mysm14mk4zdyq7a4khzfpmr0q0";
     };
   };
 
@@ -55,8 +55,8 @@
     src = fetchFromGitHub {
       owner = "suan";
       repo = "vim-instant-markdown";
-      rev = "5f592bdb0288710205176f189c3203fd40a6ee2e";
-      sha256 = "10zfm1isqv1mgx8598bfghf2zwzxgba74k0h658lnw59inwz7dkr";
+      rev = "081a6f7f228a19022e8ce7672798b83edd596586";
+      sha256 = "1xwhna2s9xfzp6s41wa57rwl78x6bqw9njc92a9brxg27vbxd7gf";
     };
   };
 
@@ -65,8 +65,8 @@
     src = fetchFromGitHub {
       owner = "tpope";
       repo = "vim-endwise";
-      rev = "f67d022169bd04d3c000f47b1c03bfcbc4209470";
-      sha256 = "0lq2sphh2mfciva184b4b3if202hr4yls4d2gzbjx7ibch45zb9i";
+      rev = "bf90d8be447de667f4532b934d1a70881be56dd8";
+      sha256 = "1czx891via5783yk222mhki94wvq75hxxp1xk1d5m90vwqb3azfn";
     };
   };
 
@@ -85,8 +85,8 @@
     src = fetchFromGitHub {
       owner = "vim-pandoc";
       repo = "vim-rmarkdown";
-      rev = "1b97e1dc48bfe6db8aad0f9e1d11e15f13d0a4a6";
-      sha256 = "0r3h0z4wpmq1vjb3blv4lvdbj44j4ja9x85bk741n6mmsyf24ifm";
+      rev = "a1787cb55e45b8778eaed7b392648deb4706cd0b";
+      sha256 = "1rn7izmr0wbrrb5l8172fxyssfcs3pi3k1gw5mna3gj3rj7fq2wj";
     };
   };
 
@@ -105,8 +105,8 @@
     src = fetchFromGitHub {
       owner = "severin-lemaignan";
       repo = "vim-minimap";
-      rev = "1bc36a0ff307e33e5d96ee58999b099aa41ac9d6";
-      sha256 = "0x89im2w86q8fkhhw0yrvc0ih4b10518kmk7q0ck7d7dczy7qzyn";
+      rev = "5a415547e7584eba0bebe087fd553e13c76e8842";
+      sha256 = "07q7865bbbq28pf3ijm56qr3wk0xsq0dprhscyjjqjy0jqrgzjra";
     };
   };
 
@@ -125,8 +125,8 @@
     src = fetchFromGitHub {
       owner = "chriskempson";
       repo = "base16-vim";
-      rev = "2073e2dd9fa0172ccdba92b3f0df25642a69f7db";
-      sha256 = "1d6d2aca73rvhz7gpi2d1g2il9qy45pfw1kbrrqgvmik016i6l1y";
+      rev = "6191622d5806d4448fa2285047936bdcee57a098";
+      sha256 = "1qz21jizcy533mqk9wff1wqchhixkcfkysqcqs0x35wwpbri6nz8";
     };
   };
 
@@ -145,8 +145,8 @@
     src = fetchFromGitHub {
       owner = "kovisoft";
       repo = "slimv";
-      rev = "3b6365692bba8c32fcc7962319e183904299780b";
-      sha256 = "1y81i7lyw35lbslsi3zlvyq24skxqikm8gsagb7y0wwgkw41pizv";
+      rev = "f027f35488c2a82c819e0bcb320a9c51e758b128";
+      sha256 = "0chxcn6pr7fi7jcy8v7szkiw6nhkd89rf5pmpph6k7gjrz3k992v";
     };
   };
 
@@ -155,8 +155,8 @@
     src = fetchFromGitHub {
       owner = "justinmk";
       repo = "vim-sneak";
-      rev = "91192d8969af1d86c98beff4001612976ea25d7a";
-      sha256 = "0nmbrp0ma9s3yfzb8z70l0pcxv8p115zv6fz4injxn1c436x9337";
+      rev = "24e6c3f4cd6004e2b44e4022dee0260aba6132aa";
+      sha256 = "000i2x36b8l5vc1li0f4jazs06nch9pca95yqr4w4m5hgjpzs5qs";
     };
 
     prePatch = "rm ./Makefile";
@@ -197,8 +197,8 @@
     src = fetchFromGitHub {
       owner = "ludovicchabant";
       repo = "vim-gutentags";
-      rev = "93616e4c0ccfafe52ae329c7dd220d7b5c7d5f80";
-      sha256 = "12qcf34fxgzsilx1wkh219avvkq7a5q9x3kdcqy3ai8g05fpx619";
+      rev = "eb9e57f579d2ef747be25a7a4ec5add6fe5ca3d9";
+      sha256 = "0v46yxv6rv6x9zqsvahkjjwp8khzsz4il1rk34r6zlsy3w8d988d";
     };
   };
 
@@ -207,8 +207,8 @@
     src = fetchFromGitHub {
       owner = "lifepillar";
       repo = "vim-mucomplete";
-      rev = "62a2453a3a750632827d45cc341f2abd73c4c917";
-      sha256 = "18lna3459jfav1rmqddnnvqwabbl6bk66vwmhahwhi7dcv3b912v";
+      rev = "8964f852a5990c79c55571aef8d137a5e90c9e7c";
+      sha256 = "08mixa8frla5djcmka9sard4bzwjcrs3pb68si75mmrv9i9n0pd8";
     };
   };
 
@@ -227,8 +227,8 @@
     src = fetchFromGitHub {
       owner = "rhysd";
       repo = "clever-f.vim";
-      rev = "425b76c24ae286abd3cdc222574b9d6b789642bb";
-      sha256 = "0j6baas2vxj3l7qimskxxff0a7yl9maa0rkwd32rfk46p2918xck";
+      rev = "baceb2c9d1fa0850bbf839cd2c8c0a9bbe524ff5";
+      sha256 = "17i8p9sd7cxwdg8wi324dzqllkjrwm8fp9927gnh0vgcjw0rs47k";
     };
   };
 
@@ -257,8 +257,8 @@
     src = fetchFromGitHub {
       owner = "machakann";
       repo = "vim-swap";
-      rev = "b8d636e0ef5f431752585fc5562f897a9d236d2a";
-      sha256 = "129ds1y8j9dgsizwi1md5nhb49dh88xmymdy7sz5lg3zc9h37pvr";
+      rev = "e52ff679c88f4aa7a7afe77fb42af78c93ed33c8";
+      sha256 = "0rqvxqqk961syawmyc2qdfb4w9ilb1r3mxxij2ja1jbhl1f3w4vq";
     };
   };
 
@@ -276,8 +276,8 @@
     src = fetchFromGitHub {
       owner = "eraserhd";
       repo = "parinfer-rust";
-      rev = "506ae2b25a9b84d964804c07ab359f0b108d6df5";
-      sha256 = "1jir8krysz7gnvq0gdha9canvc4gw19f8kyniqnm90pb9wmlp582";
+      rev = "174ef0386cab4403cc13a5eda0338ed17c7db1e7";
+      sha256 = "06yasqc2da3m77d01rd41r77rvjv9xh2fxaf6q21aaw466hi0a1b";
     };
   in let
     parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {
