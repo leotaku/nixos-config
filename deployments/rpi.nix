@@ -2,6 +2,7 @@
   
   imports = [
     ../hardware/raspberry3.nix
+    ../plugables/builders/default.nix
     ../plugables/packages/base.nix
     ../plugables/avahi/default.nix
   ];

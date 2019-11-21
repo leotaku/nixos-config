@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   imports = with (import ../sources/nix/sources.nix); [
     ../hardware/fujitsu.nix
-    #../plugables/wireguard/mullvad.nix
+    ../plugables/builders/default.nix
     ../plugables/packages/base.nix
     ../plugables/packages/usability.nix
     ../plugables/avahi/default.nix
