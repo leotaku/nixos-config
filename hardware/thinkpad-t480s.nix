@@ -6,6 +6,9 @@
 {
   # Kernel version
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # Use unfree Intel drivers
+  hardware.enableRedistributableFirmware = true;
   
   # Default kernel modules 
   boot.initrd.availableKernelModules = [
