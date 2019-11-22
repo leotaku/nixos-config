@@ -1,11 +1,11 @@
 { config, pkgs, ... }: {
   imports = with (import ../sources/nix/sources.nix); [
     ../hardware/fujitsu.nix
-    ../plugables/builders/default.nix
+    ../plugables/builders/module.nix
     ../plugables/packages/base.nix
     ../plugables/packages/usability.nix
-    ../plugables/avahi/default.nix
-    ../plugables/znc/default.nix
+    ../plugables/avahi/module.nix
+    ../plugables/znc/module.nix
     ../modules/dns-safe.nix
     (hercules-ci-agent + "/module.nix")
   ];

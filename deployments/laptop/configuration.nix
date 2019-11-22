@@ -9,7 +9,7 @@
     ./system.nix
     ../../hardware/thinkpad-t480s.nix
     # Activate remote builders
-    ../../plugables/builders/default.nix
+    ../../plugables/builders/module.nix
     # Import qemu module
     (clever + "/qemu.nix")
   ];
