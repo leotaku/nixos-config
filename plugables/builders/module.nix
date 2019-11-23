@@ -12,5 +12,10 @@
     base = "/home/leo/.ssh";
   };
 
+  programs.ssh.extraConfig = ''
+    Host *.local
+    StrictHostKeyChecking no
+  '';
+
   nix.extraOptions = "builders-use-substitutes = true";
 }
