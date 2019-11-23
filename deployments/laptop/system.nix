@@ -47,7 +47,7 @@
   };
 
   networking.nat.enable = true;
-  networking.nat.internalInterfaces = ["ve-+"];
+  networking.nat.internalInterfaces = [ "ve-+" ];
   networking.nat.externalInterface = "wlp3s0";
 
   # Use trusted DNS server
@@ -83,7 +83,7 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
-  
+
   environment.systemPackages = with pkgs; [
     # Laptop
     acpi
@@ -102,14 +102,14 @@
     zsh
     fish
   ];
-  
+
   environment.variables = {
     EDITOR = "micro";
     TERMINAL = "urxvt";
     SHELL = "zsh";
     PAGER = "less";
   };
-  
+
   # List programs that need nix wrappers
   programs.zsh.enable = true;
   programs.light.enable = true;
@@ -126,18 +126,24 @@
   services.geoclue2 = {
     enable = true;
     enableDemoAgent = false;
-    geoProviderUrl = "https://location.services.mozilla.com/v1/geolocate?key=16674381-f021-49de-8622-3021c5942aff";
+    geoProviderUrl =
+      "https://location.services.mozilla.com/v1/geolocate?key=16674381-f021-49de-8622-3021c5942aff";
   };
 
   # Printing
   services.printing.enable = true;
-  services.printing.drivers = with pkgs; [ hplip gutenprint gutenprintBin splix ];
+  services.printing.drivers = with pkgs; [
+    hplip
+    gutenprint
+    gutenprintBin
+    splix
+  ];
 
   # Needed for home-manager to work
   services.dbus.packages = with pkgs; [ gnome3.dconf ];
 
   # X11 windowing system.
-  services.xserver.enable = true; 
+  services.xserver.enable = true;
   services.xserver.libinput.enable = true;
   services.xserver.wacom.enable = true;
 
@@ -167,7 +173,7 @@
 
       [General]
       InputMethod=
-      
+
       [Theme]
       ThemeDir=${pkgs.sddm-themes}/share/sddm/themes
     '';
@@ -188,7 +194,7 @@
   networking.firewall.enable = false;
 
   # Enable virtuaisation/container technologies
-  virtualisation.virtualbox.host = { 
+  virtualisation.virtualbox.host = {
     enable = false;
     #enableHardening = false; 
   };
@@ -197,7 +203,7 @@
   services.flatpak.enable = true;
 
   # Add wireshark permissions
-  programs.wireshark = { 
+  programs.wireshark = {
     enable = true;
     package = pkgs.wireshark-qt;
   };
@@ -208,17 +214,15 @@
     timer = [ "*-*-* 11:00" "*-*-* 22:00" ];
     repository = "rest:http://le0.gs:8000";
     passwordFile = ../../private/restic-pw;
-    paths = [
-      {
-        path = "/home/leo";
-        exclude = [
-          "large"          
-          ".maildir/.notmuch"
-          ".local/share/flatpak"
-          ".cache/mozilla/firefox/dev-edition-default/cache2"
-        ];
-      }
-    ];
+    paths = [{
+      path = "/home/leo";
+      exclude = [
+        "large"
+        ".maildir/.notmuch"
+        ".local/share/flatpak"
+        ".cache/mozilla/firefox/dev-edition-default/cache2"
+      ];
+    }];
   };
 
   # Run locatedb every hour
@@ -236,9 +240,9 @@
     "lid-close-suspend" = {
       event = "button/lid LID close";
       action = ''
-      ${pkgs.systemd}/bin/loginctl lock-sessions
-      sleep 2
-      ${pkgs.systemd}/bin/systemctl start suspend.target
+        ${pkgs.systemd}/bin/loginctl lock-sessions
+        sleep 2
+        ${pkgs.systemd}/bin/systemctl start suspend.target
       '';
     };
   };
