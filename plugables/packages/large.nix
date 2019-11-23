@@ -17,6 +17,7 @@
     neofetch
     cowsay
     lolcat
+    fortune
     sl
     asciiquarium
     cmatrix
