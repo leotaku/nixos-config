@@ -231,7 +231,14 @@
     interval = "hourly";
     localuser = "root";
   };
-  
+
+  # NixOS command-not-found functionality
+  programs.command-not-found = {
+    enable = true;
+    dbPath = (import ../../sources/nix/sources.nix).nixexprs-unstable
+      + "/programs.sqlite";
+  };
+
   # Fix broken lid-suspend
   services.logind.lidSwitch = "ignore";
   services.acpid.enable = true;
