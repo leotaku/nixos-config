@@ -69,7 +69,7 @@
   services.wg-quicker = {
     available = true;
     setups = {
-      "ch" = ../../private/mullvad/ch.conf;
+      "ch" = builtins.toString ../../private/mullvad/ch.conf;
     };
   };
 
