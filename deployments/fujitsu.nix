@@ -14,14 +14,9 @@
   networking.hostName = "nixos-fujitsu";
 
   # Nixpkgs configurations
-  nixpkgs.overlays = [];
+  nixpkgs.overlays = [ ];
   
   nix.trustedUsers = [ "root" "remote-builder" ];
-
-  users.extraUsers.remote-builder = {
-    isNormalUser = true;
-    shell = pkgs.bash;
-  };
 
   environment.systemPackages = with pkgs; [ vim syncthing-cli ];
 
