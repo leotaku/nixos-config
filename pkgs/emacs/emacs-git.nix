@@ -4,15 +4,15 @@ let
   src = fetchFromGitHub {
     owner = "emacs-mirror";
     repo = "emacs";
-    rev = "20b1e959e077492817bea34392ba2dda745c4641";
-    sha256 = "11121fmjpgljl84hzr765vnna7dd3sahgndz0przy9fiiyzf9vfs";
+    rev = "2435f811b946ec54ab1da90aded52caddef977c8";
+    sha256 = "0k1mjf7kb5bq5y0klwiwraziz01gqw1i2zc5xvc4b6v376phawwn";
   };
 in
 (emacs.override {
   srcRepo = true;
 }).overrideAttrs (oldAttrs: rec {
-  name = "emacs-${version}";
-  version = "27.git";
+  name = "emacs-unstable-${version}";
+  version = "2019-11-24";
 
   inherit src;
   

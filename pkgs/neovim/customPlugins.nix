@@ -145,8 +145,8 @@
     src = fetchFromGitHub {
       owner = "kovisoft";
       repo = "slimv";
-      rev = "f027f35488c2a82c819e0bcb320a9c51e758b128";
-      sha256 = "0chxcn6pr7fi7jcy8v7szkiw6nhkd89rf5pmpph6k7gjrz3k992v";
+      rev = "7efdf458d2ba81bf697b563526f5954ec46b8cdd";
+      sha256 = "0bashcd2i18aqfpsqvqbgs8889zh57v2wvr4pjx83r4pd4ln7gf5";
     };
   };
 
