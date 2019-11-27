@@ -15,5 +15,6 @@ let
 in customEmacsPackages.emacsWithPackages (epkgs: [
   # Native Emacs packages
   epkgs.vterm
+  epkgs.forge
   notmuch
 ])
