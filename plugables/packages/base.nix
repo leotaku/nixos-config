@@ -28,8 +28,5 @@
     dash
     # Hardware
     lm_sensors
-    # Ensure "special" terminfo
-    kitty.terminfo
-    rxvt_unicode.terminfo
   ];
 }
