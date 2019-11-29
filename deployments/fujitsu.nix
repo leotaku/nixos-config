@@ -134,18 +134,17 @@
 
   networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [
-    # ssh
+    # SSH
     22
-    # http(s)
+    # HTTP(S)
     80
     443
-    # restic
+    # Restic
     8000
-    # syncthing
+    # Syncthing
     8384
-    # stuff
+    # ZNC
     6667
-    666
   ];
 
   deployment.secrets = {
