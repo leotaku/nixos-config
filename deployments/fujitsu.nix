@@ -151,7 +151,7 @@
     "dnsfile" = {
       source = builtins.toString ../private/dnsfile;
       destination = "/run/dnsfile";
-      action = ["systemctl" "reload" "dns-records-update.service"];
+      action = ["systemctl" "restart" "dns-records-update.service"];
     };
     "htpasswd" = {
       source = builtins.toString ../private/htpasswd;
