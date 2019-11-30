@@ -22,7 +22,9 @@ in {
       serviceConfig = {
         Type = "oneshot";
         ExecStart = pkgs.writeShellScript "update-dns" ''
-          [ -f ${cfg.urlsFile} ] || exit 1
+          set -e
+
+          [ -f "${cfg.urlsFile}" ] || exit 1
         
           ${pkgs.parallel}/bin/parallel ${pkgs.curl}/bin/curl < ${cfg.urlsFile} |\
             ${pkgs.jq}/bin/jq 'if (.ok != true) then error(.error) else .msg end'
@@ -34,6 +36,7 @@ in {
 
     # Automatic updates
     systemd.timers."dns-records-update" = {
+      enable = true;
       wants = [ "dns-records-update.service" ];
       timerConfig = {
         OnCalendar = cfg.timer;
