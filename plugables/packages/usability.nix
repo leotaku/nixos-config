@@ -37,6 +37,7 @@
     hwinfo
     stress
     s-tui
+    pciutils
     # Networking
     speedtest-cli
     iperf
