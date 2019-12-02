@@ -22,6 +22,7 @@ let
 
 in {
   options.fleet = {
+    enable = mkEnableOption "fleet remote building configuration";
     base = mkOption {
       description = "Base dir where SSH IDs are found.";
       type = types.str;
@@ -54,7 +55,7 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.machines != { }) ({
+  config = lib.mkIf (cfg.enable == true) ({
     users.extraUsers.fleet-builder = {
       isNormalUser = true;
       extraGroups = [ ];

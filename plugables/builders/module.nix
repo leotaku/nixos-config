@@ -4,8 +4,10 @@
   ];
   
   fleet = {
+    enable = true;
     machines = {
-      "nixos-laptop.local".system = "x86_64-linux";
+      # FIXME: Why does local remote not work?
+      #"nixos-laptop.local".system = "x86_64-linux";
       "nixos-fujitsu.local".system = "x86_64-linux";
       "nixos-rpi.local".system = "aarch64-linux";
     };
