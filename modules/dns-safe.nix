@@ -24,7 +24,12 @@ in {
         ExecStart = pkgs.writeShellScript "update-dns" ''
           set -e
 
-          [ -f "${cfg.urlsFile}" ] || exit 1
+          if [ -f "${cfg.urlsFile}" ]; then
+              echo "DNS file exists!"
+          else
+              echo "DNS file does not exist. Exiting."
+              exit 1
+          fi
         
           ${pkgs.parallel}/bin/parallel ${pkgs.curl}/bin/curl < ${cfg.urlsFile} |\
             ${pkgs.jq}/bin/jq 'if (.ok != true) then error(.error) else .msg end'
