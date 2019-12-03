@@ -5,13 +5,14 @@ let
 in
 {
   # Custom packages
+  alegreya = super.callPackage ./alegreya/default.nix { };
+  besley = super.callPackage ./besley/default.nix { };
   catimg = super.callPackage ./catimg/default.nix { };
   chroma = super.callPackage ./chroma/default.nix { };
   gitbatch = super.callPackage ./gitbatch/default.nix { };
   n30f = super.callPackage ./n30f/default.nix { };
   sddm-themes = super.callPackage ./sddm/default.nix { };
-  besley = super.callPackage ./besley/default.nix { };
-  alegreya = super.callPackage ./alegreya/default.nix { };
+  zplugin-install = super.callPackage ./zplugin/install.nix { };
 
   # Customized packages
   ncmpcpp = super.ncmpcpp.override {
