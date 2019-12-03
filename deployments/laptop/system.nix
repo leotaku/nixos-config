@@ -8,7 +8,7 @@
   imports = [
     # Import plugable configurations
     ../../plugables/avahi/module.nix
-    ../../plugables/xkboard/module.nix
+    ../../plugables/xkeyboard/module.nix
     #../plugables/transmission/module.nix
     #../plugables/backup/restic-all.nix
     #../plugables/email/postfix-queue.nix

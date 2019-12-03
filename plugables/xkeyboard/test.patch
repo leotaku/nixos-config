@@ -1,0 +1,65 @@
+diff --git a/rules/base.xml b/rules/base.xml
+index 5cd3670..82b77cd 100644
+--- a/rules/base.xml
++++ b/rules/base.xml
+@@ -1705,6 +1705,12 @@
+         </languageList>
+       </configItem>
+       <variantList>
++        <variant>
++          <configItem>
++            <name>leo</name>
++            <description>German (Austria, customized)</description>
++          </configItem>
++        </variant>
+         <variant>
+           <configItem>
+             <name>nodeadkeys</name>
+diff --git a/rules/evdev.xml b/rules/evdev.xml
+index 5cd3670..82b77cd 100644
+--- a/rules/evdev.xml
++++ b/rules/evdev.xml
+@@ -1705,6 +1705,12 @@
+         </languageList>
+       </configItem>
+       <variantList>
++        <variant>
++          <configItem>
++            <name>leo</name>
++            <description>German (Austria, customized)</description>
++          </configItem>
++        </variant>
+         <variant>
+           <configItem>
+             <name>nodeadkeys</name>
+diff --git a/symbols/de b/symbols/de
+index a96671b..1b79826 100644
+--- a/symbols/de
++++ b/symbols/de
+@@ -42,6 +42,26 @@ xkb_symbols "basic" {
+     include "level3(ralt_switch)"
+ };
+ 
++partial alphanumeric_keys
++xkb_symbols "leo" {
++    include "de(nodeadkeys)"
++    name[Group1] = "German (special alts + nodeadkeys)";
++
++    key <AC06>  { [         h,          H,      Left,      Hstroke   ] };
++    key <AC07>  { [         j,          J,      Down,      dead_horn ] };
++    key <AC08>  { [         k,          K,      Up,        ampersand ] };
++    key <AC09>  { [         l,          L,      Right,     Lstroke   ] };
++
++    key <AD11>  { [braceleft,   braceright,   NoSymbol, NoSymbol ] };
++    key <AC10>  { [parenleft,   parenright,   NoSymbol, NoSymbol ] };
++    key <AC11>  { [bracketleft, bracketright, NoSymbol, NoSymbol ] };
++
++    key <AD07>  { [         u,          U,      udiaeresis, Udiaeresis ] };
++    key <AC01>  { [         a,          A,      adiaeresis, Adiaeresis ] };
++    key <AD09>  { [         o,          O,      odiaeresis, Odiaeresis ] };
++
++};
++
+ partial alphanumeric_keys
+ xkb_symbols "deadtilde" {
+     // previous standard German layout with tilde as dead key
