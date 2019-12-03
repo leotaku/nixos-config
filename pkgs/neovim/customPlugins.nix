@@ -25,8 +25,8 @@
     src = fetchFromGitHub {
       owner = "bkad";
       repo = "CamelCaseMotion";
-      rev = "406368dea50303884aa321d2cdff714e010f951e";
-      sha256 = "0a1grafg05cb9mpk69j2y433ifm27ksy29wzlxlm5798dmb473mw";
+      rev = "de439d7c06cffd0839a29045a103fe4b44b15cdc";
+      sha256 = "0yfsb0d9ly8abmc95nqcmr8r8ylif80zdjppib7g1qj1wapdhc69";
     };
   };
 
@@ -145,8 +145,8 @@
     src = fetchFromGitHub {
       owner = "kovisoft";
       repo = "slimv";
-      rev = "7efdf458d2ba81bf697b563526f5954ec46b8cdd";
-      sha256 = "0bashcd2i18aqfpsqvqbgs8889zh57v2wvr4pjx83r4pd4ln7gf5";
+      rev = "47a007093f08f5a6fb8832ddf669ae297b343fed";
+      sha256 = "1ff54iksd5v3jy84wmssa5z231rf8vmkzpwixkzn9a8jyhzilsga";
     };
   };
 
@@ -207,8 +207,8 @@
     src = fetchFromGitHub {
       owner = "lifepillar";
       repo = "vim-mucomplete";
-      rev = "8964f852a5990c79c55571aef8d137a5e90c9e7c";
-      sha256 = "08mixa8frla5djcmka9sard4bzwjcrs3pb68si75mmrv9i9n0pd8";
+      rev = "92f0206dae54439bec6503c649263e38167011a9";
+      sha256 = "1ygsb16ha7kxns1f1km7j3br9c0ylf8pan5z46bnmixcbvia53gb";
     };
   };
 
@@ -276,8 +276,8 @@
     src = fetchFromGitHub {
       owner = "eraserhd";
       repo = "parinfer-rust";
-      rev = "174ef0386cab4403cc13a5eda0338ed17c7db1e7";
-      sha256 = "06yasqc2da3m77d01rd41r77rvjv9xh2fxaf6q21aaw466hi0a1b";
+      rev = "38bf72ae1eba5ee1dcef377b85bb625d68df1c61";
+      sha256 = "0ci0jxrp4j3fcjfbf1ypq7xsd1z6mpvk6x5aa29rdpljq8skp6xx";
     };
   in let
     parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {
