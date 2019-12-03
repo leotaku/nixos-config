@@ -104,12 +104,14 @@
     fish
   ];
 
-  environment.variables = {
-    EDITOR = "micro";
-    TERMINAL = "urxvt";
-    SHELL = "zsh";
-    PAGER = "less";
+  # Global environment
+  environment.variables = with pkgs; {
+    EDITOR = neovim + "/bin/vim";
+    TERMINAL = xterm + "/bin/xterm";
+    PAGER = less + "/bin/less";
+    TMPDIR = "/run/user/$UID";
   };
+  environment.homeBinInPath = true;
 
   # List programs that need nix wrappers
   programs.zsh.enable = true;
