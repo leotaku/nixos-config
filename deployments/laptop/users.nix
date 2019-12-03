@@ -9,7 +9,17 @@
   users.extraUsers.leo = {
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" "vboxusers" "transmission" "wireshark" "docker" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "audio"
+      "video"
+      "vboxusers"
+      "transmission"
+      "wireshark"
+      "docker"
+      "adbusers"
+    ];
     shell = pkgs.zsh;
   };
 }
