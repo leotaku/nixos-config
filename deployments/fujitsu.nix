@@ -43,32 +43,19 @@
     virtualHosts = {
       "le0.gs" = {
         enableACME = true;
-        #useACMEHost = "le0.gs";
-        #addSSL = true;
         forceSSL = true;
         locations = {
-          "/".root = "${pkgs.callPackage ./site/default.nix { }}/";
+          "/".root = pkgs.callPackage ./site/default.nix { };
           "/public" = {
             root = "/var/web/stuff/";
             extraConfig = "autoindex on;";
           };
         };
       };
-      "vwa.le0.gs" = {
-        enableACME = true;
-        forceSSL = true;
-        locations = {
-          "/".root = "/var/web/hugo/public";
-          "/rustdoc" = {
-            root = "/var/web/";
-            index = "settings.html";
-          };
-        };
-      };
       "sync.le0.gs" = {
-        enableACME = true;
+        useACMEHost = "le0.gs";
         forceSSL = true;
-        basicAuthFile = "/run/keys/htpasswd";
+        basicAuthFile = "/run/htpasswd";
         locations = {
           "/" = {
             root = "/var/web/stuff";
@@ -78,18 +65,36 @@
         };
       };
       "stats.le0.gs" = {
-        enableACME = true;
+        useACMEHost = "le0.gs";
         forceSSL = true;
-        locations = { "/".proxyPass = "http://localhost:19999/"; };
+        locations = {
+          "/".return = "301 /fujitsu/";
+          "/fujitsu".proxyPass = "http://localhost:19999/";
+          "/rpi".proxyPass = "http://nixos-rpi.local/";
+        };
       };
       "rss.le0.gs" = {
-        enableACME = true;
+        useACMEHost = "le0.gs";
         forceSSL = true;
       };
     };
   };
-  
+
+  # NOTE: the keys group is used only for NixOps compatibility
   users.users.nginx.extraGroups = [ "keys" "syncthing" ];
+
+  # Acme certificates
+  security.acme.certs = {
+    "le0.gs" = {
+      email = "leo.gaskin@brg-feldkirchen.at";
+      extraDomains = {
+        "vwa.le0.gs" = null;
+        "sync.le0.gs" = null;
+        "stats.le0.gs" = null;
+        "rss.le0.gs" = null;
+      };
+    };
+  };
 
   # TinyRSS rss service
   services.tt-rss = {
@@ -154,7 +159,7 @@
     };
     "htpasswd" = {
       source = builtins.toString ../private/htpasswd;
-      destination = "/run/keys/htpasswd";
+      destination = "/run/htpasswd";
       owner.user = "nginx";
       owner.group = "nginx";
       action = ["systemctl" "reload" "nginx.service"];
