@@ -21,13 +21,27 @@
 
   # Enable basic NVIDIA support (needs testing)
   # https://github.com/NixOS/nixpkgs/issues/53269#issuecomment-454726649
-  services.xserver.videoDrivers = [ "intel" ];
-  hardware.bumblebee.enable = true;
+  services.xserver.videoDrivers = [ "intel" "nvidia" ];
+
+  # NVIDIA Optimus
+  hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.optimus_prime = {
+    enable = false;
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
+  hardware.nvidiaOptimus.disable = true;
+
+  # NVIDIA Bumblebee
+  hardware.bumblebee.enable = false;
+
+  # OpenGL with NVIDIA in mind
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages = [
+    # NOTE: Are these even needed?
     pkgs.libGL_driver
-    pkgs.linuxPackages.nvidia_x11.out
+    config.boot.kernelPackages.nvidia_x11.out
   ];
 
   # Use the systemd-boot EFI boot loader.
