@@ -94,11 +94,10 @@
   # TinyRSS rss service
   services.tt-rss = {
     enable = true;
-    singleUserMode = true;
-    database = {
-      user = "tt_rss";
-      password = "test";
-    };
+    # NOTE: Maybe switch to http-auth?
+    singleUserMode = false;
+    auth.autoCreate = false;
+    registration.enable = false;
     pool = "tt-rss";
     virtualHost = "rss.le0.gs";
     selfUrlPath = "https://rss.le0.gs";
