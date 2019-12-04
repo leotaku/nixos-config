@@ -125,6 +125,10 @@
   services.netdata.enable = true;
   services.tumbler.enable = true;
 
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   # Geoclue2 for redshift
   services.geoclue2 = {
     enable = true;
