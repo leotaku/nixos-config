@@ -116,6 +116,7 @@
   # List programs that need nix wrappers
   programs.zsh.enable = true;
   programs.light.enable = true;
+  programs.adb.enable = true;
 
   # List simple services that you want to enable:
   services.upower.enable = true;
@@ -205,9 +206,9 @@
     enable = false;
     #enableHardening = false; 
   };
-
+  services.flatpak.enable = false;
   virtualisation.docker.enable = true;
-  services.flatpak.enable = true;
+  virtualisation.anbox.enable = true;
 
   # Add wireshark permissions
   programs.wireshark = {
