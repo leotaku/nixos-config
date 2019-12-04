@@ -23,7 +23,6 @@
     xcape
     z-lua
     # Control
-    connman-gtk
     pulsemixer
     # Text editors
     kakoune
@@ -57,7 +56,7 @@
     # Ebook
     calibre
     # Terminal
-    kitty
+    rxvt-unicode-custom
     # Information
     htop
     gotop
@@ -66,7 +65,6 @@
     # Network utils
     netcat-gnu
     speedtest-cli
-    # Terminal toys
     # Xorg
     xsel
     xorg.xmodmap
@@ -81,7 +79,7 @@
     fd
     ripgrep
     progress
-    chroma
+    # FIXME: chroma
     jq
     tokei
     rlwrap
@@ -113,8 +111,9 @@
     # Syncthing
     syncthing-gtk
     syncthing-cli
-  ] ++ [
+    # Fonts
     fira-code
+    fira-mono
     source-code-pro
     ibm-plex
   ];
