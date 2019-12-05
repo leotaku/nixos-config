@@ -248,6 +248,7 @@
           "browser.urlbar.decodeURLsOnCopy" = true;
           "network.IDN.whitelist.local" = true;
           "places.history.expiration.max_pages" = 2147483647;
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
       };
     };
