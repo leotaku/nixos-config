@@ -219,10 +219,20 @@
   systemd.user.startServices = true;
 
   # Syncthing client
-  services.syncthing.enable = true;
+  services.syncthing = {
+    enable = true;
+    tray = false;
+  };
 
   # Kdeconnect
   services.kdeconnect.enable = true;
+  services.kdeconnect.indicator = true;
+
+  # Blueman applet
+  services.blueman-applet.enable = true;
+
+  # NetworkManager applet
+  services.network-manager-applet.enable = true;
 
   # Firefox settings
   programs.firefox = {
