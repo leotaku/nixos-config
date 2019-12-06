@@ -277,63 +277,57 @@
   '';
 
   # Xdg default applications
-  xdg.configFile."mimeapps.list".text = ''
-    [Default Applications]
-    inode/directory=Thunar.desktop
-
-    image/bmp=sxiv.desktop
-    image/gif=sxiv.desktop
-    image/jpeg=sxiv.desktop
-    image/jpg=sxiv.desktop
-    image/png=sxiv.desktop
-    image/tiff=sxiv.desktop
-    image/x-bmp=sxiv.desktop
-    image/x-portable-anymap=sxiv.desktop
-    image/x-portable-bitmap=sxiv.desktop
-    image/x-portable-graymap=sxiv.desktop
-    image/x-tga=sxiv.desktop
-    image/x-xpixmap=sxiv.desktop
-
-    text/plain=emacs.desktop
-    text/english=emacs.desktop
-    text/x-makefile=emacs.desktop
-    text/x-c++hdr=emacs.desktop
-    text/x-c++src=emacs.desktop
-    text/x-chdr=emacs.desktop
-    text/x-csrc=emacs.desktop
-    text/x-java=emacs.desktop
-    text/x-moc=emacs.desktop
-    text/x-pascal=emacs.desktop
-    text/x-tcl=emacs.desktop
-    text/x-tex=emacs.desktop
-    application/x-shellscript=emacs.desktop
-    text/x-c=emacs.desktop
-    text/x-c++=emacs.desktop
-    
-    application/pdf=org.pwmt.zathura.desktop
-    
-    x-scheme-handler/http=firefox.desktop
-    x-scheme-handler/https=firefox.desktop
-    x-scheme-handler/ftp=userapp-firefox.desktop
-    x-scheme-handler/chrome=userapp-firefox.desktop
-    x-scheme-handler/about=firefox.desktop
-    x-scheme-handler/unknown=firefox.desktop
-
-    [Added Associations]
-    text/html=firefox.desktop;
-    x-scheme-handler/http=firefox.desktop;
-    x-scheme-handler/https=firefox.desktop;
-    x-scheme-handler/ftp=firefox.desktop;
-    x-scheme-handler/chrome=firefox.desktop;
-    application/x-extension-htm=firefox.desktop;
-    application/x-extension-html=firefox.desktop;
-    application/x-extension-shtml=firefox.desktop;
-    application/xhtml+xml=firefox.desktop;
-    application/x-extension-xhtml=firefox.desktop;
-    application/x-extension-xht=firefox.desktop;
-    
-    [Removed Associations]
-  '';
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {
+      "text/html" = "firefox.desktop";
+      "text/xml" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https"  = "firefox.desktop";
+      "x-scheme-handler/ftp" = "firefox.desktop";
+      "x-scheme-handler/chrome"  = "firefox.desktop";
+    };
+    defaultApplications = {
+      "text/html" = "firefox.desktop";
+      "text/xml" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/ftp" = "userapp-firefox.desktop";
+      "x-scheme-handler/chrome" = "userapp-firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
+      "application/pdf" = "org.pwmt.zathura.desktop";
+      
+      "inode/directory" = "Thunar-folder-handler.desktop";
+      "image/bmp" = "sxiv.desktop";
+      "image/gif" = "sxiv.desktop";
+      "image/jpeg" = "sxiv.desktop";
+      "image/jpg" = "sxiv.desktop";
+      "image/png" = "sxiv.desktop";
+      "image/tiff" = "sxiv.desktop";
+      "image/x-bmp" = "sxiv.desktop";
+      "image/x-portable-anymap" = "sxiv.desktop";
+      "image/x-portable-bitmap" = "sxiv.desktop";
+      "image/x-portable-graymap" = "sxiv.desktop";
+      "image/x-tga" = "sxiv.desktop";
+      "image/x-xpixmap" = "sxiv.desktop";
+      "text/plain" = "emacs.desktop";
+      "text/english" = "emacs.desktop";
+      "text/x-makefile" = "emacs.desktop";
+      "text/x-c++hdr" = "emacs.desktop";
+      "text/x-c++src" = "emacs.desktop";
+      "text/x-chdr" = "emacs.desktop";
+      "text/x-csrc" = "emacs.desktop";
+      "text/x-java" = "emacs.desktop";
+      "text/x-moc" = "emacs.desktop";
+      "text/x-pascal" = "emacs.desktop";
+      "text/x-tcl" = "emacs.desktop";
+      "text/x-tex" = "emacs.desktop";
+      "application/x-shellscript" = "emacs.desktop";
+      "text/x-c" = "emacs.desktop";
+      "text/x-c++" = "emacs.desktop";
+    };
+  };
 
   # Firefox does not register a proper entry by default
   xdg.dataFile."applications/firefox.desktop".text = ''
@@ -365,5 +359,18 @@
     Categories=Development;TextEditor;
     StartupWMClass=Emacs
     Keywords=Text;Editor;
+  '';
+
+  xdg.dataFile."applications/rxvt-unicode.desktop".text = ''
+    [Desktop Entry]
+    Encoding=UTF-8
+    Name=URxvt
+    GenericName=Tmux in Terminal
+    Comment=
+    Exec=tmux
+    Icon=terminal
+    Terminal=true
+    Type=Application
+    Categories=Application;Development;
   '';
 }
