@@ -194,17 +194,18 @@
     theme.name = "Arc";
     iconTheme.package = pkgs.papirus-icon-theme;
     iconTheme.name = "Papirus";
-    gtk2.extraConfig = lib.concatStringsSep "\n" (lib.mapAttrsToList (n: v: "${n}=${v}") {
-      gtk-toolbar-style = "GTK_TOOLBAR_ICONS";
-      gtk-toolbar-icon-size = "GTK_ICON_SIZE_SMALL_TOOLBAR";
-      # gtk-key-theme-name = "Emacs";
-    });
+    gtk2 = {
+      extraConfig = lib.concatStringsSep "\n" (lib.mapAttrsToList (n: v: "${n}=${v}") {
+        gtk-toolbar-style = "GTK_TOOLBAR_ICONS";
+        gtk-toolbar-icon-size = "GTK_ICON_SIZE_SMALL_TOOLBAR";
+      });
+    };
     gtk3 = {
       extraConfig = {
         gtk-toolbar-style = "GTK_TOOLBAR_ICONS";
         gtk-toolbar-icon-size = "GTK_ICON_SIZE_SMALL_TOOLBAR";
-        # gtk-key-theme-name = "Emacs";
       };
+      extraCss = builtins.readFile ./tweaks.css;
     };
   };
 
