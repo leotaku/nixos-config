@@ -142,7 +142,14 @@
 
   # Compton
   services.compton = {
+  # MPD
+  services.mpd = {
     enable = true;
+    musicDirectory = config.home.homeDirectory + "/sync/music";
+  };
+  services.mpdris2 = {
+    enable = true;
+    notifications = true;
   };
 
   # X settings
