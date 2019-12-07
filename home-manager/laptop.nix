@@ -140,8 +140,6 @@
     provider = "geoclue2";
   };
 
-  # Compton
-  services.compton = {
   # MPD
   services.mpd = {
     enable = true;
