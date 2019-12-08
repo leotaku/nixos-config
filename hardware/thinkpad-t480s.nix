@@ -49,14 +49,15 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Filesystem (configured by nixos-install)
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/a08f78e7-bc3b-4f1c-8332-d4c098f9cb78";
-    fsType = "ext4";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/D9F0-DD1D";
-    fsType = "vfat";
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/a08f78e7-bc3b-4f1c-8332-d4c098f9cb78";
+      fsType = "ext4";
+    };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/D9F0-DD1D";
+      fsType = "vfat";
+    };
   };
     
   swapDevices = [
