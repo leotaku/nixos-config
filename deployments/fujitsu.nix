@@ -16,7 +16,7 @@
   # Nixpkgs configurations
   nixpkgs.overlays = [ ];
   
-  nix.trustedUsers = [ "root" "remote-builder" ];
+  nix.trustedUsers = [ "root" ];
 
   environment.systemPackages = with pkgs; [ vim syncthing-cli ];
 
