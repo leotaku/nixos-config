@@ -15,7 +15,9 @@
   # Modules and pluggable configurations
   imports = [
     ../plugables/email/home-manager.nix
+    ../plugables/compton/module.nix
     ../modules/qt5ct.nix
+    ../modules/xss-lock.nix
   ];
 
   home.packages = with pkgs; [
@@ -153,6 +155,7 @@
   # X settings
   xsession = {
     enable = true;
+    preferStatusNotifierItems = true;
     pointerCursor = {
       name = "Adwaita";
       package = pkgs.gnome3.adwaita-icon-theme;
@@ -162,7 +165,28 @@
     # AwesomeWM
     windowManager.awesome = {
       enable = true;
+      luaModules = with pkgs.luaPackages; [ lgi ];
     };
+  };
+
+  # Screen locking
+  services.xss-lock = {
+    enable = true;
+    notifyCmd = [
+      "${pkgs.libnotify}/bin/notify-send"
+      "Screensaver:"
+      "Locking screen in about 5 minutes"
+    ];
+    lockCmd = [
+      "${pkgs.xlockmore}/bin/xlock"
+      "+resetsaver"
+      "-mode worm"
+      "-count" "1" "-size" "3"
+      "-username" "Name:"
+      "-password" "S/Key:"
+      "-echokeys" "-echokey" "."
+      "-icongeometry" "128x128"
+    ];
   };
 
   # Xresources settings
