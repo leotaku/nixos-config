@@ -5,6 +5,13 @@ systems_file := "deploy.nix"
 
 # Commands
 
+default:
+	just update
+	just update-pkgs
+	just deploy
+	home-manager switch -I nixpkgs=/etc/nixos/nixos-config/sources/links/nixos-unstable
+	nix-env -u '*' -I nixpkgs=/etc/nixos/nixos-config/sources/links/nixos-unstable
+
 build glob="*":
 	cd deployments; \
 	morph build "{{systems_file}}" --on="{{glob}}" --keep-result
