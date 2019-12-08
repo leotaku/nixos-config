@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
   name = "zplugin-${version}";
-  version = "2019-12-02";
+  version = "2019-12-06";
 
   src = fetchFromGitHub {
     repo = "zplugin";
     owner = "zdharma";
-    rev = "eb06d2d47bcc11224aa9ccb056bd3f897c18a79d";
-    sha256 = "020f3kxkii6hlc8kq9wa4y0xgkgs58amq4ds0pydm519ah0wxi25";
+    rev = "e28cab88c94232350d46bc1d6b52cd43830e24b6";
+    sha256 = "0kxpqnl6hllhp0vq5s57r8achrkprns8yxjfy4xipjicsmaf7kk2";
   };
 
   buildInputs = [ zsh gnumake ncurses autoconf gcc ];
