@@ -25,6 +25,7 @@
     fd
     aria
     libqalculate
+    entr
     # Multiplexer
     tmux
     screen
