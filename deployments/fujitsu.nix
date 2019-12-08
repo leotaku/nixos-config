@@ -23,7 +23,7 @@
   # Update DNS records
   services.dns-records-update = {
     enable = true;
-    urlsFile = "/run/dnsfile";
+    urlsFile = config.deployment.secrets."dnsfile".destination;
   };
 
   # Hercules-CI agent
@@ -55,7 +55,7 @@
       "sync.le0.gs" = {
         useACMEHost = "le0.gs";
         forceSSL = true;
-        basicAuthFile = "/run/htpasswd";
+        basicAuthFile = config.deployment.secrets."htpasswd".destination;
         locations = {
           "/" = {
             root = "/var/web/stuff";
@@ -112,6 +112,7 @@
   services.restic.server = {
     enable = true;
     prometheus = true;
+    dataDir = config.fileSystems.raid1x5tb.mountPoint + "/restic";
   };
   services.syncthing = {
     enable = true;
@@ -154,12 +155,12 @@
   deployment.secrets = {
     "dnsfile" = {
       source = builtins.toString ../private/dnsfile;
-      destination = "/run/dnsfile";
+      destination = "/var/keys/dnsfile";
       action = ["systemctl" "restart" "dns-records-update.service"];
     };
     "htpasswd" = {
       source = builtins.toString ../private/htpasswd;
-      destination = "/run/htpasswd";
+      destination = "/var/keys/htpasswd";
       owner.user = "nginx";
       owner.group = "nginx";
       action = ["systemctl" "reload" "nginx.service"];
