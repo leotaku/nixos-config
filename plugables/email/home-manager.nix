@@ -93,4 +93,12 @@ in
     postExec = "${pkgs.notmuch}/bin/notmuch --config=${config.xdg.configHome}/notmuch/notmuchrc new";
   };
   services.imapnotify.enable = true;
+
+  # Mailcap handling
+  home.file.".mailcap".text = ''
+    # This is a simple example mailcap file.
+    # Lines starting with '#' are comments.
+
+    text/html; ${pkgs.w3m}/bin/w3m -dump -o document_charset=%{charset} '%s'; nametemplate=%s.html; copiousoutput
+  '';
 }
