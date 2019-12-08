@@ -18,7 +18,12 @@
   
   nix.trustedUsers = [ "root" ];
 
-  environment.systemPackages = with pkgs; [ vim syncthing-cli ];
+  environment.systemPackages = with pkgs; [
+    vim
+    syncthing-cli
+    ipmitool
+    freeipmi
+  ];
 
   # Update DNS records
   services.dns-records-update = {
