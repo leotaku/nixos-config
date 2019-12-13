@@ -4,7 +4,7 @@ let
 in {
   network = {
     description = "Home network";
-    overlays = [];
+    overlays = [ ];
     config = {
       allowUnfree = true;
       allowBroken = false;
