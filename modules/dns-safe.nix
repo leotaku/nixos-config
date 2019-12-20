@@ -31,8 +31,7 @@ in {
               exit 1
           fi
         
-          ${pkgs.parallel}/bin/parallel ${pkgs.curl}/bin/curl < ${cfg.urlsFile} |\
-            ${pkgs.jq}/bin/jq 'if (.ok != true) then error(.error) else .msg end'
+          ${pkgs.parallel}/bin/parallel "${pkgs.curl}/bin/curl {} | ${pkgs.jq}/bin/jq 'if (.ok == true) then .msg else error(.msg) end'" < ${cfg.urlsFile}
         '';
       };
       requires = [ "network.target" ];
