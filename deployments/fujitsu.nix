@@ -126,6 +126,21 @@
     group = "syncthing";
   };
 
+  # Minecraft server
+  services.minecraft-server = rec {
+    enable = true;
+    eula = true;
+    package = pkgs.writeShellScriptBin "minecraft-server" ''
+      ${pkgs.jre}/bin/java -Xmx3G -Xms2G -jar ${dataDir}/Hexxit.jar nogui
+    '';
+    dataDir = "/var/lib/hexxit";
+    declarative = true;
+    serverProperties = {
+      motd = "Yolomaudadolo!!!";
+      allow-flight = true;
+    };
+  };
+
   # enable netdata monitoring
   services.netdata.enable = true;
 
@@ -155,6 +170,8 @@
     8384
     # ZNC
     6667
+    # Minecraft server
+    25565
   ];
 
   deployment.secrets = {
