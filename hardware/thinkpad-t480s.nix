@@ -21,19 +21,23 @@
 
   # Enable basic NVIDIA support (needs testing)
   # https://github.com/NixOS/nixpkgs/issues/53269#issuecomment-454726649
-  services.xserver.videoDrivers = [ "intel" "nvidia" ];
+  services.xserver.videoDrivers = [ "intel" ];
 
   # NVIDIA Optimus
+  environment.systemPackages = with config.boot.kernelPackages.nvidia_x11; [ bin settings ];
   hardware.nvidia.modesetting.enable = true;
   hardware.nvidia.optimus_prime = {
-    enable = false;
+    enable = true;
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:1:0:0";
   };
-  hardware.nvidiaOptimus.disable = true;
+  hardware.nvidiaOptimus.disable = false;
 
   # NVIDIA Bumblebee
-  hardware.bumblebee.enable = false;
+  hardware.bumblebee = {
+    enable = true;
+    driver = "nvidia";
+  };
 
   # OpenGL with NVIDIA in mind
   hardware.opengl.enable = true;
