@@ -44,8 +44,10 @@ in
     emacs = self.emacs-git;
   };
 
-  # Mozilla
+  # External
+  cachix = import sources.cachix;
   mozilla = import sources.nixpkgs-mozilla self super;
+  pboy = import sources.pboy;
 
   # Collections
   customVimPlugins = super.callPackage ./neovim/customPlugins.nix { };
