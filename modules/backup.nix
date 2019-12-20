@@ -15,11 +15,22 @@ let
       };
     };
   };
-  script = (pkgs.writeShellScriptBin "backup" (lib.concatStringsSep "\n"
-    (lib.mapAttrsToList (n: v: "export ${n}=${v}")
+  backupscript = (
+    pkgs.writeShellScriptBin "backup" (lib.concatStringsSep "\n" (
+      lib.mapAttrsToList (n: v: "export ${n}=${v}")
       config.systemd.services.restic-backups-backup-module.environment ++ [
         config.systemd.services.restic-backups-backup-module.serviceConfig.ExecStart
-      ])));
+      ]
+    ))
+  );
+  supportscript = (
+    pkgs.writeShellScriptBin "backuptool" (
+      (lib.concatStringsSep "\n" (
+        lib.mapAttrsToList (n: v: "export ${n}=${v}")
+        config.systemd.services.restic-backups-backup-module.environment ++ [
+          (pkgs.restic + "/bin/restic")
+        ]
+      ))));
 in {
   options.backup = {
     enable = mkEnableOption "backup service based on restic";
@@ -69,6 +80,6 @@ in {
     };
 
     # Include the restic package and backup script in the global environment
-    environment.systemPackages = [ pkgs.restic script ];
+    environment.systemPackages = [ pkgs.restic backupscript supportscript ];
   };
 }
