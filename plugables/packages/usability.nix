@@ -10,6 +10,7 @@
     # Nix Tools
     nix-top
     nix-du
+    nix-diff
     nix-index
     nix-prefetch-scripts
     # Version control
@@ -34,14 +35,17 @@
     htop
     w3m
     lynx
+    rlwrap
     # Hardware
     hwinfo
+    lshw
     stress
     s-tui
     pciutils
     # Networking
     speedtest-cli
     iperf
+    nmap
     # Misc
     qrencode
   ];

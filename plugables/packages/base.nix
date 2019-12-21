@@ -15,7 +15,10 @@
     cron
     bc
     unzip
-    # new utils
+    lsof
+    # Networking
+    netcat-gnu
+    # New utils
     rsync
     moreutils    
     # Archives

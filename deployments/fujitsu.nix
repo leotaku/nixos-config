@@ -21,6 +21,7 @@
   environment.systemPackages = with pkgs; [
     vim
     syncthing-cli
+    restic
     ipmitool
     freeipmi
   ];

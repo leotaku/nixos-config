@@ -88,8 +88,8 @@
   environment.systemPackages = with pkgs; [
     # Laptop
     acpi
-    # Control
-    pulsemixer
+    powertop
+    glxinfo
     # Editors
     micro
     kakoune

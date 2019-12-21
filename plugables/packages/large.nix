@@ -13,6 +13,9 @@
     hyperfine
     du-dust
     diskus
+    imagemagick
+    ffmpegthumbnailer
+    ffmpeg-full
     # Toys
     neofetch
     cowsay

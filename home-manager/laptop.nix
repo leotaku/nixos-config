@@ -26,10 +26,12 @@
     z-lua
     # Control
     pulsemixer
+    pavucontrol
     # Text editors
     kakoune
     vscode-with-extensions
     # File Manager
+    dolphin
     xfce.thunar
     emv
     fzf
@@ -39,7 +41,6 @@
     # Chat
     weechat
     # Images
-    imagemagick
     sxiv
     feh
     pinta
@@ -48,8 +49,6 @@
     zathura
     # Video
     vlc
-    ffmpegthumbnailer
-    ffmpeg-full
     # Recording
     maim
     simplescreenrecorder
@@ -59,13 +58,7 @@
     calibre
     # Terminal
     rxvt-unicode-custom
-    # Information
-    htop
-    gotop
-    lshw
-    hwinfo
-    # Network utils
-    netcat-gnu
+    # Network
     speedtest-cli
     # Xorg
     xsel
@@ -76,15 +69,12 @@
     wmctrl
     libnotify
     # Utils
-    aria
     exa
-    fd
-    ripgrep
+    ripgrep-all
     progress
     # FIXME: chroma
     jq
     tokei
-    rlwrap
     bvi
     direnv
     gitAndTools.hub
@@ -114,10 +104,12 @@
     syncthing-gtk
     syncthing-cli
     # Fonts
+    fira
     fira-code
     fira-mono
     source-code-pro
     ibm-plex
+    alegreya
   ];
 
   # Enable automatic indexing of info files
