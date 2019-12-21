@@ -224,16 +224,26 @@
   backup = {
     enable = true;
     timer = [ "*-*-* 11:00" "*-*-* 22:00" ];
-    repository = "rest:http://le0.gs:8000";
+    repository = "sftp:root@le0.gs:/var/lib/restic";
     passwordFile = ../../private/restic-pw;
+    user = "leo";
     paths = [{
       path = "/home/leo";
       exclude = [
         "large"
         ".rustup"
         ".maildir/.notmuch"
-        ".local/share/flatpak"
+        ".local/share"
+        ".var/app"
+        ".multimc"
+        ".technic"
         ".cache"
+        "**/*.rlib"
+        "**/*.rmeta"
+        "**/*.o"
+        "**/*.a"
+        "**/*.so"
+        "**/target"
       ];
     }];
   };
