@@ -37,6 +37,9 @@
   boot.kernelParams = [ "quiet" "udev.log_priority=3" ];
   boot.earlyVconsoleSetup = true;
 
+  # DBUS user session
+  services.dbus.socketActivated = true;
+
   # Networking
   networking.hostName = "nixos-laptop"; # Define your hostname.
 
