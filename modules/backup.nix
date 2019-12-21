@@ -19,7 +19,7 @@ let
     pkgs.writeShellScriptBin "backup" (lib.concatStringsSep "\n" (
       lib.mapAttrsToList (n: v: "export ${n}=${v}")
       config.systemd.services.restic-backups-backup-module.environment ++ [
-        config.systemd.services.restic-backups-backup-module.serviceConfig.ExecStart
+        (config.systemd.services.restic-backups-backup-module.serviceConfig.ExecStart + " $@")
       ]
     ))
   );
@@ -28,7 +28,7 @@ let
       (lib.concatStringsSep "\n" (
         lib.mapAttrsToList (n: v: "export ${n}=${v}")
         config.systemd.services.restic-backups-backup-module.environment ++ [
-          (pkgs.restic + "/bin/restic")
+          (pkgs.restic + "/bin/restic $@")
         ]
       ))));
 in {
@@ -53,6 +53,12 @@ in {
         "Location of a file containing the password needed for accessing the restic repository.";
     };
 
+    user = mkOption {
+      type = types.str;
+      default = "root";
+      description = "As which user the backup should run.";
+    };
+
     paths = mkOption {
       type = types.listOf backupPath;
       default = [ ];
@@ -68,6 +74,7 @@ in {
     # Enable a restic backup service
     services.restic.backups."backup-module" = mkIf cfg.enable {
       paths = map (p: p.path) cfg.paths;
+      user = cfg.user;
       repository = cfg.repository;
       passwordFile = builtins.toString cfg.passwordFile;
       extraBackupArgs = concatLists (map
