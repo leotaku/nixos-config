@@ -31,7 +31,6 @@
     kakoune
     vscode-with-extensions
     # File Manager
-    dolphin
     xfce.thunar
     emv
     fzf
