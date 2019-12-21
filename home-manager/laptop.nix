@@ -128,6 +128,14 @@
   # FIXME: Disable user keyboard configuration
   home.keyboard = null;
 
+  # Lorri + direnv integration
+  services.lorri.enable = true;
+  xdg.configFile."direnv/direnvrc".text = ''
+    use_nix () {
+        eval "$(lorri direnv)"
+    }
+  '';
+
   # Redshift
   services.redshift = {
     enable = true;
