@@ -196,6 +196,7 @@
   # Steam
   hardware.pulseaudio.support32Bit = true;
   hardware.opengl.driSupport32Bit = true;
+  hardware.steam-hardware.enable = true;
 
   # Firewall configuration
   # Open ports in the firewall.
