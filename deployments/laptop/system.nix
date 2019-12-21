@@ -210,7 +210,7 @@
     enable = false;
     #enableHardening = false; 
   };
-  services.flatpak.enable = false;
+  services.flatpak.enable = true;
   virtualisation.docker.enable = true;
   virtualisation.anbox.enable = true;
 
