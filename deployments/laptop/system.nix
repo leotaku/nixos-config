@@ -21,8 +21,6 @@
     #../containers/test.nix
   ];
 
-  nix.useSandbox = true;
-
   # Nixpkgs settings
   nixpkgs.overlays = [ (import ../../pkgs) ];
   nixpkgs.config.allowUnfree = true;

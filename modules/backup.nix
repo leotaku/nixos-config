@@ -59,6 +59,12 @@ in {
       description = "As which user the backup should run.";
     };
 
+    extraArgs = mkOption {
+      type = with types; listOf str;
+      default = [ ];
+      description = "Extra flags to pass to the restic backup command.";
+    };
+
     paths = mkOption {
       type = types.listOf backupPath;
       default = [ ];
@@ -77,9 +83,10 @@ in {
       user = cfg.user;
       repository = cfg.repository;
       passwordFile = builtins.toString cfg.passwordFile;
-      extraBackupArgs = concatLists (map
-        (p: (map (e: concatStrings [ "--exclude " p.path "/" e ]) p.exclude))
-        cfg.paths);
+      extraBackupArgs = concatLists (
+        map (p: (map (e: "--exclude='${p.path}/${e}'") p.exclude))
+        cfg.paths
+      ) ++ cfg.extraArgs;
       timerConfig = {
         OnCalendar = cfg.timer;
         Persistent = "true";

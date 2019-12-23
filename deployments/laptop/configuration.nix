@@ -12,14 +12,13 @@
     # Activate remote builders and caching
     ../../plugables/builders/module.nix
     ../../plugables/cachix/module.nix
-    # Import qemu module
-    (clever + "/qemu.nix")
   ];
-
-  nix.trustedUsers = [ "root" "@wheel" ];
   
-  qemu-user.aarch64 = true;
+  nix.trustedUsers = [ "root" "@wheel" ];
   nix.distributedBuilds = true;
+  nix.useSandbox = true;
+
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   
   nix.nixPath = [
     "nixpkgs=/etc/nixos/nixos-config/sources/links/nixos-unstable"
