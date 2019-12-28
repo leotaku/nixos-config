@@ -26,6 +26,16 @@
     freeipmi
   ];
 
+  # Setup correct keyboard
+  i18n.consoleKeyMap = "de";
+
+  # NOTE: Testing the networkd system because legacy often fails
+  networking.useNetworkd = true;
+  networking.useDHCP = false;
+  networking.interfaces."enp8s0".useDHCP = true;
+  networking.interfaces."enp7s0".useDHCP = true;
+  networking.interfaces."enp6s0".useDHCP = true;
+
   # Update DNS records
   services.dns-records-update = {
     enable = true;
