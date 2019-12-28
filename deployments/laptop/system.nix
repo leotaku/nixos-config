@@ -121,17 +121,21 @@
   };
 
   # List programs that need nix wrappers
-  programs.zsh.enable = true;
-  programs.light.enable = true;
   programs.adb.enable = true;
+  programs.gnome-disks.enable = true;
+  programs.light.enable = true;
+  programs.zsh.enable = true;
 
   # List simple services that you want to enable:
-  services.upower.enable = true;
   powerManagement.enable = true;
-  services.openssh.enable = true;
-  services.cron.enable = false;
+  services.autorandr.enable = false;
+  services.gvfs.enable = true;
+  services.hardware.bolt.enable = true;
   services.netdata.enable = true;
+  services.openssh.enable = true;
   services.tumbler.enable = true;
+  services.udisks2.enable = true;
+  services.upower.enable = true;
 
   # Bluetooth
   hardware.bluetooth.enable = true;
