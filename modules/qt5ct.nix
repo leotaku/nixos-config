@@ -62,7 +62,7 @@ in {
     } // (if (cfg.scale == "auto") then {
       "QT_AUTO_SCREEN_SCALE_FACTOR" = "1";
     } else {
-      "QT_SCALE_FACTOR" = "${cfg.scale}";
+      "QT_SCALE_FACTOR" = builtins.toString cfg.scale;
     });
 
     home.packages = [
