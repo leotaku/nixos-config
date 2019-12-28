@@ -320,7 +320,6 @@
       "x-scheme-handler/about" = "firefox.desktop";
       "x-scheme-handler/unknown" = "firefox.desktop";
       "application/pdf" = "org.pwmt.zathura.desktop";
-      
       "inode/directory" = "Thunar-folder-handler.desktop";
       "image/bmp" = "sxiv.desktop";
       "image/gif" = "sxiv.desktop";
