@@ -114,6 +114,12 @@
   };
   environment.homeBinInPath = true;
 
+  # Sysctl settings
+  boot.kernel.sysctl = {
+    "kernel.perf_event_paranoid" = -1;
+    "kernel.kptr_restrict" = 0;
+  };
+
   # List programs that need nix wrappers
   programs.zsh.enable = true;
   programs.light.enable = true;
