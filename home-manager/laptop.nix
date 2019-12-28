@@ -206,6 +206,7 @@
   qt5ct = {
     enable = true;
     impure = true;
+    scale = 1.0;
     theme.package = pkgs.libsForQt5.qtstyleplugin-kvantum;
     iconTheme.package = pkgs.papirus-icon-theme;
     fonts = {
