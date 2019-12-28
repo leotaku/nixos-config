@@ -46,10 +46,14 @@
   # OpenGL with NVIDIA in mind
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.extraPackages = [
+  hardware.opengl.extraPackages = with pkgs; [
     # NOTE: Are these even needed?
-    pkgs.libGL_driver
+    libGL_driver
     config.boot.kernelPackages.nvidia_x11.out
+    # Intel support
+    vaapiIntel
+    vaapiVdpau
+    libvdpau-va-gl
   ];
 
   # Use the systemd-boot EFI boot loader.
