@@ -48,9 +48,10 @@ in
   cachix = import sources.cachix;
   mozilla = import sources.nixpkgs-mozilla self super;
   pboy = import sources.pboy;
-  morph = super.callPackage ../sources/external/morph/nix-packaging { };
-  haskell.compiler = super.haskell.compiler
-    // super.callPackage sources.old-ghc-nix { };
+  # FIXME: morph = super.callPackage ../sources/external/morph/nix-packaging { };
+  haskell = super.haskell // {
+    compiler = super.callPackage sources.old-ghc-nix {} // super.haskell.compiler;
+  };
 
   # Collections
   customVimPlugins = super.callPackage ./neovim/customPlugins.nix { };
