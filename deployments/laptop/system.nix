@@ -235,6 +235,7 @@
     repository = "sftp:root@le0.gs:/var/lib/restic";
     passwordFile = ../../private/restic-pw;
     user = "leo";
+    extraArgs = [ "--limit-upload" "5000" ];
     paths = [{
       path = "/home/leo";
       exclude = [
@@ -246,12 +247,13 @@
         ".multimc"
         ".technic"
         ".cache"
+        ".cargo"
+        "**/target"
         "**/*.rlib"
         "**/*.rmeta"
         "**/*.o"
         "**/*.a"
         "**/*.so"
-        "**/target"
       ];
     }];
   };
