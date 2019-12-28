@@ -9,6 +9,10 @@
 
   # Use unfree Intel drivers
   hardware.enableRedistributableFirmware = true;
+  hardware.cpu.intel.updateMicrocode = true;
+
+  # CPU throttling
+  services.throttled.enable = true;
   
   # Default kernel modules 
   boot.initrd.availableKernelModules = [
