@@ -278,12 +278,19 @@
   services.acpid.enable = true;
   services.acpid.logEvents = true;
   services.acpid.handlers = {
-    "lid-close-suspend" = {
+    "lid-close" = {
       event = "button/lid LID close";
       action = ''
+        ${pkgs.systemd}/bin/systemctl stop NetworkManager.service
         ${pkgs.systemd}/bin/loginctl lock-sessions
         sleep 2
         ${pkgs.systemd}/bin/systemctl start suspend.target
+      '';
+    };
+    "lid-open" = {
+      event = "button/lid LID open";
+      action = ''
+        ${pkgs.systemd}/bin/systemctl start NetworkManager.service
       '';
     };
   };
