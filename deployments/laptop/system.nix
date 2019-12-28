@@ -30,16 +30,27 @@
   boot.loader.timeout = 10;
   boot.plymouth.enable = true;
 
-  # less verbose boot log
+  # Set your time zone.
+  time.timeZone = "Europe/Vienna";
+
+  # Less verbose boot log
   boot.consoleLogLevel = 3;
   boot.kernelParams = [ "quiet" "udev.log_priority=3" ];
-  boot.earlyVconsoleSetup = true;
+
+  # Select internationalisation properties.
+  console = {
+    # TODO: find how to increase console font size
+    earlySetup = true;
+    font = "Lat2-Terminus16";
+    keyMap = "de";
+  };
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # DBUS user session
   services.dbus.socketActivated = true;
 
   # Networking
-  networking.hostName = "nixos-laptop"; # Define your hostname.
+  networking.hostName = "nixos-laptop";
 
   # Enable Networkmanager + iwd
   networking.networkmanager = {
@@ -74,17 +85,6 @@
       "ch" = builtins.toString ../../private/mullvad/ch.conf;
     };
   };
-
-  # Select internationalisation properties.
-  i18n = {
-    # TODO: find how to increase console font size
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "de";
-    defaultLocale = "en_US.UTF-8";
-  };
-
-  # Set your time zone.
-  time.timeZone = "Europe/Vienna";
 
   environment.systemPackages = with pkgs; [
     # Laptop
