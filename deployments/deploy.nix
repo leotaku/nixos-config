@@ -1,6 +1,6 @@
 let
   sources = import ../sources/nix/sources.nix;
-  pinned = import sources.nixos-19_09 {};
+  pinned = import sources.nixos-19_09-small { };
 in {
   network = {
     description = "Home network";
