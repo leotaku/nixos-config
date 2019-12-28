@@ -1,6 +1,0 @@
-{ pkgs, bundlerApp, ... }:
-
-bundlerApp rec {
-  pname = "subtle";
-  gemdir = ./.;
-}
