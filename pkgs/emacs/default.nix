@@ -14,7 +14,8 @@ let
   );
 in customEmacsPackages.emacsWithPackages (epkgs: [
   # Native Emacs packages
-  epkgs.vterm
+  epkgs.editorconfig
   epkgs.forge
+  epkgs.vterm
   notmuch
 ])
