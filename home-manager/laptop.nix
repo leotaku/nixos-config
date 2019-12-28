@@ -221,7 +221,7 @@
     theme.package = pkgs.arc-theme;
     theme.name = "Arc";
     iconTheme.package = pkgs.papirus-icon-theme;
-    iconTheme.name = "Papirus";
+    iconTheme.name = "Papirus-Dark";
     gtk2 = {
       extraConfig = lib.concatStringsSep "\n" (lib.mapAttrsToList (n: v: "${n}=${v}") {
         gtk-toolbar-style = "GTK_TOOLBAR_ICONS";
