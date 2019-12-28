@@ -119,9 +119,8 @@
 
   # User variables
   home.sessionVariables = {
-    TERMINAL = "kitty";
+    TERMINAL = "urxvtc";
     EDITOR = "kak";
-    PAGER = "less";
   };
 
   # FIXME: Disable user keyboard configuration
