@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   name = "gitbatch-${version}";
-  version = "2019-10-08";
+  version = "2019-12-29";
 
   src = fetchFromGitHub {
     owner = "isacikgoz";
     repo = "gitbatch";
-    rev = "54cb346dcde64b6ba4c8d878930b915dbaa4cc14";
-    sha256 = "1bsi0s48mwmflx7g52729qi1cqd4jp2jl3gb2h13mf06lxg1m2zc";
+    rev = "381b0df7f86056c625c0d4d2d979733c1ee5def7";
+    sha256 = "0613vfqdn3k0w7fm25rqnqdr67w9vii3i56dfslqcn1vqjfrff3q";
   };
 
   modSha256 = "1i51lgzrnayxkyn2fzapngrcpbcr5bzzk4fsl4hc00c3csxbxa4q";
