@@ -16,6 +16,7 @@
     imagemagick
     ffmpegthumbnailer
     ffmpeg-full
+    httplz
     # Toys
     neofetch
     cowsay
