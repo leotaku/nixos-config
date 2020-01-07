@@ -155,8 +155,8 @@
     src = fetchFromGitHub {
       owner = "justinmk";
       repo = "vim-sneak";
-      rev = "24e6c3f4cd6004e2b44e4022dee0260aba6132aa";
-      sha256 = "000i2x36b8l5vc1li0f4jazs06nch9pca95yqr4w4m5hgjpzs5qs";
+      rev = "7afd63b4552b0827622ae27ff4c9eca056dd3521";
+      sha256 = "0g9vsxbrsfcc0n7rq9m0331rcjyv35z0yc0d2cwkg939bzqw75qx";
     };
 
     prePatch = "rm ./Makefile";
@@ -276,8 +276,8 @@
     src = fetchFromGitHub {
       owner = "eraserhd";
       repo = "parinfer-rust";
-      rev = "38bf72ae1eba5ee1dcef377b85bb625d68df1c61";
-      sha256 = "0ci0jxrp4j3fcjfbf1ypq7xsd1z6mpvk6x5aa29rdpljq8skp6xx";
+      rev = "5ea376394ea954940d937f182029cc29088c0fc0";
+      sha256 = "0xkian8g2wlxmf8ksfc1pzv6j5x8081b88jcpmk0dncpac3yg242";
     };
   in let
     parinfer-rust-package = pkgs.rustPlatform.buildRustPackage rec {
