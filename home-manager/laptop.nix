@@ -176,14 +176,8 @@
       "Locking screen in about 5 minutes"
     ];
     lockCmd = [
-      "${pkgs.xlockmore}/bin/xlock"
-      "+resetsaver"
-      "-mode worm"
-      "-count" "1" "-size" "3"
-      "-username" "Name:"
-      "-password" "S/Key:"
-      "-echokeys" "-echokey" "."
-      "-icongeometry" "128x128"
+      (pkgs.i3lock-color + "/bin/i3lock-color")
+      "-c" "000000"
     ];
   };
 
