@@ -5,10 +5,10 @@
         "homepage": "https://cachix.org",
         "owner": "cachix",
         "repo": "cachix",
-        "rev": "b13d0b1a74ec222dd2521b46177a73301ed626d1",
-        "sha256": "077a8biq3hq340xkpcs798n8vgvh1sfi31qphag1919nmzi22vx9",
+        "rev": "210bcc73e2d4cc1a9a0dd45dda0cee094f7443ef",
+        "sha256": "0hv1kknxp752nx6165yds09y4iqb9imcazgns3jca1p19rxlyfw1",
         "type": "tarball",
-        "url": "https://github.com/cachix/cachix/archive/b13d0b1a74ec222dd2521b46177a73301ed626d1.tar.gz",
+        "url": "https://github.com/cachix/cachix/archive/210bcc73e2d4cc1a9a0dd45dda0cee094f7443ef.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "clever": {
@@ -29,10 +29,10 @@
         "homepage": "http://direnv.net",
         "owner": "direnv",
         "repo": "direnv",
-        "rev": "f5b10ace503446a4d8216617cbfe01e037593502",
-        "sha256": "0ly4awjgw7n2n8d8v85xs3dvbhacialwyh604bv8yyzd37yyl1a9",
+        "rev": "ab4d188deb18da13cd5b0b887d3c60b439cbf293",
+        "sha256": "178cikch5q8q31qbwy556bc4sgnbf1ig83gb41mds7bskqb86lfc",
         "type": "tarball",
-        "url": "https://github.com/direnv/direnv/archive/f5b10ace503446a4d8216617cbfe01e037593502.tar.gz",
+        "url": "https://github.com/direnv/direnv/archive/ab4d188deb18da13cd5b0b887d3c60b439cbf293.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "hercules-ci-agent": {
@@ -53,10 +53,10 @@
         "homepage": "",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "0bb2d87cfd7967f8d0314c81c0743c7a34a536f8",
-        "sha256": "0ifvz6cg4bn2isf4zhp0zv0p0dhvjldrpzz5wn8i8mbxw96s2wpr",
+        "rev": "1b7b1bc294e99ab1795fe7dad183c1d2ae58a099",
+        "sha256": "02kwym8n41d5ba9lccnl5q3y10sw35p1da5b66mxldfr6d930pbj",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/0bb2d87cfd7967f8d0314c81c0743c7a34a536f8.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/1b7b1bc294e99ab1795fe7dad183c1d2ae58a099.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixexprs-unstable": {
@@ -84,10 +84,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2314fb1bbfdac43321cac479bce9a1f1d2b3a878",
-        "sha256": "1nzwnxnn8160xrbgv6jz6qwaxy4mzqygg3nihycnn67wm9w00ixd",
+        "rev": "fd4ccdbe3a68478a7f442cd4ee2dfff9644ef7ee",
+        "sha256": "1maqcfw37ia3q85yyqg6vqi21d8mlfc6x0a8abc7di2vk44kgwv0",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/2314fb1bbfdac43321cac479bce9a1f1d2b3a878.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/fd4ccdbe3a68478a7f442cd4ee2dfff9644ef7ee.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-unstable": {
@@ -96,10 +96,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b0bbacb52134a7e731e549f4c0a7a2a39ca6b481",
-        "sha256": "15ix4spjpdm6wni28camzjsmhz0gzk3cxhpsk035952plwdxhb67",
+        "rev": "9beb0d1ac2ebd6063efbdc4d3631f8ce137bbf90",
+        "sha256": "1v95779di35qhrz70p2v27kmwm09h8pgh74i1wc72v0zp3bdrf50",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/b0bbacb52134a7e731e549f4c0a7a2a39ca6b481.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/9beb0d1ac2ebd6063efbdc4d3631f8ce137bbf90.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-mozilla": {
@@ -120,10 +120,10 @@
         "homepage": null,
         "owner": "mpickering",
         "repo": "old-ghc-nix",
-        "rev": "be3ca79e4e17cf7046110f14379307f3d348a702",
-        "sha256": "1qz1lwk0j2r6jzpc5ssrlfcf1193ay5l23kwyda5wld5sm170ffw",
+        "rev": "aba50b0000a601b3e16eadbfff830178387e5300",
+        "sha256": "1gfzmb6d48ivjnq4fz25z98yfpgix7idswrp6sd1qlc69ynpvlwp",
         "type": "tarball",
-        "url": "https://github.com/mpickering/old-ghc-nix/archive/be3ca79e4e17cf7046110f14379307f3d348a702.tar.gz",
+        "url": "https://github.com/mpickering/old-ghc-nix/archive/aba50b0000a601b3e16eadbfff830178387e5300.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "pboy": {
