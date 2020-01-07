@@ -86,6 +86,7 @@ in
   # Generate configs for all needed programs
   programs.mbsync.enable = true;
   programs.msmtp.enable = true;
+  programs.alot.enable = true;
 
   services.mbsync =  {
     enable = true;
