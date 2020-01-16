@@ -207,8 +207,8 @@
     src = fetchFromGitHub {
       owner = "lifepillar";
       repo = "vim-mucomplete";
-      rev = "137b7e5c671b4b376b2df7492c4023ac6e1439da";
-      sha256 = "1pv19ylhifd32p8jb8rvbd8l5wik7349q4m4f8a8qycab2ba5xhv";
+      rev = "93138310df5faca67dae456a641cb84506765a10";
+      sha256 = "0ai0icgwcr7ygwfj3s1hfg7mrpfmaccapp3vcd674p5f81brhcdq";
     };
   };
 
