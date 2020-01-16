@@ -106,9 +106,11 @@
     fira
     fira-code
     fira-mono
-    source-code-pro
-    ibm-plex
     alegreya
+    go-font
+    ibm-plex
+    source-code-pro
+    dejavu_fonts
   ];
 
   # Enable automatic indexing of info files
