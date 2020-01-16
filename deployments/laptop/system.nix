@@ -53,15 +53,15 @@
   networking.hostName = "nixos-laptop";
 
   # Enable Networkmanager + iwd
+  networking.nat.enable = true;
+  networking.nat.internalInterfaces = [ "ve-+" ];
+  networking.nat.externalInterface = "wlp3s0";
   networking.networkmanager = {
     enable = true;
     wifi.backend = "iwd";
     dns = "systemd-resolved";
   };
 
-  networking.nat.enable = true;
-  networking.nat.internalInterfaces = [ "ve-+" ];
-  networking.nat.externalInterface = "wlp3s0";
 
   # Use trusted DNS server
   # 1: https://snopyta.org/service/dns/index.html
