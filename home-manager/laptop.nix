@@ -259,6 +259,9 @@
   # NetworkManager applet
   services.network-manager-applet.enable = true;
 
+  # Battery icon
+  services.cbatticon.enable = true;
+
   # Firefox settings
   programs.firefox = {
     enable = true;
