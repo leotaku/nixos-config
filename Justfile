@@ -2,15 +2,15 @@
 
 ssh_user := "root"
 systems_file := "deploy.nix"
+nix_path := "nixpkgs=/etc/nixos/nixos-config/sources/links/nixos-unstable"
 
 # Commands
 
-default:
-	just update
-	just update-pkgs
+apply:
+	sudo nixos-rebuild switch -I "{{nix_path}}"
+	home-manager switch -I "{{nix_path}}"
+	nix-env -u '*' -I "{{nix_path}}"
 	just deploy
-	home-manager switch -I nixpkgs=/etc/nixos/nixos-config/sources/links/nixos-unstable
-	nix-env -u '*' -I nixpkgs=/etc/nixos/nixos-config/sources/links/nixos-unstable
 
 build glob="*":
 	cd deployments; \
