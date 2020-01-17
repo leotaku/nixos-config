@@ -17,10 +17,10 @@
         "homepage": null,
         "owner": "cleverca22",
         "repo": "nixos-configs",
-        "rev": "fde566fdd550c8c17361d3f871c7b20c03f54568",
-        "sha256": "0wlpcx703k8kqvjv51mhkfq1746ad0xi1a3l25ymxc0fs8x326gh",
+        "rev": "caf88290fb088f791ea0b090733902dc8a52d39c",
+        "sha256": "1x3gi361zj9g8xq96f9lqm7wp3gn9z1j0a4cfzh2l82cfqg4pra1",
         "type": "tarball",
-        "url": "https://github.com/cleverca22/nixos-configs/archive/fde566fdd550c8c17361d3f871c7b20c03f54568.tar.gz",
+        "url": "https://github.com/cleverca22/nixos-configs/archive/caf88290fb088f791ea0b090733902dc8a52d39c.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "direnv": {
@@ -84,10 +84,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "31e69100426e4594462f6d788ebce8aa10395f5b",
-        "sha256": "1m85pyya92yz5q3y2vq9jxx22jlb0ighzfjd1dzy3blk3c8g1qr7",
+        "rev": "5abac3c431cb9c2cc7d9e31ce1394c863018ae08",
+        "sha256": "1p0frdybnhaf2lfyy88prf9r0i7wd2vfc5qb94wqixmkbva14kpq",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/31e69100426e4594462f6d788ebce8aa10395f5b.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/5abac3c431cb9c2cc7d9e31ce1394c863018ae08.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-unstable": {
