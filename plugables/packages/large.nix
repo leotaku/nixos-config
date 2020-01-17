@@ -10,6 +10,7 @@
     # Tools
     pandoc
     bat
+    just
     hyperfine
     du-dust
     diskus
