@@ -1,4 +1,4 @@
-{ callPackage, stdenv, emacs, emacsPackagesNgGen, imagemagick, notmuch, ... }:
+{ pkgs, emacsPackagesNgGen, emacs, imagemagick, ... }:
 let
   customEmacsPackages = emacsPackagesNgGen (
     (emacs.override {
@@ -14,8 +14,11 @@ let
   );
 in customEmacsPackages.emacsWithPackages (epkgs: [
   # Native Emacs packages
+  epkgs.closql
   epkgs.editorconfig
   epkgs.forge
+  epkgs.jupyter
   epkgs.vterm
-  notmuch
+  epkgs.zmq
+  pkgs.notmuch
 ])
