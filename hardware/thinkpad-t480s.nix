@@ -16,12 +16,12 @@
   
   # Default kernel modules 
   boot.initrd.availableKernelModules = [
-    "xhci_pci" "nvme" "usb_storage" "sd_mod"
+    "xhci_pci" "nvme" "usb_storage" "sd_mod" "acpi_call"
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.blacklistedKernelModules = [ "i915" ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.acpi_call ];
 
   # Enable basic NVIDIA support (needs testing)
   # https://github.com/NixOS/nixpkgs/issues/53269#issuecomment-454726649

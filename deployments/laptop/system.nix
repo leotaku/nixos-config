@@ -97,6 +97,7 @@
     acpi
     powertop
     glxinfo
+    tpacpi-bat
     # Editors
     micro
     kakoune
