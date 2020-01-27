@@ -1,8 +1,13 @@
+# TODO: Maybe also/only report errors from imapnotify?
 { config, pkgs, lib, ... }:
 let
-  # path to postfix-style sasl password map
+  # Command shortcuts
+  notify = title: body: ''${pkgs.libnotify}/bin/notify-send "${title}" "${body}"'';
+  notmuch-new-command = "${pkgs.notmuch}/bin/notmuch --config=${config.xdg.configHome}/notmuch/notmuchrc new";
+  # Path to postfix-style sasl password map
   pass_map_file = "/etc/nixos/nixos-config/private/postfix/sasl_password_maps";
-  # generate a working email config for a dir placed in ".maildir" and some other attributes
+
+  # Generate a working email config for a dir placed in ".maildir" and some other attributes
   myGenAccounts = dir: { name, pre, post, imap, primary ? false, flavor ? "plain", syncBoxes ? [ ] }:
   rec {
     # Attributes directly read from record
@@ -11,20 +16,17 @@ let
     address = "${pre}@${post}";
     inherit imap primary flavor;
 
-    # read password from postfix-style sasl password map
+    # Read password from postfix-style sasl password map
     passwordCommand = ''${pkgs.gnugrep}/bin/grep '${address}' ${pass_map_file} | ${pkgs.gnugrep}/bin/grep -o '[^:]*$' '';
 
-    # misc settings for home-manager email modules
+    # Misc settings for home-manager email modules
     
     imapnotify = {
       enable = true;
       boxes = syncBoxes;
       onNotify = "${pkgs.isync}/bin/mbsync ${dir}";
       onNotifyPost = {
-        mail = ''
-          ${pkgs.notmuch}/bin/notmuch --config=${config.xdg.configHome}/notmuch/notmuchrc new &&\
-          ${pkgs.libnotify}/bin/notify-send "You got mail!" "${userName}"
-        '';
+        mail = notmuch-new-command + "&&" + (notify "You got mail!" userName);
       };
     };
 
@@ -33,7 +35,7 @@ let
       create = "maildir";
       expunge = "none";
       flatten = ".";
-      patterns = [ "*" "!.*" ];
+      patterns = [ "*" "!.*" "!Sent" "!Drafts" ];
     };
 
     smtp = {
@@ -60,7 +62,7 @@ in
     accounts = lib.mapAttrs myGenAccounts (import ../../private/mail-accounts.nix).accounts;
   };
 
-  # notmuch mail indexer
+  # Notmuch mail indexer
   programs.notmuch = {
     enable = true;
     extraConfig = {
@@ -91,9 +93,16 @@ in
   services.mbsync =  {
     enable = true;
     frequency = "*:0/15";
-    postExec = "${pkgs.notmuch}/bin/notmuch --config=${config.xdg.configHome}/notmuch/notmuchrc new";
+    postExec = notmuch-new-command;
   };
   services.imapnotify.enable = true;
+  systemd.user.services.mbsync.Unit.OnFailure = "mbsync-error.service";
+
+  systemd.user.services."mbsync-error" = {
+    Service = {
+      ExecStart = notify "Mail sync error" "Please check your mbsync configuration!";
+    };
+  };
 
   # Mailcap handling
   home.file.".mailcap".text = ''
