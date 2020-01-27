@@ -238,7 +238,7 @@
   # Git settings
   programs.git = {
     enable = true;
-    userName = "leotaku";
+    userName = "Leo Gaskin";
     userEmail = "leo.gaskin@brg-feldkirchen.at";
   };
 
