@@ -367,7 +367,7 @@
     StartupNotify=True
   '';
 
-  # Better emacs(client) desktop
+  # Better Emacs(client) desktop
   xdg.dataFile."applications/emacs.desktop".text = ''
     [Desktop Entry]
     Name=Emacsclient
@@ -383,6 +383,7 @@
     Keywords=Text;Editor;
   '';
 
+  # Run URxvt wit Tmux
   xdg.dataFile."applications/rxvt-unicode.desktop".text = ''
     [Desktop Entry]
     Encoding=UTF-8
