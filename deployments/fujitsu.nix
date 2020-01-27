@@ -167,6 +167,7 @@
   # enable SSH
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
+  services.fail2ban.enable = true;
 
   # Avahi
   services.avahi.enable = true;
