@@ -29,10 +29,10 @@
         "homepage": "http://direnv.net",
         "owner": "direnv",
         "repo": "direnv",
-        "rev": "32dded2e9cc644a283c0596182d5c005272b60db",
-        "sha256": "1n23xk8x8b7p3b3jcw7s2ckf6rzmb5nvgddb1brj95c5wicvfg7v",
+        "rev": "fd6ee283a4098156d11e5f32d0ed8fa46c6a9dca",
+        "sha256": "0w2n63b08ybfahvr9njx1cy9wlb103x7vz4sf7bab03qcl5mhp7i",
         "type": "tarball",
-        "url": "https://github.com/direnv/direnv/archive/32dded2e9cc644a283c0596182d5c005272b60db.tar.gz",
+        "url": "https://github.com/direnv/direnv/archive/fd6ee283a4098156d11e5f32d0ed8fa46c6a9dca.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "hercules-ci-agent": {
@@ -53,10 +53,46 @@
         "homepage": "",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "4b04050953be214e5e3b7233a5bf2fbe0090a196",
-        "sha256": "1lh3zls8vkvxl373myfr5cdlvnvbh25ks5gqbk6m538mfm3n0c8l",
+        "rev": "a591e8f9e43463b2efb14a70edaf76ff1a2ebee4",
+        "sha256": "0r7w0z3yggvmmw6jfvpqlrpwx5cw0bs5g4cpld4ljk9nzx44bar8",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/4b04050953be214e5e3b7233a5bf2fbe0090a196.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/a591e8f9e43463b2efb14a70edaf76ff1a2ebee4.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "jupyterWith": {
+        "branch": "master",
+        "description": "declarative and reproducible Jupyter environments - powered by Nix",
+        "homepage": "",
+        "owner": "tweag",
+        "repo": "jupyterWith",
+        "rev": "70f1dddd6446ab0155a5b0ff659153b397419a2d",
+        "sha256": "0j0ar27r4gx0fvqdpg6ykdnmzwndbsksjypp76m1sa1755mnsbnw",
+        "type": "tarball",
+        "url": "https://github.com/tweag/jupyterWith/archive/70f1dddd6446ab0155a5b0ff659153b397419a2d.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "morph": {
+        "branch": "master",
+        "description": "NixOS deployment tool",
+        "homepage": null,
+        "owner": "DBCDK",
+        "repo": "morph",
+        "rev": "0630d6bc83cd7bbad43628e2653ee65aeb357489",
+        "sha256": "1y6clzi8sfnrv4an26b44r24nnxds1kj9aw3lmjbgxl9yrxxsj1k",
+        "type": "tarball",
+        "url": "https://github.com/DBCDK/morph/archive/0630d6bc83cd7bbad43628e2653ee65aeb357489.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nix-visualize": {
+        "branch": "master",
+        "description": "Uses the Nix package manager to visualize the dependencies of a given package",
+        "homepage": null,
+        "owner": "craigmbooth",
+        "repo": "nix-visualize",
+        "rev": "e9e3411fa16bbd28bca47b3d22ee6743f4abfe02",
+        "sha256": "13j0ad8rnjhnh8ndmjl1bcsm4mqs0ahw2qjbnhk2s6d1z9qmzgk1",
+        "type": "tarball",
+        "url": "https://github.com/craigmbooth/nix-visualize/archive/e9e3411fa16bbd28bca47b3d22ee6743f4abfe02.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixexprs-unstable": {
@@ -78,16 +114,28 @@
         "url": "https://github.com/serokell/nixfmt/archive/921bbd3bb9c95cf2d677a8558b1a27fca6cee597.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "nixos-19_09": {
+        "branch": "nixos-19.09",
+        "description": "Nix Packages collection",
+        "homepage": null,
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "299fbcbb8b59a7d3f88d4b018dcee34ed59ee45a",
+        "sha256": "1h8jz11qy8iwifl8piqvbhk8nwwqvbg921drzcngxhr2wxgv0ik1",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/299fbcbb8b59a7d3f88d4b018dcee34ed59ee45a.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "nixos-19_09-small": {
         "branch": "nixos-19.09-small",
         "description": "Nix Packages collection",
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5abac3c431cb9c2cc7d9e31ce1394c863018ae08",
-        "sha256": "1p0frdybnhaf2lfyy88prf9r0i7wd2vfc5qb94wqixmkbva14kpq",
+        "rev": "299fbcbb8b59a7d3f88d4b018dcee34ed59ee45a",
+        "sha256": "1h8jz11qy8iwifl8piqvbhk8nwwqvbg921drzcngxhr2wxgv0ik1",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/5abac3c431cb9c2cc7d9e31ce1394c863018ae08.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/299fbcbb8b59a7d3f88d4b018dcee34ed59ee45a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-unstable": {
@@ -96,10 +144,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d5e9b7d5a7c011605d7215b88efd70ccf8643ede",
-        "sha256": "00dblg349jisx0iyq1a3n8wmrmc8xhssc97y7wh6bcpxp5ak0b28",
+        "rev": "e59dcf8ccec439f54dc52ffd5832610fc3f6c9c2",
+        "sha256": "1ky79vczvf2sv6gk234i2m4vsxz1wpkh69gm8c7s1qwyawar9vjq",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/d5e9b7d5a7c011605d7215b88efd70ccf8643ede.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/e59dcf8ccec439f54dc52ffd5832610fc3f6c9c2.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-mozilla": {
@@ -120,10 +168,10 @@
         "homepage": null,
         "owner": "mpickering",
         "repo": "old-ghc-nix",
-        "rev": "aba50b0000a601b3e16eadbfff830178387e5300",
-        "sha256": "1gfzmb6d48ivjnq4fz25z98yfpgix7idswrp6sd1qlc69ynpvlwp",
+        "rev": "70178a1f088e900663180f82214ed9b173db4e95",
+        "sha256": "1w9n8gl128qacp7q4gw06dkj72maxxbsgnkkl1c5dh7l3cvvmpan",
         "type": "tarball",
-        "url": "https://github.com/mpickering/old-ghc-nix/archive/aba50b0000a601b3e16eadbfff830178387e5300.tar.gz",
+        "url": "https://github.com/mpickering/old-ghc-nix/archive/70178a1f088e900663180f82214ed9b173db4e95.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "pboy": {
