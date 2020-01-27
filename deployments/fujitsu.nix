@@ -145,13 +145,14 @@
     enable = true;
     eula = true;
     package = pkgs.writeShellScriptBin "minecraft-server" ''
-      ${pkgs.jre}/bin/java -Xmx3G -Xms2G -jar ${dataDir}/Hexxit.jar nogui
+      ${pkgs.jre}/bin/java -Xmx3G -Xms2G -jar ${dataDir}/server.jar nogui
     '';
-    dataDir = "/var/lib/hexxit";
+    dataDir = "/var/lib/minecraft";
     declarative = true;
     serverProperties = {
       motd = "Yolomaudadolo!!!";
       allow-flight = true;
+      enable-command-block = true;
     };
   };
 
