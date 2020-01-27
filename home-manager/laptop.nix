@@ -111,6 +111,8 @@
     ibm-plex
     source-code-pro
     dejavu_fonts
+    symbola
+    joypixels
   ];
 
   # Enable automatic indexing of info files
