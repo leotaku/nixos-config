@@ -45,8 +45,8 @@
     src = fetchFromGitHub {
       owner = "simnalamburt";
       repo = "vim-mundo";
-      rev = "fb866924ba0c64d3f9c57ebcf4d1b451d190a03e";
-      sha256 = "0q5v1lknm76k9a1abi8dw4lpa6mysm14mk4zdyq7a4khzfpmr0q0";
+      rev = "43c4fb3fd40e5eaf2476eb88ef983eb56789c522";
+      sha256 = "08256z0dh6l1w77p48qh2zhqhpmincsmcc6zvbrm1f1gzfhh3nrx";
     };
   };
 
@@ -207,8 +207,8 @@
     src = fetchFromGitHub {
       owner = "lifepillar";
       repo = "vim-mucomplete";
-      rev = "93138310df5faca67dae456a641cb84506765a10";
-      sha256 = "0ai0icgwcr7ygwfj3s1hfg7mrpfmaccapp3vcd674p5f81brhcdq";
+      rev = "c69d4bf78972bc037efbc92755cf7ddc5fd8cb0d";
+      sha256 = "09yb2xziw4kvk88mn3jkvfb24h4cqnhmsy29ji33176f265kzgyc";
     };
   };
 
@@ -227,8 +227,8 @@
     src = fetchFromGitHub {
       owner = "rhysd";
       repo = "clever-f.vim";
-      rev = "baceb2c9d1fa0850bbf839cd2c8c0a9bbe524ff5";
-      sha256 = "17i8p9sd7cxwdg8wi324dzqllkjrwm8fp9927gnh0vgcjw0rs47k";
+      rev = "56f46180244c83b07ee3314a05a1efdc18f09e42";
+      sha256 = "0ng2y175ir5klpx3g5rybb0gr3n58hka8fmzn58fp11y7hignaf2";
     };
   };
 
