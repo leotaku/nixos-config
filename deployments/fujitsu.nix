@@ -56,6 +56,9 @@
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
 
+    # Always use UTF-8
+    appendHttpConfig = "charset utf-8;";
+
     virtualHosts = {
       "le0.gs" = {
         enableACME = true;
