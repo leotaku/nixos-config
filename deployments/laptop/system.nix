@@ -239,7 +239,7 @@
   backup = {
     enable = true;
     timer = [ "*-*-* 11:00" "*-*-* 22:00" ];
-    repository = "sftp:root@le0.gs:/var/lib/restic";
+    repository = "rest:http://le0.gs:8000";
     passwordFile = ../../private/restic-pw;
     user = "leo";
     extraArgs = [ "--limit-upload" "5000" ];
