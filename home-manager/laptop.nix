@@ -348,6 +348,7 @@
       "application/x-shellscript" = "emacs.desktop";
       "text/x-c" = "emacs.desktop";
       "text/x-c++" = "emacs.desktop";
+      "x-scheme-handler/org-protocol" = "org-protocol.desktop";
     };
   };
 
@@ -395,5 +396,16 @@
     Terminal=true
     Type=Application
     Categories=Application;Development;
+  '';
+
+  # Register org-capture protocol
+  xdg.dataFile."applications/org-protocol.desktop".text = ''
+    [Desktop Entry]
+    Name=org-protocol
+    Exec=emacsclient %u
+    Type=Application
+    Terminal=false
+    Categories=System;
+    MimeType=x-scheme-handler/org-protocol;
   '';
 }
