@@ -4,8 +4,8 @@ let
   src = fetchFromGitHub {
     owner = "emacs-mirror";
     repo = "emacs";
-    rev = "963a9ffd66cb29f0370e9a4b854dddda242c54a6";
-    sha256 = "1yd5jis0rj7fjhzrb2vpcb3cdg6s7fxjxxcb3xi0b5jkadgkw8gz";
+    rev = "bb3b0990d8505342ae14841144778df9e650ebdc";
+    sha256 = "09wwhngjx6c0a5z5a7fy92384hd99xp8ss6w28v5drj3z85alg96";
   };
 in
 (emacs.override {

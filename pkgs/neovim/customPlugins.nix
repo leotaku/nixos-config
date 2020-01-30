@@ -162,16 +162,6 @@
     prePatch = "rm ./Makefile";
   };
 
-  vim-slime = vimUtils.buildVimPlugin {
-    name = "vim-slime";
-    src = fetchFromGitHub {
-      owner = "LeOtaku";
-      repo = "vim-slime";
-      rev = "6f05a53a672ff0787f641fe10da302bf75b3386e";
-      sha256 = "0sd2kcndzf1l3w6gvjhyfj7al4ryxsmlcjq80nda6888f1vximcf";
-    };
-  };
-
   vim-sexp = vimUtils.buildVimPlugin {
     name = "vim-sexp";
     src = fetchFromGitHub {
@@ -207,8 +197,8 @@
     src = fetchFromGitHub {
       owner = "lifepillar";
       repo = "vim-mucomplete";
-      rev = "c69d4bf78972bc037efbc92755cf7ddc5fd8cb0d";
-      sha256 = "09yb2xziw4kvk88mn3jkvfb24h4cqnhmsy29ji33176f265kzgyc";
+      rev = "f13357964cc074d4fe747787065bfb19046f7fce";
+      sha256 = "0kqik4xgnk3cw7ls53djij086rbp49klzckc4zs4ph4cjwcpjhgq";
     };
   };
 
@@ -227,8 +217,8 @@
     src = fetchFromGitHub {
       owner = "rhysd";
       repo = "clever-f.vim";
-      rev = "56f46180244c83b07ee3314a05a1efdc18f09e42";
-      sha256 = "0ng2y175ir5klpx3g5rybb0gr3n58hka8fmzn58fp11y7hignaf2";
+      rev = "e2085bbeaf69ffadd7f9bd390c36633fa70c01f4";
+      sha256 = "0r8raad7yy1qsi9ajajsbiq1ayppkp1bjji5dsj8sdwycmbyvgfw";
     };
   };
 
