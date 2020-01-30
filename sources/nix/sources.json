@@ -5,10 +5,10 @@
         "homepage": "https://cachix.org",
         "owner": "cachix",
         "repo": "cachix",
-        "rev": "cfc71ecd1322b922db9d60c49ac18f62555af06e",
-        "sha256": "0jdmi80l632s1cf6pikp3a7yj3lxba2zpc6mnn6icgkl49bv37h4",
+        "rev": "ba89b84c4de1acac8db86023ddf888a54c204fa8",
+        "sha256": "1ppsndzsav572kbjh0prkri3vvgsgxznkyzp3k4l28f9vsrbx280",
         "type": "tarball",
-        "url": "https://github.com/cachix/cachix/archive/cfc71ecd1322b922db9d60c49ac18f62555af06e.tar.gz",
+        "url": "https://github.com/cachix/cachix/archive/ba89b84c4de1acac8db86023ddf888a54c204fa8.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "clever": {
@@ -29,10 +29,10 @@
         "homepage": "http://direnv.net",
         "owner": "direnv",
         "repo": "direnv",
-        "rev": "fd6ee283a4098156d11e5f32d0ed8fa46c6a9dca",
-        "sha256": "0w2n63b08ybfahvr9njx1cy9wlb103x7vz4sf7bab03qcl5mhp7i",
+        "rev": "c47dffa6212d01a47824fda05695d4ab627ddfdb",
+        "sha256": "0afpxx8pwa1zb66l79af57drzjaazn2rp6306w4pxvqfh0zi2bri",
         "type": "tarball",
-        "url": "https://github.com/direnv/direnv/archive/fd6ee283a4098156d11e5f32d0ed8fa46c6a9dca.tar.gz",
+        "url": "https://github.com/direnv/direnv/archive/c47dffa6212d01a47824fda05695d4ab627ddfdb.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "hercules-ci-agent": {
@@ -120,10 +120,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "299fbcbb8b59a7d3f88d4b018dcee34ed59ee45a",
-        "sha256": "1h8jz11qy8iwifl8piqvbhk8nwwqvbg921drzcngxhr2wxgv0ik1",
+        "rev": "6d9a4a615ee2706047c2cec3acc61d2cfbffdb0b",
+        "sha256": "1zgwp31nqh7glh7l2i0n5vic5jv1683l6lvc7r7wdmkbsbkmig1p",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/299fbcbb8b59a7d3f88d4b018dcee34ed59ee45a.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/6d9a4a615ee2706047c2cec3acc61d2cfbffdb0b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-19_09-small": {
@@ -132,10 +132,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "299fbcbb8b59a7d3f88d4b018dcee34ed59ee45a",
-        "sha256": "1h8jz11qy8iwifl8piqvbhk8nwwqvbg921drzcngxhr2wxgv0ik1",
+        "rev": "1dadefec574531f021bddc85ca3c9bc81fd52899",
+        "sha256": "0csm7nycb8p990jl1mj20mg79lxpfg2xcplndcg1dbqclgw1wmqd",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/299fbcbb8b59a7d3f88d4b018dcee34ed59ee45a.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/1dadefec574531f021bddc85ca3c9bc81fd52899.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-unstable": {
