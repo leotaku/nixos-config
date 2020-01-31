@@ -41,10 +41,10 @@
         "homepage": "",
         "owner": "hercules-ci",
         "repo": "hercules-ci-agent",
-        "rev": "f4c307a8c64dc3876f507368d1419c1b3792fb50",
-        "sha256": "0ry0hy5kppwqj470zycfb7cfvfhzlmf5pg8g4j82yn5qv2h9pfw7",
+        "rev": "c5ebe9f3de174c16cceb656b8244e3d5deb177a6",
+        "sha256": "07i5xcl9n4r9w58lq99l70iqzcmhybbdw97wyk83jfs40mz3v141",
         "type": "tarball",
-        "url": "https://github.com/hercules-ci/hercules-ci-agent/archive/f4c307a8c64dc3876f507368d1419c1b3792fb50.tar.gz",
+        "url": "https://github.com/hercules-ci/hercules-ci-agent/archive/c5ebe9f3de174c16cceb656b8244e3d5deb177a6.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "home-manager": {
@@ -108,26 +108,14 @@
         "homepage": "https://nixfmt.serokell.io",
         "owner": "serokell",
         "repo": "nixfmt",
-        "rev": "921bbd3bb9c95cf2d677a8558b1a27fca6cee597",
-        "sha256": "0x08xsjal6db95y1sxxinwv9ks2k6fayvg8435s6zqy7zq42jxm4",
+        "rev": "5534972e630c3c077e3c87762fc6a30a4b1379bc",
+        "sha256": "0lmaj1582qp8qc0mg6px5a9v724vfv7lyl1qkdm0dfm9ml5m5f7n",
         "type": "tarball",
-        "url": "https://github.com/serokell/nixfmt/archive/921bbd3bb9c95cf2d677a8558b1a27fca6cee597.tar.gz",
+        "url": "https://github.com/serokell/nixfmt/archive/5534972e630c3c077e3c87762fc6a30a4b1379bc.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-19_09": {
         "branch": "nixos-19.09",
-        "description": "Nix Packages collection",
-        "homepage": null,
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "6d9a4a615ee2706047c2cec3acc61d2cfbffdb0b",
-        "sha256": "1zgwp31nqh7glh7l2i0n5vic5jv1683l6lvc7r7wdmkbsbkmig1p",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/6d9a4a615ee2706047c2cec3acc61d2cfbffdb0b.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "nixos-19_09-small": {
-        "branch": "nixos-19.09-small",
         "description": "Nix Packages collection",
         "homepage": null,
         "owner": "NixOS",
@@ -138,16 +126,28 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/1dadefec574531f021bddc85ca3c9bc81fd52899.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "nixos-19_09-small": {
+        "branch": "nixos-19.09-small",
+        "description": "Nix Packages collection",
+        "homepage": null,
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "f618cfbf4544b09088cbbb6004cfc84dd432e20c",
+        "sha256": "1272psriz048bc1ab4vjkd0qq942kifalraq0j9km62cgza1mf5h",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/f618cfbf4544b09088cbbb6004cfc84dd432e20c.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "nixos-unstable": {
         "branch": "nixos-unstable",
         "description": "Nix Packages collection",
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e59dcf8ccec439f54dc52ffd5832610fc3f6c9c2",
-        "sha256": "1ky79vczvf2sv6gk234i2m4vsxz1wpkh69gm8c7s1qwyawar9vjq",
+        "rev": "8539d5f48f9de4ba428d2ca6687712db1d9cb2b7",
+        "sha256": "1hymj87ffvrwmml1mlpf6pyvrpa93gbgrir3cayxm483qlarab3f",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/e59dcf8ccec439f54dc52ffd5832610fc3f6c9c2.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/8539d5f48f9de4ba428d2ca6687712db1d9cb2b7.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-mozilla": {
