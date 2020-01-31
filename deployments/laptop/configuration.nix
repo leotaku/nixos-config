@@ -4,7 +4,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = with (import ../../sources/nix/sources.nix); [ 
+  imports = with (import ../../sources/nix/sources.nix); [
     # Import configuration
     ./users.nix
     ./system.nix
@@ -13,13 +13,13 @@
     ../../plugables/builders/module.nix
     ../../plugables/cachix/module.nix
   ];
-  
+
   nix.trustedUsers = [ "root" "@wheel" ];
   nix.distributedBuilds = true;
   nix.useSandbox = true;
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  
+
   nix.nixPath = [
     "nixpkgs=/etc/nixos/nixos-config/sources/links/nixos-unstable"
     "nixos-config=/etc/nixos/configuration.nix"
