@@ -231,7 +231,7 @@
         gtk-toolbar-style = "GTK_TOOLBAR_ICONS";
         gtk-toolbar-icon-size = "GTK_ICON_SIZE_SMALL_TOOLBAR";
       };
-      extraCss = builtins.readFile ./tweaks.css;
+      extraCss = builtins.readFile ../files/tweaks.css;
     };
   };
 
