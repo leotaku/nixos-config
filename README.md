@@ -9,10 +9,10 @@ packages, systems, nixos modules and home-manager modules.
 
 ## Points of Interest
 
-Outside observer might find the following to be of interest:
+Casual observers might find the following files to be of interest:
 
 * `Justfile` :: A task-runner file containing some commonly used actions
-* `pkgs/default.nix` :: Some interesting packages, including custom Emacs 27.01 build
+* `pkgs/default.nix` :: Some interesting packages, including custom unstable Emacs build
 * `modules/backup.nix` :: An easy to use backup module based on restic
 
 ## Continuous Integration
