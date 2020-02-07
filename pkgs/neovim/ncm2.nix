@@ -4,8 +4,8 @@
     src = fetchFromGitHub {
       owner = "ncm2";
       repo = "ncm2";
-      rev = "a6ab1a4d17a295dae5446382a45c9ea3b2936f1e";
-      sha256 = "1abxy7p0b6y2zvi7lmdhgkyl1ws281n3dsfk15lkg9j0sk51j06l";
+      rev = "10631d982f1a47336a495db9dcd9601d95df9e48";
+      sha256 = "0vqn76imqsv6vpjxgck1qghavc2w4db0rg6nm1r4x6ad7i8hma93";
     };
   };
 

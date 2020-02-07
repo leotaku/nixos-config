@@ -187,8 +187,8 @@
     src = fetchFromGitHub {
       owner = "ludovicchabant";
       repo = "vim-gutentags";
-      rev = "eb9e57f579d2ef747be25a7a4ec5add6fe5ca3d9";
-      sha256 = "0v46yxv6rv6x9zqsvahkjjwp8khzsz4il1rk34r6zlsy3w8d988d";
+      rev = "31c0ead56428529c8991e45c0ac0fa7dd99e3bd0";
+      sha256 = "1x1f52awqnbpnd4y2zsv140rwjml6b5r5laim49n1i1z9vnwknjk";
     };
   };
 
@@ -217,8 +217,8 @@
     src = fetchFromGitHub {
       owner = "rhysd";
       repo = "clever-f.vim";
-      rev = "e2085bbeaf69ffadd7f9bd390c36633fa70c01f4";
-      sha256 = "0r8raad7yy1qsi9ajajsbiq1ayppkp1bjji5dsj8sdwycmbyvgfw";
+      rev = "782c4cdf6b6e12d496adb8b078a74d44c76965a0";
+      sha256 = "1jdbiif3lg312z5vjd88a23a0544y1c90dwwyhny9g56h6kfd5pp";
     };
   };
 
