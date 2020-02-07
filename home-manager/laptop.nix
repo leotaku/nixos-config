@@ -274,12 +274,12 @@
         id = 0;
         isDefault = true;
         settings = {
-          "xpinstall.signatures.required" = false;
           "browser.urlbar.decodeURLsOnCopy" = true;
+          "general.autoScroll" = true;
           "network.IDN.whitelist.local" = true;
           "places.history.expiration.max_pages" = 2147483647;
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-          "general.autoScroll" = true;
+          "xpinstall.signatures.required" = false;
         };
       };
     };
@@ -305,22 +305,15 @@
     associations.added = {
       "text/html" = "firefox.desktop";
       "text/xml" = "firefox.desktop";
+      "x-scheme-handler/chrome"  = "firefox.desktop";
+      "x-scheme-handler/ftp" = "firefox.desktop";
       "x-scheme-handler/http" = "firefox.desktop";
       "x-scheme-handler/https"  = "firefox.desktop";
-      "x-scheme-handler/ftp" = "firefox.desktop";
-      "x-scheme-handler/chrome"  = "firefox.desktop";
     };
     defaultApplications = {
-      "text/html" = "firefox.desktop";
-      "text/xml" = "firefox.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-      "x-scheme-handler/ftp" = "userapp-firefox.desktop";
-      "x-scheme-handler/chrome" = "userapp-firefox.desktop";
-      "x-scheme-handler/about" = "firefox.desktop";
-      "x-scheme-handler/unknown" = "firefox.desktop";
       "application/pdf" = "org.pwmt.zathura.desktop";
-      "inode/directory" = "Thunar-folder-handler.desktop";
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "writer.desktop";
+      "application/x-shellscript" = "emacs.desktop";
       "image/bmp" = "sxiv.desktop";
       "image/gif" = "sxiv.desktop";
       "image/jpeg" = "sxiv.desktop";
@@ -333,22 +326,30 @@
       "image/x-portable-graymap" = "sxiv.desktop";
       "image/x-tga" = "sxiv.desktop";
       "image/x-xpixmap" = "sxiv.desktop";
-      "text/plain" = "emacs.desktop";
+      "inode/directory" = "Thunar-folder-handler.desktop";
       "text/english" = "emacs.desktop";
-      "text/x-makefile" = "emacs.desktop";
+      "text/html" = "firefox.desktop";
+      "text/plain" = "emacs.desktop";
+      "text/x-c" = "emacs.desktop";
+      "text/x-c++" = "emacs.desktop";
       "text/x-c++hdr" = "emacs.desktop";
       "text/x-c++src" = "emacs.desktop";
       "text/x-chdr" = "emacs.desktop";
       "text/x-csrc" = "emacs.desktop";
       "text/x-java" = "emacs.desktop";
+      "text/x-makefile" = "emacs.desktop";
       "text/x-moc" = "emacs.desktop";
       "text/x-pascal" = "emacs.desktop";
       "text/x-tcl" = "emacs.desktop";
       "text/x-tex" = "emacs.desktop";
-      "application/x-shellscript" = "emacs.desktop";
-      "text/x-c" = "emacs.desktop";
-      "text/x-c++" = "emacs.desktop";
+      "text/xml" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/chrome" = "userapp-firefox.desktop";
+      "x-scheme-handler/ftp" = "userapp-firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
       "x-scheme-handler/org-protocol" = "org-protocol.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
     };
   };
 
