@@ -24,6 +24,8 @@
     restic
     ipmitool
     freeipmi
+    dnsmasq
+    ethtool
   ];
 
   # Setup correct keyboard
