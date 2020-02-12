@@ -241,6 +241,9 @@
     enable = true;
     userName = "Leo Gaskin";
     userEmail = "leo.gaskin@brg-feldkirchen.at";
+    extraConfig = {
+      github.user = "leotaku";
+    };
   };
 
   # Systemd settings
