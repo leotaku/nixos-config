@@ -217,8 +217,8 @@
     src = fetchFromGitHub {
       owner = "rhysd";
       repo = "clever-f.vim";
-      rev = "782c4cdf6b6e12d496adb8b078a74d44c76965a0";
-      sha256 = "1jdbiif3lg312z5vjd88a23a0544y1c90dwwyhny9g56h6kfd5pp";
+      rev = "48706f4124d77d814de0ad5fa264fd73ab35df38";
+      sha256 = "1gf7gi84bdylqlask83mdl71djmix0liqi0r3ah4l5qf40yz5ndn";
     };
   };
 
