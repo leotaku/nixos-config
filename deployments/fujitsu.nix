@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
   imports = with (import ../sources/nix/sources.nix); [
     ../hardware/fujitsu.nix
     ../plugables/builders/module.nix
@@ -14,7 +14,7 @@
   networking.hostName = "nixos-fujitsu";
 
   # Nixpkgs configurations
-  nixpkgs.overlays = [ ];
+  nixpkgs.overlays = [ (import ../pkgs) ];
   
   nix.trustedUsers = [ "root" ];
 
@@ -29,7 +29,7 @@
   # Setup correct keyboard
   i18n.consoleKeyMap = "de";
 
-  # NOTE: Testing the networkd system because legacy often fails
+  # Networkd for networking
   networking.useNetworkd = true;
   networking.useDHCP = false;
   networking.interfaces."enp8s0".useDHCP = true;
