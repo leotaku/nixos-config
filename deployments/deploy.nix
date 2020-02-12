@@ -9,13 +9,13 @@ in {
       allowUnfree = true;
       allowBroken = false;
     };
-    pkgs = pinned;
+    # NOTE: evalConfig also passes nixpkgs.pkgs
+    lib = pinned.lib;
+    evalConfig = pinned.path + "/nixos/lib/eval-config.nix";
+    runCommand = pinned.runCommand;
   };
 } // {
-  "nixos-laptop.local" = {
-    configuration = import ./laptop/configuration.nix;
-    nixpkgs = sources.nixos-unstable;
-  };
-  "nixos-fujitsu.local".configuration = import ./fujitsu.nix;
-  "nixos-rpi.local".configuration = import ./rpi.nix;
+  # "nixos-laptop.local" = import ./laptop/configuration.nix;
+  "nixos-fujitsu.local" = import ./fujitsu.nix;
+  "nixos-rpi.local" = import ./rpi.nix;
 }
