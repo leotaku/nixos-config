@@ -53,7 +53,8 @@
     simplescreenrecorder
     screenkey
     asciinema
-    # Ebook
+    # Stupid files
+    libreoffice-fresh
     calibre
     # Terminal
     rxvt-unicode-custom
