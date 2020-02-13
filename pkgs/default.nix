@@ -48,7 +48,7 @@ in
   cachix = import sources.cachix;
   mozilla = import sources.nixpkgs-mozilla self super;
   pboy = import sources.pboy;
-  # FIXME: morph = super.callPackage ../sources/external/morph/nix-packaging { };
+  morph = super.callPackage (sources.morph + "/nix-packaging") { };
   haskell = super.haskell // {
     compiler = super.callPackage sources.old-ghc-nix {} // super.haskell.compiler;
   };
