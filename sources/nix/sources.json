@@ -1,16 +1,4 @@
 {
-    "cachix": {
-        "branch": "master",
-        "description": "Command line client for Nix binary cache hosting:",
-        "homepage": "https://cachix.org",
-        "owner": "cachix",
-        "repo": "cachix",
-        "rev": "4e6d75d21e45352479c9da1a8e1102f1b1de01d4",
-        "sha256": "17sshlp5qq2h18sssimf6bmv3gfbwmxva9ivlh2p6sqg293fivv0",
-        "type": "tarball",
-        "url": "https://github.com/cachix/cachix/archive/4e6d75d21e45352479c9da1a8e1102f1b1de01d4.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "clever": {
         "branch": "master",
         "description": null,

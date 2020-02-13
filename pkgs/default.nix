@@ -45,7 +45,6 @@ in
   };
 
   # External
-  cachix = import sources.cachix;
   mozilla = import sources.nixpkgs-mozilla self super;
   pboy = import sources.pboy;
   morph = super.callPackage (sources.morph + "/nix-packaging") { };
