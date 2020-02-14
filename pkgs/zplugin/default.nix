@@ -2,20 +2,23 @@
 
 stdenv.mkDerivation rec {
   name = "zplugin-${version}";
-  version = "2020-02-12";
+  version = "2020-02-13";
 
   src = fetchFromGitHub {
     repo = "zplugin";
     owner = "zdharma";
-    rev = "ef43ab1bb07a6f4677e7ae3b5e97b381384d3051";
-    sha256 = "0jqbl3ql01n9srhr3y0f4qn5fisr3v81mkzdh17v91gcsk831wcm";
+    rev = "79c689f52d55f1f88409045bc9866cb8729eb5f8";
+    sha256 = "1lnkk3wq7lpv0qi3fy5v4j2nfqk6drqw7nnfzwwcq5hyrs1rvhys";
   };
 
   buildInputs = [ zsh gnumake ncurses autoconf gcc ];
 
   configurePhase = ''
     cd zmodules
-    ./configure --without-tcsetpgrp
+    ./configure --without-tcsetpgrp --disable-gdbm
+    make
+    echo 0 > RECOMPILE_REQUEST
+    echo 1 > COMPILED_AT
   '';
 
   installPhase = ''
