@@ -41,10 +41,10 @@
         "homepage": "",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "f0fe18cd22f8daededa54892f8ba8d363c1ea1d9",
-        "sha256": "0pi9m95szvrsclj5jizjw35b996fnhr2fvkdapfv14ijkqd5cn0v",
+        "rev": "7b7499dd7099b4e2f33d0244c6a7301dd4572399",
+        "sha256": "0alxcpi1p043wn0dgmqhplmby9lwa7anfvsbgbvd4s6fcsk2hxi1",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/f0fe18cd22f8daededa54892f8ba8d363c1ea1d9.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/7b7499dd7099b4e2f33d0244c6a7301dd4572399.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "jupyterWith": {
@@ -108,10 +108,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c49da6435f314e04fc58ca29807221817ac2ac6b",
-        "sha256": "17zsqhaf098bvcfarnq0h9601z6smkfd1kz1px6xfg6xqfmr80r7",
+        "rev": "b9cb3b2fb2f45ac8f3a8f670c90739eb34207b0e",
+        "sha256": "1cpjmsa2lwfxg55ac02w9arbd3y5617d19x91sd1fq521jqbnnpc",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/c49da6435f314e04fc58ca29807221817ac2ac6b.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/b9cb3b2fb2f45ac8f3a8f670c90739eb34207b0e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-19_09-small": {
@@ -120,10 +120,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3b5d08f5b8a2ec5b5eb0e1502892134dcf886f5e",
-        "sha256": "14qa87ilkvg86w7q1mniq2ykl65hwcg6yx7x1j1adnmffxa54j65",
+        "rev": "492d1a2145336b838528a7c7f43820df92230c86",
+        "sha256": "0w0f8f15vg6k6qddpwn4ffqlsc1mfpdy190sndil8jcyjy7x6ayf",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/3b5d08f5b8a2ec5b5eb0e1502892134dcf886f5e.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/492d1a2145336b838528a7c7f43820df92230c86.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-unstable": {
