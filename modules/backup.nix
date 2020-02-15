@@ -16,11 +16,10 @@ let
     };
   };
   backupscript = (
-    pkgs.writeShellScriptBin "backup" (lib.concatStringsSep "\n" (
-      lib.mapAttrsToList (n: v: "export ${n}=${v}")
-      config.systemd.services.restic-backups-backup-module.environment ++ [
-        (config.systemd.services.restic-backups-backup-module.serviceConfig.ExecStart + " $@")
-      ]
+    pkgs.writeShellScriptBin "backup" (lib.concatStrings (
+      (lib.mapAttrsToList (n: v: "export ${n}=${v}\n") config.systemd.services.restic-backups-backup-module.environment)
+      ++ config.systemd.services.restic-backups-backup-module.serviceConfig.ExecStart
+      ++ [ " $@" ]
     ))
   );
   supportscript = (
