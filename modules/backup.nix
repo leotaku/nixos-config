@@ -15,21 +15,20 @@ let
       };
     };
   };
-  backupscript = (
-    pkgs.writeShellScriptBin "backup" (lib.concatStrings (
-      (lib.mapAttrsToList (n: v: "export ${n}=${v}\n") config.systemd.services.restic-backups-backup-module.environment)
-      ++ config.systemd.services.restic-backups-backup-module.serviceConfig.ExecStart
-      ++ [ " $@" ]
-    ))
-  );
-  supportscript = (
-    pkgs.writeShellScriptBin "backuptool" (
-      (lib.concatStringsSep "\n" (
-        lib.mapAttrsToList (n: v: "export ${n}=${v}")
-        config.systemd.services.restic-backups-backup-module.environment ++ [
-          (pkgs.restic + "/bin/restic $@")
-        ]
-      ))));
+  backupscript = pkgs.writeShellScriptBin "backup" (
+    lib.concatStrings (
+      lib.mapAttrsToList (n: v: "export ${n}=${v}\n") (
+        config.systemd.services.restic-backups-backup-module.environment
+      ) ++ config.systemd.services.restic-backups-backup-module.serviceConfig.ExecStart
+        ++ [ " $@" ]
+    ));
+  supportscript = pkgs.writeShellScriptBin "backuptool" (
+    lib.concatStringsSep "\n" (
+      lib.mapAttrsToList (n: v: "export ${n}=${v}") (
+        lib.filterAttrs (n: _: n != "PATH")
+        config.systemd.services.restic-backups-backup-module.environment
+      ) ++ [ (pkgs.restic + "/bin/restic $@") ]
+    ));
 in {
   options.backup = {
     enable = mkEnableOption "backup service based on restic";
