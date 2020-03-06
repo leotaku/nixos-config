@@ -49,7 +49,6 @@ with self; {
   emacs-custom = callPackage ./emacs/default.nix { };
   emacs-git-custom =
     callPackage ./emacs/default.nix { emacs = self.emacs-git; };
-  ox-blorf = callPackage ./emacs/ox-blorf.nix { };
 
   # External
   mozilla = import sources.nixpkgs-mozilla self super;
