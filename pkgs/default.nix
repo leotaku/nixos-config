@@ -26,15 +26,24 @@ with self; {
     buildInputs = with qt5;
       oldAttrs.buildInputs ++ [ qtgraphicaleffects qtmultimedia ];
   });
-  rxvt-unicode-custom = super.rxvt_unicode_with-plugins.override {
-    plugins = with super; [ urxvt_vtwheel urxvt_perls ];
-  };
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
   # NOTE: This only works while using systemd-resolved
   wireguard-tools =
     super.wireguard-tools.override { openresolv = self.systemd; };
 
+  # Hard customizations
+  rxvt-unicode-custom = rxvt-unicode.override {
+    configure = { availablePlugins, ... }: {
+      plugins = with availablePlugins; [ vtwheel perls ];
+    };
   };
+  aspell-custom =
+    (aspellWithDicts (a: lib.mapAttrsToList (n: v: v) a)).overrideAttrs
+    (oldAttrs: { ignoreCollisions = true; });
+  hunspell-custom = hunspellWithDicts
+    (lib.mapAttrsToList (n: v: if (lib.isDerivation v) then v else null)
+      hunspellDicts);
+
   # Emacs
   emacs-git = callPackage ./emacs/emacs-git.nix { };
   emacs-custom = callPackage ./emacs/default.nix { };
