@@ -24,7 +24,6 @@ in
     githubSupport = true;
     mpdSupport = true;
   };
-  leovim = super.callPackage ./neovim/leovim.nix { };
   sddm = super.sddm.overrideAttrs (oldAttrs: {
     buildInputs = with super.qt5;
       oldAttrs.buildInputs ++ [ qtgraphicaleffects qtmultimedia ];
