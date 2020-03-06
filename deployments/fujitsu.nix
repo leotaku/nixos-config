@@ -6,7 +6,6 @@
     ../plugables/packages/usability.nix
     ../plugables/avahi/module.nix
     ../plugables/znc/module.nix
-    ../modules/dns-safe.nix
     (hercules-ci-agent + "/module.nix")
   ];
 
@@ -37,12 +36,6 @@
   networking.interfaces."enp8s0".useDHCP = true;
   networking.interfaces."enp7s0".useDHCP = true;
   networking.interfaces."enp6s0".useDHCP = true;
-
-  # Update DNS records
-  services.dns-records-update = {
-    enable = true;
-    urlsFile = config.deployment.secrets."dnsfile".destination;
-  };
 
   # Hercules-CI agent
   services.hercules-ci-agent.enable = true;
@@ -193,11 +186,6 @@
   ];
 
   deployment.secrets = {
-    "dnsfile" = {
-      source = builtins.toString ../private/dnsfile;
-      destination = "/var/keys/dnsfile";
-      action = ["systemctl" "restart" "dns-records-update.service"];
-    };
     "htpasswd" = {
       source = builtins.toString ../private/htpasswd;
       destination = "/var/keys/htpasswd";
