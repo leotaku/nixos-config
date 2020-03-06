@@ -181,11 +181,7 @@
 
   # Basic xdg support
   xdg.portal.enable = true;
-  xdg.portal.gtkUsePortal = true;
-  xdg.portal.extraPortals = with pkgs; [
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-kde
-  ];
+  xdg.portal.gtkUsePortal = false;
 
   # SDDM
   services.xserver.displayManager.sddm = {
