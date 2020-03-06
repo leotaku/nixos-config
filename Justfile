@@ -30,9 +30,6 @@ update:
 update-pkgs:
 	parallel --bar update-nix-fetchgit ::: pkgs/*/*.nix
 
-rebuild command nixpkgs="/etc/nixos/nixos-config/sources/links/nixos-unstable":
-	nixos-rebuild "{{command}}" -I "nixpkgs={{nixpkgs}}"
-
 # Export
 
 export SSH_USER := ssh_user
