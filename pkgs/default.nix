@@ -50,7 +50,4 @@ in
   haskell = super.haskell // {
     compiler = super.callPackage sources.old-ghc-nix {} // super.haskell.compiler;
   };
-
-  # Collections
-  customVimPlugins = super.callPackage ./neovim/customPlugins.nix { };
 }
