@@ -188,11 +188,11 @@
   # Enable virtuaisation/container technologies
   virtualisation.virtualbox.host = {
     enable = false;
-    #enableHardening = false; 
+    enableHardening = false;
   };
   services.flatpak.enable = true;
   virtualisation.docker.enable = true;
-  virtualisation.anbox.enable = true;
+  virtualisation.anbox.enable = false;
 
   # Add wireshark permissions
   programs.wireshark = {
