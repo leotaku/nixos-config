@@ -10,8 +10,8 @@
     ./system.nix
     ../../hardware/thinkpad-t480s.nix
     # Activate remote builders and caching
-    ../../plugables/builders/module.nix
-    ../../plugables/cachix/module.nix
+    ../../plugables/builders.nix
+    ../../plugables/cachix.nix
   ];
 
   nix.trustedUsers = [ "root" "@wheel" ];

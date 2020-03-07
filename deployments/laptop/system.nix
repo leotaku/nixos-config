@@ -7,9 +7,9 @@
 {
   imports = [
     # Import plugable configurations
-    ../../plugables/avahi/module.nix
+    ../../plugables/avahi.nix
     ../../plugables/xkeyboard/module.nix
-    ../../plugables/networking/module.nix
+    ../../plugables/networking/laptop.nix
     # Import package collections
     ../../plugables/packages/large.nix
     # Import custom modules

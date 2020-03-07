@@ -15,7 +15,7 @@
   # Modules and pluggable configurations
   imports = [
     ../plugables/email/home-manager.nix
-    ../plugables/compton/module.nix
+    ../plugables/compton.nix
     ../modules/qt5ct.nix
     ../modules/xss-lock.nix
   ];

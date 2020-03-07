@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   imports = [
-    ../../modules/fleet.nix
+    ../modules/fleet.nix
   ];
   
   fleet = {

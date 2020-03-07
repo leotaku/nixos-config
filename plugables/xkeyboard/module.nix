@@ -11,7 +11,7 @@
 
       xorg = super.xorg // rec {
         xkeyboardconfig-custom = super.xorg.xkeyboardconfig.overrideAttrs
-          (oldAttrs: { patches = [ ./test.patch ]; });
+          (oldAttrs: { patches = [ ./custom.patch ]; });
 
         xorgserver = super.xorg.xorgserver.overrideAttrs (oldAttrs: {
           configureFlags = oldAttrs.configureFlags ++ [
