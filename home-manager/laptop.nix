@@ -175,15 +175,7 @@
   # Screen locking
   services.xss-lock = {
     enable = true;
-    notifyCmd = [
-      "${pkgs.libnotify}/bin/notify-send"
-      "Screensaver:"
-      "Locking screen in about 5 minutes"
-    ];
-    lockCmd = [
-      (pkgs.i3lock-color + "/bin/i3lock-color")
-      "-c" "000000"
-    ];
+    command = "/run/wrappers/bin/slock";
   };
 
   # Xresources settings

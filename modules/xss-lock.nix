@@ -2,20 +2,13 @@
 with lib;
 let
   cfg = config.services.xss-lock;
-  genCmd = name: cmd: pkgs.writeShellScript name (
-    lib.concatMapStringsSep " " (s: "${s}") cmd
-  );
 in {
   options.services.xss-lock = {
     enable = mkEnableOption "screen locking and suspension using xss-lock";
 
-    lockCmd = mkOption {
-      type = with types; listOf str;
+    command = mkOption {
+      type = types.str;
       description = "Locker command to run.";
-    };
-    notifyCmd = mkOption {
-      type = with types; listOf str;
-      description = "Notify command to run.";
     };
     times = mapAttrs (n: v: mkOption {
       type = types.int;
@@ -33,10 +26,34 @@ in {
   config = lib.mkIf cfg.enable {
     assertions = [ ];
 
-    xsession.initExtra = with pkgs; ''
-      ${xorg.xset}/bin/xset s ${builtins.toString cfg.times.lock} ${builtins.toString cfg.times.period}
-      ${xorg.xset}/bin/xset dpms ${builtins.toString cfg.times.standby} ${builtins.toString cfg.times.suspend} ${builtins.toString cfg.times.off}
-      ${xss-lock}/bin/xss-lock -n ${genCmd "notify-lock" cfg.notifyCmd} -- ${genCmd "lock" cfg.lockCmd} &
-    '';
+    systemd.user.services."xss-lock" = {
+      Unit = {
+        Description="Auto lock";
+        PartOf="graphical-session.target";
+      };
+      Service = {
+        Type = "simple";
+        ExecStart= "${pkgs.xss-lock}/bin/xss-lock -v -l -s $XDG_SESSION_ID -- ${cfg.command}";
+      };
+      Install = {
+        WantedBy= [ "graphical-session.target" ];
+      };
+    };
+
+    systemd.user.services."xset-timings" = {
+      Unit = {
+        Description="Set xset timings";
+        PartOf="graphical-session.target";
+      };
+      Service = {
+        Type = "simple";
+        ExecStart = with pkgs.xorg;
+          "${xset}/bin/xset s ${builtins.toString cfg.times.lock} ${builtins.toString cfg.times.period};" +
+          "${xset}/bin/xset dpms ${builtins.toString cfg.times.standby} ${builtins.toString cfg.times.suspend} ${builtins.toString cfg.times.off}";
+      };
+      Install = {
+        WantedBy= [ "graphical-session.target" ];
+      };
+    };
   };
 }
