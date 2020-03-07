@@ -55,7 +55,7 @@
 
     virtualHosts = {
       "le0.gs" = {
-        enableACME = true;
+        useACMEHost = "le0.gs";
         forceSSL = true;
         locations = {
           "/".root = pkgs.callPackage ./site/default.nix { };
@@ -100,8 +100,8 @@
   security.acme.certs = {
     "le0.gs" = {
       email = "leo.gaskin@brg-feldkirchen.at";
+      webroot = config.services.nginx.virtualHosts."le0.gs".acmeRoot;
       extraDomains = {
-        "vwa.le0.gs" = null;
         "sync.le0.gs" = null;
         "stats.le0.gs" = null;
         "rss.le0.gs" = null;
