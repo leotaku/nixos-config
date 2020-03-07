@@ -1,4 +1,5 @@
 *.swp
 /sources/links
-/private
 /deployments/.gcroots
+/private/*
+!/private/.gitkeep
