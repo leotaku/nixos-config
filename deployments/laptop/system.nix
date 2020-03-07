@@ -98,6 +98,7 @@
   programs.adb.enable = true;
   programs.gnome-disks.enable = true;
   programs.light.enable = true;
+  programs.slock.enable = true;
   programs.zsh.enable = true;
 
   # List simple services that you want to enable:
@@ -252,9 +253,7 @@
       event = "button/lid LID close";
       action = ''
         ${pkgs.systemd}/bin/systemctl stop iwd.service
-        ${pkgs.systemd}/bin/loginctl lock-sessions
-        sleep 2
-        ${pkgs.systemd}/bin/systemctl start suspend.target
+        ${pkgs.systemd}/bin/systemctl suspend
       '';
     };
     "lid-open" = {
