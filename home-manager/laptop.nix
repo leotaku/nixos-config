@@ -22,87 +22,74 @@
 
   home.packages = with pkgs; [
     # Required
-    xcape
     z-lua
-    # Control
-    pulsemixer
-    pavucontrol
+    zplugin-install
     # Text editors
+    emacs-git-custom
     kakoune
     vscode-with-extensions
-    # File Manager
-    xfce.thunar
-    emv
-    fzf
-    # Other
-    zotero
-    youtube-dl
-    # Chat
-    weechat
-    # Images
-    sxiv
-    feh
-    pinta
+    # GUI applications
     gcolor3
-    # PDF
-    zathura
-    # Video
-    vlc
-    # Recording
     maim
-    simplescreenrecorder
-    screenkey
-    asciinema
-    # Stupid files
-    libreoffice-fresh
-    calibre
-    # Terminal
+    pavucontrol
+    pinta
+    rofi
     rxvt-unicode-custom
-    # Network
+    screenkey
+    simplescreenrecorder
+    sxiv
+    syncthing-gtk
+    vlc
+    xfce.thunar
+    # Stupid files
+    calibre
+    libreoffice-fresh
+    okular
+    zathura
+    zotero
+    # Terminal
+    asciinema
+    bvi
+    chroma
+    direnv
+    emv
+    exa
+    fzf
+    gitAndTools.hub
+    jq
+    libqalculate
+    progress
+    pulsemixer
+    ripgrep-all
+    tokei
+    weechat
+    # Utils
+    graphviz
+    onefetch
+    pandoc
+    playerctl
     speedtest-cli
+    youtube-dl
+    # Lower
+    atool
+    bashmount
+    discount
+    exiftool
+    id3v2
+    libarchive
+    mediainfo
+    mtpfs
+    p7zip
+    poppler_utils
+    usbutils
     # Xorg
-    xsel
-    xorg.xmodmap
+    libnotify
+    wmctrl
+    xcape
     xdo
     xdotool
-    wmname
-    wmctrl
-    libnotify
-    # Utils
-    exa
-    ripgrep-all
-    progress
-    # FIXME: chroma
-    jq
-    tokei
-    bvi
-    direnv
-    gitAndTools.hub
-    tealdeer
-    libqalculate
-    # Filesystems
-    bashmount
-    usbutils
-    mtpfs
-    # Archiving
-    p7zip
-    libarchive
-    # Documents + Other
-    pandoc
-    graphviz
-    # Misc Filetype
-    exiftool
-    poppler_utils
-    mediainfo
-    atool
-    discount
-    id3v2
-    # Torrent
-    transmission-remote-gtk
-    transmission-remote-cli
-    # Syncthing
-    syncthing-gtk
-    syncthing-cli
+    xorg.xmodmap
+    xsel
     # Fonts
     fira
     fira-code

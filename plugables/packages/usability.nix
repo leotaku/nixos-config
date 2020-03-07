@@ -10,13 +10,13 @@
     # Nix Tools
     nix-top
     nix-du
-    nix-diff
+    # FIXME: nix-diff
     nix-index
     nix-prefetch-scripts
     # Version control
     gitAndTools.gitFull
     mercurial
-    darcs
+    # FIXME: darcs
     bazaar
     cvs
     # Archives

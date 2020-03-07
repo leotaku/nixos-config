@@ -8,24 +8,25 @@
   
   environment.systemPackages = with pkgs; [
     # Tools
-    pandoc
+    aspell-custom
     bat
-    just
-    hyperfine
-    du-dust
     diskus
-    imagemagick
-    ffmpegthumbnailer
+    du-dust
     ffmpeg-full
+    ffmpegthumbnailer
     httplz
+    hyperfine
+    imagemagick
+    just
+    pandoc
     # Toys
-    neofetch
-    cowsay
-    lolcat
-    fortune
-    sl
     asciiquarium
     cmatrix
+    cowsay
     figlet toilet
+    fortune
+    lolcat
+    neofetch
+    sl
   ];
 }

@@ -18,7 +18,6 @@
   nix.trustedUsers = [ "root" ];
 
   environment.systemPackages = with pkgs; [
-    vim
     syncthing-cli
     restic
     ipmitool
