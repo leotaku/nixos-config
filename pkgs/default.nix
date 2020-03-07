@@ -27,9 +27,6 @@ with self; {
       oldAttrs.buildInputs ++ [ qtgraphicaleffects qtmultimedia ];
   });
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
-  # NOTE: This only works while using systemd-resolved
-  wireguard-tools =
-    super.wireguard-tools.override { openresolv = self.systemd; };
 
   # Hard customizations
   rxvt-unicode-custom = rxvt-unicode.override {
