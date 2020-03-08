@@ -104,8 +104,8 @@ Rectangle {
             id: backgroundImage
             anchors.fill: parent
             fillMode: Image.PreserveAspectCrop
-            property string imageID: (Math.floor(Math.random() * (5 - 1 + 1)) + 1);
-            source: "resources/wallpapers/"+imageID
+            property string imageID: Math.floor(Math.random() * 4) + 1;
+            source: "resources/wallpapers/"+imageID+".jpg"
             MouseArea {
                 anchors.fill: parent
                 onClicked: backgroundImage.focus = true
@@ -115,25 +115,25 @@ Rectangle {
                 else if (event.key === Qt.Key_Tab) password.focus = true;
             }
         }
-        /********* Video *********
-        MediaPlayer {
-            id: mediaPlayer
-            source: "resources/vid.mp4"
-            autoLoad: false
-            loops: -1
-        }
-        VideoOutput {
-            source: mediaPlayer
-            anchors.fill: parent
-            fillMode: VideoOutput.PreserveAspectCrop
-        }
-        ********* Audio *********
-        Audio {
-            id: musicPlayer
-            autoLoad: false
-            source: "resources/bgm.ogg"
-            loops: -1
-        }*/
+        /********* Video *********/
+        // MediaPlayer {
+        //     id: mediaPlayer
+        //     source: "resources/vid.mp4"
+        //     autoLoad: false
+        //     loops: -1
+        // }
+        // VideoOutput {
+        //     source: mediaPlayer
+        //     anchors.fill: parent
+        //     fillMode: VideoOutput.PreserveAspectCrop
+        // }
+        /********* Audio *********/
+        // Audio {
+        //     id: musicPlayer
+        //     autoLoad: false
+        //     source: "resources/bgm.ogg"
+        //     loops: -1
+        // }
     }
 
     // Login container
@@ -190,7 +190,7 @@ Rectangle {
                     anchors.top: loginUser.bottom
                     TextInput {
                         id: password
-                        property bool on: true
+                        property bool start: true
                         anchors.fill: parent
                         anchors.leftMargin: loginContainer.textMargin
                         anchors.rightMargin: loginContainer.textMargin
@@ -217,7 +217,6 @@ Rectangle {
                             horizontalAlignment: Text.AlignHCenter
                             text: password.text ? "" : "Incorrect password"
                             color: "#F05C5C"
-                            //color: "#656565"
                         }
                         KeyNavigation.backtab: prevUser
                         KeyNavigation.tab: nextUser
@@ -320,41 +319,6 @@ Rectangle {
                         password.clear()
                     }
                 }
-                //Image {
-                //    id: avatarImage_next
-                //    width: parent.width * 0.90
-                //    height: avatarImage_next.width
-                //    anchors.centerIn: parent
-                //    source: if (userList.complete) userList.get(userList.currentIndex).icon
-                //    property bool rounded: true
-                //    property bool adapt: true
-                //    layer.enabled: rounded
-                //    layer.effect: ShaderEffect {
-                //        property real adjustX: avatarImage_next.adapt ? Math.max(width / height, 1) : 1
-                //        property real adjustY: avatarImage_next.adapt ? Math.max(1 / (width / height), 1) : 1
-
-                //        fragmentShader: "
-                //        #ifdef GL_ES
-                //            precision lowp float;
-                //        #endif // GL_ES
-                //        varying highp vec2 qt_TexCoord0;
-                //        uniform highp float qt_Opacity;
-                //        uniform lowp sampler2D source;
-                //        uniform lowp float adjustX;
-                //        uniform lowp float adjustY;
-
-                //        void main(void) {
-                //            lowp float x, y;
-                //            x = (qt_TexCoord0.x - 0.5) * adjustX;
-                //            y = (qt_TexCoord0.y - 0.5) * adjustY;
-                //            float delta = adjustX != 1.0 ? fwidth(y) / 2.0 : fwidth(x) / 2.0;
-                //            gl_FragColor = texture2D(source, qt_TexCoord0).rgba
-                //                * step(x * x + y * y, 0.25)
-                //                * smoothstep((x * x + y * y) , 0.25 + delta, 0.25)
-                //                * qt_Opacity;
-                //        }"
-                //    }
-                //}
                 KeyNavigation.backtab: password
                 KeyNavigation.tab: suspendBorder
                 Keys.onPressed: {
@@ -720,8 +684,6 @@ Rectangle {
         if ( userList.get(userList.currentIndex).needsPassword ) {
             password.focus = true
         }
-        //mediaPlayer.play()
-        //musicPlayer.play()
     }
     
     // States and Transitions
@@ -729,7 +691,7 @@ Rectangle {
         // Login box state
         State {
             //when: (password.focus || prevUser.focus || nextUser.focus)
-            when: password.on
+            when: password.start
             PropertyChanges {
                 target: loginBorder
                 y: loginRectangleTemplate.y
