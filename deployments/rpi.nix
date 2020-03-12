@@ -1,5 +1,5 @@
 { config, pkgs, lib, ... }: {
-  
+
   imports = [
     ../hardware/raspberry3.nix
     ../plugables/packages/base.nix
@@ -17,9 +17,9 @@
       config = "aarch64-unknown-linux-gnu";
     };
     localSystem = crossSystem;
-    overlays = [];      
+    overlays = [];
   };
-  
+
   nix.trustedUsers = [ "root" "remote-builder" ];
 
   users.extraUsers.remote-builder = {
