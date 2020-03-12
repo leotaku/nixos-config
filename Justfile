@@ -8,7 +8,7 @@ nix_path := "nixpkgs=/etc/nixos/nixos-config/sources/links/nixos-unstable"
 
 apply:
 	sudo nixos-rebuild switch -I "{{nix_path}}"
-	home-manager switch -I "{{nix_path}}"
+	home-manager switch -I "{{nix_path}}" -b "$RANDOM"
 	nix-env -u '*' -I "{{nix_path}}"
 	just deploy
 
@@ -28,7 +28,7 @@ update:
 	./sources/update.sh
 
 update-pkgs:
-	parallel --bar update-nix-fetchgit ::: pkgs/*/*.nix
+	parallel --timeout 60 --bar update-nix-fetchgit ::: pkgs/*/*.nix
 
 # Export
 
