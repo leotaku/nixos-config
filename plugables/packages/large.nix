@@ -5,7 +5,7 @@
   imports = [
     ./usability.nix
   ];
-  
+
   environment.systemPackages = with pkgs; [
     # Tools
     aspell-custom

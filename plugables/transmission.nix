@@ -2,7 +2,7 @@
 
 {
   # Enable Transmission torrent service
-  services.transmission = { 
+  services.transmission = {
     enable = true;
     port = 9091;
     settings = {

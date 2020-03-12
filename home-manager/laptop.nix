@@ -105,7 +105,7 @@
 
   # Enable automatic indexing of info files
   programs.info.enable = true;
-  
+
   # Make fonts work (fonts still don't work)
   fonts.fontconfig.enable = true;
 
@@ -192,7 +192,7 @@
     };
     extraPackages = with pkgs; [ breeze-qt5 breeze-icons ];
   };
-  
+
   # GTK settings
   gtk = {
     enable = true;
@@ -267,7 +267,7 @@
       };
     };
   };
-  
+
   # Xdg dirs
   xdg.configFile."user-dirs.dirs".text = ''
     XDG_DESKTOP_DIR="$HOME"

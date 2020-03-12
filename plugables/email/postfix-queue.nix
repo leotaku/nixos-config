@@ -19,12 +19,12 @@
       #
       # The following options set parameters needed by Postfix to enable
       # Cyrus-SASL support for authentication of mail servers.
-      
+
       smtp_always_send_ehlo = true;
       smtp_sasl_auth_enable = "yes";
       smtp_sasl_security_options = "noanonymous";
       smtp_sasl_mechanism_filter = "plain, login";
-      
+
       smtpd_sasl_auth_enable = "no";
       #smtpd_sasl_path = "smtpd";
       #smtpd_sasl_security_options = "noanonymous";
@@ -35,6 +35,6 @@
       smtp_tls_security_level = "encrypt";
       smtpd_use_tls = "no";
 
-    }; 
-  }; 
+    };
+  };
 }

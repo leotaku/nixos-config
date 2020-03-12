@@ -1,4 +1,4 @@
-{ 
+{
   # Goes into ~/.config/nxpkgs/config.nix
-  allowUnfree = true; 
+  allowUnfree = true;
 }

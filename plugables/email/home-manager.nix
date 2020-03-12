@@ -20,7 +20,7 @@ let
     passwordCommand = ''${pkgs.gnugrep}/bin/grep '${address}' ${pass_map_file} | ${pkgs.gnugrep}/bin/grep -o '[^:]*$' '';
 
     # Misc settings for home-manager email modules
-    
+
     imapnotify = {
       enable = true;
       boxes = syncBoxes;
@@ -45,14 +45,14 @@ let
         enable = false;
       };
     };
-    
+
     msmtp = {
       enable = true;
       extraConfig = { auth = "off"; };
     };
 
     notmuch.enable = true;
-    
+
   };
 in
 {

@@ -2,7 +2,7 @@
   imports = [
     ../modules/fleet.nix
   ];
-  
+
   fleet = {
     enable = true;
     machines = {

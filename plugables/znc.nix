@@ -21,8 +21,8 @@
       # Networks
       networks = {
         freenode = {
-          port = 6697; 
-          server = "irc.freenode.net"; 
+          port = 6697;
+          server = "irc.freenode.net";
           useSSL = true;
           modules = [ "sasl" ];
         };

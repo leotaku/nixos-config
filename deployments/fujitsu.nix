@@ -14,7 +14,7 @@
 
   # Nixpkgs configurations
   nixpkgs.overlays = [ (import ../pkgs) ];
-  
+
   nix.trustedUsers = [ "root" ];
 
   environment.systemPackages = with pkgs; [

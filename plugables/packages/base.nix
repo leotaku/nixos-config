@@ -20,7 +20,7 @@
     netcat-gnu
     # New utils
     rsync
-    moreutils    
+    moreutils
     # Archives
     gnutar
     libarchive

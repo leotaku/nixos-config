@@ -15,7 +15,7 @@ in
   version = "2019-11-24";
 
   inherit src;
-  
+
   doCheck = false;
   patches = null;
 

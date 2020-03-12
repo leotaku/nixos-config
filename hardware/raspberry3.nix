@@ -9,7 +9,7 @@
   # NixOS wants to enable GRUB by default
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
-  
+
   # Needed for the virtual console to work on the RPi 3, as the default of 16M doesn't seem to be enough.
   boot.kernelParams = ["cma=32M"];
 

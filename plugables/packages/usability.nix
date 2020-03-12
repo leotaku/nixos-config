@@ -5,7 +5,7 @@
   imports = [
     ./base.nix
   ];
-  
+
   environment.systemPackages = with pkgs; [
     # Nix Tools
     nix-top

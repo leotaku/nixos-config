@@ -13,8 +13,8 @@
 
   # CPU throttling
   services.throttled.enable = true;
-  
-  # Default kernel modules 
+
+  # Default kernel modules
   boot.initrd.availableKernelModules = [
     "xhci_pci" "nvme" "usb_storage" "sd_mod" "acpi_call"
   ];
@@ -71,7 +71,7 @@
       fsType = "vfat";
     };
   };
-    
+
   swapDevices = [
     { device = "/dev/disk/by-uuid/f2c44b27-e6d3-46ea-9db6-b581f184120b"; }
   ];
