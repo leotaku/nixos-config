@@ -7,8 +7,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     repo = "zinit";
     owner = "zdharma";
-    rev = "d70b07b8f714cc82c354fcc245b58d5838ad3619";
-    sha256 = "1x9nggirj84828lbakx92jm90q28r0s1i9ny902qhs032xqhhrd0";
+    rev = "f811bf36f18f243376ebf13bfc73431708a1b71b";
+    sha256 = "0cbn8sswfjzp4pqg7hlqbzamr784k8yrp11gj4vg8r18cqdl80cx";
   };
 
   buildInputs = [ zsh gnumake ncurses autoconf gcc ];
