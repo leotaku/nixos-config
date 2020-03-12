@@ -288,10 +288,10 @@
     associations.added = {
       "text/html" = "firefox.desktop";
       "text/xml" = "firefox.desktop";
-      "x-scheme-handler/chrome"  = "firefox.desktop";
+      "x-scheme-handler/chrome" = "firefox.desktop";
       "x-scheme-handler/ftp" = "firefox.desktop";
       "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https"  = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
     };
     defaultApplications = {
       "application/pdf" = "org.pwmt.zathura.desktop";

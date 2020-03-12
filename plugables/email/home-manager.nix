@@ -90,7 +90,7 @@ in
   programs.msmtp.enable = true;
   programs.alot.enable = true;
 
-  services.mbsync =  {
+  services.mbsync = {
     enable = true;
     frequency = "*:0/15";
     postExec = notmuch-new-command;
