@@ -88,6 +88,7 @@
     xcape
     xdo
     xdotool
+    xorg.xinput
     xorg.xmodmap
     xsel
     # Fonts
@@ -151,6 +152,16 @@
       package = pkgs.gnome3.adwaita-icon-theme;
       size = 32;
     };
+
+    # Ad-hoc X fixes
+    initExtra = with pkgs; with xorg; ''
+      systemctl --user import-environment
+      (sleep 1; systemctl --user restart kdeconnect-indicator.service) &
+      xcape -e 'ISO_Level3_Shift=Escape'
+      xcape -e 'Alt_L=Control_L|G'
+      xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Accel Speed" 0.21
+      xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Disable While Typing Enabled" 1
+    '';
 
     # AwesomeWM
     windowManager.awesome = {
