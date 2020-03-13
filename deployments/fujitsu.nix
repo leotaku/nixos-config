@@ -18,12 +18,13 @@
   nix.trustedUsers = [ "root" ];
 
   environment.systemPackages = with pkgs; [
-    syncthing-cli
-    restic
-    ipmitool
-    freeipmi
     dnsmasq
+    dnsutils
     ethtool
+    freeipmi
+    ipmitool
+    restic
+    syncthing-cli
   ];
 
   # Setup correct keyboard
