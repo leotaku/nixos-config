@@ -87,7 +87,7 @@ in {
       ) ++ cfg.extraArgs;
       timerConfig = {
         OnCalendar = cfg.timer;
-        Persistent = "true";
+        Persistent = true;
       };
     };
 
