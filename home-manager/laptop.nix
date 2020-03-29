@@ -115,7 +115,7 @@
     EDITOR = "kak";
   };
 
-  # FIXME: Disable user keyboard configuration
+  # Disable user keyboard configuration
   home.keyboard = null;
 
   # Lorri + direnv integration
