@@ -228,11 +228,9 @@
     localuser = "root";
   };
 
-  # NixOS command-not-found functionality
+  # FIXME: NixOS command-not-found functionality
   programs.command-not-found = {
-    enable = true;
-    dbPath = (import ../../sources/nix/sources.nix).nixexprs-unstable
-      + "/programs.sqlite";
+    enable = false;
   };
 
   # Fix broken lid-suspend

@@ -83,13 +83,6 @@
         "url": "https://github.com/craigmbooth/nix-visualize/archive/e9e3411fa16bbd28bca47b3d22ee6743f4abfe02.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "nixexprs-unstable": {
-        "sha256": "1k8v5ncvvb14yhqzi3cpkfj50rnfifcdsd5808nsrws9nswim5im",
-        "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-20.03pre202088.e89b21504f3/nixexprs.tar.xz",
-        "url_template": "https://releases.nixos.org/nixos/unstable/<version>/nixexprs.tar.xz",
-        "version": "nixos-20.03pre202088.e89b21504f3"
-    },
     "nixfmt": {
         "branch": "master",
         "description": "A formatter for Nix code",
