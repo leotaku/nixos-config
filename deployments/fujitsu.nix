@@ -149,10 +149,9 @@
     };
   };
 
-  # enable netdata monitoring
+  # Enable simple services
+  services.jellyfin.enable = true;
   services.netdata.enable = true;
-
-  # enable haveged service for more entropy
   services.haveged.enable = true;
 
   # Udisks depends on gtk+ which I don't want on my headless servers
@@ -181,6 +180,9 @@
     6667
     # Minecraft server
     25565
+    # Jellyfin server
+    8096
+    8920
   ];
 
   deployment.secrets = {
