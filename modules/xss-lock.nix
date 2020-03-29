@@ -33,7 +33,9 @@ in {
       };
       Service = {
         Type = "simple";
-        ExecStart= "${pkgs.xss-lock}/bin/xss-lock -v -l -s $XDG_SESSION_ID -- ${cfg.command}";
+        ExecStart = with pkgs; [
+          (xss-lock + "/bin/xss-lock -v -l -s $XDG_SESSION_ID -- ${cfg.command}")
+        ];
       };
       Install = {
         WantedBy= [ "graphical-session.target" ];
@@ -42,17 +44,19 @@ in {
 
     systemd.user.services."xset-timings" = {
       Unit = {
-        Description="Set xset timings";
-        PartOf="graphical-session.target";
+        Description = "Set xset timings";
+        PartOf = [ "graphical-session.target" ];
+        After = [ "graphical-session-pre.target" ];
       };
       Service = {
-        Type = "simple";
-        ExecStart = with pkgs.xorg;
-          "${xset}/bin/xset s ${builtins.toString cfg.times.lock} ${builtins.toString cfg.times.period};" +
-          "${xset}/bin/xset dpms ${builtins.toString cfg.times.standby} ${builtins.toString cfg.times.suspend} ${builtins.toString cfg.times.off}";
+        Type = "oneshot";
+        ExecStart = with pkgs.xorg; [
+          (xset + "/bin/xset s ${builtins.toString cfg.times.lock} ${builtins.toString cfg.times.period}")
+          (xset + "/bin/xset dpms ${builtins.toString cfg.times.standby} ${builtins.toString cfg.times.suspend} ${builtins.toString cfg.times.off}")
+        ];
       };
       Install = {
-        WantedBy= [ "graphical-session.target" ];
+        WantedBy = [ "graphical-session.target" ];
       };
     };
   };
