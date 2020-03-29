@@ -14,7 +14,6 @@
     ../../plugables/packages/large.nix
     # Import custom modules
     ../../modules/backup.nix
-    ../../modules/wg-quicker.nix
   ];
 
   # Nixpkgs settings
@@ -50,14 +49,6 @@
   networking.nat.enable = true;
   networking.nat.internalInterfaces = [ "ve-+" ];
   networking.nat.externalInterface = "wlp3s0";
-
-  # Enable Wireguard VPN
-  services.wg-quicker = {
-    available = true;
-    setups = {
-      "ch" = builtins.toString ../../private/mullvad/ch.conf;
-    };
-  };
 
   environment.systemPackages = with pkgs; [
     # Laptop

@@ -4,20 +4,20 @@ let
   cfg = config.services.wg-quicker;
   kernel = config.boot.kernelPackages;
 
-  genDir = file:
+  genDir = name: path:
     pkgs.writeTextFile {
-      name = "config-${cfg.interface}";
+      name = "config-${name}";
       executable = false;
-      destination = "/${cfg.interface}.conf";
-      text = lib.fileContents file;
+      destination = "/${name}.conf";
+      text = lib.fileContents path;
     };
-  genFile = file: (genDir file) + "/${cfg.interface}.conf";
-  genService = name: file: {
+  genFile = name: path: (genDir name path) + "/${name}.conf";
+  genService = name: submodule: {
     description = "${name} wg-quick WireGuard Tunnel";
     requires = [ "network-online.target" ];
     after = [ "network.target" "network-online.target" ];
-    wantedBy = [ ];
-    environment.DEVICE = cfg.interface;
+    wantedBy = lib.mkIf submodule.enable [ "default.target" ];
+    environment.DEVICE = name;
     path = [ pkgs.kmod pkgs.wireguard-tools ];
 
     serviceConfig = {
@@ -27,11 +27,11 @@ let
 
     script = ''
       ${optionalString (!config.boot.isContainer) "modprobe wireguard"}
-      wg-quick up ${genFile file}
+      wg-quick up "${genFile name submodule.path}"
     '';
 
     preStop = ''
-      wg-quick down ${genFile file}
+      wg-quick down "${genFile name submodule.path}"
     '';
   };
 
@@ -41,33 +41,33 @@ let
 in {
   ### Options
   options.services.wg-quicker = {
-    available = mkEnableOption "Make Wireguard instances available.";
-
     setups = mkOption {
       description = "Attrset of Wireguard configurations.";
-      type = with types; attrsOf path;
-
-      # (submodule {
-      #   conf = {
-      #     description =
-      #       "Location of the configuration file for this Wireguard instance.";
-      #     type = types.path;
-      #   };
-      # });
-    };
-
-    interface = mkOption {
-      description = "Name for the Wireguard interface";
-      type = types.str;
-      default = "wg0";
+      default = {};
+      type = with types; attrsOf (submodule {
+        options = {
+          enable = lib.mkOption {
+            type = bool;
+            default = true;
+            description = "Enable this Wireguard configuration.";
+          };
+          path = lib.mkOption {
+            type = str;
+            description = "Path to the Wireguard configuration.";
+          };
+        };
+      });
     };
   };
 
   ### Implementation
-  config = lib.mkIf cfg.available {
+  config = lib.mkIf (cfg.setups != {}) {
 
     boot.extraModulePackages = [ kernel.wireguard ];
+    boot.kernelModules = [ "wireguard" ];
+
     environment.systemPackages = [ pkgs.wireguard-tools ];
+
     # This is forced to false for now because the default "--validmark" rpfilter we apply on reverse path filtering
     # breaks the wg-quick routing because wireguard packets leave with a fwmark from wireguard.
     networking.firewall.checkReversePath = false;
