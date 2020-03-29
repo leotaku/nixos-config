@@ -34,7 +34,7 @@
   };
 
   # Setup correct keyboard
-  i18n.consoleKeyMap = "de";
+  console.keyMap = "de";
 
   # Enable SSH
   services.openssh.enable = true;
