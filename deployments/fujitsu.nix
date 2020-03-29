@@ -35,6 +35,10 @@
   # Setup correct keyboard
   i18n.consoleKeyMap = "de";
 
+  # Enable SSH
+  services.openssh.enable = true;
+  services.openssh.permitRootLogin = "yes";
+  services.fail2ban.enable = true;
 
   # Hercules-CI agent
   services.hercules-ci-agent.enable = true;
@@ -88,14 +92,6 @@
 
   # Udisks depends on gtk+ which I don't want on my headless servers
   services.udisks2.enable = false;
-
-  # enable SSH
-  services.openssh.enable = true;
-  services.openssh.permitRootLogin = "yes";
-  services.fail2ban.enable = true;
-
-  # Avahi
-  services.avahi.enable = true;
 
   networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [
