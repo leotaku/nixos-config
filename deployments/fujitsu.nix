@@ -2,6 +2,7 @@
   imports = with (import ../sources/nix/sources.nix); [
     ../hardware/fujitsu.nix
     ../plugables/builders.nix
+    ../plugables/networking/server.nix
     ../plugables/packages/base.nix
     ../plugables/packages/usability.nix
     ../plugables/avahi.nix
@@ -28,12 +29,6 @@
   # Setup correct keyboard
   i18n.consoleKeyMap = "de";
 
-  # Networkd for networking
-  networking.useNetworkd = true;
-  networking.useDHCP = false;
-  networking.interfaces."enp8s0".useDHCP = true;
-  networking.interfaces."enp7s0".useDHCP = true;
-  networking.interfaces."enp6s0".useDHCP = true;
 
   # Hercules-CI agent
   services.hercules-ci-agent.enable = true;
