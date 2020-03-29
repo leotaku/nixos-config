@@ -46,6 +46,31 @@
   services.hercules-ci-agent.concurrentTasks = 4;
   services.hercules-ci-agent.patchNix = true;
 
+  # Aria2 server
+  services.aria2 = rec {
+    enable = true;
+    downloadDir = config.fileSystems.raid1x5tb.mountPoint + "/download";
+    listenPortRange = map (n: { from = n; to = n; }) [ 16302 22751 7260 ];
+    openPorts = true;
+    extraArguments = lib.concatStringsSep " " [
+      "--rpc-listen-all=false"
+      "--remote-time=true"
+      "--max-concurrent-downloads=200"
+      "--save-session-interval=30"
+      "--force-save=false"
+      "--input-file=/var/lib/aria2/aria2.session"
+      "--enable-dht=true"
+      "--dht-listen-port=25776"
+      "--seed-ratio=3.0"
+      "--on-download-complete=${pkgs.writeShellScript "move" ''mv "$3" "complete_$3" ''}"
+    ];
+    # NOTE: Irrelevant, we are protected by http-auth
+    rpcSecret = "aria2rpc";
+  };
+
+  # NOTE: Used for special wireguard config
+  users.users."aria2".uid = lib.mkForce 1001;
+
   # TinyRSS rss service
   services.tt-rss = {
     enable = true;
