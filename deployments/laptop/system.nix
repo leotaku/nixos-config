@@ -181,8 +181,8 @@
     enable = false;
     enableHardening = false;
   };
-  services.flatpak.enable = true;
-  virtualisation.docker.enable = true;
+  services.flatpak.enable = false;
+  virtualisation.docker.enable = false;
   virtualisation.anbox.enable = false;
 
   # Add wireshark permissions
