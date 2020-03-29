@@ -26,6 +26,11 @@
     syncthing-cli
   ];
 
+  # Global environment
+  environment.variables = with pkgs; {
+    EDITOR = kakoune + "/bin/kak";
+  };
+
   # Setup correct keyboard
   i18n.consoleKeyMap = "de";
 

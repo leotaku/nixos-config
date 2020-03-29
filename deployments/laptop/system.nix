@@ -10,6 +10,7 @@
     ../../plugables/avahi.nix
     ../../plugables/xkeyboard/module.nix
     ../../plugables/networking/laptop.nix
+    ../../plugables/variables.nix
     # Import package collections
     ../../plugables/packages/large.nix
     # Import custom modules
@@ -72,10 +73,9 @@
 
   # Global environment
   environment.variables = with pkgs; {
-    EDITOR = neovim + "/bin/vim";
+    EDITOR = kakoune + "/bin/kak";
     TERMINAL = xterm + "/bin/xterm";
     PAGER = less + "/bin/less";
-    TMPDIR = "/run/user/$UID";
   };
   environment.homeBinInPath = true;
 
