@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  systemd.user.services.simple-compton = {
+  systemd.user.services.simple-picom = {
     Unit = {
       Description = "Compton X11 compositor";
       After = [ "graphical-session-pre.target" ];
@@ -13,8 +13,9 @@
     };
 
     Service = {
-      ExecStart =
-        "${pkgs.compton-git}/bin/compton";
+      ExecStart = [
+        (pkgs.picom + "/bin/picom")
+      ];
       Restart = "always";
       RestartSec = 3;
     } // {
