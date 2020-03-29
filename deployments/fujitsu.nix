@@ -3,6 +3,7 @@
     ../hardware/fujitsu.nix
     ../plugables/builders.nix
     ../plugables/networking/server.nix
+    ../plugables/nginx.nix
     ../plugables/packages/base.nix
     ../plugables/packages/usability.nix
     ../plugables/avahi.nix
@@ -38,75 +39,6 @@
   # Hercules-CI agent
   services.hercules-ci-agent.enable = true;
   services.hercules-ci-agent.concurrentTasks = 4;
-
-  # Nginx server
-  services.nginx = {
-    enable = true;
-    package = pkgs.nginxMainline;
-
-    recommendedGzipSettings = true;
-    recommendedOptimisation = true;
-    recommendedProxySettings = true;
-    recommendedTlsSettings = true;
-
-    # Always use UTF-8
-    appendHttpConfig = "charset utf-8;";
-
-    virtualHosts = {
-      "le0.gs" = {
-        useACMEHost = "le0.gs";
-        forceSSL = true;
-        locations = {
-          "/".root = pkgs.callPackage ./site/default.nix { };
-          "/public" = {
-            root = "/var/web/stuff/";
-            extraConfig = "autoindex on;";
-          };
-        };
-      };
-      "sync.le0.gs" = {
-        useACMEHost = "le0.gs";
-        forceSSL = true;
-        basicAuthFile = config.deployment.secrets."htpasswd".destination;
-        locations = {
-          "/" = {
-            root = "/var/web/stuff";
-            extraConfig = "autoindex on;";
-          };
-          "/restic".root = "/var/web";
-        };
-      };
-      "stats.le0.gs" = {
-        useACMEHost = "le0.gs";
-        forceSSL = true;
-        locations = {
-          "/".return = "301 /fujitsu/";
-          "/fujitsu".proxyPass = "http://localhost:19999/";
-          "/rpi".proxyPass = "http://nixos-rpi.local/";
-        };
-      };
-      "rss.le0.gs" = {
-        useACMEHost = "le0.gs";
-        forceSSL = true;
-      };
-    };
-  };
-
-  # NOTE: the keys group is used only for NixOps compatibility
-  users.users.nginx.extraGroups = [ "keys" "syncthing" ];
-
-  # Acme certificates
-  security.acme.certs = {
-    "le0.gs" = {
-      email = "leo.gaskin@brg-feldkirchen.at";
-      webroot = config.services.nginx.virtualHosts."le0.gs".acmeRoot;
-      extraDomains = {
-        "sync.le0.gs" = null;
-        "stats.le0.gs" = null;
-        "rss.le0.gs" = null;
-      };
-    };
-  };
 
   # TinyRSS rss service
   services.tt-rss = {
