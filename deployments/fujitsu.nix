@@ -44,6 +44,7 @@
   # Hercules-CI agent
   services.hercules-ci-agent.enable = true;
   services.hercules-ci-agent.concurrentTasks = 4;
+  services.hercules-ci-agent.patchNix = true;
 
   # TinyRSS rss service
   services.tt-rss = {
