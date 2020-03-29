@@ -56,7 +56,7 @@ in {
   };
 
   config = lib.mkIf (cfg.enable == true) ({
-    users.extraUsers.fleet-builder = {
+    users.users.fleet-builder = {
       isNormalUser = true;
       extraGroups = [ ];
     };

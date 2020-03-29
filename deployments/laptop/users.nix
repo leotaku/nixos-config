@@ -6,7 +6,7 @@
 
 {
   # Define an user account. Don't forget to set a password with ‘passwd’.
-  users.extraUsers.leo = {
+  users.users.leo = {
     isNormalUser = true;
     uid = 1000;
     extraGroups = [
