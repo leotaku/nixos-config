@@ -29,17 +29,17 @@ with self; {
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
 
   # Hard customizations
-  rxvt-unicode-custom = rxvt-unicode.override {
-    configure = { availablePlugins, ... }: {
-      plugins = with availablePlugins; [ vtwheel perls ];
-    };
-  };
   aspell-custom =
     (aspellWithDicts (a: lib.mapAttrsToList (n: v: v) a)).overrideAttrs
     (oldAttrs: { ignoreCollisions = true; });
   hunspell-custom = hunspellWithDicts
     (lib.mapAttrsToList (n: v: if (lib.isDerivation v) then v else null)
       hunspellDicts);
+  rxvt-unicode-custom = rxvt-unicode.override {
+    configure = { availablePlugins, ... }: {
+      plugins = with availablePlugins; [ vtwheel perls ];
+    };
+  };
 
   # Emacs
   emacs-git = callPackage ./emacs/emacs-git.nix { };
