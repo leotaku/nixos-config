@@ -2,9 +2,9 @@
 
   imports = [
     ../hardware/raspberry3.nix
-    ../plugables/packages/base.nix
-    ../plugables/builders.nix
     ../plugables/avahi.nix
+    ../plugables/builders.nix
+    ../plugables/packages/base.nix
   ];
 
   # NOTE: removing this causes avahi to fail

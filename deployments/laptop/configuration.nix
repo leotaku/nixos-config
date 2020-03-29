@@ -6,8 +6,8 @@
 {
   imports = with (import ../../sources/nix/sources.nix); [
     # Import configuration
-    ./users.nix
     ./system.nix
+    ./users.nix
     ../../hardware/thinkpad-t480s.nix
     # Activate remote builders and caching
     ../../plugables/builders.nix
