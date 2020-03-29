@@ -46,7 +46,6 @@
     libreoffice-fresh
     okular
     zathura
-    zotero
     # Terminal
     asciinema
     bvi
