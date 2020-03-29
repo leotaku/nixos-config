@@ -9,7 +9,7 @@
     (hercules-ci-agent + "/module.nix")
   ];
 
-  # IMPORTANT: removing this causes avahi to fail
+  # NOTE: Removing this causes avahi to fail
   networking.hostName = "nixos-fujitsu";
 
   # Nixpkgs configurations

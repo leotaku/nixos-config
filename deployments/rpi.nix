@@ -7,7 +7,7 @@
     ../plugables/avahi.nix
   ];
 
-  # IMPORTANT: removing this causes avahi to fail
+  # NOTE: removing this causes avahi to fail
   networking.hostName = "nixos-rpi";
 
   # Nixpkgs configurations
