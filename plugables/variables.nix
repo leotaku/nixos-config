@@ -24,8 +24,4 @@ in {
     XCOMPOSEFILE = XDG_CONFIG_HOME + "/xcompose";
     TEXMFCACHE = XDG_CACHE_HOME + "texmf-var";
   };
-
-  environment.shellAliases = {
-    "wget" = ''wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'';
-  };
 }
