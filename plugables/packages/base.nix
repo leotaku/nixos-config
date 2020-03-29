@@ -25,7 +25,7 @@
     gnutar
     libarchive
     # Editors
-    neovim
+    kakoune
     # Shells
     bash
     dash

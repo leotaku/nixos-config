@@ -33,7 +33,6 @@
     # Text-mode utils
     ncdu
     htop
-    w3m
     lynx
     rlwrap
     # Hardware
@@ -46,6 +45,7 @@
     speedtest-cli
     iperf
     nmap
+    rclone
     # Misc
     qrencode
   ];
