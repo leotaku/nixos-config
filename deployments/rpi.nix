@@ -22,7 +22,7 @@
 
   environment.systemPackages = with pkgs; [ hello ];
 
-  # netdata monitoring
+  # Netdata monitoring
   services.nginx = {
     enable = true;
     package = pkgs.nginxMainline;
@@ -34,14 +34,17 @@
 
     virtualHosts = {
       "localhost" = {
-        locations = { "/".proxyPass = "http://localhost:19999/"; };
+        locations = {
+          "/".proxyPass = "http://localhost:19999/";
+        };
       };
     };
   };
 
+  # Enable simple services
   services.netdata.enable = true;
 
-  # udisks depends on gtk+ which I don't want on my headless servers
+  # Udisks depends on gtk+ which I don't want on my headless servers
   services.udisks2.enable = false;
 
   services.openssh.enable = true;
