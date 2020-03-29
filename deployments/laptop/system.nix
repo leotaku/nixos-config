@@ -195,7 +195,7 @@
   backup = {
     enable = true;
     timer = [ "*-*-* 11:00" "*-*-* 22:00" ];
-    repository = "rest:http://le0.gs:8000";
+    repository = "rest:http://raw.le0.gs:8000";
     passwordFile = ../../private/restic-pw;
     user = "leo";
     extraArgs = [ "--limit-upload" "5000" ];
