@@ -16,12 +16,15 @@ in {
     TMPDIR = XDG_RUNTIME_DIR;
 
     CARGO_HOME = XDG_DATA_HOME + "/cargo";
+    HISTFILE = XDG_DATA_HOME + "/bash_history";
     LESSHISTFILE = XDG_CACHE_HOME + "/lesshist";
     MPLAYER_HOME = XDG_CONFIG_HOME + "/mplayer";
     PARALLEL_HOME = XDG_CONFIG_HOME + "/parallel";
     RUSTUP_HOME = XDG_DATA_HOME + "/rustup";
+    TEXMFCACHE = XDG_CACHE_HOME + "/texmf-var";
+    WEECHAT_HOME = XDG_CONFIG_HOME + "/weechat";
+    XAUTHORITY = "$HOME/.Xauthority";
     XCOMPOSECACHE = XDG_CACHE_HOME + "/xcompose";
     XCOMPOSEFILE = XDG_CONFIG_HOME + "/xcompose";
-    TEXMFCACHE = XDG_CACHE_HOME + "texmf-var";
   };
 }
