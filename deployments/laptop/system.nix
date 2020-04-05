@@ -57,6 +57,7 @@
     powertop
     glxinfo
     tpacpi-bat
+    virt-manager
     # Editors
     micro
     kakoune
@@ -177,10 +178,7 @@
   networking.firewall.enable = false;
 
   # Enable virtuaisation/container technologies
-  virtualisation.virtualbox.host = {
-    enable = false;
-    enableHardening = false;
-  };
+  virtualisation.libvirtd.enable = true;
   services.flatpak.enable = false;
   virtualisation.docker.enable = false;
   virtualisation.anbox.enable = false;

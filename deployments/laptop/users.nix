@@ -19,6 +19,7 @@
       "wireshark"
       "docker"
       "adbusers"
+      "libvirtd"
     ];
     shell = pkgs.zsh;
   };
