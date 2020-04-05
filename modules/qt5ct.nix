@@ -1,6 +1,14 @@
 { lib, pkgs, config, ... }:
 with lib;
-let cfg = config.qt5ct;
+let
+  cfg = config.qt5ct;
+  variables = {
+    "QT_QPA_PLATFORMTHEME" = "qt5ct";
+  } // (if (cfg.scale == "auto") then {
+    "QT_AUTO_SCREEN_SCALE_FACTOR" = "1";
+  } else {
+    "QT_SCALE_FACTOR" = builtins.toString cfg.scale;
+  });
 in {
   options.qt5ct = {
     enable = mkEnableOption "Configure QT using Qt5ct";
@@ -36,7 +44,7 @@ in {
     };
     extraPackages = mkOption {
       type = with types; listOf package;
-      default = [];
+      default = [ ];
       description = "Extra packages needed for QT configuration or testing";
     };
   };
@@ -57,13 +65,8 @@ in {
       }
     ];
 
-    home.sessionVariables = {
-      "QT_QPA_PLATFORMTHEME" = "qt5ct";
-    } // (if (cfg.scale == "auto") then {
-      "QT_AUTO_SCREEN_SCALE_FACTOR" = "1";
-    } else {
-      "QT_SCALE_FACTOR" = builtins.toString cfg.scale;
-    });
+    home.sessionVariables = variables;
+    systemd.user.sessionVariables = variables;
 
     home.packages = [
       pkgs.qt5ct
