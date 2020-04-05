@@ -24,7 +24,7 @@ let
     imapnotify = {
       enable = true;
       boxes = syncBoxes;
-      onNotify = "${pkgs.isync}/bin/mbsync ${dir}";
+      onNotify = pkgs.systemd + "/bin/systemctl --user start mbsync.service";
       onNotifyPost = {
         mail = notmuch-new-command + "&&" + (notify "You got mail!" userName);
       };
