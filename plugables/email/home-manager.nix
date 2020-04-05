@@ -88,10 +88,13 @@ in
   # Generate configs for all needed programs
   programs.mbsync.enable = true;
   programs.msmtp.enable = true;
-  programs.alot.enable = true;
+  programs.alot.enable = false;
+
+  home.file.".mbsyncrc".target = lib.mkForce ".config/mbsyncrc";
 
   services.mbsync = {
     enable = true;
+    configFile = config.home.file.".mbsyncrc".source;
     frequency = "*:0/15";
     postExec = notmuch-new-command;
   };
