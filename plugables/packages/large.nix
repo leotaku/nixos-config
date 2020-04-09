@@ -19,6 +19,7 @@
     imagemagick
     just
     pandoc
+    ripgrep-all
     # Toys
     asciiquarium
     cmatrix

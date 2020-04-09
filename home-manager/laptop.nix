@@ -22,11 +22,13 @@
 
   home.packages = with pkgs; [
     # Required
+    xcape
+    xorg.xmodmap
+    xsel
     z-lua
     zplugin-install
     # Text editors
     emacs-git-custom
-    kakoune
     vscode-with-extensions
     # GUI applications
     gcolor3
@@ -48,48 +50,13 @@
     zathura
     # Terminal
     asciinema
-    bvi
     chroma
     direnv
-    emv
     exa
     fzf
     gitAndTools.hub
-    jq
-    libqalculate
-    progress
     pulsemixer
-    ripgrep-all
-    tokei
     weechat
-    # Utils
-    graphviz
-    onefetch
-    pandoc
-    playerctl
-    speedtest-cli
-    youtube-dl
-    # Lower
-    atool
-    bashmount
-    discount
-    exiftool
-    id3v2
-    libarchive
-    mediainfo
-    mtpfs
-    p7zip
-    poppler_utils
-    usbutils
-    # Xorg
-    libnotify
-    wmctrl
-    xcape
-    xdo
-    xdotool
-    xorg.xinput
-    xorg.xmodmap
-    xsel
     # Fonts
     fira
     fira-code

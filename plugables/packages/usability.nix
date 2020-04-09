@@ -13,26 +13,27 @@
     # FIXME: nix-diff
     nix-index
     nix-prefetch-scripts
-    # Version control
-    gitAndTools.gitFull
-    mercurial
-    # FIXME: darcs
-    bazaar
-    cvs
-    # Archives
-    p7zip
     # New utils
-    ripgrep
-    fd
     aria
-    libqalculate
+    bvi
+    ffsend
+    emv
     entr
+    fd
+    gitAndTools.gitFull
+    jq
+    p7zip
+    qrencode
+    rclone
+    ripgrep
+    tokei
     # Multiplexer
     tmux
     screen
     # Text-mode utils
     ncdu
     htop
+    libqalculate
     lynx
     rlwrap
     # Hardware
@@ -45,8 +46,5 @@
     speedtest-cli
     iperf
     nmap
-    rclone
-    # Misc
-    qrencode
   ];
 }
