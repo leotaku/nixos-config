@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "dd93c300bbd951776e546fdc251274cc8a184844",
-        "sha256": "0cq6ngagx68rb8w9cyimrl17khr0317m6mazx7fkvqay9qp1pd3y",
+        "rev": "5cdbfc9064498d9425d10ba2420b073f8e2c7035",
+        "sha256": "1n63987wxfxzwm2lwd1h327775890h7rfgkj2wba2ba1lssrx121",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/dd93c300bbd951776e546fdc251274cc8a184844.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/5cdbfc9064498d9425d10ba2420b073f8e2c7035.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "jupyterWith": {
@@ -65,10 +65,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ae6bdcc53584aaf20211ce1814bea97ece08a248",
-        "sha256": "0hjhznns1cxgl3hww2d5si6vhy36pnm53hms9h338v6r633dcy77",
+        "rev": "39247f8d04c04b3ee629a1f85aeedd582bf41cac",
+        "sha256": "1q7asvk73w7287d2ghgya2hnvn01szh65n8xczk4x2b169c5rfv0",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/ae6bdcc53584aaf20211ce1814bea97ece08a248.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/39247f8d04c04b3ee629a1f85aeedd582bf41cac.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-mozilla": {
