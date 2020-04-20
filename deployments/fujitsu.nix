@@ -111,9 +111,6 @@
     6667
     # Minecraft server
     25565
-    # Jellyfin server
-    8096
-    8920
   ];
 
   deployment.secrets = {
