@@ -2,18 +2,18 @@
 
 buildGoModule rec {
   name = "chroma-${version}";
-  version = "2020-03-15";
+  version = "2020-04-14";
 
   src = fetchFromGitHub {
     owner = "alecthomas";
     repo = "chroma";
-    rev = "937aba151436263946776b8aa640865dc46fe21a";
-    sha256 = "06aybhrl773s2qpm6w3gk4ir8ck7b4qacmynb27irmsa5dpi7q6f";
+    rev = "28041a86ba9fd97c2d034a631929405354f3f541";
+    sha256 = "13pnrar1yhpnlnvall1hbccyvsj9778damqhgavvaxx6m1n7kzia";
   };
 
   subPackages = [ "./cmd/chroma" ];
 
-  modSha256 = "1q0f79fzi6zrnmb1886sv4idv9mkyi5bdipp1ivb5xhw2ql4rw16";
+  modSha256 = "1241ms77iy38z59566kii70azd6dpihvv1kx4kjp52zz3ahvhzga";
 
   meta = with lib; {
     description = "nil";
