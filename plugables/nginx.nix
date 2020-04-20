@@ -106,16 +106,13 @@ in {
           };
         };
       };
-      "aria2.le0.gs" = {
+      "download.le0.gs" = {
         locations = {
-          "/" = let
-            webui-aria2 = pkgs.fetchFromGitHub {
-              repo = "webui-aria2";
-              owner = "ziahamza";
-              rev = "fb9d758d5cdc2be0867ee9502c44fd17560f5d24";
-              sha256 = "0law0yiqlhc48cmc2195x7ih27zpspav0njjpk79w0n7i5knjs6n";
-            };
-          in { root = webui-aria2 + "/docs/"; };
+          "/".root = pkgs.fetchzip {
+            url = "https://github.com/mayswind/AriaNg/releases/download/1.1.5/AriaNg-1.1.5.zip";
+            sha256 = "1j0899i35yz97f7q74vylg3bk9ipnr8842g80azs67xsf007lj4y";
+            stripRoot = false;
+          };
           "/jsonrpc" = {
             proxyPass = "http://localhost:6800/jsonrpc";
             extraConfig = ''
