@@ -164,6 +164,7 @@
 
   # Sound
   hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.configFile = ../../files/pulseaudio.pa;
 
   # Steam
   hardware.pulseaudio.support32Bit = true;
