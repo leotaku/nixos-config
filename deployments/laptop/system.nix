@@ -88,6 +88,7 @@
 
   # List programs that need nix wrappers
   programs.adb.enable = true;
+  programs.dconf.enable = true;
   programs.gnome-disks.enable = true;
   programs.light.enable = true;
   programs.slock.enable = true;
