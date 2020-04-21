@@ -9,10 +9,8 @@
   environment.systemPackages = with pkgs; [
     # Nix Tools
     nix-top
-    nix-du
-    # FIXME: nix-diff
+    nix-diff
     nix-index
-    nix-prefetch-scripts
     # New utils
     aria
     bvi
@@ -23,6 +21,7 @@
     gitAndTools.gitFull
     jq
     p7zip
+    poppler_utils
     qrencode
     rclone
     ripgrep
