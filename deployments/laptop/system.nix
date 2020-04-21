@@ -91,7 +91,11 @@
   programs.gnome-disks.enable = true;
   programs.light.enable = true;
   programs.slock.enable = true;
+
+  # Configure default shell
   programs.zsh.enable = true;
+  programs.zsh.enableGlobalCompInit = false;
+  programs.zsh.promptInit = '''';
 
   # List simple services that you want to enable:
   powerManagement.enable = true;
