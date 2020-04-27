@@ -215,13 +215,10 @@
   services.kdeconnect.enable = true;
   services.kdeconnect.indicator = true;
 
-  # Blueman applet
+
+  # Enable simple services
   services.blueman-applet.enable = true;
-
-  # NetworkManager applet
   services.network-manager-applet.enable = true;
-
-  # Battery icon
   services.cbatticon.enable = true;
 
   # Firefox settings
