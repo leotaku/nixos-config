@@ -22,16 +22,12 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.virtualbox.enableExtensionPack = false;
 
-  # Override default nixos stuff
+  # Booting
   boot.loader.timeout = 10;
-  boot.plymouth.enable = true;
+  boot.plymouth.enable = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
-
-  # Less verbose boot log
-  boot.consoleLogLevel = 3;
-  boot.kernelParams = [ "quiet" "udev.log_priority=3" ];
 
   # Select internationalisation properties.
   console = {
