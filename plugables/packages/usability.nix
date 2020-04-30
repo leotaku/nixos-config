@@ -11,6 +11,7 @@
     nix-top
     nix-diff
     nix-index
+    nix-prefetch-scripts
     # New utils
     aria
     bvi
