@@ -18,6 +18,7 @@
     ../plugables/picom.nix
     ../modules/qt5ct.nix
     ../modules/xss-lock.nix
+    ../modules/emacs.nix
   ];
 
   home.packages = with pkgs; [
@@ -209,6 +210,13 @@
   services.syncthing = {
     enable = true;
     tray = false;
+  };
+
+  # Emacs
+  services.emacs-server = {
+    enable = true;
+    package = pkgs.emacs-git-custom;
+    shell = pkgs.zsh + "/bin/zsh -i -c";
   };
 
   # Kdeconnect
