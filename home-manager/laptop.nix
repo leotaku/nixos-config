@@ -291,7 +291,7 @@
       "image/x-portable-graymap" = "sxiv.desktop";
       "image/x-tga" = "sxiv.desktop";
       "image/x-xpixmap" = "sxiv.desktop";
-      "inode/directory" = "Thunar-folder-handler.desktop";
+      "inode/directory" = "thunar.desktop";
       "text/english" = "emacs.desktop";
       "text/html" = "firefox.desktop";
       "text/plain" = "emacs.desktop";
