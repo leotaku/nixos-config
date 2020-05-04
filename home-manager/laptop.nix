@@ -226,8 +226,8 @@
 
   # Enable simple services
   services.blueman-applet.enable = true;
-  services.network-manager-applet.enable = true;
   services.cbatticon.enable = true;
+  services.network-manager-applet.enable = true;
 
   # Firefox settings
   programs.firefox = {
