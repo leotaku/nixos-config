@@ -24,6 +24,7 @@
   home.packages = with pkgs; [
     # Required
     xcape
+    xdo
     xorg.xmodmap
     xsel
     z-lua
