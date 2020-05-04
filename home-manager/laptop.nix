@@ -184,8 +184,8 @@
   # GTK settings
   gtk = {
     enable = true;
-    theme.package = pkgs.arc-theme;
-    theme.name = "Arc";
+    theme.package = pkgs.adapta-gtk-theme;
+    theme.name = "Adapta-Eta";
     iconTheme.package = pkgs.papirus-icon-theme;
     iconTheme.name = "Papirus-Dark";
     gtk2 = {
