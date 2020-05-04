@@ -105,7 +105,16 @@
   services.mpd = {
     enable = true;
     musicDirectory = config.home.homeDirectory + "/sync/music";
+    extraConfig = ''
+      audio_output {
+          type         "pulse"
+          name         "Audio"
+          always_on    "yes"
+          mixer_type   "software"
+      }
+    '';
   };
+
   services.mpdris2 = {
     enable = true;
     notifications = true;
