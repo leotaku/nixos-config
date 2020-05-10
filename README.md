@@ -1,4 +1,6 @@
 # nixos-config
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fleotaku%2Fnixos-config.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fleotaku%2Fnixos-config?ref=badge_shield)
+
 
 A git repository for my Nix configurations
 
@@ -26,3 +28,7 @@ In the future it might be possible to also perform CI on full systems.
 
 If you are interested in any particular aspect of this repository,
 don't hesitate to open an GitHub issue.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fleotaku%2Fnixos-config.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fleotaku%2Fnixos-config?ref=badge_large)
