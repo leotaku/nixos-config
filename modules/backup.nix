@@ -54,7 +54,7 @@ in {
     user = mkOption {
       type = types.str;
       default = "root";
-      description = "As which user the backup should run.";
+      description = "User account under which the backup runs.";
     };
 
     extraArgs = mkOption {
@@ -66,6 +66,7 @@ in {
     paths = mkOption {
       type = types.listOf backupPath;
       default = [ ];
+      description = "List of paths to back up.";
     };
   };
 
