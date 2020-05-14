@@ -17,7 +17,7 @@ let
     epkgs.jupyter
     epkgs.vterm
     epkgs.zmq
-    pkgs.notmuch
+    pkgs.notmuch.emacs
   ]);
   emacs-with-paths = pkgs.symlinkJoin {
     name = builtins.replaceStrings [ "emacs-with-packages" ] [ "emacs-custom" ]
