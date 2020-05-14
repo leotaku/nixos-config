@@ -33,7 +33,7 @@
     ncdu
     htop
     libqalculate
-    lynx
+    w3m
     rlwrap
     # Hardware
     hwinfo
