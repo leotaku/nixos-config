@@ -21,7 +21,6 @@
     fd
     gitAndTools.gitFull
     jq
-    p7zip
     poppler_utils
     qrencode
     rclone

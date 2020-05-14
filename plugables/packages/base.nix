@@ -16,6 +16,7 @@
     bc
     unzip
     lsof
+    zip
     # Networking
     netcat-gnu
     # New utils
