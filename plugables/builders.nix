@@ -6,10 +6,13 @@
   fleet = {
     enable = true;
     machines = {
-      # FIXME: Why does local remote not work?
-      #"nixos-laptop.local".system = "x86_64-linux";
-      "nixos-fujitsu.local".system = "x86_64-linux";
-      "nixos-rpi.local".system = "aarch64-linux";
+      "nixos-laptop".system = "x86_64-linux";
+      "nixos-rpi".system = "aarch64-linux";
+      "nixos-fujitsu" = {
+        system = "x86_64-linux";
+        speedFactor = 8;
+        supportedFeatures = [ "big-parallel" ];
+      };
     };
     base = "/home/leo/.ssh";
   };
@@ -18,6 +21,4 @@
     Host *.local
     StrictHostKeyChecking no
   '';
-
-  nix.extraOptions = "builders-use-substitutes = true";
 }
