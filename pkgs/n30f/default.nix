@@ -20,5 +20,5 @@ stdenv.mkDerivation rec {
     license = licenses.wtfpl;
     maintainers = with maintainers; [ ];
     platforms = platforms.all;
-  }
+  };
 }
