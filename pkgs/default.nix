@@ -9,8 +9,8 @@ with self; {
   gitbatch = callPackage ./gitbatch/default.nix { };
   n30f = callPackage ./n30f/default.nix { };
   sddm-themes = callPackage ./sddm/default.nix { };
-  zplugin = callPackage ./zplugin/default.nix { };
-  zplugin-install = callPackage ./zplugin/install.nix { };
+  zinit = callPackage ./zinit/default.nix { };
+  zinit-install = callPackage ./zinit/install.nix { };
 
   # Customized packages
   ncmpcpp = super.ncmpcpp.override {

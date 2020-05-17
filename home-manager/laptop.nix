@@ -28,7 +28,7 @@
     xorg.xmodmap
     xsel
     z-lua
-    zplugin-install
+    zinit-install
     # Text editors
     emacs-git-custom
     vscode-with-extensions

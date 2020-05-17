@@ -1,7 +1,7 @@
 { stdenv, fetchFromGitHub, zsh, gnumake, ncurses, autoconf, gcc }:
 
 stdenv.mkDerivation rec {
-  name = "zplugin-${version}";
+  name = "zinit-${version}";
   version = "2020-05-13";
 
   src = fetchFromGitHub {

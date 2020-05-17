@@ -1,5 +1,5 @@
 { writeShellScriptBin, callPackage }:
 
-writeShellScriptBin "zplugin-install" ''
+writeShellScriptBin "zinit-install" ''
   echo "${callPackage ./default.nix {}}"
 ''
