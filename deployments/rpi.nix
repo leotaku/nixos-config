@@ -2,12 +2,12 @@
 
   imports = [
     ../hardware/raspberry3.nix
-    ../plugables/avahi.nix
+    ../plugables/networking/server.nix
     ../plugables/builders.nix
     ../plugables/packages/base.nix
   ];
 
-  # NOTE: removing this causes avahi to fail
+  # NOTE: removing this causes mDNS to fail
   networking.hostName = "nixos-rpi";
 
   # Nixpkgs configurations

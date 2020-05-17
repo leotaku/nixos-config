@@ -7,7 +7,6 @@
 {
   imports = [
     # Import plugable configurations
-    ../../plugables/avahi.nix
     ../../plugables/networking/laptop.nix
     ../../plugables/variables.nix
     ../../plugables/xkeyboard/module.nix

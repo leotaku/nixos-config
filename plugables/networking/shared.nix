@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
+  imports = [ ./mdns.nix ];
+
   # Use trusted DNS server
   # 1: https://snopyta.org/service/dns/index.html
   # 2: https://mullvad.net/de/help/dns-leaks

@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
+  imports = [ ../modules/wg-quicker.nix ];
+
   # Aria2 server
   services.aria2 = {
     enable = true;
@@ -49,5 +51,15 @@
     requires = [ "network.target" ];
     requiredBy = [ "aria2.service" ];
     before = [ "aria2.service" ];
+  };
+
+  # Enable Wireguard VPN
+  services.wg-quicker = {
+    setups = {
+      "vpn" = {
+        enable = true;
+        path = builtins.toString ../private/mullvad/mullvad-ch4.conf;
+      };
+    };
   };
 }

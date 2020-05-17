@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }: {
   imports = with (import ../sources/nix/sources.nix); [
     ../hardware/fujitsu.nix
-    ../plugables/avahi.nix
     ../plugables/builders.nix
     ../plugables/networking/server.nix
     ../plugables/nginx.nix
@@ -12,7 +11,7 @@
     (hercules-ci-agent + "/module.nix")
   ];
 
-  # NOTE: Removing this causes avahi to fail
+  # NOTE: Removing this causes mDNS to fail
   networking.hostName = "nixos-fujitsu";
 
   # Nixpkgs configurations
