@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, cairo }:
+{ stdenv, fetchFromGitHub, cairo, lib }:
 
 stdenv.mkDerivation rec {
   name = "n30f";
@@ -13,4 +13,12 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ cairo ];
   makeFlags = [ "DESTDIR=$(out)" "PREFIX=" ];
+
+  meta = with lib; {
+    description = "Display a png in a borderless and transparent non-wm-managed window";
+    homepage = "https://github.com/sdhand/n30f";
+    license = licenses.wtfpl;
+    maintainers = with maintainers; [ ];
+    platforms = platforms.all;
+  }
 }

@@ -1,4 +1,4 @@
-{ stdenv, fetchzip }:
+{ stdenv, fetchFromGitHub, lib }:
 
 stdenv.mkDerivation rec {
   name = "alegreya-${version}";
@@ -17,4 +17,11 @@ stdenv.mkDerivation rec {
     cp -r fonts/ttf $out/share/fonts/truetype
   '';
 
+  meta = with lib; {
+    description = "Serif family, part of the Alegreya super family";
+    homepage = "https://github.com/huertatipografica/Alegreya";
+    license = licenses.ofl;
+    maintainers = with maintainers; [ ];
+    platforms = platforms.all;
+  };
 }

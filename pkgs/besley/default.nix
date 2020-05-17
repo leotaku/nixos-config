@@ -1,4 +1,4 @@
-{ stdenv, fetchzip }:
+{ stdenv, fetchFromGitHub, lib }:
 
 stdenv.mkDerivation rec {
   name = "besley-${version}";
@@ -18,4 +18,11 @@ stdenv.mkDerivation rec {
     cp Finished\ otf/*.otf $out/share/fonts/opentype
   '';
 
+  meta = with lib; {
+    description = "An original font created by indestructible type*";
+    homepage = "https://github.com/indestructible-type/Besley";
+    license = licenses.ofl;
+    maintainers = with maintainers; [ ];
+    platforms = platforms.all;
+  };
 }

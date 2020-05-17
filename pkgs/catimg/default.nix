@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, imagemagick, cmake }:
+{ stdenv, fetchFromGitHub, imagemagick, cmake, lib }:
 
 stdenv.mkDerivation rec {
   name = "catimg";
@@ -15,4 +15,12 @@ stdenv.mkDerivation rec {
   buildInputs = [ cmake ];
 
   buildPhase = "cmake .";
+
+  meta = with lib; {
+    description = "Insanely fast image printing in your terminal";
+    homepage = "https://github.com/posva/catimg";
+    license = licenses.mit;
+    maintainers = with maintainers; [ ];
+    platforms = platforms.linux ++ platforms.darwin;
+  };
 }

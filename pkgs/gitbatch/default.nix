@@ -1,4 +1,4 @@
-{ buildGoModule, fetchFromGitHub }:
+{ buildGoModule, fetchFromGitHub, lib }:
 
 buildGoModule rec {
   name = "gitbatch-${version}";
@@ -12,4 +12,12 @@ buildGoModule rec {
   };
 
   vendorSha256 = "1i51lgzrnayxkyn2fzapngrcpbcr5bzzk4fsl4hc00c3csxbxa4q";
+
+  meta = with lib; {
+    description = "Manage your Git repositories in one place";
+    homepage = "https://github.com/isacikgoz/gitbatch";
+    license = licenses.mit;
+    maintainers = with maintainers; [ ];
+    platforms = platforms.linux ++ platforms.darwin;
+  };
 }

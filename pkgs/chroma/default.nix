@@ -16,8 +16,8 @@ buildGoModule rec {
   vendorSha256 = "16cnc4scgkx8jan81ymha2q1kidm6hzsnip5mmgbxpqcc2h7hv9m";
 
   meta = with lib; {
-    description = "nil";
-    homepage = "https://github.com/alecthomas/chroma/";
+    description = "A general purpose syntax highlighter in pure Go";
+    homepage = "https://github.com/alecthomas/chroma";
     license = licenses.mit;
     maintainers = with maintainers; [ ];
     platforms = platforms.linux ++ platforms.darwin;

@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, zsh, gnumake, ncurses, autoconf, gcc }:
+{ stdenv, fetchFromGitHub, zsh, gnumake, ncurses, autoconf, gcc, lib }:
 
 stdenv.mkDerivation rec {
   name = "zinit-${version}";
@@ -25,4 +25,12 @@ stdenv.mkDerivation rec {
     cd ..
     cp -r . $out
   '';
+
+  meta = with lib; {
+    description = "Ultra-flexible and fast Zsh plugin manager";
+    homepage = "https://github.com/zdharma/zinit";
+    license = licenses.mit;
+    maintainers = with maintainers; [ ];
+    platforms = platforms.linux ++ platforms.darwin;
+  };
 }
