@@ -1,7 +1,7 @@
 { stdenv, fetchFromGitHub, imagemagick, cmake, lib }:
 
 stdenv.mkDerivation rec {
-  name = "catimg";
+  name = "catimg-${version}";
   version = "2019-06-30";
 
   src = fetchFromGitHub {

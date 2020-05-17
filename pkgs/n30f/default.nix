@@ -1,7 +1,7 @@
 { stdenv, fetchFromGitHub, cairo, lib }:
 
 stdenv.mkDerivation rec {
-  name = "n30f";
+  name = "n30f-${version}";
   version = "2020-04-11";
 
   src = fetchFromGitHub {
