@@ -6,7 +6,7 @@
   # Enable NetworkManager + iwd
   networking.networkmanager = {
     enable = true;
-    wifi.backend = "iwd";
+    wifi.backend = "wpa_supplicant";
     dns = "systemd-resolved";
   };
 
