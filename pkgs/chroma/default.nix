@@ -13,7 +13,7 @@ buildGoModule rec {
 
   subPackages = [ "./cmd/chroma" ];
 
-  modSha256 = "1241ms77iy38z59566kii70azd6dpihvv1kx4kjp52zz3ahvhzga";
+  vendorSha256 = "16cnc4scgkx8jan81ymha2q1kidm6hzsnip5mmgbxpqcc2h7hv9m";
 
   meta = with lib; {
     description = "nil";
