@@ -1,15 +1,21 @@
 { stdenv, fetchzip }:
 
-let
-  version = "1.0";
-in fetchzip {
+stdenv.mkDerivation rec {
   name = "besley-${version}";
-  url = "https://github.com/indestructible-type/Besley/archive/${version}.zip";
+  version = "git";
 
-  postFetch = ''
-    mkdir -p $out/share/fonts
-    unzip -j $downloadedFile \*.otf -d $out/share/fonts/opentype
+  src = fetchFromGitHub {
+    owner = "indestructible-type";
+    repo = "Besley";
+    rev = "ccd479844734236911a419cbd40e3f65ecddc71a";
+    sha256 = "0z7fkkr37lysmr8cr9jm598j9lzbkyryblwhnl9ni62byjwhhmx8";
+  };
+
+  installPhase = ''
+    mkdir -p $out/share/fonts/opentype
+    mkdir -p $out/share/fonts/truetype
+    cp Finished\ TTF/*.ttf $out/share/fonts/truetype
+    cp Finished\ otf/*.otf $out/share/fonts/opentype
   '';
 
-  sha256="01b2kks59x07jxkgidnj1wa1b22v6nvxs5yfg5n22j5nzzgzkkrr";
 }

@@ -1,16 +1,20 @@
 { stdenv, fetchzip }:
 
-let
-  version = "2.008";
-in fetchzip {
+stdenv.mkDerivation rec {
   name = "alegreya-${version}";
-  url = "https://github.com/huertatipografica/Alegreya/archive/v${version}.zip";
+  version = "git";
 
-  postFetch = ''
+  src = fetchFromGitHub {
+    owner = "huertatipografica";
+    repo = "Alegreya";
+    rev = "254c16b651af6926154b9af159c7af8eb908a6ea";
+    sha256 = "1m5xr95y6qxxv2ryvhfck39d6q5hxsr51f530fshg53x48l2mpwr";
+  };
+
+  installPhase = ''
     mkdir -p $out/share/fonts
-    unzip -j $downloadedFile Alegreya-2.008/fonts/otf/\*.otf -d $out/share/fonts/opentype
-    unzip -j $downloadedFile Alegreya-2.008/fonts/ttf/\*.ttf -d $out/share/fonts/truetype
+    cp -r fonts/otf $out/share/fonts/opentype
+    cp -r fonts/ttf $out/share/fonts/truetype
   '';
 
-  sha256="058s3r3bgrx1ddhjqlq499qiznq9qmxlvfq9jrh9l40pngpf18ar";
 }
