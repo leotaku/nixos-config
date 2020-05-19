@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "9ec9f004e1e5b390cdb4a6949bc852d468b30f48",
-        "sha256": "13rmljfqwx7inayvls5fpvrxis4l6kvpamr0ky0yq10i4qlkpimn",
+        "rev": "a43e7112e58da89171d6ccdb2a0dece5cfd02480",
+        "sha256": "05pr1scvaib9jmlcphk5550wydp8mqb9rwah7l3jmq2w3nzc6gmg",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/9ec9f004e1e5b390cdb4a6949bc852d468b30f48.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/a43e7112e58da89171d6ccdb2a0dece5cfd02480.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "jupyterWith": {
@@ -41,10 +41,10 @@
         "homepage": null,
         "owner": "DBCDK",
         "repo": "morph",
-        "rev": "c66dbfc381a1996368ff4f5ba620f14ebb4301e2",
-        "sha256": "0jilfdi89sygwjyg5vfqmh1gp25qy1g9r0yalcywyjnmdcva43pp",
+        "rev": "8f68b52138300dd4d4e00e5dee1299a4668dbca2",
+        "sha256": "0g6jzhw3441pkv8hfj8b4jkqv6whbjhdw5rr16ypid17wzzn7z3r",
         "type": "tarball",
-        "url": "https://github.com/DBCDK/morph/archive/c66dbfc381a1996368ff4f5ba620f14ebb4301e2.tar.gz",
+        "url": "https://github.com/DBCDK/morph/archive/8f68b52138300dd4d4e00e5dee1299a4668dbca2.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nix-visualize": {
