@@ -6,7 +6,6 @@ with self; {
   besley = callPackage ./besley/default.nix { };
   catimg = callPackage ./catimg/default.nix { };
   chroma = callPackage ./chroma/default.nix { };
-  gitbatch = callPackage ./gitbatch/default.nix { };
   n30f = callPackage ./n30f/default.nix { };
   sddm-themes = callPackage ./sddm/default.nix { };
   zinit = callPackage ./zinit/default.nix { };
