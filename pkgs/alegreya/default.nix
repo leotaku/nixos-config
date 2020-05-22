@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   name = "alegreya-${version}";
-  version = "git";
+  version = "2018-08-08";
 
   src = fetchFromGitHub {
     owner = "huertatipografica";
