@@ -88,9 +88,9 @@
   };
 
   # Enable simple services
+  services.haveged.enable = true;
   services.jellyfin.enable = true;
   services.netdata.enable = true;
-  services.haveged.enable = true;
 
   # Udisks depends on gtk+ which I don't want on my headless servers
   services.udisks2.enable = false;

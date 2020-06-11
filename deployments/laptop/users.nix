@@ -10,16 +10,16 @@
     isNormalUser = true;
     uid = 1000;
     extraGroups = [
-      "wheel"
-      "networkmanager"
-      "audio"
-      "video"
-      "vboxusers"
-      "transmission"
-      "wireshark"
-      "docker"
       "adbusers"
+      "audio"
+      "docker"
       "libvirtd"
+      "networkmanager"
+      "transmission"
+      "vboxusers"
+      "video"
+      "wireshark"
+      "wheel"
     ];
     shell = pkgs.zsh;
   };
