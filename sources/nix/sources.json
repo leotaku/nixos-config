@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "a43e7112e58da89171d6ccdb2a0dece5cfd02480",
-        "sha256": "05pr1scvaib9jmlcphk5550wydp8mqb9rwah7l3jmq2w3nzc6gmg",
+        "rev": "02c1f8d416d55d8bc8d4de62f65f62fef40e5e80",
+        "sha256": "008yzk6zc2cbl3q6hbm0gk8zq7fymxrsgpb6wmvfssv9nzq09mix",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/a43e7112e58da89171d6ccdb2a0dece5cfd02480.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/02c1f8d416d55d8bc8d4de62f65f62fef40e5e80.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "jupyterWith": {
@@ -29,10 +29,10 @@
         "homepage": "",
         "owner": "tweag",
         "repo": "jupyterWith",
-        "rev": "dc8bb19f3f850c903fe481cbc7efc0982e6afd28",
-        "sha256": "0ar00vrf1h2fiyjb0rhhmfqmwpgqg3j0mhg51yyhqrvzpgdy28k8",
+        "rev": "b0b4e55da09973a57b82200789816f050a970f3e",
+        "sha256": "1z11lnm3s2q4v2k3cf397aifczjy9dn6hn0aq7pc60mkb6aqg7n8",
         "type": "tarball",
-        "url": "https://github.com/tweag/jupyterWith/archive/dc8bb19f3f850c903fe481cbc7efc0982e6afd28.tar.gz",
+        "url": "https://github.com/tweag/jupyterWith/archive/b0b4e55da09973a57b82200789816f050a970f3e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "morph": {
@@ -41,10 +41,10 @@
         "homepage": null,
         "owner": "DBCDK",
         "repo": "morph",
-        "rev": "8f68b52138300dd4d4e00e5dee1299a4668dbca2",
-        "sha256": "0g6jzhw3441pkv8hfj8b4jkqv6whbjhdw5rr16ypid17wzzn7z3r",
+        "rev": "bc67f97df6df1c997f8d02105e4e2b2c33a1195a",
+        "sha256": "1rir6kwpvma5wzb92ja68p78w4nhmvispgbx6x6bsxwvab09q4ch",
         "type": "tarball",
-        "url": "https://github.com/DBCDK/morph/archive/8f68b52138300dd4d4e00e5dee1299a4668dbca2.tar.gz",
+        "url": "https://github.com/DBCDK/morph/archive/bc67f97df6df1c997f8d02105e4e2b2c33a1195a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nix-visualize": {
@@ -65,10 +65,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b47873026c7e356a340d0e1de7789d4e8428ac66",
-        "sha256": "0wlhlmghfdvqqw2k7nyiiz4p9762aqbb2q88p6sswmlv499x5hb3",
+        "rev": "029a5de08390bb03c3f44230b064fd1850c6658a",
+        "sha256": "03fjkzhrs2avcvdabgm7a65rnyjaqbqdnv4q86qyjkkwg64g5m8x",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/b47873026c7e356a340d0e1de7789d4e8428ac66.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/029a5de08390bb03c3f44230b064fd1850c6658a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-mozilla": {
