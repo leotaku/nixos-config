@@ -12,7 +12,7 @@
     nix-diff
     nix-index
     nix-prefetch-scripts
-    # New utils
+    # Utils
     aria
     bvi
     ffsend

@@ -47,24 +47,12 @@
   networking.nat.externalInterface = "wlp3s0";
 
   environment.systemPackages = with pkgs; [
-    # Laptop
+    # Laptop utilities
     acpi
-    powertop
     glxinfo
+    powertop
     tpacpi-bat
     virt-manager
-    # Editors
-    micro
-    kakoune
-    # Text-mode utils
-    weechat
-    # Files
-    imagemagick
-    ffmpeg-full
-    pandoc
-    # Shells
-    zsh
-    fish
   ];
 
   # Global environment

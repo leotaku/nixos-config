@@ -39,25 +39,17 @@
     pinta
     rofi
     rxvt-unicode-custom
-    screenkey
-    simplescreenrecorder
     sxiv
     syncthing-gtk
     vlc
     xfce.thunar
     # Stupid files
-    calibre
     libreoffice-fresh
     okular
     zathura
     # Terminal
-    asciinema
-    chroma
     direnv
-    exa
-    fzf
     gitAndTools.hub
-    pulsemixer
     weechat
     # Fonts
     fira
