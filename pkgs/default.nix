@@ -48,7 +48,6 @@ with self; {
 
   # External
   mozilla = import sources.nixpkgs-mozilla self super;
-  pboy = import sources.pboy;
   morph = callPackage (sources.morph + "/nix-packaging") { };
   haskell = super.haskell // {
     compiler = callPackage sources.old-ghc-nix { } // super.haskell.compiler;

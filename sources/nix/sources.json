@@ -23,18 +23,6 @@
         "url": "https://github.com/rycee/home-manager/archive/02c1f8d416d55d8bc8d4de62f65f62fef40e5e80.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "jupyterWith": {
-        "branch": "master",
-        "description": "declarative and reproducible Jupyter environments - powered by Nix",
-        "homepage": "",
-        "owner": "tweag",
-        "repo": "jupyterWith",
-        "rev": "b0b4e55da09973a57b82200789816f050a970f3e",
-        "sha256": "1z11lnm3s2q4v2k3cf397aifczjy9dn6hn0aq7pc60mkb6aqg7n8",
-        "type": "tarball",
-        "url": "https://github.com/tweag/jupyterWith/archive/b0b4e55da09973a57b82200789816f050a970f3e.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "morph": {
         "branch": "master",
         "description": "NixOS deployment tool",
@@ -45,18 +33,6 @@
         "sha256": "1rir6kwpvma5wzb92ja68p78w4nhmvispgbx6x6bsxwvab09q4ch",
         "type": "tarball",
         "url": "https://github.com/DBCDK/morph/archive/bc67f97df6df1c997f8d02105e4e2b2c33a1195a.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "nix-visualize": {
-        "branch": "master",
-        "description": "Uses the Nix package manager to visualize the dependencies of a given package",
-        "homepage": null,
-        "owner": "craigmbooth",
-        "repo": "nix-visualize",
-        "rev": "e9e3411fa16bbd28bca47b3d22ee6743f4abfe02",
-        "sha256": "13j0ad8rnjhnh8ndmjl1bcsm4mqs0ahw2qjbnhk2s6d1z9qmzgk1",
-        "type": "tarball",
-        "url": "https://github.com/craigmbooth/nix-visualize/archive/e9e3411fa16bbd28bca47b3d22ee6743f4abfe02.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-unstable": {
@@ -93,18 +69,6 @@
         "sha256": "1w3d5dm9v7ms1s7xp39wncgwvh3kclp2bkdqa2kxn3x5dyayfm61",
         "type": "tarball",
         "url": "https://github.com/mpickering/old-ghc-nix/archive/674d459c7376af6641c94e91cd7d36214661b481.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "pboy": {
-        "branch": "master",
-        "description": "a small .pdf management tool with a command-line UI",
-        "homepage": "",
-        "owner": "2mol",
-        "repo": "pboy",
-        "rev": "887bdbe666ab87ed92f9046697422d9bdec7d1ae",
-        "sha256": "04kisv6p30w8lky78jzc31pmhm8ifpbm9z9zr97zvlz50b0194j9",
-        "type": "tarball",
-        "url": "https://github.com/2mol/pboy/archive/887bdbe666ab87ed92f9046697422d9bdec7d1ae.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "update-nix-fetchgit": {
