@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "02c1f8d416d55d8bc8d4de62f65f62fef40e5e80",
-        "sha256": "008yzk6zc2cbl3q6hbm0gk8zq7fymxrsgpb6wmvfssv9nzq09mix",
+        "rev": "1f174f668109765183f96b43d56ee24ab02c1c05",
+        "sha256": "06ba3nxkzva9q6dxzymyy62x75kf1qf7y8x711jwjravgda14bsq",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/02c1f8d416d55d8bc8d4de62f65f62fef40e5e80.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/1f174f668109765183f96b43d56ee24ab02c1c05.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "morph": {
@@ -41,10 +41,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "029a5de08390bb03c3f44230b064fd1850c6658a",
-        "sha256": "03fjkzhrs2avcvdabgm7a65rnyjaqbqdnv4q86qyjkkwg64g5m8x",
+        "rev": "9480bae337095fd24f61380bce3174fdfe926a00",
+        "sha256": "1n5bnnral5w60kf68d9jvs7px1w3hx53d8pyg9yxkf1s2n3791j2",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/029a5de08390bb03c3f44230b064fd1850c6658a.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/9480bae337095fd24f61380bce3174fdfe926a00.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-mozilla": {
@@ -77,10 +77,10 @@
         "homepage": null,
         "owner": "expipiplus1",
         "repo": "update-nix-fetchgit",
-        "rev": "3a606ea48ac1a761ee48e4d3c842501af4a7c66a",
-        "sha256": "0mminxh8sqqnzkscs1jpwfrk82aimy4081xigam2brbs6kj8zhpb",
+        "rev": "c4f1c4f4a4c8906056e1cb64a6f6636b10bd5481",
+        "sha256": "0w2qhnjzv234q76sngc8r6c83ac902pkw72kb1bww16zmf09wiqb",
         "type": "tarball",
-        "url": "https://github.com/expipiplus1/update-nix-fetchgit/archive/3a606ea48ac1a761ee48e4d3c842501af4a7c66a.tar.gz",
+        "url": "https://github.com/expipiplus1/update-nix-fetchgit/archive/c4f1c4f4a4c8906056e1cb64a6f6636b10bd5481.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
