@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-dir="$(dirname $(realpath $0))"
-linkdir="${dir}/links"
-
-realpath "${linkdir}/${1}"
