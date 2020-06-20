@@ -51,7 +51,7 @@
   # TinyRSS rss service
   services.tt-rss = {
     enable = true;
-    # NOTE: Maybe switch to http-auth?
+    # TODO: Switch to http-auth only
     singleUserMode = false;
     auth.autoCreate = false;
     registration.enable = false;
