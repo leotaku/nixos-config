@@ -1,9 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }:
 
+{
   imports = [
     ../hardware/raspberry3.nix
-    ../plugables/networking/server.nix
     ../plugables/builders.nix
+    ../plugables/networking/server.nix
     ../plugables/packages/base.nix
   ];
 

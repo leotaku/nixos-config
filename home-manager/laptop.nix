@@ -14,11 +14,11 @@
 
   # Modules and pluggable configurations
   imports = [
-    ../plugables/email/home-manager.nix
-    ../plugables/picom.nix
+    ../modules/emacs.nix
     ../modules/qt5ct.nix
     ../modules/xss-lock.nix
-    ../modules/emacs.nix
+    ../plugables/email/home-manager.nix
+    ../plugables/picom.nix
   ];
 
   home.packages = with pkgs; [

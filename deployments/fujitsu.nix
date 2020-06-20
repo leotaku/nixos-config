@@ -1,4 +1,6 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }:
+
+{
   imports = with (import ../sources/nix/sources.nix); [
     ../hardware/fujitsu.nix
     ../plugables/builders.nix
