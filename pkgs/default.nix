@@ -34,11 +34,6 @@ with self; {
   hunspell-custom = hunspellWithDicts
     (lib.mapAttrsToList (n: v: if (lib.isDerivation v) then v else null)
       hunspellDicts);
-  rxvt-unicode-custom = rxvt-unicode.override {
-    configure = { availablePlugins, ... }: {
-      plugins = with availablePlugins; [ vtwheel perls ];
-    };
-  };
 
   # Emacs
   emacs-git = callPackage ./emacs/emacs-git.nix { };

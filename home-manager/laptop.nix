@@ -40,7 +40,7 @@
     pavucontrol
     pinta
     rofi
-    rxvt-unicode-custom
+    rxvt-unicode
     sxiv
     syncthing-gtk
     vlc

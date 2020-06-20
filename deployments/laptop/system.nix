@@ -124,7 +124,7 @@
   # URxvt daemon
   services.urxvtd = {
     enable = true;
-    package = pkgs.rxvt-unicode-custom;
+    package = pkgs.rxvt-unicode;
   };
 
   # Basic xdg support
