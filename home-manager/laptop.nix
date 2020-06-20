@@ -66,9 +66,6 @@
     joypixels
   ];
 
-  # Enable automatic indexing of info files
-  programs.info.enable = true;
-
   # Make fonts work (fonts still don't work)
   fonts.fontconfig.enable = true;
 
@@ -82,7 +79,6 @@
   home.keyboard = null;
 
   # Lorri + direnv integration
-  services.lorri.enable = true;
   xdg.configFile."direnv/direnvrc".text = ''
     use_nix () {
         eval "$(lorri direnv)"
@@ -93,25 +89,6 @@
   services.redshift = {
     enable = true;
     provider = "geoclue2";
-  };
-
-  # MPD
-  services.mpd = {
-    enable = true;
-    musicDirectory = config.home.homeDirectory + "/sync/music";
-    extraConfig = ''
-      audio_output {
-          type         "pulse"
-          name         "Audio"
-          always_on    "yes"
-          mixer_type   "software"
-      }
-    '';
-  };
-
-  services.mpdris2 = {
-    enable = true;
-    notifications = true;
   };
 
   # X settings
@@ -126,8 +103,6 @@
 
     # Ad-hoc X fixes
     initExtra = with pkgs; with xorg; ''
-      systemctl --user import-environment
-      (sleep 1; systemctl --user restart kdeconnect-indicator.service) &
       xcape -e 'ISO_Level3_Shift=Escape'
       xcape -e 'Alt_L=Control_L|G'
       xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Accel Speed" 0.21
@@ -210,12 +185,6 @@
   # Systemd settings
   systemd.user.startServices = true;
 
-  # Syncthing client
-  services.syncthing = {
-    enable = true;
-    tray = false;
-  };
-
   # Emacs
   services.emacs-server = {
     enable = true;
@@ -223,15 +192,12 @@
     shell = pkgs.zsh + "/bin/zsh -i -c";
   };
 
-  # Kdeconnect
-  services.kdeconnect.enable = true;
-  services.kdeconnect.indicator = true;
-
-
-  # Enable simple services
+  # Enable simple programs and services
+  programs.info.enable = true;
   services.blueman-applet.enable = true;
   services.cbatticon.enable = true;
   services.network-manager-applet.enable = true;
+  services.syncthing.enable = true;
 
   # Firefox settings
   programs.firefox = {
