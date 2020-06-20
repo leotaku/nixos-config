@@ -9,14 +9,14 @@ let
       name = "config-${name}";
       executable = false;
       destination = "/${name}.conf";
-      text = lib.fileContents path;
+      text = fileContents path;
     };
   genFile = name: path: (genDir name path) + "/${name}.conf";
   genService = name: submodule: {
     description = "${name} wg-quick WireGuard Tunnel";
     requires = [ "network-online.target" ];
     after = [ "network.target" "network-online.target" ];
-    wantedBy = lib.mkIf submodule.enable [ "default.target" ];
+    wantedBy = mkIf submodule.enable [ "default.target" ];
     environment.DEVICE = name;
     path = [ pkgs.kmod pkgs.wireguard-tools ];
 
@@ -43,27 +43,31 @@ in {
   options.services.wg-quicker = {
     setups = mkOption {
       description = "Attrset of Wireguard configurations.";
-      default = {};
-      type = with types; attrsOf (submodule {
-        options = {
-          enable = lib.mkOption {
-            type = bool;
-            default = true;
-            description = "Enable this Wireguard configuration.";
+      default = { };
+      type = with types;
+        attrsOf (submodule {
+          options = {
+            enable = mkOption {
+              type = bool;
+              default = true;
+              description = "Enable this Wireguard configuration.";
+            };
+            path = mkOption {
+              type = str;
+              description = "Path to the Wireguard configuration.";
+            };
           };
-          path = lib.mkOption {
-            type = str;
-            description = "Path to the Wireguard configuration.";
-          };
-        };
-      });
+        });
     };
   };
 
   ### Implementation
-  config = lib.mkIf (cfg.setups != {}) {
+  config = mkIf (cfg.setups != { }) {
 
-    boot.extraModulePackages = [ kernel.wireguard ];
+    # Only add the Wireguard kernel package on Linux versions where it
+    # is not already built-in.
+    boot.extraModulePackages =
+      if kernel.wireguard == null then [ ] else [ kernel.wireguard ];
     boot.kernelModules = [ "wireguard" ];
 
     environment.systemPackages = [ pkgs.wireguard-tools ];
