@@ -179,6 +179,7 @@
     userEmail = "leo.gaskin@brg-feldkirchen.at";
     extraConfig = {
       github.user = "leotaku";
+      diff.algorithm = "histogram";
     };
   };
 
