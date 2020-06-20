@@ -4,9 +4,9 @@
   imports = [ ./mdns.nix ];
 
   # Use trusted DNS server
-  # 1: https://snopyta.org/service/dns/index.html
-  # 2: https://mullvad.net/de/help/dns-leaks
-  networking.nameservers = [ "95.216.24.230" "193.138.218.74" ];
+  # 1: https://mullvad.net/de/help/dns-leaks/
+  # 0: https://developers.cloudflare.com/1.1.1.1/
+  networking.nameservers = [ "193.138.218.74" ];
 
   # Use resolved instead of dhcpcd, as it respects resolv.conf
   # TODO: Maybe enable DoT when it becomes safe
@@ -14,7 +14,7 @@
   networking.dhcpcd.enable = false;
   services.resolved = {
     enable = true;
-    fallbackDns = [ "0.0.0.0" ];
+    fallbackDns = [ "1.1.1.1" ];
     dnssec = "allow-downgrade";
   };
 
