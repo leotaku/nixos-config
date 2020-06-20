@@ -25,4 +25,11 @@
         super.wireguard-tools.override { openresolv = self.systemd; };
     })
   ];
+
+  # Fix systemd-networkd-wait-online issue
+  systemd.services.systemd-networkd-wait-online.serviceConfig.ExecStart =
+    lib.mkIf config.networking.useNetworkd (lib.mkForce [
+      "" # clear old command
+      "${config.systemd.package}/lib/systemd/systemd-networkd-wait-online --any"
+    ]);
 }
