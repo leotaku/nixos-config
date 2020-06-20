@@ -3,18 +3,20 @@
 {
   imports = [ ./shared.nix ];
 
-  # Enable NetworkManager + iwd
+  # Networking
   networking.networkmanager = {
     enable = true;
-    wifi.backend = "wpa_supplicant";
-    dns = "systemd-resolved";
-  };
-
-  # Enable Connman + iwd
-  services.connman = {
-    enable = false;
     wifi.backend = "iwd";
+    insertNameservers = config.networking.nameservers;
   };
+  networking.useDHCP = true;
+
+  # Wireless
+  networking.wireless.iwd.enable = true;
+  environment.etc."iwd/main.conf".text = ''
+    [General]
+    UseDefaultInterface=true
+  '';
 
   # Enable Avahi
   services.avahi = {
