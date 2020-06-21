@@ -2,7 +2,7 @@
 
 {
   # Kernel version
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   # Use unfree Intel drivers
   hardware.enableRedistributableFirmware = true;
