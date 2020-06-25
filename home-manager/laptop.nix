@@ -51,7 +51,9 @@
     zathura
     # Terminal
     direnv
+    fzf
     gitAndTools.hub
+    lorri
     weechat
     # Fonts
     fira
