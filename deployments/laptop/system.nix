@@ -37,9 +37,6 @@
   };
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # DBUS user session
-  services.dbus.socketActivated = true;
-
   # Networking
   networking.hostName = "nixos-laptop";
   networking.nat.enable = true;
@@ -113,7 +110,8 @@
     splix
   ];
 
-  # Needed for home-manager to work
+  # DBUS user session
+  services.dbus.socketActivated = true;
   services.dbus.packages = with pkgs; [ gnome3.dconf ];
 
   # X11 windowing system
