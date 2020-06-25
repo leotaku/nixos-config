@@ -16,6 +16,9 @@
     ../../modules/backup.nix
   ];
 
+  # Hostname
+  networking.hostName = "nixos-laptop";
+
   # Nixpkgs settings
   nixpkgs.overlays = [ (import ../../pkgs) ];
   nixpkgs.config.allowUnfree = true;
