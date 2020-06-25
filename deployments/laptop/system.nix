@@ -25,10 +25,10 @@
   boot.loader.timeout = 10;
   boot.plymouth.enable = false;
 
-  # Set your time zone.
+  # Set time zone
   time.timeZone = "Europe/Vienna";
 
-  # Select internationalisation properties.
+  # Select internationalisation properties
   console = {
     # TODO: find how to increase console font size
     earlySetup = true;
@@ -116,7 +116,7 @@
   # Needed for home-manager to work
   services.dbus.packages = with pkgs; [ gnome3.dconf ];
 
-  # X11 windowing system.
+  # X11 windowing system
   services.xserver.enable = true;
   services.xserver.libinput.enable = true;
   services.xserver.wacom.enable = true;
@@ -127,7 +127,7 @@
     package = pkgs.rxvt-unicode;
   };
 
-  # Basic xdg support
+  # Basic XDG support
   xdg.portal.enable = true;
   xdg.portal.gtkUsePortal = false;
 
@@ -211,7 +211,7 @@
     localuser = "root";
   };
 
-  # FIXME: NixOS command-not-found functionality
+  # Disable NixOS command-not-found functionality
   programs.command-not-found = {
     enable = false;
   };
