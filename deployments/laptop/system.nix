@@ -19,7 +19,6 @@
   # Nixpkgs settings
   nixpkgs.overlays = [ (import ../../pkgs) ];
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.virtualbox.enableExtensionPack = false;
 
   # Booting
   boot.loader.timeout = 10;
@@ -36,12 +35,6 @@
     keyMap = "de";
   };
   i18n.defaultLocale = "en_US.UTF-8";
-
-  # Networking
-  networking.hostName = "nixos-laptop";
-  networking.nat.enable = true;
-  networking.nat.internalInterfaces = [ "ve-+" ];
-  networking.nat.externalInterface = "wlp3s0";
 
   environment.systemPackages = with pkgs; [
     # Laptop utilities
