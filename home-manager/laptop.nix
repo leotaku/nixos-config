@@ -131,9 +131,6 @@
     "Xft.hinting" = 1;
     "Xft.antialias" = 1;
     "Xft.rgba" = 1;
-    "Emacs.toolBar" = "off";
-    "Emacs.menuBar" = "off";
-    "Emacs.verticalScrollBars" = "off";
   };
 
   # QT settings
