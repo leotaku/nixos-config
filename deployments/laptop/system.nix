@@ -29,7 +29,6 @@
 
   # Select internationalisation properties
   console = {
-    # TODO: find how to increase console font size
     earlySetup = true;
     font = "Lat2-Terminus16";
     keyMap = "de";
