@@ -20,10 +20,6 @@
   nixpkgs.overlays = [ (import ../../pkgs) ];
   nixpkgs.config.allowUnfree = true;
 
-  # Booting
-  boot.loader.timeout = 10;
-  boot.plymouth.enable = false;
-
   # Set time zone
   time.timeZone = "Europe/Vienna";
 
