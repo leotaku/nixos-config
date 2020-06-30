@@ -10,6 +10,7 @@
     # Tools
     aspell-custom
     bat
+    config.boot.kernelPackages.perf
     diskus
     du-dust
     ffmpeg-full
@@ -30,4 +31,10 @@
     neofetch
     sl
   ];
+
+  # Sysctl settings for perf
+  boot.kernel.sysctl = {
+    "kernel.perf_event_paranoid" = -1;
+    "kernel.kptr_restrict" = 0;
+  };
 }
