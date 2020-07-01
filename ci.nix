@@ -7,4 +7,3 @@ in {
     import ./pkgs/default.nix pkgs pkgs
   );
 }
-
