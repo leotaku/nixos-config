@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = with (import ../../sources/nix/sources.nix); [
+  imports = [
     # Import configuration
     ./system.nix
     ./users.nix
