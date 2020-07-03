@@ -46,7 +46,7 @@ in {
     };
 
     passwordFile = mkOption {
-      type = types.path;
+      type = types.str;
       description =
         "Location of a file containing the password needed for accessing the restic repository.";
     };
@@ -81,7 +81,7 @@ in {
       paths = map (p: p.path) cfg.paths;
       user = cfg.user;
       repository = cfg.repository;
-      passwordFile = builtins.toString cfg.passwordFile;
+      passwordFile = cfg.passwordFile;
       extraBackupArgs = concatLists (
         map (p: (map (e: "--exclude='${p.path}/${e}'") p.exclude))
         cfg.paths
