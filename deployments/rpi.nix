@@ -21,8 +21,6 @@
     overlays = [];
   };
 
-  environment.systemPackages = with pkgs; [ hello ];
-
   # Netdata monitoring
   services.nginx = {
     enable = true;
