@@ -4,6 +4,7 @@
   imports = with (import ../sources/nix/sources.nix); [
     ../hardware/fujitsu.nix
     ../plugables/builders.nix
+    ../plugables/netdata.nix
     ../plugables/networking/server.nix
     ../plugables/nginx.nix
     ../plugables/packages/base.nix
@@ -92,7 +93,6 @@
   # Enable simple services
   services.haveged.enable = true;
   services.jellyfin.enable = true;
-  services.netdata.enable = true;
 
   # Udisks depends on gtk+ which I don't want on my headless servers
   services.udisks2.enable = false;

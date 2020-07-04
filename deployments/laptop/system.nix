@@ -7,6 +7,7 @@
 {
   imports = [
     # Import plugable configurations
+    ../../plugables/netdata.nix
     ../../plugables/networking/laptop.nix
     ../../plugables/variables.nix
     ../../plugables/xkeyboard/module.nix
@@ -68,7 +69,6 @@
   services.autorandr.enable = false;
   services.gvfs.enable = true;
   services.hardware.bolt.enable = true;
-  services.netdata.enable = true;
   services.openssh.enable = true;
   services.tumbler.enable = true;
   services.udisks2.enable = true;
