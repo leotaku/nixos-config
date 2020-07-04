@@ -14,7 +14,9 @@
   # Use resolved instead of dhcpcd, as it respects resolv.conf
   # TODO: Maybe enable DoT when it becomes safe
   # TODO: Investigate why DNSSec never works
+  # TODO: Investigate why IPv6 breaks everything
   networking.dhcpcd.enable = false;
+  networking.enableIPv6 = true;
   services.resolved = {
     enable = true;
     fallbackDns = [ "1.1.1.1" ];
