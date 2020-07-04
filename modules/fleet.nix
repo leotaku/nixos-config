@@ -32,7 +32,7 @@ in {
               type = nullOr str;
               description = ''
                 Host name used to connect to the given machine.
-                Default means "''${name}".
+                Default means ''${name}.
               '';
               default = null;
             };
