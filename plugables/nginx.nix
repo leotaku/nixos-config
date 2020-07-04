@@ -127,8 +127,8 @@ in {
     };
   };
 
-  # NOTE: The keys group is used only for NixOps compatibility
-  users.users.nginx.extraGroups = [ "keys" "syncthing" ];
+  # Nginx server may access personal files
+  users.users.nginx.extraGroups = [ "syncthing" ];
 
   # Acme certificates
   security.acme = {
