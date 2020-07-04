@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "7f7348b47049e8d25fb5b98db1d6215f8f643f0d",
-        "sha256": "1s8j8h42k354xzwlqizbzxlqvsagx7yrxl20qfxgxmx522ajw63p",
+        "rev": "5f189acce44dc39ea4055bfd8064adaf90d7fb5a",
+        "sha256": "0ibmvg3k9m9yzh8ln3jlh47nrvgg81iy8gpl112wjimlp6gagxw6",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/7f7348b47049e8d25fb5b98db1d6215f8f643f0d.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/5f189acce44dc39ea4055bfd8064adaf90d7fb5a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "morph": {
@@ -41,10 +41,10 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b3251e04ee470c20f81e75d5a6080ba92dc7ed3f",
-        "sha256": "0hld390gb3q055sa7j1rzxl1hzaxgagc60vrqmkk8fnfpv813g75",
+        "rev": "55668eb671b915b49bcaaeec4518cc49d8de0a99",
+        "sha256": "0b2mrrjsdpxpyvnv98dph5av3xjps1mbd87x8510mnc4pfa2zc8z",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/b3251e04ee470c20f81e75d5a6080ba92dc7ed3f.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/55668eb671b915b49bcaaeec4518cc49d8de0a99.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-mozilla": {
@@ -53,10 +53,10 @@
         "homepage": null,
         "owner": "mozilla",
         "repo": "nixpkgs-mozilla",
-        "rev": "e424ea2e95cdabd8a8f5f4284ee725f2cd27f692",
-        "sha256": "153ksyqyyg8ndvw1gaxac3c83lp9q1c3flvp9qmffh45k67744jv",
+        "rev": "ab9b53ebbbf9fe803e0fd7718192e7f3ba2c7759",
+        "sha256": "1v955b0km375i4ihyl3hgg3l0r3hflbwiyayn6jm0rcqlw9c6fay",
         "type": "tarball",
-        "url": "https://github.com/mozilla/nixpkgs-mozilla/archive/e424ea2e95cdabd8a8f5f4284ee725f2cd27f692.tar.gz",
+        "url": "https://github.com/mozilla/nixpkgs-mozilla/archive/ab9b53ebbbf9fe803e0fd7718192e7f3ba2c7759.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "old-ghc-nix": {
