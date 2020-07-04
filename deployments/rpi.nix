@@ -18,7 +18,7 @@
       config = "aarch64-unknown-linux-gnu";
     };
     localSystem = crossSystem;
-    overlays = [];
+    overlays = [ (import ../pkgs) ];
   };
 
   # Netdata monitoring
