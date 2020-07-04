@@ -7,9 +7,10 @@
   networking.networkmanager = {
     enable = true;
     wifi.backend = "iwd";
+    dns = "systemd-resolved";
     insertNameservers = config.networking.nameservers;
   };
-  networking.useDHCP = true;
+  networking.useDHCP = false;
 
   # Wireless
   networking.wireless.iwd.enable = true;
