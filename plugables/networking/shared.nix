@@ -3,6 +3,9 @@
 {
   imports = [ ./mdns.nix ];
 
+  # Use firewall per default
+  networking.firewall.enable = true;
+
   # Use trusted DNS server
   # 1: https://mullvad.net/de/help/dns-leaks/
   # 0: https://developers.cloudflare.com/1.1.1.1/

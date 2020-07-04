@@ -142,9 +142,6 @@
   hardware.opengl.driSupport32Bit = true;
   hardware.steam-hardware.enable = true;
 
-  # Firewall configuration
-  networking.firewall.enable = false;
-
   # Enable virtuaisation/container technologies
   virtualisation.libvirtd.enable = true;
   services.flatpak.enable = false;

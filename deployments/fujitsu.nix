@@ -96,22 +96,8 @@
   # Udisks depends on gtk+ which I don't want on my headless servers
   services.udisks2.enable = false;
 
-  networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [
-    # SSH
-    22
-    # HTTP(S)
-    80
-    443
-    # Restic
-    8000
-    # Syncthing
-    8384
-    # ZNC
-    6667
-    # Minecraft server
-    25565
-  ];
+  # Open firewall ports
+  networking.firewall.allowedTCPPorts = [ 22 80 443 8000 8384 6667 25565 ];
 
   deployment.secrets = {
     "htpasswd" = {
