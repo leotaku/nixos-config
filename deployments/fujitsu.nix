@@ -23,7 +23,6 @@
 
   environment.systemPackages = with pkgs; [
     dnsmasq
-    dnsutils
     ethtool
     freeipmi
     ipmitool

@@ -42,7 +42,9 @@
     s-tui
     pciutils
     # Networking
+    dnsutils
     speedtest-cli
+    iftop
     iperf
     nmap
   ];
