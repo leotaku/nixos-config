@@ -12,7 +12,7 @@ let
     else {
       sshUser = "fleet-builder";
       sshKey = "/home/fleet-builder/.ssh/id_rsa";
-      hostName = if isNull hostName then name + ".local" else hostName;
+      hostName = if isNull hostName then name else hostName;
       inherit system maxJobs speedFactor;
       inherit supportedFeatures mandatoryFeatures;
     };
@@ -32,7 +32,7 @@ in {
               type = nullOr str;
               description = ''
                 Host name used to connect to the given machine.
-                Default means "''${name}.local".
+                Default means "''${name}".
               '';
               default = null;
             };

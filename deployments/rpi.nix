@@ -8,7 +8,7 @@
     ../plugables/packages/base.nix
   ];
 
-  # NOTE: Removing this causes mDNS to fail
+  # Hostname
   networking.hostName = "nixos-rpi";
 
   # Nixpkgs configurations

@@ -15,7 +15,7 @@ in {
     runCommand = pinned.runCommand;
   };
 } // {
-  "nixos-laptop.local" = import ./laptop/configuration.nix;
-  "nixos-fujitsu.local" = import ./fujitsu.nix;
-  "nixos-rpi.local" = import ./rpi.nix;
+  "nixos-laptop" = import ./laptop/configuration.nix;
+  "nixos-fujitsu" = import ./fujitsu.nix;
+  "nixos-rpi" = import ./rpi.nix;
 }

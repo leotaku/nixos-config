@@ -1,24 +1,27 @@
 { config, pkgs, lib, ... }:
 
 {
-  # Enable mDNS for systemd-resolved
+  # Enable LLMNR for systemd-resolved
+  services.resolved.llmnr = "true";
   services.resolved.extraConfig = ''
-    MulticastDNS=true
+    MulticastDNS=false
   '';
 
-  # Enable mDNS for NetworkManager
+  # Enable Zeroconf awareness for NetworkManager
   environment.etc."/NetworkManager/conf.d/mdns.conf".text = ''
     [connection]
     connection.mdns=2
+    connection.llmnr=2
   '';
 
-  # Enable mDNS for systemd-networkd
+  # Enable Zeroconf awareness for systemd-networkd
   systemd.network.networks."40-physical" = {
     networkConfig = {
       MulticastDNS = "yes";
+      LLMNR = "yes";
     };
   };
 
-  # Open mDNS port
-  networking.firewall.allowedUDPPorts = [ 5353 ];
+  # Open Zeroconf ports
+  networking.firewall.allowedUDPPorts = [ 5353 5355 ];
 }

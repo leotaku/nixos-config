@@ -13,7 +13,7 @@
     (hercules-ci-agent + "/module.nix")
   ];
 
-  # NOTE: Removing this causes mDNS to fail
+  # Hostname
   networking.hostName = "nixos-fujitsu";
 
   # Nixpkgs configurations
