@@ -44,6 +44,7 @@
   # Udisks depends on gtk+ which I don't want on my headless servers
   services.udisks2.enable = false;
 
+  # Enable SSH
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
 
