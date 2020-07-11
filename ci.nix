@@ -1,6 +1,8 @@
 let
   sources = import ./sources/nix/sources.nix;
-  pkgs = import sources.nixos-unstable { };
+  pkgs = import sources.nixos-unstable {
+    overlays = [ (import ./pkgs/default.nix) ];
+  };
 in {
   x86_64-linux = pkgs.recurseIntoAttrs (
     # Build packages defined in overlays
