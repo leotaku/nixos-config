@@ -92,9 +92,10 @@
     };
   };
 
-  # Enable simple services
+  # Enable simple programs and services
   services.haveged.enable = true;
   services.jellyfin.enable = true;
+  programs.wireshark.enable = true;
 
   # Udisks depends on gtk+ which I don't want on my headless servers
   services.udisks2.enable = false;
