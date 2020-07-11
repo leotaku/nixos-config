@@ -21,25 +21,16 @@
     fd
     gitAndTools.gitFull
     jq
-    poppler_utils
     qrencode
     rclone
     ripgrep
-    tokei
-    # Multiplexer
-    tmux
-    screen
     # Text-mode utils
-    ncdu
     htop
-    libqalculate
-    w3m
+    ncdu
     rlwrap
+    tmux
     # Hardware
     hwinfo
-    lshw
-    stress
-    s-tui
     pciutils
     # Networking
     dnsutils

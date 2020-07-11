@@ -11,25 +11,14 @@
     aspell-custom
     bat
     config.boot.kernelPackages.perf
-    diskus
-    du-dust
     ffmpeg-full
-    ffmpegthumbnailer
-    httplz
     hyperfine
     imagemagick
     just
+    libqalculate
     pandoc
     ripgrep-all
-    # Toys
-    asciiquarium
-    cmatrix
-    cowsay
-    figlet toilet
-    fortune
-    lolcat
-    neofetch
-    sl
+    tokei
   ];
 
   # Sysctl settings for perf

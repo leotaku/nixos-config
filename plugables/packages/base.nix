@@ -12,8 +12,6 @@
     wget
     psmisc
     stow
-    cron
-    bc
     unzip
     lsof
     zip
@@ -27,9 +25,6 @@
     libarchive
     # Editors
     kakoune
-    # Shells
-    bash
-    dash
     # Hardware
     lm_sensors
   ];
