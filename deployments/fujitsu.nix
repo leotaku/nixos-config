@@ -116,21 +116,21 @@
       destination = "/var/keys/htpasswd";
       owner.user = "nginx";
       owner.group = "nginx";
-      action = ["systemctl" "reload" "nginx.service"];
+      action = [ "systemctl" "reload" "nginx.service" ];
     };
     "binary-caches.json" = {
       source = builtins.toString ../private/binary-caches.json;
       destination = "/var/lib/hercules-ci-agent/secrets/binary-caches.json";
       owner.user = "hercules-ci-agent";
       owner.group = "nogroup";
-      action = ["systemctl" "restart" "hercules-ci-agent.service"];
+      action = [ "systemctl" "restart" "hercules-ci-agent.service" ];
     };
     "cluster-join-token.key" = {
       source = builtins.toString ../private/cluster-join-token.key;
       destination = "/var/lib/hercules-ci-agent/secrets/cluster-join-token.key";
       owner.user = "hercules-ci-agent";
       owner.group = "nogroup";
-      action = ["systemctl" "restart" "hercules-ci-agent.service"];
+      action = [ "systemctl" "restart" "hercules-ci-agent.service" ];
     };
   };
 }
