@@ -142,15 +142,15 @@ in {
     };
   };
 
-  # Cloudflare DNS service
+  # Cloudflare DNS updates
   systemd.services."cloudflare-dns" = {
     path = with pkgs; [ bash curl dnsutils jq ];
     serviceConfig = {
-      ExecStart = pkgs.bash + "/bin/bash ${../private/update-dns.sh}";
+      EnvironmentFile = config.deployment.secrets."cloudflare.env".destination;
+      ExecStart = "${../files/update-dns.sh}";
       Type = "simple";
     };
     requires = [ "network.target" ];
-    wantedBy = [ "default.target" ];
   };
 
   systemd.timers."cloudflare-dns" = {

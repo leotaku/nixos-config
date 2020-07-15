@@ -104,6 +104,13 @@
   networking.firewall.allowedTCPPorts = [ 22 80 443 8000 8384 6667 25565 ];
 
   deployment.secrets = {
+    "cloudflare.env" = {
+      source = builtins.toString ../private/cloudflare.env;
+      destination = "/var/keys/cloudflare.env";
+      owner.user = "root";
+      owner.group = "root";
+      action = [ "systemctl" "restart" "cloudflare-dns.service" ];
+    };
     "htpasswd" = {
       source = builtins.toString ../private/htpasswd;
       destination = "/var/keys/htpasswd";
