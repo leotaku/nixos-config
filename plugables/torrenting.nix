@@ -35,14 +35,14 @@
         ip rule add to 10.0.0.0/8 table main priority 1000
         ip rule add sport 6800 table main priority 1000
         ip rule add uidrange 1001-1001 table 2002 priority 1001
-        ip rule add blackhole uidrange 1001-1001 priority 1002
+        ip rule add prohibit uidrange 1001-1001 priority 1002
         ip route flush cache
       '';
       ExecStop = pkgs.writeShellScript "teardown-rules" ''
         ip rule del to 10.0.0.0/8 table main
         ip rule del sport 6800 table main
         ip rule del uidrange 1001-1001 table 2002
-        ip rule del blackhole uidrange 1001-1001
+        ip rule del prohibit uidrange 1001-1001
         ip route flush cache
       '';
       RemainAfterExit = true;
