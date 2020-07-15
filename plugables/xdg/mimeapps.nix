@@ -88,11 +88,11 @@
     Keywords=Text;Editor;
   '';
 
-  # Run URxvt wit Tmux
+  # Run terminal with Tmux
   xdg.dataFile."applications/rxvt-unicode.desktop".text = ''
     [Desktop Entry]
     Encoding=UTF-8
-    Name=URxvt
+    Name=Terminal
     GenericName=Tmux in Terminal
     Comment=
     Exec=tmux
