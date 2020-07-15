@@ -3,7 +3,7 @@
 {
   imports = [
     ../hardware/raspberry3.nix
-    ../plugables/builders.nix
+    ../plugables/home-fleet.nix
     ../plugables/netdata.nix
     ../plugables/networking/server.nix
     ../plugables/packages/base.nix

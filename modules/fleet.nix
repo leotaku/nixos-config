@@ -2,39 +2,40 @@
 with lib;
 let
   cfg = config.fleet;
-  genMachines = machines:
-    filter (v: !isNull v) (mapAttrsToList genMachine machines);
-  genMachine = name:
+  localHostName = config.networking.hostName;
+  # Filter machines
+  thisMachine = machines: getAttr localHostName machines;
+  otherMachines = machines:
+    filterAttrs (n: _: n != localHostName) machines;
+  # Generate build machines
+  buildMachines = machines: mapAttrsToList buildMachine (otherMachines machines);
+  buildMachine = name:
     { hostName, system, maxJobs, speedFactor, supportedFeatures
     , mandatoryFeatures }:
-    if name == config.networking.hostName then
+    if name == localHostName then
       null
     else {
       sshUser = "fleet-builder";
       sshKey = "/home/fleet-builder/.ssh/id_rsa";
-      hostName = if isNull hostName then name else hostName;
-      inherit system maxJobs speedFactor;
+      inherit hostName system maxJobs speedFactor;
       inherit supportedFeatures mandatoryFeatures;
     };
 in {
   options.fleet = {
-    enable = mkEnableOption "fleet remote building configuration";
+    enable = mkEnableOption "fleet managed network configuration";
     base = mkOption {
-      description = "Base dir where SSH keys are found.";
       type = types.str;
+      description = "Base dir where SSH keys are found.";
     };
     machines = mkOption {
-      description = "Definition of builder machines.";
+      description = "Definition of fleet machines.";
       type = with types;
         attrsOf (submodule ({ config, ... }: {
           options = {
             hostName = mkOption {
-              type = nullOr str;
-              description = ''
-                Host name used to connect to the given machine.
-                Default means ''${name}.
-              '';
-              default = null;
+              type = str;
+              description = "Hostname or IP used to connect to the given machine.";
+              default = localHostName + ".local";
             };
             system = mkOption {
               type = str;
@@ -74,13 +75,14 @@ in {
     };
     nix = {
       trustedUsers = [ "fleet-builder" ];
-      buildMachines = genMachines cfg.machines;
+      buildMachines = buildMachines cfg.machines;
       extraOptions = "builders-use-substitutes = true";
     };
   } // (
-    # Only offer secrets if morph is used
+    # Only offer deployment options if morph is used
     if hasAttr "deployment" options then {
       deployment = {
+        targetHost = (thisMachine cfg.machines).hostName;
         substituteOnDestination = true;
         secrets = {
           "fleet-builder-id_rsa" = {

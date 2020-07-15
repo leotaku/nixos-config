@@ -1,8 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ./mdns.nix ];
-
   # Use firewall per default
   networking.firewall.enable = true;
   networking.firewall.package = pkgs.iptables-nftables-compat;

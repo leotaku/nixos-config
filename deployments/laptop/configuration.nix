@@ -10,8 +10,8 @@
     ./system.nix
     ./users.nix
     ../../hardware/thinkpad-t480s.nix
-    # Activate remote builders and caching
-    ../../plugables/builders.nix
+    # Activate fleet machines and caching
+    ../../plugables/home-fleet.nix
     ../../plugables/cachix.nix
   ];
 

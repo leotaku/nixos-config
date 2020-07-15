@@ -3,7 +3,7 @@
 {
   imports = with (import ../sources/nix/sources.nix); [
     ../hardware/fujitsu.nix
-    ../plugables/builders.nix
+    ../plugables/home-fleet.nix
     ../plugables/netdata.nix
     ../plugables/networking/server.nix
     ../plugables/nginx.nix
