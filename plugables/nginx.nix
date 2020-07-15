@@ -1,11 +1,8 @@
 { config, pkgs, lib, ... }:
 
 let
-  nginx = pkgs.nginxMainline.override (old: {
-    modules = with pkgs.nginxModules; [
-      fancyindex
-    ];
-  });
+  nginx = pkgs.nginxMainline.override
+    (old: { modules = with pkgs.nginxModules; [ fancyindex ]; });
   protectHost = _: v:
     (sslHost _ v) // {
       basicAuthFile = config.deployment.secrets."htpasswd".destination;
