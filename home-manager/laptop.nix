@@ -40,7 +40,6 @@
     pavucontrol
     pinta
     rofi
-    rxvt-unicode
     sxiv
     syncthing-gtk
     vlc
@@ -56,7 +55,6 @@
     lorri
     weechat
     # Fonts
-    fira
     fira-code
     fira-mono
     alegreya
