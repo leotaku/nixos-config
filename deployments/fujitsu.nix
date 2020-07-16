@@ -6,10 +6,10 @@
     ../plugables/home-fleet.nix
     ../plugables/netdata.nix
     ../plugables/networking/server.nix
-    ../plugables/nginx.nix
     ../plugables/packages/base.nix
     ../plugables/packages/usability.nix
     ../plugables/torrenting.nix
+    ../plugables/webserver.nix
     ../plugables/znc.nix
     (hercules-ci-agent + "/module.nix")
   ];
