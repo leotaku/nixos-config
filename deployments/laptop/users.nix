@@ -21,6 +21,6 @@
       "wireshark"
       "wheel"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.bash;
   };
 }

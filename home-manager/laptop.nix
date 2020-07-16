@@ -187,7 +187,7 @@
   services.emacs-server = {
     enable = true;
     package = pkgs.emacs-git-custom;
-    shell = pkgs.zsh + "/bin/zsh -i -c";
+    shell = pkgs.bash + "/bin/bash -i -c";
   };
 
   # Enable simple programs and services
