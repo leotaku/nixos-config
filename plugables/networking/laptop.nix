@@ -8,7 +8,6 @@
     enable = true;
     wifi.backend = "iwd";
     dns = "systemd-resolved";
-    insertNameservers = config.networking.nameservers;
   };
   networking.useDHCP = false;
 
