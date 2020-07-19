@@ -55,7 +55,7 @@ in {
         locations = {
           "/".return = "301 /fujitsu/";
           "/fujitsu".proxyPass = "http://localhost:19999/";
-          "/rpi".proxyPass = "http://nixos-rpi/";
+          "/rpi".proxyPass = "http://nixos-rpi.local/";
         };
       };
       "rss.le0.gs" = { };
