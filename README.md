@@ -24,5 +24,4 @@ In the future it might be possible to also perform CI on full systems.
 
 ## Help
 
-If you are interested in any particular aspect of this repository,
-don't hesitate to open an GitHub issue.
+If you are interested in any particular aspect of this repository, don't hesitate to open a GitHub issue.
