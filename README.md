@@ -1,6 +1,6 @@
 # nixos-config
 
-A git repository for my Nix configurations
+A Git repository for my Nix configurations
 
 ## Design
 
