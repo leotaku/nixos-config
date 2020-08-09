@@ -18,6 +18,7 @@
   networking.enableIPv6 = true;
   services.resolved = {
     enable = true;
+    domains = [ "~." ];
     fallbackDns = [ "1.1.1.1" ];
     dnssec = "allow-downgrade";
   };
