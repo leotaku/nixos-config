@@ -17,6 +17,14 @@
     ../../modules/backup.nix
   ];
 
+  # Enable unstable features
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes ca-references
+    '';
+  };
+
   # Hostname
   networking.hostName = "nixos-laptop";
 
