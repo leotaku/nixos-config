@@ -4,9 +4,9 @@ setxkbmap -layout de -option altgr-intl -variant nodeadkeys
 # Arrow keys on AltGr+hjkl
 xmodmap /dev/stdin <<< "
 keycode 43 = h H NoSymbol NoSymbol Left   NoSymbol
-keycode 44 = j J NoSymbol NoSymbol Down   NoSymbol  
-keycode 45 = k K NoSymbol NoSymbol Up     NoSymbol  
-keycode 46 = l L NoSymbol NoSymbol Right  NoSymbol  
+keycode 44 = j J NoSymbol NoSymbol Down   NoSymbol
+keycode 45 = k K NoSymbol NoSymbol Up     NoSymbol
+keycode 46 = l L NoSymbol NoSymbol Right  NoSymbol
 "
 
 # All parens on umlauts
@@ -31,7 +31,7 @@ keycode 117 = XF86Forward NoSymbol NoSymbol NoSymbol NoSymbol NoSymbol
 xdouble() {
     key="$1"
     mod="$2"
-    
+
     xmodmap /dev/stdin <<< "
     keysym $key = $mod
     keycode any = $key"
