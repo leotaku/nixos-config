@@ -81,7 +81,6 @@ in {
               proxy_set_header X-Forwarded-Proto $scheme;
               proxy_set_header X-Forwarded-Protocol $scheme;
               proxy_set_header X-Forwarded-Host $http_host;
-              # Disable buffering when the nginx proxy gets very resource heavy upon streaming
               proxy_buffering off;
             '';
           };
@@ -103,7 +102,8 @@ in {
       "download.le0.gs" = {
         locations = {
           "/".root = pkgs.fetchzip {
-            url = "https://github.com/mayswind/AriaNg/releases/download/1.1.5/AriaNg-1.1.5.zip";
+            url =
+              "https://github.com/mayswind/AriaNg/releases/download/1.1.5/AriaNg-1.1.5.zip";
             sha256 = "1j0899i35yz97f7q74vylg3bk9ipnr8842g80azs67xsf007lj4y";
             stripRoot = false;
           };
@@ -112,7 +112,7 @@ in {
             extraConfig = ''
               proxy_http_version 1.1;
               proxy_set_header Upgrade $http_upgrade;
-              proxy_set_header Connection "Upgrade";
+              proxy_set_header Connection "upgrade";
               proxy_set_header Host $host;
               proxy_set_header X-Forwarded-Host $host:$server_port;
               proxy_set_header X-Forwarded-Server $host;
