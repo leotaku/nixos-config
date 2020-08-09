@@ -14,8 +14,6 @@ let
     epkgs.closql
     epkgs.editorconfig
     epkgs.forge
-    epkgs.jupyter
-    epkgs.vterm
     epkgs.zmq
     pkgs.notmuch.emacs
   ]);
