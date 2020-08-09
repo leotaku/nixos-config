@@ -152,7 +152,7 @@
     theme.package = pkgs.adapta-gtk-theme;
     theme.name = "Adapta-Eta";
     iconTheme.package = pkgs.papirus-icon-theme;
-    iconTheme.name = "Papirus-Dark";
+    iconTheme.name = "Papirus";
     gtk2 = {
       extraConfig = lib.concatStringsSep "\n" (lib.mapAttrsToList (n: v: "${n}=${v}") {
         gtk-toolbar-style = "GTK_TOOLBAR_ICONS";
