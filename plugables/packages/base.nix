@@ -17,6 +17,7 @@
     zip
     # Networking
     netcat-gnu
+    nftables
     # New utils
     rsync
     moreutils
