@@ -7,7 +7,10 @@
   services.aria2 = {
     enable = true;
     downloadDir = config.fileSystems.raid1x5tb.mountPoint + "/download";
-    listenPortRange = map (n: { from = n; to = n; }) [ 6585 9395 11551 14128 ];
+    listenPortRange = map (n: {
+      from = n;
+      to = n;
+    }) [ 6585 9395 11551 14128 ];
     openPorts = false;
     extraArguments = lib.concatStringsSep " " [
       "--rpc-listen-all=false"
