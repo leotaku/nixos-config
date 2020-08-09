@@ -68,7 +68,7 @@
     setups = {
       "vpn" = {
         enable = true;
-        path = builtins.toString ../private/mullvad/mullvad-ch4.conf;
+        path = "${../private/mullvad/mullvad-ch005.conf}";
       };
     };
   };
