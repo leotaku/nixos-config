@@ -75,6 +75,7 @@ in {
     };
     nix = {
       trustedUsers = [ "fleet-builder" ];
+      distributedBuilds = true;
       buildMachines = buildMachines cfg.machines;
       extraOptions = "builders-use-substitutes = true";
     };
