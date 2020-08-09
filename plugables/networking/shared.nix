@@ -10,7 +10,7 @@
   # 0: https://developers.cloudflare.com/1.1.1.1/
   networking.nameservers = [ "193.138.218.74" ];
 
-  # Use resolved instead of dhcpcd, as it respects resolv.conf
+  # Use systemd-resolved instead of dhcpcd
   # TODO: Maybe enable DoT when it becomes safe
   # TODO: Investigate why DNSSec never works
   # TODO: Investigate why IPv6 breaks everything
