@@ -8,8 +8,6 @@ with self; {
   chroma = callPackage ./chroma/default.nix { };
   n30f = callPackage ./n30f/default.nix { };
   sddm-themes = callPackage ./sddm/default.nix { };
-  zinit = callPackage ./zinit/default.nix { };
-  zinit-install = callPackage ./zinit/install.nix { };
 
   # Customized packages
   ncmpcpp = super.ncmpcpp.override {
