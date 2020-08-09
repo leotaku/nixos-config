@@ -71,11 +71,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    assertions = [{
-      assertion = lib.pathExists cfg.passwordFile;
-      message = "backup: Password file does not exist!";
-    }];
-
     # Enable a restic backup service
     services.restic.backups."backup-module" = mkIf cfg.enable {
       paths = map (p: p.path) cfg.paths;
