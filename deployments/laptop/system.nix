@@ -60,9 +60,7 @@
   programs.slock.enable = true;
 
   # Configure default shell
-  programs.zsh.enable = true;
-  programs.zsh.enableGlobalCompInit = false;
-  programs.zsh.promptInit = '''';
+  programs.fish.enable = true;
 
   # List simple services that you want to enable:
   powerManagement.enable = true;
