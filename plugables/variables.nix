@@ -16,6 +16,7 @@ in {
     TMPDIR = XDG_RUNTIME_DIR;
 
     CARGO_HOME = XDG_DATA_HOME + "/cargo";
+    GOPATH = XDG_DATA_HOME + "/go";
     HISTFILE = XDG_DATA_HOME + "/bash_history";
     LESSHISTFILE = XDG_CACHE_HOME + "/lesshist";
     MPLAYER_HOME = XDG_CONFIG_HOME + "/mplayer";
