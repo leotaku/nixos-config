@@ -12,6 +12,7 @@
     nix-diff
     nix-index
     nix-prefetch-scripts
+    nixfmt
     # Utils
     aria
     bvi
