@@ -99,6 +99,22 @@ in {
           };
         };
       };
+      "tv.le0.gs" = {
+        locations = {
+          "/" = {
+            proxyPass = "http://localhost:8989";
+            extraConfig = ''
+              proxy_set_header Host $host;
+              proxy_set_header X-Real-IP $remote_addr;
+              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+              proxy_set_header X-Forwarded-Proto $scheme;
+              proxy_redirect off;
+              sub_filter '</head>' '<link rel="stylesheet" type="text/css" href="https://archmonger.github.io/Blackberry-Themes/Themes/Blackberry-Shadow/radarr.css"></head>';
+              sub_filter_once on;
+            '';
+          };
+        };
+      };
       "download.le0.gs" = {
         locations = {
           "/".root = pkgs.fetchzip {

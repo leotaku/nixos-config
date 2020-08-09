@@ -55,6 +55,14 @@
     }];
   };
 
+  # Season downloads
+  services.sonarr.enable = true;
+
+  # Shared group for downloaded stuff
+  users.groups.media = { };
+  services.sonarr.group = "media";
+  users.users."aria2".group = lib.mkForce "media";
+
   # Enable Wireguard VPN
   services.wg-quicker = {
     setups = {
