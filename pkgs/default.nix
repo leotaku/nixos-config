@@ -6,6 +6,7 @@ with self; {
   besley = callPackage ./besley/default.nix { };
   catimg = callPackage ./catimg/default.nix { };
   chroma = callPackage ./chroma/default.nix { };
+  goatcounter = callPackage ./goatcounter/default.nix { };
   n30f = callPackage ./n30f/default.nix { };
   sddm-themes = callPackage ./sddm/default.nix { };
 
