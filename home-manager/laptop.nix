@@ -168,6 +168,10 @@
     };
   };
 
+  # Move some configuration files
+  home.file.".Xresources".target = lib.mkForce ".config/Xresources";
+  home.file.".gtkrc-2.0".target = lib.mkForce ".config/gtk-2.0/gtkrc-2.0";
+
   # Git settings
   programs.git = {
     enable = true;
