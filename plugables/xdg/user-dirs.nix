@@ -2,7 +2,7 @@
 
 {
   xdg.configFile."user-dirs.dirs".text = ''
-    XDG_DESKTOP_DIR="$HOME"
+    XDG_DESKTOP_DIR="$HOME/downloads/desktop"
     XDG_DOWNLOAD_DIR="$HOME/downloads"
     XDG_DOCUMENTS_DIR="$HOME/sync/documents"
     XDG_MUSIC_DIR="$HOME/sync/music"
