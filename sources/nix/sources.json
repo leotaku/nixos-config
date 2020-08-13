@@ -11,18 +11,6 @@
         "url": "https://github.com/hercules-ci/hercules-ci-agent/archive/6482bcc71c88b49cdc4a8d7d890623ea4d9318da.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "home-manager": {
-        "branch": "master",
-        "description": "Manage a user environment using Nix",
-        "homepage": "",
-        "owner": "rycee",
-        "repo": "home-manager",
-        "rev": "223e3c38a13fb45726c7a9d97e2612ae53ab4f98",
-        "sha256": "10svwspmsf46rijzsh0h9nmz1mq2998wcml8yp36mwksgi8695pc",
-        "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/223e3c38a13fb45726c7a9d97e2612ae53ab4f98.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "morph": {
         "branch": "master",
         "description": "NixOS deployment tool",
