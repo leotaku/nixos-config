@@ -2,31 +2,18 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # Nix tools
-    nix-top
-    # Standard utils
-    parallel
-    file
-    tree
     curl
-    wget
-    psmisc
-    stow
-    unzip
-    lsof
-    zip
-    # Networking
-    netcat-gnu
-    nftables
-    # New utils
-    rsync
-    moreutils
-    # Archives
+    file
     gnutar
-    libarchive
-    # Editors
     kakoune
-    # Hardware
-    lm_sensors
+    nftables
+    nix-top
+    parallel
+    psmisc
+    rsync
+    stow
+    tree
+    unzip
+    zip
   ];
 }

@@ -2,23 +2,26 @@
 
 {
   # Also needs the usability utils
-  imports = [
-    ./usability.nix
-  ];
+  imports = [ ./usability.nix ];
 
   environment.systemPackages = with pkgs; [
-    # Tools
     aspell-custom
     bat
     config.boot.kernelPackages.perf
+    direnv
     ffmpeg-full
+    haskellPackages.update-nix-fetchgit
     hyperfine
     imagemagick
     just
+    ledger
     libqalculate
+    lorri
     pandoc
     ripgrep-all
     tokei
+    weechat
+    z-lua
   ];
 
   # Sysctl settings for perf

@@ -2,25 +2,24 @@
 
 {
   # Also needs the base utils
-  imports = [
-    ./base.nix
-  ];
+  imports = [ ./base.nix ];
 
   environment.systemPackages = with pkgs; [
     # Nix Tools
-    nix-top
     nix-diff
     nix-index
     nix-prefetch-scripts
+    nix-top
     nixfmt
     # Utils
     aria
     bvi
-    ffsend
     emv
     entr
     fd
+    ffsend
     gitAndTools.gitFull
+    gitAndTools.hub
     jq
     qrencode
     rclone
@@ -31,13 +30,8 @@
     rlwrap
     tmux
     # Hardware
-    hwinfo
-    pciutils
-    # Networking
     dnsutils
     speedtest-cli
-    iftop
-    iperf
     nmap
   ];
 }
