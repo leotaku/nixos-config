@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   name = "goatcounter-${version}";
-  version = "2020-08-07";
+  version = "2020-08-17";
 
   src = fetchFromGitHub {
     owner = "zgoat";
     repo = "goatcounter";
-    rev = "c143d941e4612601e0d04e62873ef047eb68e5c0";
-    sha256 = "18l82phdb6vgd7k8p5ryi7hk794jb5sr8d50nd0iv4ysja2iv1cs";
+    rev = "6bb9b1eea2d6c9ae3eb084c6438b21e86f0093df";
+    sha256 = "0fjp053bck06m2i77c9x1ayzm3jwgscl780wlsbvaz534fs403lg";
   };
 
   subPackages = [ "./cmd/goatcounter" ];
