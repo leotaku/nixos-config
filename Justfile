@@ -6,12 +6,6 @@ nix_path := "nixpkgs=/etc/nixos/nixos-config/sources/links/nixos-unstable"
 
 # Commands
 
-apply:
-	sudo nixos-rebuild switch -I "{{nix_path}}"
-	home-manager switch -I "{{nix_path}}" -b "$RANDOM"
-	nix-env -u '*' -I "{{nix_path}}"
-	just deploy
-
 build glob="*":
 	cd deployments; \
 	morph build "{{systems_file}}" --on="{{glob}}" --keep-result
