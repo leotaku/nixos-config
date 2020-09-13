@@ -11,10 +11,13 @@
     xsel
     # Theming
     adapta-gtk-theme
+    breeze-qt5
+    gnome3.adwaita-icon-theme
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugins
     papirus-icon-theme
     # GUI applications
+    discord
     emacs-git-custom
     inkscape
     krita
@@ -22,7 +25,7 @@
     maim
     pavucontrol
     pinta
-    pkgs.mozilla.firefox-devedition-bin-unwrapped
+    pkgs.mozilla.firefox-devedition-bin
     qt5ct
     rofi
     sxiv

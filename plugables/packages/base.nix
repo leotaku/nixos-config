@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     curl
     file
+    gnumake
     gnutar
     kakoune
     nftables
