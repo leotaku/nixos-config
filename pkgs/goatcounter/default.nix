@@ -2,18 +2,18 @@
 
 buildGoModule rec {
   name = "goatcounter-${version}";
-  version = "2020-08-17";
+  version = "2020-09-07";
 
   src = fetchFromGitHub {
     owner = "zgoat";
     repo = "goatcounter";
-    rev = "6bb9b1eea2d6c9ae3eb084c6438b21e86f0093df";
-    sha256 = "0fjp053bck06m2i77c9x1ayzm3jwgscl780wlsbvaz534fs403lg";
+    rev = "5748ec7bf51ea27658497fe714b42c5ecc46d654";
+    sha256 = "092qgmy9scqlgsba9n859v2g6fk1x10l9yjk9f9ybhffhpcx7ivz";
   };
 
   subPackages = [ "./cmd/goatcounter" ];
 
-  vendorSha256 = "1lapsgi4npffadsqqlk7zjilm29al8s1lm1js65h6ad9vlawgr16";
+  vendorSha256 = "06w9zqifgbh9qvs0fdhqprfrj7vvwngi9ccal1dcqryqarll5qkl";
 
   meta = with lib; {
     description = "Easy web analytics. No tracking of personal data.";
