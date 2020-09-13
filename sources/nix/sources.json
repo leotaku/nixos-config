@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "hercules-ci",
         "repo": "hercules-ci-agent",
-        "rev": "6482bcc71c88b49cdc4a8d7d890623ea4d9318da",
-        "sha256": "135hix51bs6q01aprnb9khxcdfnw4iqdds60lp805yxx9y241pq0",
+        "rev": "7127bc84d96b8c8ffc85443b3709ecc16a1e9ca9",
+        "sha256": "0mb1k0n3la33y7z5q4w0wxrbg18mqaxf128vsf3r07271cjx9yv3",
         "type": "tarball",
-        "url": "https://github.com/hercules-ci/hercules-ci-agent/archive/6482bcc71c88b49cdc4a8d7d890623ea4d9318da.tar.gz",
+        "url": "https://github.com/hercules-ci/hercules-ci-agent/archive/7127bc84d96b8c8ffc85443b3709ecc16a1e9ca9.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "morph": {
@@ -17,10 +17,10 @@
         "homepage": null,
         "owner": "DBCDK",
         "repo": "morph",
-        "rev": "bc67f97df6df1c997f8d02105e4e2b2c33a1195a",
-        "sha256": "1rir6kwpvma5wzb92ja68p78w4nhmvispgbx6x6bsxwvab09q4ch",
+        "rev": "c048d6339f18613a1544bc62ff852cb4c6de1042",
+        "sha256": "0yb8prji2nqjsj1aiiqnbqaajbi5l17rg8k78ry7pl3a8sqa3h1x",
         "type": "tarball",
-        "url": "https://github.com/DBCDK/morph/archive/bc67f97df6df1c997f8d02105e4e2b2c33a1195a.tar.gz",
+        "url": "https://github.com/DBCDK/morph/archive/c048d6339f18613a1544bc62ff852cb4c6de1042.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-unstable": {
@@ -29,10 +29,22 @@
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "16fc531784ac226fb268cc59ad573d2746c109c1",
-        "sha256": "0qw1jpdfih9y0dycslapzfp8bl4z7vfg9c7qz176wghwybm4sx0a",
+        "rev": "61525137fd1002f6f2a5eb0ea27d480713362cd5",
+        "sha256": "1gzwz9jvfcf0is6zma7qlgszkngfb2aa4kam0nhs0qnwb4nqn7mg",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/16fc531784ac226fb268cc59ad573d2746c109c1.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/61525137fd1002f6f2a5eb0ea27d480713362cd5.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixos-unstable-small": {
+        "branch": "nixos-unstable-small",
+        "description": "Nix Packages collection",
+        "homepage": null,
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "607509ac8f31794bdf9304eebf857d7137b60168",
+        "sha256": "0ag6xb5vf3n13f5fqj8j8srfg6pdk6scaq1c2mdkvff6fdss4cvk",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/607509ac8f31794bdf9304eebf857d7137b60168.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-mozilla": {
