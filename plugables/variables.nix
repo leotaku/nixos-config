@@ -4,8 +4,7 @@ let
   XDG_CONFIG_HOME = "$HOME/.config";
   XDG_CACHE_HOME = "$HOME/.cache";
   XDG_DATA_HOME = "$HOME/.local/share";
-  # NOTE: Protect usually volatile runtime dir
-  XDG_RUNTIME_DIR = "/tmp/user/$UID";
+  XDG_RUNTIME_DIR = "/run/user/$UID";
 in {
   # Fix apps that do not properly respect XDG conventions
   # https://wiki.archlinux.org/index.php/XDG_Base_Directory
