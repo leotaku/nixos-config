@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
       config.bin.lib=shared               \
       config.bin.rpath=$out/lib           \
       config.install.root=$out            \
-      config.install.data_root=root/stage
+      config.install.data_root=root
     build2/build2/b-boot update: build2/ bpkg/ bdep/
   '';
 
