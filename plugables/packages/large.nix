@@ -10,7 +10,7 @@
     config.boot.kernelPackages.perf
     direnv
     ffmpeg-full
-    haskellPackages.update-nix-fetchgit
+    github-cli
     hyperfine
     imagemagick
     just

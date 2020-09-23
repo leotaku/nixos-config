@@ -18,8 +18,7 @@
     entr
     fd
     ffsend
-    gitAndTools.gitFull
-    gitAndTools.hub
+    git
     jq
     qrencode
     rclone
