@@ -8,10 +8,11 @@
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  # Needed for the virtual console to work on the RPi 3, as the default of 16M doesn't seem to be enough.
-  boot.kernelParams = ["cma=32M"];
+  # Needed for the virtual console to work on the RPi 3, as the
+  # default of 16M doesn't seem to be enough.
+  boot.kernelParams = [ "cma=32M" ];
 
-  # File systems configuration for using the installer's partition layout
+  # File system configuration for the installer partition layout
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
@@ -19,6 +20,9 @@
     };
   };
 
-  # !!! Adding a swap file is optional, but strongly recommended!
-  swapDevices = [ { device = "/swapfile"; size = 1024; } ];
+  # Adding a swap file is optional, but strongly recommended
+  swapDevices = [{
+    device = "/swapfile";
+    size = 1024;
+  }];
 }

@@ -12,9 +12,8 @@
   services.throttled.enable = true;
 
   # Default kernel modules
-  boot.initrd.availableKernelModules = [
-    "xhci_pci" "nvme" "usb_storage" "sd_mod" "acpi_call"
-  ];
+  boot.initrd.availableKernelModules =
+    [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "acpi_call" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.blacklistedKernelModules = [ "i915" ];
@@ -25,7 +24,10 @@
   services.xserver.videoDrivers = [ "intel" ];
 
   # NVIDIA Optimus
-  environment.systemPackages = with config.boot.kernelPackages.nvidia_x11; [ bin settings ];
+  environment.systemPackages = with config.boot.kernelPackages.nvidia_x11; [
+    bin
+    settings
+  ];
   hardware.nvidia.modesetting.enable = true;
   hardware.nvidia.prime = {
     offload.enable = true;
@@ -69,9 +71,8 @@
     };
   };
 
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/f2c44b27-e6d3-46ea-9db6-b581f184120b"; }
-  ];
+  swapDevices =
+    [{ device = "/dev/disk/by-uuid/f2c44b27-e6d3-46ea-9db6-b581f184120b"; }];
 
   # Other defaults
   nix.maxJobs = lib.mkDefault 8;

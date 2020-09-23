@@ -4,12 +4,21 @@
   # Kernel version
   boot.kernelPackages = pkgs.linuxPackages;
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  boot.loader.grub = {
+    enable = true;
+    version = 2;
+    device = "/dev/sda"; # or "nodev" for efi only
+  };
 
   boot.initrd.availableKernelModules = [
-    "ehci_pci" "ahci" "megaraid_sas" "isci" "usbhid" "usb_storage" "sd_mod" "sr_mod"
+    "ehci_pci"
+    "ahci"
+    "megaraid_sas"
+    "isci"
+    "usbhid"
+    "usb_storage"
+    "sd_mod"
+    "sr_mod"
   ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
