@@ -1,6 +1,10 @@
-#!/nix/store/0jvx1wfc2mvi7h1nfywrymbysva5l49b-pulseaudio-13.0/bin/pulseaudio -nF
+# This file is not part of PulseAudio.
 #
-# This file is part of PulseAudio.
+# This is a slightly edited version of the default PulseAudio
+# configuration file. Terms and conditions of the upstream PulseAudio
+# project apply.
+#
+# * Removed the `load-module module-esound-protocol-unix' statement
 #
 # PulseAudio is free software; you can redistribute it and/or modify it
 # under the terms of the GNU Lesser General Public License as published by
