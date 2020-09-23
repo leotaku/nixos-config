@@ -5,8 +5,8 @@
     curl
     file
     gnumake
-    gnutar
     kakoune
+    libarchive
     nftables
     nix-top
     parallel
@@ -14,7 +14,5 @@
     rsync
     stow
     tree
-    unzip
-    zip
   ];
 }
