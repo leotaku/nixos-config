@@ -7,9 +7,9 @@
   networking.firewall.package = pkgs.iptables;
 
   # Use trusted DNS server
-  # 1: https://mullvad.net/de/help/dns-leaks/
-  # 0: https://developers.cloudflare.com/1.1.1.1/
-  networking.nameservers = [ "193.138.218.74" ];
+  # 0: https://mullvad.net/de/help/dns-leaks/
+  # 1: https://developers.cloudflare.com/1.1.1.1/
+  networking.nameservers = [ "1.1.1.1" ];
 
   # Use systemd-resolved instead of DHCPCD
   # TODO: Maybe enable DoT when it becomes safe
@@ -20,7 +20,7 @@
   services.resolved = {
     enable = true;
     domains = [ "~." ];
-    fallbackDns = [ "1.1.1.1" ];
+    fallbackDns = [ "8.8.8.8" ];
     dnssec = "allow-downgrade";
   };
 
