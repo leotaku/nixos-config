@@ -15,13 +15,14 @@
     ../../plugables/cachix.nix
   ];
 
-  nix.trustedUsers = [ "root" "@wheel" ];
-  nix.distributedBuilds = true;
-  nix.useSandbox = true;
+  nix = {
+    trustedUsers = [ "root" "@wheel" ];
+    distributedBuilds = true;
+    useSandbox = true;
+    nixPath = [ "nixpkgs=/etc/nixos/links/nixpkgs" ];
+  };
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
-  nix.nixPath = [ "nixpkgs=/etc/nixos/links/nixpkgs" ];
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
