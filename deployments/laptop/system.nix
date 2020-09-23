@@ -71,9 +71,11 @@
   # Configure default shell
   programs.fish.enable = true;
 
-  # List simple services that you want to enable:
+  # List simple features that you want to enable
+  hardware.bluetooth.enable = true;
   powerManagement.enable = true;
   services.autorandr.enable = false;
+  services.blueman.enable = true;
   services.gvfs.enable = true;
   services.hardware.bolt.enable = true;
   services.openssh.enable = true;
@@ -81,11 +83,9 @@
   services.udisks2.enable = true;
   services.upower.enable = true;
 
-  # Bluetooth
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
-  # Geoclue2 for redshift
+  # Redshift and Geoclue2
+  location.provider = "geoclue2";
+  services.redshift.enable = true;
   services.geoclue2 = {
     enable = true;
     enableDemoAgent = false;
@@ -118,8 +118,10 @@
   };
 
   # Basic XDG support
-  xdg.portal.enable = true;
-  xdg.portal.gtkUsePortal = false;
+  xdg.portal = {
+    enable = true;
+    gtkUsePortal = false;
+  };
 
   # SDDM
   services.xserver.displayManager.sddm = {
