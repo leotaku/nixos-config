@@ -46,12 +46,16 @@
   console.keyMap = "de";
 
   # Enable SSH
-  services.openssh.enable = true;
-  services.openssh.permitRootLogin = "yes";
+  services.openssh = {
+    enable = true;
+    permitRootLogin = "yes";
+  };
 
-  services.fail2ban.enable = true;
-  services.fail2ban.packageFirewall = pkgs.iptables-nftables-compat;
   # Enable Fail2ban firewall
+  services.fail2ban = {
+    enable = true;
+    packageFirewall = config.networking.firewall.package;
+  };
 
   # Hercules-CI agent
   services.hercules-ci-agent = {
