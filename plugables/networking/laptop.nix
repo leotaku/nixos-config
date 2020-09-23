@@ -4,12 +4,31 @@
   imports = [ ./shared.nix ];
 
   # Networking
-  networking.networkmanager = {
+  services.connman = {
     enable = true;
     wifi.backend = "iwd";
-    dns = "systemd-resolved";
+    networkInterfaceBlacklist =
+      [ "docker" "vmnet" "vboxnet" "virbr" "ifb" "ve" "vnet" "eth" "wlan" ];
+    extraFlags = [ "--nodnsproxy" ];
+    extraConfig = ''
+      [General]
+      PreferredTechnologies=ethernet,wifi
+    '';
   };
   networking.useDHCP = false;
+
+  # Networking GUI
+  systemd.user.services."connman-gtk" = {
+    enable = true;
+    serviceConfig = {
+      ExecPreStart = pkgs.coreutils + "/bin/sleep 3";
+      ExecStart = pkgs.connman-gtk + "/bin/connman-gtk --tray";
+      partOf = "graphical-session.target";
+      Type = "simple";
+    };
+    wantedBy = [ "default.target" ];
+    after = [ "graphical-session.target" "network.target" ];
+  };
 
   # Wireless
   networking.wireless.iwd.enable = true;
