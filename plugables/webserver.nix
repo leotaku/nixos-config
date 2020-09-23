@@ -12,6 +12,10 @@ let
       useACMEHost = "le0.gs";
       forceSSL = true;
     };
+  trackingConfig = ''
+    sub_filter '</body>' '<script data-goatcounter="https://analytics.le0.gs/count" async src="//analytics.le0.gs/count.js"></script></body>';
+    sub_filter_once on;
+  '';
 in {
   # Nginx server
   services.nginx = {
@@ -31,12 +35,14 @@ in {
         locations = {
           "/" = {
             root = "/var/web/site";
-            extraConfig = "error_page 404 /404.html;";
+            extraConfig = trackingConfig + ''
+              error_page 404 /404.html;
+            '';
           };
           "/public".return = "301 /public/";
           "/public/" = {
             alias = "/var/web/stuff/public/";
-            extraConfig = ''
+            extraConfig = trackingConfig + ''
               fancyindex on;
               fancyindex_exact_size off;
             '';
@@ -59,6 +65,9 @@ in {
         };
       };
       "rss.le0.gs" = { };
+      "analytics.le0.gs" = {
+        locations = { "/" = { proxyPass = "http://localhost:9000/"; }; };
+      };
     } // lib.mapAttrs protectHost {
       "files.le0.gs" = {
         locations = {
@@ -150,12 +159,23 @@ in {
       "le0.gs" = {
         email = "leo.gaskin@brg-feldkirchen.at";
         webroot = config.services.nginx.virtualHosts."le0.gs".acmeRoot;
-        extraDomains = lib.filterAttrs (n: _: n != "le0.gs")
-          (lib.mapAttrs (n: _: null) config.services.nginx.virtualHosts);
-        user = "nginx";
+        extraDomainNames = lib.filter (n: n != "le0.gs")
+          (lib.mapAttrsToList (n: _: n) config.services.nginx.virtualHosts);
         group = "nginx";
       };
     };
+  };
+
+  # GoatCounter analytics
+  systemd.services."goatcounter" = {
+    serviceConfig = {
+      WorkingDirectory = "/var/lib/goatcounter";
+      ExecStart = pkgs.goatcounter
+        + "/bin/goatcounter serve -listen :9000 -tls none";
+      Type = "simple";
+    };
+    after = [ "nginx.service" ];
+    wantedBy = [ "default.target" ];
   };
 
   # Cloudflare DNS updates
