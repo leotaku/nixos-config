@@ -205,24 +205,4 @@
   programs.command-not-found = {
     enable = false;
   };
-
-  # Fix broken lid-suspend
-  services.logind.lidSwitch = "ignore";
-  services.acpid.enable = true;
-  services.acpid.logEvents = true;
-  services.acpid.handlers = {
-    "lid-close" = {
-      event = "button/lid LID close";
-      action = ''
-        ${pkgs.systemd}/bin/systemctl stop iwd.service
-        ${pkgs.systemd}/bin/systemctl suspend
-      '';
-    };
-    "lid-open" = {
-      event = "button/lid LID open";
-      action = ''
-        ${pkgs.systemd}/bin/systemctl start iwd.service
-      '';
-    };
-  };
 }
