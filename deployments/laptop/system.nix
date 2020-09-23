@@ -150,13 +150,13 @@
   hardware.opengl.driSupport32Bit = true;
   hardware.steam-hardware.enable = true;
 
-  # Enable virtuaisation/container technologies
+  # Enable virtualization/container technologies
   virtualisation.libvirtd.enable = true;
   services.flatpak.enable = false;
   virtualisation.docker.enable = false;
   virtualisation.anbox.enable = false;
 
-  # Add wireshark permissions
+  # Add Wireshark permissions
   programs.wireshark = {
     enable = true;
     package = pkgs.wireshark-qt;
@@ -192,7 +192,7 @@
     }];
   };
 
-  # Run locatedb every hour
+  # Run LocateDB every hour
   services.locate = {
     enable = true;
     interval = "hourly";

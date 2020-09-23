@@ -21,7 +21,6 @@
     '';
   };
 
-
   # Hostname
   networking.hostName = "nixos-fujitsu";
 
@@ -50,9 +49,9 @@
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
 
-  # Enable fail2ban firewall
   services.fail2ban.enable = true;
   services.fail2ban.packageFirewall = pkgs.iptables-nftables-compat;
+  # Enable Fail2ban firewall
 
   # Hercules-CI agent
   services.hercules-ci-agent = {
@@ -107,7 +106,7 @@
   services.jellyfin.enable = true;
   programs.wireshark.enable = true;
 
-  # Udisks depends on gtk+ which I don't want on my headless servers
+  # Udisks depends on GTK+ which I don't want on my headless servers
   services.udisks2.enable = false;
 
   # Open firewall ports

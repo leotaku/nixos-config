@@ -80,7 +80,7 @@ in {
       extraOptions = "builders-use-substitutes = true";
     };
   } // (
-    # Only offer deployment options if morph is used
+    # Only offer deployment options if Morph is used
     if hasAttr "deployment" options then {
       deployment = {
         targetHost = (thisMachine cfg.machines).hostName;

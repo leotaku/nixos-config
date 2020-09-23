@@ -14,7 +14,7 @@
 
   # Nixpkgs configurations
   nixpkgs = rec {
-    # Tell the host system that it should build for aarch64
+    # Tell the host system that it should build for AArch64
     crossSystem = lib.systems.elaborate {
       config = "aarch64-unknown-linux-gnu";
     };
@@ -41,7 +41,7 @@
     };
   };
 
-  # Udisks depends on gtk+ which I don't want on my headless servers
+  # Udisks depends on GTK+ which I don't want on my headless servers
   services.udisks2.enable = false;
 
   # Enable SSH
