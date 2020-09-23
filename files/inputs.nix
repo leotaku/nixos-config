@@ -1,5 +1,7 @@
 import-pkgs:
 let
+  # Use Flakes when it is available
+  hasFlakes = builtins.hasAttr "getFlake" builtins;
   # Setup JSON and Nixpkgs
   json = builtins.fromJSON (builtins.readFile ../flake.lock);
   pkgs = if import-pkgs == null then impure-pkgs else import-pkgs;
@@ -19,4 +21,4 @@ let
         inherit (node.locked) repo owner rev;
         sha256 = node.locked.narHash;
       });
-in wrap nodes
+in if hasFlakes then import ./pure-inputs.nix else wrap nodes

@@ -1,6 +1,6 @@
-let inputs = import ../files/pure-inputs.nix;
-in self: super:
-with self; {
+self: super:
+let inputs = import ../files/inputs.nix self;
+in with self; {
   # Custom packages
   alegreya = callPackage ./alegreya/default.nix { };
   besley = callPackage ./besley/default.nix { };

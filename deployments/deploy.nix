@@ -1,5 +1,5 @@
 let
-  inputs = import ../files/pure-inputs.nix;
+  inputs = import ../files/inputs.nix null;
   pinned = import inputs.nixpkgs { };
 in {
   network = {
