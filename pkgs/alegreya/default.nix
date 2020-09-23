@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
   name = "alegreya-${version}";
-  version = "2018-08-08";
+  version = "2020-09-23";
 
   src = fetchFromGitHub {
     owner = "huertatipografica";
     repo = "Alegreya";
-    rev = "254c16b651af6926154b9af159c7af8eb908a6ea";
-    sha256 = "1m5xr95y6qxxv2ryvhfck39d6q5hxsr51f530fshg53x48l2mpwr";
+    rev = "eb033184ee41de50ec1e1d91b7503367fcc2a4cc";
+    sha256 = "1zpra8lgm2qnq015mal692h19f6f3bcs9i35xnvf8mfcsjzqdshb";
   };
 
   installPhase = ''
