@@ -2,7 +2,7 @@
 
 ssh_user := "root"
 systems_file := "deploy.nix"
-nix_path := "nixpkgs=/etc/nixos/nixos-config/sources/links/nixos-unstable"
+nix_path := "nixpkgs=/etc/nixos/links/nixpkgs"
 
 # Commands
 
