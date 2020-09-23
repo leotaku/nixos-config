@@ -38,7 +38,8 @@ in with self; {
     (lib.mapAttrsToList (n: v: if (lib.isDerivation v) then v else null)
       hunspellDicts);
 
-  # Emacs
+  # Source overrides
+  awesome-git = callPackage ./awesome/default.nix { };
   emacs-git = callPackage ./emacs/emacs-git.nix { };
   emacs-custom = callPackage ./emacs/default.nix { };
   emacs-git-custom =

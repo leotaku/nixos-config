@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     # Xorg
-    awesome
+    awesome-git
     cbatticon
     picom
     xcape
