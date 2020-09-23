@@ -19,7 +19,8 @@ secrets glob="*":
 	morph upload-secrets "{{systems_file}}" --on="{{glob}}"
 
 update:
-	./sources/update.sh
+	nix flake update --recreate-lock-file
+	bash ./files/link.sh
 
 update-pkgs:
 	parallel --timeout 60 --bar update-nix-fetchgit ::: pkgs/*/*.nix

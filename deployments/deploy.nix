@@ -1,6 +1,6 @@
 let
-  sources = import ../sources/nix/sources.nix;
-  pinned = import sources.nixos-unstable { };
+  inputs = import ../files/pure-inputs.nix;
+  pinned = import inputs.nixpkgs { };
 in {
   network = {
     description = "Home network";

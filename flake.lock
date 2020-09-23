@@ -1,24 +1,78 @@
 {
   "nodes": {
+    "morph": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1599574652,
+        "narHash": "sha256-PcChsEZq0Ht8Rmeil0+gJS6pFF4Wx6iC1BJbEWW+aHk=",
+        "owner": "DBCDK",
+        "repo": "morph",
+        "rev": "c048d6339f18613a1544bc62ff852cb4c6de1042",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DBCDK",
+        "ref": "master",
+        "repo": "morph",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1599510591,
-        "narHash": "sha256-rx6LLVncYqChBVVNopRY7tn59aP4qPqNjsAxt2X6/L8=",
+        "lastModified": 1600769909,
+        "narHash": "sha256-1q9IQRY2/zLp7LQzUWweOw90w4N4rqujbzy0AjZz7Hg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "61525137fd1002f6f2a5eb0ea27d480713362cd5",
+        "rev": "06b27898a4563ef2e0e653fd78f76b77c31820ff",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-unstable",
+        "ref": "nixos-unstable-small",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-mozilla": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1594829078,
+        "narHash": "sha256-yRCkO499a5gucHmxgWb/QDqPt/UBTbuPURuPZ9DLmIc=",
+        "owner": "mozilla",
+        "repo": "nixpkgs-mozilla",
+        "rev": "efda5b357451dbb0431f983cca679ae3cd9b9829",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mozilla",
+        "ref": "master",
+        "repo": "nixpkgs-mozilla",
+        "type": "github"
+      }
+    },
+    "old-ghc-nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1585211737,
+        "narHash": "sha256-wVTnlW+lD9unULjNJS5lc8DNH7M8jduPDrqenWorbfA=",
+        "owner": "mpickering",
+        "repo": "old-ghc-nix",
+        "rev": "674d459c7376af6641c94e91cd7d36214661b481",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mpickering",
+        "ref": "master",
+        "repo": "old-ghc-nix",
         "type": "github"
       }
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "morph": "morph",
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-mozilla": "nixpkgs-mozilla",
+        "old-ghc-nix": "old-ghc-nix"
       }
     }
   },

@@ -1,4 +1,4 @@
-let sources = import ../sources/nix/sources.nix;
+let inputs = import ../files/pure-inputs.nix;
 in self: super:
 with self; {
   # Custom packages
@@ -41,9 +41,9 @@ with self; {
     callPackage ./emacs/default.nix { emacs = self.emacs-git; };
 
   # External
-  mozilla = import sources.nixpkgs-mozilla self super;
-  morph = callPackage (sources.morph + "/nix-packaging") { };
+  morph = callPackage (inputs.morph + "/nix-packaging") { };
+  mozilla = import inputs.nixpkgs-mozilla self super;
   haskell = super.haskell // {
-    compiler = callPackage sources.old-ghc-nix { } // super.haskell.compiler;
+    compiler = callPackage inputs.old-ghc-nix { } // super.haskell.compiler;
   };
 }

@@ -21,11 +21,7 @@
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-  nix.nixPath = [
-    "nixpkgs=/etc/nixos/nixos-config/sources/links/nixos-unstable"
-    "nixos-config=/etc/nixos/configuration.nix"
-    "sources=/etc/nixos/nixos-config/sources/nix/sources.nix"
-  ];
+  nix.nixPath = [ "nixpkgs=/etc/nixos/links/nixpkgs" ];
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

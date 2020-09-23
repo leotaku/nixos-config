@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = with (import ../sources/nix/sources.nix); [
+  imports = [
     ../hardware/fujitsu.nix
     ../plugables/home-fleet.nix
     ../plugables/netdata.nix
@@ -11,7 +11,6 @@
     ../plugables/torrenting.nix
     ../plugables/webserver.nix
     ../plugables/znc.nix
-    (hercules-ci-agent + "/module.nix")
   ];
 
   # Hostname

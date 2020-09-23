@@ -1,6 +1,6 @@
 let
-  sources = import ./sources/nix/sources.nix;
-  pkgs = import sources.nixos-unstable {
+  inputs = import ./files/pure-inputs.nix;
+  pkgs = import inputs.nixpkgs {
     overlays = [ (import ./pkgs/default.nix) ];
   };
 in {
