@@ -13,6 +13,15 @@
     ../plugables/znc.nix
   ];
 
+  # Enable unstable features
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes ca-references
+    '';
+  };
+
+
   # Hostname
   networking.hostName = "nixos-fujitsu";
 
@@ -46,9 +55,11 @@
   services.fail2ban.packageFirewall = pkgs.iptables-nftables-compat;
 
   # Hercules-CI agent
-  services.hercules-ci-agent.enable = true;
-  services.hercules-ci-agent.concurrentTasks = 4;
-  services.hercules-ci-agent.patchNix = true;
+  services.hercules-ci-agent = {
+    enable = true;
+    settings.concurrentTasks = 8;
+    patchNix = false;
+  };
 
   # TinyRSS rss service
   services.tt-rss = {
