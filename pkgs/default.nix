@@ -34,6 +34,9 @@ in with self; {
   hunspell-custom = hunspellWithDicts
     (lib.mapAttrsToList (n: v: if (lib.isDerivation v) then v else null)
       hunspellDicts);
+  nuspell-custom = nuspellWithDicts
+    (lib.mapAttrsToList (n: v: if (lib.isDerivation v) then v else null)
+      hunspellDicts);
 
   # Emacs
   emacs-git = callPackage ./emacs/emacs-git.nix { };
