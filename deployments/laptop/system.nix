@@ -133,10 +133,8 @@
       Relogin=false
       Session=
       User=
-
       [General]
       InputMethod=
-
       [Theme]
       ThemeDir=${pkgs.sddm-themes}/share/sddm/themes
     '';
