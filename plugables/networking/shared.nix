@@ -3,7 +3,8 @@
 {
   # Use firewall per default
   networking.firewall.enable = true;
-  networking.firewall.package = pkgs.iptables-nftables-compat;
+  # FIXME: Nftables is better but messes up virtualization
+  networking.firewall.package = pkgs.iptables;
 
   # Use trusted DNS server
   # 1: https://mullvad.net/de/help/dns-leaks/
