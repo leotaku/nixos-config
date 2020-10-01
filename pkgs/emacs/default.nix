@@ -20,6 +20,6 @@ let
   emacs-with-paths = pkgs.symlinkJoin {
     name = builtins.replaceStrings [ "emacs-with-packages" ] [ "emacs-custom" ]
       emacs-with-packages.name;
-    paths = [ emacs-with-packages pkgs.editorconfig-core-c ];
+    paths = [ emacs-with-packages ];
   };
 in emacs-with-paths
