@@ -48,8 +48,5 @@ in with self; {
   # External
   morph = callPackage (inputs.morph + "/nix-packaging") { };
   mozilla = import inputs.nixpkgs-mozilla self super;
-  haskell = super.haskell // {
-    compiler = callPackage inputs.old-ghc-nix { } // super.haskell.compiler;
-  };
   update-nix-fetchgit = callPackage inputs.update-nix-fetchgit { };
 }

@@ -14,10 +14,6 @@
       url = "github:DBCDK/morph/master";
       flake = false;
     };
-    old-ghc-nix = {
-      url = "github:mpickering/old-ghc-nix/master";
-      flake = false;
-    };
     update-nix-fetchgit = {
       url = "github:expipiplus1/update-nix-fetchgit/master";
       flake = false;

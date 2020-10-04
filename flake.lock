@@ -50,29 +50,11 @@
         "type": "github"
       }
     },
-    "old-ghc-nix": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1585211737,
-        "narHash": "sha256-wVTnlW+lD9unULjNJS5lc8DNH7M8jduPDrqenWorbfA=",
-        "owner": "mpickering",
-        "repo": "old-ghc-nix",
-        "rev": "674d459c7376af6641c94e91cd7d36214661b481",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mpickering",
-        "ref": "master",
-        "repo": "old-ghc-nix",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "morph": "morph",
         "nixpkgs": "nixpkgs",
         "nixpkgs-mozilla": "nixpkgs-mozilla",
-        "old-ghc-nix": "old-ghc-nix",
         "update-nix-fetchgit": "update-nix-fetchgit"
       }
     },
