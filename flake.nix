@@ -18,6 +18,10 @@
       url = "github:mpickering/old-ghc-nix/master";
       flake = false;
     };
+    update-nix-fetchgit = {
+      url = "github:expipiplus1/update-nix-fetchgit/master";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }:

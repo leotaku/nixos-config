@@ -51,4 +51,5 @@ in with self; {
   haskell = super.haskell // {
     compiler = callPackage inputs.old-ghc-nix { } // super.haskell.compiler;
   };
+  update-nix-fetchgit = callPackage inputs.update-nix-fetchgit { };
 }

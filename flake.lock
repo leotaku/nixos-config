@@ -72,7 +72,25 @@
         "morph": "morph",
         "nixpkgs": "nixpkgs",
         "nixpkgs-mozilla": "nixpkgs-mozilla",
-        "old-ghc-nix": "old-ghc-nix"
+        "old-ghc-nix": "old-ghc-nix",
+        "update-nix-fetchgit": "update-nix-fetchgit"
+      }
+    },
+    "update-nix-fetchgit": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1601462880,
+        "narHash": "sha256-gyzy52ks9o125WAGba5SqXxBKTURmiJIyYrlxqyj6Nw=",
+        "owner": "expipiplus1",
+        "repo": "update-nix-fetchgit",
+        "rev": "553ffd010c83606d13554cba5bdefb25c6225f22",
+        "type": "github"
+      },
+      "original": {
+        "owner": "expipiplus1",
+        "ref": "master",
+        "repo": "update-nix-fetchgit",
+        "type": "github"
       }
     }
   },

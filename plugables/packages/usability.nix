@@ -11,6 +11,7 @@
     nix-prefetch-scripts
     nix-top
     nixfmt
+    update-nix-fetchgit
     # Utils
     aria
     bvi
