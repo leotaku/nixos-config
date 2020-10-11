@@ -20,6 +20,7 @@
     fd
     ffsend
     git
+    git-lfs
     jq
     qrencode
     rclone
