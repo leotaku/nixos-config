@@ -1,4 +1,4 @@
-{ stdenv, emacs, harfbuzz, jansson, imagemagick, fetchFromGitHub, ... }:
+{ emacs, fetchFromGitHub, ... }:
 
 let
   src = fetchFromGitHub {
@@ -13,19 +13,8 @@ in
 }).overrideAttrs (oldAttrs: rec {
   name = "emacs-unstable-${version}";
   version = "git";
-
   inherit src;
 
   doCheck = false;
   patches = null;
-
-  configureflags = oldAttrs.configureFlags ++ [
-    "--with-harfbuzz"
-    "--with-json"
-  ];
-
-  buildInputs = oldAttrs.buildInputs ++ [
-    harfbuzz
-    jansson
-  ];
 })
