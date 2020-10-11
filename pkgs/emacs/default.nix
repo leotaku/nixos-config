@@ -1,10 +1,10 @@
-{ pkgs, emacsPackagesNgGen, emacs, imagemagick, ... }:
+{ pkgs, emacsPackagesNgGen, emacs, ... }:
 let
   customEmacsPackages = emacsPackagesNgGen ((emacs.override {
-    inherit imagemagick;
     withX = true;
     withGTK3 = true;
     withXwidgets = true;
+    nativeComp = true;
   }).overrideAttrs (oldAttrs: {
     configureFlags = oldAttrs.configureFlags
       ++ [ "--without-toolkit-scroll-bars" ];
