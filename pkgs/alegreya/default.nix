@@ -1,14 +1,12 @@
-{ stdenv, fetchFromGitHub, lib }:
+{ stdenv, fetchzip, lib }:
 
 stdenv.mkDerivation rec {
   name = "alegreya-${version}";
-  version = "2020-09-23";
+  version = "2.008";
 
-  src = fetchFromGitHub {
-    owner = "huertatipografica";
-    repo = "Alegreya";
-    rev = "eb033184ee41de50ec1e1d91b7503367fcc2a4cc";
-    sha256 = "1zpra8lgm2qnq015mal692h19f6f3bcs9i35xnvf8mfcsjzqdshb";
+  src = fetchzip {
+    url = "https://github.com/huertatipografica/Alegreya/archive/v${version}.zip";
+    sha256 = "sha256-md8qKCJ9lAe1A6O4ULLusGDT0pjMwe2z2L1j40vKvdQ=";
   };
 
   installPhase = ''
