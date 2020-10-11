@@ -20,7 +20,7 @@ secrets glob="*":
 
 update:
 	nix flake update --recreate-lock-file
-	bash ./files/link.sh
+	sh ./files/link.sh
 
 update-pkgs:
 	parallel --timeout 60 --bar update-nix-fetchgit ::: pkgs/*/*.nix
