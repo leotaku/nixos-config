@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
   name = "catimg-${version}";
-  version = "2020-07-31";
+  version = "2020-10-09";
 
   src = fetchFromGitHub {
     repo = "catimg";
     owner = "posva";
-    rev = "5e096faa751b8f4eef04ccae923c9aa344dd2e9d";
-    sha256 = "0a2dswbv4xddb2l2d55hc43lzvjwrjs5z9am7v6i0p0mi2fmc89s";
+    rev = "a67b92d8a4db481a1df041e2e2911050b26107d8";
+    sha256 = "0gvnh7bilba1vs9ib1l40lzbvf855bsi5z6vgrqj7dh2zhg2aijr";
   };
 
   propagatedBuildInputs = [ imagemagick ];
