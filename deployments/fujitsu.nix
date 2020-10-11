@@ -64,18 +64,6 @@
     patchNix = false;
   };
 
-  # TinyRSS rss service
-  services.tt-rss = {
-    enable = true;
-    # TODO: Switch to http-auth only
-    singleUserMode = false;
-    auth.autoCreate = false;
-    registration.enable = false;
-    pool = "tt-rss";
-    virtualHost = "test.le0.gs";
-    selfUrlPath = "https://test.le0.gs";
-  };
-
   # Miniflux RSS
   services.miniflux = {
     enable = true;
