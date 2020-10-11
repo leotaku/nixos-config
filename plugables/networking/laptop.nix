@@ -6,7 +6,7 @@
   # Networking
   services.connman = {
     enable = true;
-    wifi.backend = "iwd";
+    wifi.backend = "wpa_supplicant";
     networkInterfaceBlacklist =
       [ "docker" "vmnet" "vboxnet" "virbr" "ifb" "ve" "vnet" "eth" "wlan" ];
     extraFlags = [ "--nodnsproxy" ];
@@ -29,13 +29,6 @@
     wantedBy = [ "default.target" ];
     after = [ "graphical-session.target" "network.target" ];
   };
-
-  # Wireless
-  networking.wireless.iwd.enable = true;
-  environment.etc."iwd/main.conf".text = ''
-    [General]
-    UseDefaultInterface=true
-  '';
 
   # Enable Avahi
   services.avahi = {
