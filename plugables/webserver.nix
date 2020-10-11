@@ -64,7 +64,10 @@ in {
           "/rpi".proxyPass = "http://nixos-rpi.local/";
         };
       };
-      "rss.le0.gs" = { };
+      "test.le0.gs" = { };
+      "rss.le0.gs" = {
+        locations = { "/" = { proxyPass = "http://localhost:1270/"; }; };
+      };
       "analytics.le0.gs" = {
         locations = { "/" = { proxyPass = "http://localhost:9000/"; }; };
       };

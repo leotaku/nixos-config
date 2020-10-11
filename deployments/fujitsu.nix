@@ -72,8 +72,16 @@
     auth.autoCreate = false;
     registration.enable = false;
     pool = "tt-rss";
-    virtualHost = "rss.le0.gs";
-    selfUrlPath = "https://rss.le0.gs";
+    virtualHost = "test.le0.gs";
+    selfUrlPath = "https://test.le0.gs";
+  };
+
+  # Miniflux RSS
+  services.miniflux = {
+    enable = true;
+    config = {
+      LISTEN_ADDR = "0.0.0.0:1270";
+    };
   };
 
   # Backup and syncing
