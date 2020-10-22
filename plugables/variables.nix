@@ -23,6 +23,7 @@ in {
     NOTMUCH_CONFIG = XDG_CONFIG_HOME + "/notmuch/notmuchrc";
     PARALLEL_HOME = XDG_CONFIG_HOME + "/parallel";
     RUSTUP_HOME = XDG_DATA_HOME + "/rustup";
+    R_LIBS_USER = XDG_DATA_HOME + "/R";
     TEXMFCACHE = XDG_CACHE_HOME + "/texmf-var";
     WEECHAT_HOME = XDG_CONFIG_HOME + "/weechat";
     XAUTHORITY = "$HOME/.Xauthority";
