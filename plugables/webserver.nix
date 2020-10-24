@@ -5,7 +5,7 @@ let
     (old: { modules = with pkgs.nginxModules; [ fancyindex ]; });
   protectHost = _: v:
     (sslHost _ v) // {
-      basicAuthFile = config.deployment.secrets."htpasswd".destination;
+      basicAuthFile = builtins.toString /var/keys/htpasswd;
     };
   sslHost = _: v:
     v // {
@@ -184,7 +184,7 @@ in {
   systemd.services."cloudflare-dns" = {
     path = with pkgs; [ bash curl dnsutils jq ];
     serviceConfig = {
-      EnvironmentFile = config.deployment.secrets."cloudflare.env".destination;
+      EnvironmentFile = builtins.toString /var/keys/cloudflare.env;
       ExecStart = "${../files/update-dns.sh}";
       Type = "simple";
     };

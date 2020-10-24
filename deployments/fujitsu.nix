@@ -111,35 +111,4 @@
 
   # Open firewall ports
   networking.firewall.allowedTCPPorts = [ 22 80 443 8000 8384 6667 25565 ];
-
-  deployment.secrets = {
-    "cloudflare.env" = {
-      source = builtins.toString ../private/cloudflare.env;
-      destination = "/var/keys/cloudflare.env";
-      owner.user = "root";
-      owner.group = "root";
-      action = [ "systemctl" "restart" "cloudflare-dns.service" ];
-    };
-    "htpasswd" = {
-      source = builtins.toString ../private/htpasswd;
-      destination = "/var/keys/htpasswd";
-      owner.user = "nginx";
-      owner.group = "nginx";
-      action = [ "systemctl" "reload" "nginx.service" ];
-    };
-    "binary-caches.json" = {
-      source = builtins.toString ../private/binary-caches.json;
-      destination = "/var/lib/hercules-ci-agent/secrets/binary-caches.json";
-      owner.user = "hercules-ci-agent";
-      owner.group = "nogroup";
-      action = [ "systemctl" "restart" "hercules-ci-agent.service" ];
-    };
-    "cluster-join-token.key" = {
-      source = builtins.toString ../private/cluster-join-token.key;
-      destination = "/var/lib/hercules-ci-agent/secrets/cluster-join-token.key";
-      owner.user = "hercules-ci-agent";
-      owner.group = "nogroup";
-      action = [ "systemctl" "restart" "hercules-ci-agent.service" ];
-    };
-  };
 }

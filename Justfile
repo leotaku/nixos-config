@@ -14,9 +14,8 @@ deploy glob="*":
 	cd deployments; \
 	morph deploy "{{systems_file}}" switch --on="{{glob}}" --keep-result
 
-secrets glob="*":
-	cd deployments; \
-	morph upload-secrets "{{systems_file}}" --on="{{glob}}"
+secrets:
+	just secrets/default
 
 update:
 	nix flake update --recreate-lock-file
