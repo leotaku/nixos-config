@@ -17,14 +17,17 @@
     bvi
     emv
     entr
+    exiftool
     fd
     ffsend
     git
     git-lfs
+    jdupes
     jq
     qrencode
     rclone
     ripgrep
+    sops
     # Text-mode utils
     htop
     ncdu
