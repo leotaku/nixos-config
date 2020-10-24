@@ -17,9 +17,19 @@
       };
     in {
       # Systems
-      nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ (import ./deployments/laptop/configuration.nix) ];
+      nixosConfigurations = {
+        laptop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ (import ./deployments/laptop/configuration.nix) ];
+        };
+        fujitsu = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ (import ./deployments/fujitsu.nix) ];
+        };
+        rpi = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          modules = [ (import ./deployments/rpi.nix) ];
+        };
       };
 
       # Custom overlay

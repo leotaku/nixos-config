@@ -6,13 +6,11 @@ nix_path := "nixpkgs=/etc/nixos/links/nixpkgs"
 
 # Commands
 
-build glob="*":
-	cd deployments; \
-	morph build "{{systems_file}}" --on="{{glob}}" --keep-result
+build +machines:
+	parallel -j1 --ungroup ./files/deploy.sh '{}' build ::: {{machines}}
 
-deploy glob="*":
-	cd deployments; \
-	morph deploy "{{systems_file}}" switch --on="{{glob}}" --keep-result
+deploy +machines:
+	parallel -j1 --ungroup ./files/deploy.sh '{}' switch ::: {{machines}}
 
 secrets:
 	just secrets/default
