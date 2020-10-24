@@ -199,7 +199,5 @@
   };
 
   # Disable NixOS command-not-found functionality
-  programs.command-not-found = {
-    enable = false;
-  };
+  programs.command-not-found.enable = false;
 }
