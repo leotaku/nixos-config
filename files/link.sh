@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 instantiate() {
     nix-instantiate \
-        --eval ./pure-inputs.nix \
+        --eval ./inputs.nix \
         -A nixpkgs.outPath
 }
 

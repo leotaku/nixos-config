@@ -6,18 +6,6 @@
       url = "github:nixos/nixpkgs/nixos-unstable-small";
       flake = true;
     };
-    nixpkgs-mozilla = {
-      url = "github:mozilla/nixpkgs-mozilla/master";
-      flake = false;
-    };
-    morph = {
-      url = "github:DBCDK/morph/master";
-      flake = false;
-    };
-    update-nix-fetchgit = {
-      url = "github:expipiplus1/update-nix-fetchgit/master";
-      flake = false;
-    };
   };
 
   outputs = { self, nixpkgs, ... }:

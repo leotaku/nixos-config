@@ -1,22 +1,5 @@
 {
   "nodes": {
-    "morph": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1599574652,
-        "narHash": "sha256-PcChsEZq0Ht8Rmeil0+gJS6pFF4Wx6iC1BJbEWW+aHk=",
-        "owner": "DBCDK",
-        "repo": "morph",
-        "rev": "c048d6339f18613a1544bc62ff852cb4c6de1042",
-        "type": "github"
-      },
-      "original": {
-        "owner": "DBCDK",
-        "ref": "master",
-        "repo": "morph",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1602173517,
@@ -33,46 +16,9 @@
         "type": "github"
       }
     },
-    "nixpkgs-mozilla": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1601371715,
-        "narHash": "sha256-AXHx65D9BZpwNBgameXRfpiGNQpHNB1jc0jKoL2EkFE=",
-        "owner": "mozilla",
-        "repo": "nixpkgs-mozilla",
-        "rev": "57c8084c7ef41366993909c20491e359bbb90f54",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mozilla",
-        "ref": "master",
-        "repo": "nixpkgs-mozilla",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
-        "morph": "morph",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-mozilla": "nixpkgs-mozilla",
-        "update-nix-fetchgit": "update-nix-fetchgit"
-      }
-    },
-    "update-nix-fetchgit": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1602071005,
-        "narHash": "sha256-DIhvlP6TZA4fj9WFL2PpmklfzG8oosr4HZcmdG7rFc0=",
-        "owner": "expipiplus1",
-        "repo": "update-nix-fetchgit",
-        "rev": "0056dae5beb49acd0139cc931af7e7ebb9f95de9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "expipiplus1",
-        "ref": "master",
-        "repo": "update-nix-fetchgit",
-        "type": "github"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

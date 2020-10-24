@@ -1,5 +1,5 @@
 let
-  inputs = import ./files/inputs.nix null;
+  inputs = import ./files/inputs.nix;
   pkgs = import inputs.nixpkgs {
     overlays = [ (import ./pkgs/default.nix) ];
   };

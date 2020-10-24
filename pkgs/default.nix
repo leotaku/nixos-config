@@ -1,6 +1,5 @@
 self: super:
-let inputs = import ../files/inputs.nix self;
-in with self; {
+with self; {
   # Custom packages
   alegreya = callPackage ./alegreya/default.nix { };
   besley = callPackage ./besley/default.nix { };
@@ -46,7 +45,5 @@ in with self; {
     callPackage ./emacs/default.nix { emacs = self.emacs-git; };
 
   # External
-  morph = callPackage (inputs.morph + "/nix-packaging") { };
-  mozilla = import inputs.nixpkgs-mozilla self super;
-  update-nix-fetchgit = callPackage inputs.update-nix-fetchgit { };
+  mozilla = import ./mozilla/default.nix self super;
 }
