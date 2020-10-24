@@ -11,7 +11,6 @@ let
   emacs-with-packages = customEmacsPackages.emacsWithPackages (epkgs: [
     # Native Emacs packages
     epkgs.closql
-    epkgs.editorconfig
     epkgs.forge
     epkgs.zmq
     pkgs.notmuch.emacs
