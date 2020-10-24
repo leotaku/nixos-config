@@ -103,7 +103,6 @@
   ];
 
   # DBUS user session
-  services.dbus.socketActivated = true;
   services.dbus.packages = with pkgs; [ gnome3.dconf ];
 
   # X11 windowing system
