@@ -4,19 +4,11 @@ let
   cfg = config.services.wg-quicker;
   kernel = config.boot.kernelPackages;
 
-  genDir = name: path:
-    pkgs.writeTextFile {
-      name = "config-${name}";
-      executable = false;
-      destination = "/${name}.conf";
-      text = fileContents path;
-    };
-  genFile = name: path: (genDir name path) + "/${name}.conf";
-  genService = name: submodule: {
+  genService = name: target: {
     description = "${name} wg-quick WireGuard Tunnel";
     requires = [ "network-online.target" ];
     after = [ "network.target" "network-online.target" ];
-    wantedBy = mkIf submodule.enable [ "default.target" ];
+    wantedBy = [ "default.target" ];
     environment.DEVICE = name;
     path = [ pkgs.kmod pkgs.wireguard-tools ];
 
@@ -27,37 +19,27 @@ let
 
     script = ''
       ${optionalString (!config.boot.isContainer) "modprobe wireguard"}
-      wg-quick up "${genFile name submodule.path}"
+      wg-quick up "${target}"
     '';
 
     preStop = ''
-      wg-quick down "${genFile name submodule.path}"
+      wg-quick down "${target}"
     '';
   };
 
-  createServices = (mapAttrs' (name: submodule:
-    nameValuePair "wg-quicker-${name}" (genService name submodule)));
+  createServices = map (target:
+    let
+      trail = last (splitString "/" target);
+      name = elemAt (splitString "." trail) 0;
+    in nameValuePair "wg-quicker-${name}" (genService name target));
 
 in {
   ### Options
   options.services.wg-quicker = {
     setups = mkOption {
-      description = "Attrset of Wireguard configurations.";
-      default = { };
-      type = with types;
-        attrsOf (submodule {
-          options = {
-            enable = mkOption {
-              type = bool;
-              default = true;
-              description = "Enable this Wireguard configuration.";
-            };
-            path = mkOption {
-              type = str;
-              description = "Path to the Wireguard configuration.";
-            };
-          };
-        });
+      description = "List of Wireguard configuration files.";
+      default = [ ];
+      type = with types; listOf str;
     };
   };
 
@@ -77,6 +59,6 @@ in {
     networking.firewall.checkReversePath = false;
 
     ## Service
-    systemd.services = createServices cfg.setups;
+    systemd.services = listToAttrs (createServices cfg.setups);
   };
 }

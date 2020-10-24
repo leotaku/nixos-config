@@ -65,11 +65,6 @@
 
   # Enable Wireguard VPN
   services.wg-quicker = {
-    setups = {
-      "vpn" = {
-        enable = true;
-        path = "${../private/mullvad/mullvad-ch005.conf}";
-      };
-    };
+    setups = [ "/etc/wireguard/vpn.conf" ];
   };
 }
