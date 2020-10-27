@@ -9,7 +9,7 @@
     bat
     config.boot.kernelPackages.perf
     direnv
-    ffmpeg-full
+    ffmpeg
     github-cli
     hyperfine
     imagemagick
