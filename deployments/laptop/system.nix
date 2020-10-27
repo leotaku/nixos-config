@@ -162,33 +162,48 @@
   };
 
   # Backup important directories
-  backup = {
-    enable = true;
-    timer = [ "*-*-* 11:00" "*-*-* 22:00" ];
-    repository = "rest:http://raw.le0.gs:8000";
-    passwordFile = builtins.toString ../../private/restic-pw;
-    user = "leo";
-    extraArgs = [ "--limit-upload" "5000" ];
-    paths = [{
-      path = "/home/leo";
-      exclude = [
-        "large"
-        ".rustup"
-        ".maildir/.notmuch"
-        ".local/share"
-        ".var/app"
-        ".multimc"
-        ".technic"
-        ".cache"
-        ".cargo"
-        "**/target"
-        "**/*.rlib"
-        "**/*.rmeta"
-        "**/*.o"
-        "**/*.a"
-        "**/*.so"
-      ];
-    }];
+  backup = let
+    default = {
+      enable = true;
+      user = "leo";
+      passwordFile = builtins.toString /var/keys/restic-passwd;
+      paths = [{
+        path = "/home/leo";
+        exclude = [
+          "**/*.a"
+          "**/*.o"
+          "**/*.rlib"
+          "**/*.rmeta"
+          "**/*.so"
+          "**/target"
+          ".cabal"
+          ".cache"
+          ".cargo"
+          ".ghc"
+          ".ipfs"
+          ".local/share"
+          ".maildir/.notmuch"
+          ".multimc"
+          ".npm"
+          ".rustup"
+          ".stack"
+          ".technic"
+          ".var/app"
+          "large"
+        ];
+      }];
+    };
+  in {
+    jobs = map (lib.mergeAttrs default) [
+      {
+        repository = "rest:http://raw.le0.gs:8000";
+        timer = [ "*-*-* 11:00" "*-*-* 22:00" ];
+      }
+      {
+        repository = "rclone:gdata:restic";
+        timer = [ "*-*-* 12:00" ];
+      }
+    ];
   };
 
   # Run LocateDB every hour
