@@ -40,7 +40,4 @@ with self; {
   emacs-custom = callPackage ./emacs/default.nix { };
   emacs-git-custom =
     callPackage ./emacs/default.nix { emacs = self.emacs-git; };
-
-  # External
-  mozilla = import ./mozilla/default.nix self super;
 }

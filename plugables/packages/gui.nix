@@ -25,7 +25,7 @@
     maim
     pavucontrol
     pinta
-    pkgs.mozilla.firefox-devedition-bin
+    pkgs.firefox-devedition-bin
     qt5ct
     rofi
     sxiv
