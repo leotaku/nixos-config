@@ -11,7 +11,7 @@
     nix-prefetch-scripts
     nix-top
     nixfmt
-    haskellPackages.update-nix-fetchgit
+    update-nix-fetchgit
     # Utils
     aria
     bvi
