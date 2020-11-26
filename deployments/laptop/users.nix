@@ -19,8 +19,8 @@
       "transmission"
       "vboxusers"
       "video"
-      "wireshark"
       "wheel"
+      "wireshark"
     ];
     shell = pkgs.bash;
   };
