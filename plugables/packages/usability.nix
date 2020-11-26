@@ -36,7 +36,8 @@
     tmux
     # Hardware
     dnsutils
-    speedtest-cli
+    nethogs
     nmap
+    speedtest-cli
   ];
 }
