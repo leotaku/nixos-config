@@ -12,7 +12,7 @@
     ffmpeg
     github-cli
     hyperfine
-    imagemagick
+    imagemagick7
     just
     ledger
     libqalculate
