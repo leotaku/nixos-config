@@ -51,6 +51,9 @@
     powertop
     tpacpi-bat
     virt-manager
+    # SDDM
+    qt5.qtgraphicaleffects
+    qt5.qtmultimedia
   ];
 
   # Global environment

@@ -22,11 +22,6 @@ with self; {
     githubSupport = true;
     mpdSupport = true;
   };
-  sddm = super.sddm.overrideAttrs (oldAttrs: {
-    # FIXME: We don't know when the QT version for SDDM could change
-    buildInputs = with qt514;
-      oldAttrs.buildInputs ++ [ qtgraphicaleffects qtmultimedia ];
-  });
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
 
   # Hard customizations
