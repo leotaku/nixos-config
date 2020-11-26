@@ -102,7 +102,8 @@
   # Enable simple programs and services
   services.haveged.enable = true;
   services.jellyfin.enable = true;
-  programs.wireshark.enable = true;
+  virtualisation.docker.enable = false;
+  programs.wireshark.enable = false;
 
   # Udisks depends on GTK+ which I don't want on my headless servers
   services.udisks2.enable = false;
