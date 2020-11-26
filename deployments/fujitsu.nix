@@ -67,9 +67,7 @@
   # Miniflux RSS
   services.miniflux = {
     enable = true;
-    config = {
-      LISTEN_ADDR = "0.0.0.0:1270";
-    };
+    config = { LISTEN_ADDR = "0.0.0.0:1270"; };
   };
 
   # Backup and syncing
