@@ -75,6 +75,7 @@
     enable = true;
     prometheus = true;
     dataDir = config.fileSystems.raid1x5tb.mountPoint + "/restic";
+    extraFlags = [ "--no-auth" ];
   };
   services.syncthing = {
     enable = true;
