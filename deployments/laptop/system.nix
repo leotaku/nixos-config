@@ -48,8 +48,11 @@
   environment.systemPackages = with pkgs; [
     # Laptop utilities
     acpi
+    arandr
+    autorandr
     glxinfo
     powertop
+    srandrd
     tpacpi-bat
     virt-manager
     # SDDM
