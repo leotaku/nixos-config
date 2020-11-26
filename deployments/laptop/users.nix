@@ -15,6 +15,7 @@
       "docker"
       "libvirtd"
       "networkmanager"
+      "plugdev"
       "transmission"
       "vboxusers"
       "video"

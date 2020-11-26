@@ -11,6 +11,7 @@
     ../../plugables/networking/laptop.nix
     ../../plugables/variables.nix
     ../../plugables/xkeyboard/module.nix
+    ../../plugables/zsa.nix
     # Import package collections
     ../../plugables/packages/gui.nix
     ../../plugables/packages/large.nix
