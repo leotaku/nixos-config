@@ -47,4 +47,6 @@
     symbola
     joypixels
   ];
+
+  nixpkgs.config.joypixels.acceptLicense = true;
 }
