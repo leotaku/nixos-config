@@ -18,15 +18,23 @@
     };
   };
 
+  # Protect all wireless networks from being uncofigured
+  systemd.network.networks."40-wireless" = {
+    matchConfig = { Name = lib.mkForce "wlp* wlan*"; };
+    networkConfig = {
+      DHCP = "yes";
+    };
+  };
+
   # Wireless
   networking.wireless.iwd.enable = true;
   environment.etc."iwd/main.conf".text = ''
     [General]
-    EnableNetworkConfiguration=true
+    EnableNetworkConfiguration=false
     UseDefaultInterface=true
     [Network]
     NameResolvingService=systemd
-    RoutePriorityOffset=2048
+    RoutePriorityOffset=300
   '';
 
   # Enable Avahi
