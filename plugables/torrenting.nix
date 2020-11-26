@@ -17,7 +17,7 @@
       "--remote-time=true"
       "--max-concurrent-downloads=200"
       "--save-session-interval=30"
-      "--force-save=true"
+      "--force-save=false"
       "--input-file=/var/lib/aria2/aria2.session"
       "--enable-dht=true"
       "--dht-listen-port=22327"
