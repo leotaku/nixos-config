@@ -126,7 +126,8 @@
   # Basic XDG support
   xdg.portal = {
     enable = true;
-    gtkUsePortal = false;
+    gtkUsePortal = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   # SDDM
