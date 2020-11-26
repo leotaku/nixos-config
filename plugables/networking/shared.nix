@@ -1,8 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  # Use firewall per default
-  networking.firewall.enable = true;
   # FIXME: Nftables is better but messes up virtualization
   networking.firewall.package = pkgs.iptables;
 

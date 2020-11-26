@@ -3,6 +3,9 @@
 {
   imports = [ ./shared.nix ];
 
+  # Disable firewall per default
+  networking.firewall.enable = false;
+
   # Use systemd-networkd for networking
   networking.useNetworkd = true;
   networking.useDHCP = false;
