@@ -28,6 +28,7 @@
     rclone
     ripgrep
     sops
+    wget
     # Text-mode utils
     htop
     ncdu
