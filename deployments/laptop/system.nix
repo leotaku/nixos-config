@@ -88,7 +88,6 @@
   services.openssh.enable = true;
   services.tumbler.enable = true;
   services.udisks2.enable = true;
-  services.upower.enable = true;
 
   # Redshift and Geoclue2
   location.provider = "geoclue2";
@@ -224,4 +223,10 @@
 
   # Disable NixOS command-not-found functionality
   programs.command-not-found.enable = false;
+
+  # Upower for battery management
+  services.upower = {
+    enable = false;
+    criticalPowerAction = "Hibernate";
+  };
 }
