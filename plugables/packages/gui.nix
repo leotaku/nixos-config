@@ -23,6 +23,7 @@
     krita
     lxappearance
     maim
+    mpv
     pavucontrol
     pinta
     pkgs.firefox-devedition-bin
@@ -30,7 +31,6 @@
     rofi
     sxiv
     syncthing
-    vlc
     xfce.thunar
     zathura
   ];
