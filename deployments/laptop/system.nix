@@ -130,7 +130,7 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-  # SDDM
+  # SDDM display manager
   services.xserver.displayManager.sddm = {
     enable = true;
     enableHidpi = true;
@@ -147,12 +147,12 @@
     '';
   };
 
-  # Sound
+  # PulseAudio for sound
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.configFile = ../../files/pulseaudio.pa;
   hardware.pulseaudio.systemWide = true;
 
-  # Steam
+  # Enable Steam support
   programs.steam.enable = true;
   hardware.pulseaudio.support32Bit = true;
   hardware.opengl.driSupport32Bit = true;
