@@ -153,6 +153,7 @@
   hardware.pulseaudio.systemWide = true;
 
   # Steam
+  programs.steam.enable = true;
   hardware.pulseaudio.support32Bit = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.steam-hardware.enable = true;
