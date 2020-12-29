@@ -12,10 +12,8 @@ stdenv.mkDerivation rec {
   };
 
   installPhase = ''
-    mkdir -p $out/share/fonts/opentype
     mkdir -p $out/share/fonts/truetype
-    cp Finished\ TTF/*.ttf $out/share/fonts/truetype
-    cp Finished\ otf/*.otf $out/share/fonts/opentype
+    cp fonts/ttf/* $out/share/fonts/truetype
   '';
 
   meta = with lib; {
