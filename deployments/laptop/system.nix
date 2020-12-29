@@ -137,16 +137,19 @@
     enable = true;
     enableHidpi = true;
     theme = "haze";
-    extraConfig = ''
-      [Autologin]
-      Relogin=false
-      Session=
-      User=
-      [General]
-      InputMethod=
-      [Theme]
-      ThemeDir=${pkgs.sddm-themes}/share/sddm/themes
-    '';
+    settings = {
+      Autologin = {
+        Relogin = false;
+        Session = "";
+        User = "";
+      };
+      General = {
+        InputMethod = "";
+      };
+      Theme = {
+        ThemeDir = pkgs.sddm-themes + "/share/sddm/themes";
+      };
+    };
   };
 
   # PulseAudio for sound
