@@ -226,7 +226,7 @@
 
   # Upower for battery management
   services.upower = {
-    enable = false;
+    enable = true;
     criticalPowerAction = "Hibernate";
   };
 }
