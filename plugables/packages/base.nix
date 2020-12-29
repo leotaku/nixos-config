@@ -8,6 +8,7 @@
     kakoune
     libarchive
     nftables
+    ntfs3g
     nix-top
     parallel
     psmisc
