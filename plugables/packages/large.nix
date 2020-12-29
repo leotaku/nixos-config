@@ -10,6 +10,7 @@
     config.boot.kernelPackages.perf
     direnv
     ffmpeg
+    gitAndTools.delta
     github-cli
     hyperfine
     imagemagick7
