@@ -76,7 +76,10 @@
   programs.slock.enable = true;
 
   # Configure default shell
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    shellAliases = lib.mkForce { };
+  };
 
   # List simple features that you want to enable
   hardware.bluetooth.enable = true;
