@@ -34,7 +34,7 @@
     ncdu
     rlwrap
     tmux
-    # Hardware
+    # Networking
     dnsutils
     nethogs
     nmap
