@@ -6,10 +6,6 @@
       url = "github:nixos/nixpkgs/nixos-unstable";
       flake = true;
     };
-    hercules-ci-agent = {
-      url = "github:hercules-ci/hercules-ci-agent";
-      flake = true;
-    };
   };
 
   outputs = { self, nixpkgs, ... }:
@@ -38,10 +34,7 @@
       };
 
       # Custom overlay
-      overlay = s: ss: (import ./pkgs s ss) // {
-        hercules-ci-agent =
-          self.inputs.hercules-ci-agent.packages."${ss.system}".hercules-ci-agent;
-      };
+      overlay = import ./pkgs/default.nix;
 
       # Package set with overlay
       legacyPackages.x86_64-linux = prev // (self.overlay final prev);
