@@ -8,6 +8,7 @@
     picom
     xcape
     xdo
+    xorg.xkbcomp
     xsel
     # Theming
     adapta-gtk-theme
