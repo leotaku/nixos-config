@@ -36,7 +36,7 @@ diff --git a/symbols/de b/symbols/de
 index a96671b..1b79826 100644
 --- a/symbols/de
 +++ b/symbols/de
-@@ -42,6 +42,26 @@ xkb_symbols "basic" {
+@@ -42,6 +42,27 @@ xkb_symbols "basic" {
      include "level3(ralt_switch)"
  };
  
@@ -45,15 +45,16 @@ index a96671b..1b79826 100644
 +    include "de(nodeadkeys)"
 +    name[Group1] = "German (special alts + nodeadkeys)";
 +
-+    key <AC06>  { [         h,          H,      Left,      Hstroke   ] };
-+    key <AC07>  { [         j,          J,      Down,      dead_horn ] };
-+    key <AC08>  { [         k,          K,      Up,        ampersand ] };
-+    key <AC09>  { [         l,          L,      Right,     Lstroke   ] };
++    key <AC06>  { [         h,          H,      Left,       Hstroke    ] };
++    key <AC07>  { [         j,          J,      Down,       dead_horn  ] };
++    key <AC08>  { [         k,          K,      Up,         ampersand  ] };
++    key <AC09>  { [         l,          L,      Right,      Lstroke    ] };
 +
-+    key <AD11>  { [braceleft,   braceright,   NoSymbol, NoSymbol ] };
-+    key <AC10>  { [parenleft,   parenright,   NoSymbol, NoSymbol ] };
-+    key <AC11>  { [bracketleft, bracketright, NoSymbol, NoSymbol ] };
++    key <AD11>  { [ braceleft,   braceright,    NoSymbol,   NoSymbol   ] };
++    key <AC10>  { [ parenleft,   parenright,    NoSymbol,   NoSymbol   ] };
++    key <AC11>  { [ bracketleft, bracketright,  NoSymbol,   NoSymbol   ] };
 +
++    key <AC02>  { [         s,          S,      ssharp,     Ssharp     ] };
 +    key <AD07>  { [         u,          U,      udiaeresis, Udiaeresis ] };
 +    key <AC01>  { [         a,          A,      adiaeresis, Adiaeresis ] };
 +    key <AD09>  { [         o,          O,      odiaeresis, Odiaeresis ] };
