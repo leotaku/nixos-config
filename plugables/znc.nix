@@ -21,28 +21,11 @@
       # Networks
       networks = {
         freenode = {
-          port = 6697;
           server = "irc.freenode.net";
           useSSL = true;
           modules = [ "sasl" ];
         };
-        mozilla = {
-          port = 6697;
-          server = "irc.mozilla.org";
-          useSSL = true;
-        };
-        rizon = {
-          port = 6697;
-          server = "irc.rizon.net";
-          useSSL = true;
-        };
-        unix = {
-          port = 6697;
-          server = "unix.chat";
-          useSSL = true;
-        };
         irchighway = {
-          port = 6697;
           server = "irc.irchighway.net";
           useSSL = true;
         };
@@ -51,7 +34,7 @@
       # Other
       modules = [ "adminlog" "dcc" ];
       extraZncConf = ''
-        MaxBufferSize=10000
+        MaxBufferSize=50000
       '';
     };
   };
