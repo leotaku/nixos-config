@@ -1,6 +1,6 @@
-{ pkgs, emacsPackagesNgGen, emacs, ... }:
+{ pkgs, emacsPackagesFor, emacs, ... }:
 let
-  customEmacsPackages = emacsPackagesNgGen ((emacs.override {
+  customEmacsPackages = emacsPackagesFor ((emacs.override {
     withX = true;
     withGTK3 = true;
     withXwidgets = true;
