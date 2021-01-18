@@ -16,6 +16,12 @@
     networkConfig = {
       DHCP = "yes";
     };
+    dhcpV4Config = {
+      RouteMetric = 200;
+    };
+    dhcpV6Config = {
+      RouteMetric = 200;
+    };
   };
 
   # Protect all wireless networks from being unconfigured
@@ -23,6 +29,12 @@
     matchConfig = { Name = lib.mkForce "wlp* wlan*"; };
     networkConfig = {
       DHCP = "yes";
+    };
+    dhcpV4Config = {
+      RouteMetric = 400;
+    };
+    dhcpV6Config = {
+      RouteMetric = 400;
     };
   };
 
