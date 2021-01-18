@@ -10,8 +10,8 @@ let
   }));
   emacs-with-packages = customEmacsPackages.emacsWithPackages (epkgs: [
     # Native Emacs packages
-    epkgs.closql
     epkgs.forge
+    epkgs.vterm
     epkgs.zmq
     pkgs.notmuch.emacs
   ]);
