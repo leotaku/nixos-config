@@ -6,16 +6,18 @@
     useLegacyConfig = false;
     mutable = true;
     config = {
-      LoadModule = [ "adminlog" ];
-      MaxBufferSize = 50000;
+      LoadModule = [ "adminlog" "fail2ban" ];
+      MaxBufferSize = 1000;
       Listener.l = {
         Port = 6667;
         SSL = false;
       };
       User.leotaku = {
-        LoadModule = [ "dcc" ];
+        LoadModule = [ "chansaver" "dcc" ];
+        AutoClearChanBuffer = false;
         Admin = true;
         Nick = "leotaku";
+        AltNick = "le0taku";
         Network.freenode = {
           LoadModule = [ "sasl" ];
           Server = "chat.freenode.net";
