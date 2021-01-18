@@ -18,7 +18,7 @@
     };
   };
 
-  # Protect all wireless networks from being uncofigured
+  # Protect all wireless networks from being unconfigured
   systemd.network.networks."40-wireless" = {
     matchConfig = { Name = lib.mkForce "wlp* wlan*"; };
     networkConfig = {
