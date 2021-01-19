@@ -60,7 +60,7 @@
   # Hercules-CI agent
   services.hercules-ci-agent = {
     enable = true;
-    settings.concurrentTasks = 12;
+    concurrentTasks = 12;
     patchNix = false;
   };
 
