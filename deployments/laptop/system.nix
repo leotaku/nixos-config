@@ -146,7 +146,7 @@
   # PulseAudio for sound
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.configFile = ../../files/pulseaudio.pa;
-  hardware.pulseaudio.systemWide = true;
+  hardware.pulseaudio.systemWide = false;
 
   # Enable Steam support
   programs.steam.enable = true;
