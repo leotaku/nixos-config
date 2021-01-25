@@ -149,9 +149,9 @@
   hardware.pulseaudio.systemWide = false;
 
   # Enable virtualization/container technologies
-  virtualisation.libvirtd.enable = true;
   services.flatpak.enable = false;
   virtualisation.anbox.enable = false;
+  virtualisation.libvirtd.enable = true;
 
   # Enable Podman with NVIDIA support
   virtualisation.podman = {
