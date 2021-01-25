@@ -151,8 +151,14 @@
   # Enable virtualization/container technologies
   virtualisation.libvirtd.enable = true;
   services.flatpak.enable = false;
-  virtualisation.docker.enable = false;
   virtualisation.anbox.enable = false;
+
+  # Enable Podman with NVIDIA support
+  virtualisation.podman = {
+    enable = true;
+    enableNvidia = false;
+    dockerCompat = true;
+  };
 
   # Add Wireshark permissions
   programs.wireshark = {
