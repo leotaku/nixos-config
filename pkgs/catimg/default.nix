@@ -11,10 +11,8 @@ stdenv.mkDerivation rec {
     sha256 = "1faxf8pqld9mxswb4zk1g7fdi6wgjxk9wd4xxvdqry7g08w9v6z6";
   };
 
+  nativeBuildInputs = [ cmake ];
   propagatedBuildInputs = [ imagemagick ];
-  buildInputs = [ cmake ];
-
-  buildPhase = "cmake .";
 
   meta = with lib; {
     description = "Insanely fast image printing in your terminal";
