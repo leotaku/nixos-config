@@ -77,6 +77,7 @@
   # Configure default shell
   programs.fish = {
     enable = true;
+    useBabelfish = true;
     shellAliases = lib.mkForce { };
   };
 
