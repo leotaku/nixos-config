@@ -84,6 +84,7 @@
   # List simple features that you want to enable
   hardware.bluetooth.enable = true;
   powerManagement.enable = true;
+  programs.gnupg.agent.enable = true;
   services.autorandr.enable = false;
   services.blueman.enable = true;
   services.gvfs.enable = true;
