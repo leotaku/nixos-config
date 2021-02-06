@@ -33,9 +33,11 @@
   };
 
   # OpenGL with NVIDIA in mind
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.setLdLibraryPath = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+    setLdLibraryPath = true;
+  };
 
   # Use the systemd-boot EFI boot loader
   boot.loader.systemd-boot.enable = true;
