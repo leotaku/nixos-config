@@ -19,17 +19,18 @@
   boot.blacklistedKernelModules = [ "i915" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.acpi_call ];
 
-  # Enable basic NVIDIA support (needs testing)
-  # https://github.com/NixOS/nixpkgs/issues/53269#issuecomment-454726649
-  services.xserver.videoDrivers = [ "nvidia" "noveau" "intel" ];
-
-  hardware.nvidia.modesetting.enable = false;
-  hardware.nvidia.prime = {
-    offload.enable = true;
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
+  # Enable basic NVIDIA offload support
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    nvidiaPersistenced = true;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    prime = {
+      offload.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
   };
-  hardware.nvidiaOptimus.disable = false;
 
   # OpenGL with NVIDIA in mind
   hardware.opengl.enable = true;
