@@ -38,15 +38,16 @@
 
   fonts.fonts = with pkgs; [
     # Fonts
+    alegreya
+    dejavu_fonts
     fira-code
     fira-mono
-    alegreya
     go-font
     ibm-plex
-    source-code-pro
-    dejavu_fonts
-    symbola
+    jetbrains-mono
     joypixels
+    source-code-pro
+    symbola
   ];
 
   nixpkgs.config.joypixels.acceptLicense = true;
