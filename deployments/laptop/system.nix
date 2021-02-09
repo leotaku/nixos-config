@@ -129,7 +129,7 @@
   # Basic XDG support
   xdg.portal = {
     enable = true;
-    gtkUsePortal = true;
+    gtkUsePortal = false;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
