@@ -6,8 +6,8 @@ instantiate() {
 }
 
 TARGET="/etc/nixos/links/nixpkgs"
-WORKING="$(dirname $(realpath $0))"
-cd "$WORKING"
+WORKING="$(dirname "$(realpath "$0")")"
+cd "$WORKING" || exit 1
 STORE_PATH="$(instantiate | tr -d '"')"
 
 mkdir -p "$(dirname $TARGET)"

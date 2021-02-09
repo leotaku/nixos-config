@@ -18,9 +18,9 @@ update-record() {
 }
 
 # Get records
-RESPONSE=$(get-records)
-JSON="$(jq -c '.result | .[]' <<<$RESPONSE)"
-OLD_IP="$(jq -r '.result | .[0] | .content' <<<$RESPONSE)"
+RESPONSE="$(get-records)"
+LINES="$(jq -c '.result | .[]' <<<"$RESPONSE")"
+OLD_IP="$(jq -r '.result | .[0] | .content' <<<"$RESPONSE")"
 NEW_IP="$(dig +short myip.opendns.com @resolver1.opendns.com)"
 
 # Check if IP used by Cloudflare is outdated
@@ -31,10 +31,10 @@ fi
 
 # Update records
 while read -r json; do
-    type="$(jq -r '.type' <<<$json)"
+    type="$(jq -r '.type' <<<"$json")"
     if [[ "A" == "$type" ]]; then
-        id="$(jq -r '.id' <<<$json)"
-        json="$(jq --arg c $NEW_IP -c '.content = $c' <<<$json)"
+        id="$(jq -r '.id' <<<"$json")"
+        json="$(jq --arg c "$NEW_IP" -c '.content = $c' <<<"$json")"
         update-record | jq -c
     fi
-done <<< "$JSON"
+done <<< "$LINES"
