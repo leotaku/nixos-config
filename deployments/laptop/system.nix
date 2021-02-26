@@ -150,6 +150,12 @@
   hardware.pulseaudio.configFile = ../../files/pulseaudio.pa;
   hardware.pulseaudio.systemWide = false;
 
+  # Enable Steam support
+  programs.steam.enable = true;
+  hardware.pulseaudio.support32Bit = true;
+  hardware.opengl.driSupport32Bit = true;
+  hardware.steam-hardware.enable = true;
+
   # Enable virtualization/container technologies
   services.flatpak.enable = false;
   virtualisation.anbox.enable = false;
