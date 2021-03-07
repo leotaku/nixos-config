@@ -32,6 +32,7 @@
     dnsmasq
     ethtool
     freeipmi
+    goatcounter
     ipmitool
     restic
     syncthing-cli
