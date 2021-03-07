@@ -9,6 +9,7 @@
     bat
     config.boot.kernelPackages.perf
     direnv
+    du-dust
     ffmpeg
     gitAndTools.delta
     github-cli
