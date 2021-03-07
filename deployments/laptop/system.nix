@@ -145,14 +145,18 @@
     };
   };
 
-  # PulseAudio for sound
-  hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.configFile = ../../files/pulseaudio.pa;
-  hardware.pulseaudio.systemWide = false;
+  # PipeWire for sound
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
   # Enable Steam support
   programs.steam.enable = true;
-  hardware.pulseaudio.support32Bit = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.steam-hardware.enable = true;
 
