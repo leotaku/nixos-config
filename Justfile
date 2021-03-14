@@ -16,7 +16,7 @@ secrets:
 	just secrets/default
 
 update:
-	nix flake update --recreate-lock-file
+	nix flake update
 	sh ./files/link.sh
 
 update-pkgs:
