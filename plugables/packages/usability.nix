@@ -20,6 +20,7 @@
     exiftool
     fd
     ffsend
+    fzf
     git
     git-lfs
     jdupes
