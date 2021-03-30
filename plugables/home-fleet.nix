@@ -7,15 +7,15 @@
     machines = {
       "nixos-laptop" = {
         hostName = "192.168.178.54";
-        system = "x86_64-linux";
+        systems = [ "x86_64-linux" ];
       };
       "nixos-rpi" = {
         hostName = "192.168.178.23";
-        system = "aarch64-linux";
+        systems = [ "aarch64-linux" ];
       };
       "nixos-fujitsu" = {
         hostName = "192.168.178.48";
-        system = "x86_64-linux";
+        systems = [ "x86_64-linux" ];
         speedFactor = 8;
         supportedFeatures = [ "big-parallel" ];
       };

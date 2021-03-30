@@ -10,14 +10,14 @@ let
   # Generate build machines
   buildMachines = machines: mapAttrsToList buildMachine (otherMachines machines);
   buildMachine = name:
-    { hostName, system, maxJobs, speedFactor, supportedFeatures
+    { hostName, systems, maxJobs, speedFactor, supportedFeatures
     , mandatoryFeatures }:
     if name == localHostName then
       null
     else {
       sshUser = "fleet-builder";
       sshKey = "/home/fleet-builder/.ssh/id_rsa";
-      inherit hostName system maxJobs speedFactor;
+      inherit hostName systems maxJobs speedFactor;
       inherit supportedFeatures mandatoryFeatures;
     };
 in {
@@ -37,9 +37,9 @@ in {
               description = "Hostname or IP used to connect to the given machine.";
               default = localHostName + ".local";
             };
-            system = mkOption {
-              type = str;
-              description = "Nix system type of the given machine.";
+            systems = mkOption {
+              type = listOf str;
+              description = "Lost of system types supported by the given machine.";
             };
             maxJobs = mkOption {
               type = int;
