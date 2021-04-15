@@ -11,6 +11,6 @@ Website=https://github.com/leotaku/nixos-config
 MainScript=Main.qml
 ConfigFile=theme.conf
 TranslationsDirectory=translations
-Email=leo.gaskin@brg-feldkirchen.at
+Email=leo.gaskin@le0.gs
 Theme-Id=haze-theme
 Theme-API=2.0

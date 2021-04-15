@@ -159,7 +159,7 @@ in {
     acceptTerms = true;
     certs = {
       "le0.gs" = {
-        email = "leo.gaskin@brg-feldkirchen.at";
+        email = "leo.gaskin@le0.gs";
         webroot = config.services.nginx.virtualHosts."le0.gs".acmeRoot;
         extraDomainNames = lib.filter (n: n != "le0.gs")
           (lib.mapAttrsToList (n: _: n) config.services.nginx.virtualHosts);
