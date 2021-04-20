@@ -53,6 +53,7 @@
     arandr
     autorandr
     glxinfo
+    pamixer
     powertop
     srandrd
     tpacpi-bat
