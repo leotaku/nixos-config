@@ -21,6 +21,9 @@
     '';
   };
 
+  # Emulate WebAssembly and ARM
+  boot.binfmt.emulatedSystems = [ "wasm32-wasi" "aarch64-linux" ];
+
   # Hostname
   networking.hostName = "nixos-fujitsu";
 
