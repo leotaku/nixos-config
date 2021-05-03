@@ -64,8 +64,9 @@
   # Hercules-CI agent
   services.hercules-ci-agent = {
     enable = true;
-    concurrentTasks = 12;
-    patchNix = false;
+    settings = {
+      concurrentTasks = 12;
+    };
   };
 
   # Miniflux RSS

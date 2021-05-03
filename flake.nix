@@ -6,10 +6,6 @@
       url = "github:nixos/nixpkgs/nixos-unstable-small";
       flake = true;
     };
-    hercules-ci-agent = {
-      url = "github:hercules-ci/hercules-ci-agent/stable";
-      flake = false;
-    };
   };
 
   outputs = { self, nixpkgs, ... }:
@@ -20,7 +16,6 @@
         system = "x86_64-linux";
       };
       om = { ... }: { nixpkgs.overlays = [ self.overlay ]; };
-      hm = self.inputs.hercules-ci-agent + "/module.nix";
     in {
       # Systems
       nixosConfigurations = {
@@ -30,7 +25,7 @@
         };
         fujitsu = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ (import ./deployments/fujitsu.nix) om hm ];
+          modules = [ (import ./deployments/fujitsu.nix) om ];
         };
         rpi = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";

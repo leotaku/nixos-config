@@ -1,22 +1,5 @@
 {
   "nodes": {
-    "hercules-ci-agent": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1606476188,
-        "narHash": "sha256-4UfLaOwWAYlgCY62x3O2BVcWkCsrIjb6dEGQHrB7NII=",
-        "owner": "hercules-ci",
-        "repo": "hercules-ci-agent",
-        "rev": "8b1f1fac4c0c27b003805778018c31ffb3cb5e33",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "ref": "stable",
-        "repo": "hercules-ci-agent",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1617082367,
@@ -35,7 +18,6 @@
     },
     "root": {
       "inputs": {
-        "hercules-ci-agent": "hercules-ci-agent",
         "nixpkgs": "nixpkgs"
       }
     }
