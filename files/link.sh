@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+set -e
+
 instantiate() {
     nix-instantiate \
         --eval ./inputs.nix \
@@ -13,3 +15,5 @@ STORE_PATH="$(instantiate | tr -d '"')"
 mkdir -p "$(dirname $TARGET)"
 rm "$TARGET" 2>/dev/null || true
 ln -s "$STORE_PATH" "$TARGET"
+
+nix-store --add-root "$TARGET" -r "$STORE_PATH"
