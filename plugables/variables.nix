@@ -29,7 +29,6 @@ in {
     STACK_ROOT = XDG_DATA_HOME + "/stack";
     TEXMFCACHE = XDG_CACHE_HOME + "/texmf-var";
     WEECHAT_HOME = XDG_CONFIG_HOME + "/weechat";
-    XAUTHORITY = "$HOME/.Xauthority";
     XCOMPOSECACHE = XDG_CACHE_HOME + "/xcompose";
     XCOMPOSEFILE = XDG_CONFIG_HOME + "/xcompose";
   };
