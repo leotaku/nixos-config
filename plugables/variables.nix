@@ -14,6 +14,8 @@ in {
     inherit XDG_RUNTIME_DIR XDG_CONFIG_HOME XDG_CACHE_HOME XDG_DATA_HOME;
     TMPDIR = XDG_RUNTIME_DIR;
 
+    CABAL_CONFIG = XDG_CONFIG_HOME + "/cabal/config";
+    CABAL_DIR = XDG_CACHE_HOME + "/cabal";
     CARGO_HOME = XDG_DATA_HOME + "/cargo";
     CONAN_USER_HOME = XDG_DATA_HOME + "/conan";
     GOPATH = XDG_DATA_HOME + "/go";
@@ -24,6 +26,7 @@ in {
     PARALLEL_HOME = XDG_CONFIG_HOME + "/parallel";
     RUSTUP_HOME = XDG_DATA_HOME + "/rustup";
     R_LIBS_USER = XDG_DATA_HOME + "/R";
+    STACK_ROOT = XDG_DATA_HOME + "/stack";
     TEXMFCACHE = XDG_CACHE_HOME + "/texmf-var";
     WEECHAT_HOME = XDG_CONFIG_HOME + "/weechat";
     XAUTHORITY = "$HOME/.Xauthority";
