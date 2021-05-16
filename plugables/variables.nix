@@ -25,6 +25,7 @@ in {
     MPLAYER_HOME = XDG_CONFIG_HOME + "/mplayer";
     NOTMUCH_CONFIG = XDG_CONFIG_HOME + "/notmuch/notmuchrc";
     PARALLEL_HOME = XDG_CONFIG_HOME + "/parallel";
+    RLWRAP_HOME = XDG_DATA_HOME + "/rlwrap";
     RUSTUP_HOME = XDG_DATA_HOME + "/rustup";
     R_LIBS_USER = XDG_DATA_HOME + "/R";
     STACK_ROOT = XDG_DATA_HOME + "/stack";
