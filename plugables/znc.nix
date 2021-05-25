@@ -23,6 +23,11 @@
           Server = "chat.freenode.net";
           SSL = true;
         };
+        Network.libera = {
+          LoadModule = [ "sasl" ];
+          Server = "irc.libera.chat";
+          SSL = true;
+        };
         Network.irchighway = {
           Server = "irc.irchighway.net";
           SSL = true;
