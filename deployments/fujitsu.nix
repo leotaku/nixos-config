@@ -115,5 +115,5 @@
   services.udisks2.enable = false;
 
   # Open firewall ports
-  networking.firewall.allowedTCPPorts = [ 22 80 443 8000 8384 6667 25565 ];
+  networking.firewall.allowedTCPPorts = [ 22 80 443 8000 8384 6667 6697 25565 ];
 }

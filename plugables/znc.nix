@@ -12,6 +12,10 @@
         Port = 6667;
         SSL = false;
       };
+      Listener.s = {
+        Port = 6697;
+        SSL = true;
+      };
       User.leotaku = {
         LoadModule = [ "chansaver" "dcc" ];
         AutoClearChanBuffer = false;
