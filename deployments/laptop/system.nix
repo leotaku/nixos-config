@@ -76,7 +76,6 @@
   programs.dconf.enable = true;
   programs.gnome-disks.enable = true;
   programs.light.enable = true;
-  programs.slock.enable = true;
 
   # Configure default shell
   programs.fish = {
