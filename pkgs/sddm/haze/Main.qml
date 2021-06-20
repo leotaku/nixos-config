@@ -4,7 +4,7 @@ import QtMultimedia 5.0
 import QtQuick.Window 2.0
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0
-    
+
 Rectangle {
     id: container
     width: Screen.width
@@ -15,7 +15,7 @@ Rectangle {
     function dpi(x) {
         return x * Screen.height / 768
     }
-    
+
     // Setup
     Timer {
         id: notificationResetTimer
@@ -230,7 +230,7 @@ Rectangle {
                 }
             }
         }
-        
+
         // Avatar icon
         Item {
             anchors.fill: parent
@@ -668,7 +668,7 @@ Rectangle {
     }
 
     // Clock
-    Clock { 
+    Clock {
         id: clock
         x: Screen.width/2 - clock.width/2
         y: dpi(70)
@@ -685,7 +685,7 @@ Rectangle {
             password.focus = true
         }
     }
-    
+
     // States and Transitions
     states: [
         // Login box state
@@ -709,7 +709,7 @@ Rectangle {
                 y: (root.height - avatarBorder.height) * 0.5 - (avatarBorder.height / 3)
             }
         }
-        
+
     ]
     transitions: [
         Transition {
