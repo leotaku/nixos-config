@@ -22,11 +22,6 @@
         Admin = true;
         Nick = "leotaku";
         AltNick = "le0taku";
-        Network.freenode = {
-          LoadModule = [ "sasl" ];
-          Server = "chat.freenode.net";
-          SSL = true;
-        };
         Network.libera = {
           LoadModule = [ "sasl" ];
           Server = "irc.libera.chat";
