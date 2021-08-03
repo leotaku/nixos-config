@@ -5,8 +5,8 @@ stdenv.mkDerivation rec {
   version = "0.13.0";
 
   src = fetchurl {
-    url = "https://download.build2.org/0.13.0/build2-toolchain-0.13.0.tar.xz";
-    sha256 = "sha256-uvq8q01e/cSJr1l1WjunzpCDS0eRJc8hw0gohXzJFQY=";
+    url = "https://download.build2.org/0.13.0/build2-toolchain-0.13.0.tar.gz";
+    sha256 = "04av9qplinypfq5sv1kyccgd0sy4xb14p71rz3ndj6sir78gvsab";
   };
 
   buildInputs = [ gcc ];
