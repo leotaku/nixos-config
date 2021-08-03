@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   name = "n30f-${version}";
-  version = "2020-04-11";
+  version = "unstable-2020-04-11";
 
   src = fetchFromGitHub {
     repo = "n30f";

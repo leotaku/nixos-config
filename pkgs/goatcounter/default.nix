@@ -2,7 +2,7 @@
 
 buildGoModule rec {
   name = "goatcounter-${version}";
-  version = "2020-11-10";
+  version = "unstable-2020-11-10";
 
   src = fetchFromGitHub {
     owner = "zgoat";

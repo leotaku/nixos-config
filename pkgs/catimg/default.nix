@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   name = "catimg-${version}";
-  version = "2020-12-10";
+  version = "unstable-2020-12-10";
 
   src = fetchFromGitHub {
     repo = "catimg";

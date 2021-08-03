@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   name = "besley-${version}";
-  version = "2021-03-06";
+  version = "unstable-2021-07-11";
 
   src = fetchFromGitHub {
     owner = "indestructible-type";
