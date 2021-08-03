@@ -96,24 +96,6 @@
   services.tumbler.enable = true;
   services.udisks2.enable = true;
 
-  # Redshift and Geoclue2
-  location.provider = "geoclue2";
-  services.redshift = {
-    enable = true;
-    executable = "/bin/redshift";
-    temperature = {
-      night = 4200;
-      day = 2500;
-    };
-  };
-  services.geoclue2 = {
-    enable = true;
-    enableDemoAgent = true;
-    appConfig."redshift".isSystem = lib.mkForce false;
-    geoProviderUrl =
-      "https://location.services.mozilla.com/v1/geolocate?key=16674381-f021-49de-8622-3021c5942aff";
-  };
-
   # Printing
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [
