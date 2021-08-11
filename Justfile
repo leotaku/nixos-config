@@ -7,10 +7,10 @@ nix_path := "nixpkgs=/etc/nixos/links/nixpkgs"
 # Commands
 
 build +machines:
-	parallel -j1 --ungroup ./files/deploy.sh '{}' build ::: {{machines}}
+	./files/deploy.sh build {{machines}}
 
 deploy +machines:
-	parallel -j1 --ungroup ./files/deploy.sh '{}' switch ::: {{machines}}
+	./files/deploy.sh switch {{machines}}
 
 secrets:
 	just secrets/default

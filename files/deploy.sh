@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 set -e
-MACHINE="$1"
-ACTION="$2"
-SSH_TARGET="root@nixos-${MACHINE}.local"
-ATTRIBUTE="nixosConfigurations.${MACHINE}.config.system.build.toplevel"
-mkdir -p ".gc-roots"
+action="$1"
+shift
 
-echo "Building machine ${MACHINE}..."
-nix build .#"$ATTRIBUTE" --out-link .gc-roots/"$MACHINE"
-nix copy --to ssh://"$SSH_TARGET" .#"$ATTRIBUTE"
-nixos-rebuild "$ACTION" --flake .#"$MACHINE" --target-host "$SSH_TARGET"
+for machine in "${@}"; do
+    ssh_target="root@nixos-${machine}.local"
+    echo "Building machine ${machine}..."
+    nixos-rebuild "$action" --flake .#"$machine" \
+                  --target-host "$ssh_target" \
+                  --build-host "$ssh_target"
+done
