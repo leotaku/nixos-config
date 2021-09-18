@@ -27,12 +27,12 @@ with self; {
   # Hard customizations
   aspell-custom = (aspellWithDicts (lib.mapAttrsToList (n: v: v))).overrideAttrs
     (oldAttrs: { ignoreCollisions = true; });
-  hunspell-custom = hunspellWithDicts
-    (lib.mapAttrsToList (n: v: if (lib.isDerivation v) then v else null)
-      hunspellDicts);
-  nuspell-custom = nuspellWithDicts
-    (lib.mapAttrsToList (n: v: if (lib.isDerivation v) then v else null)
-      hunspellDicts);
+  hunspell-custom = hunspellWithDicts (lib.mapAttrsToList
+    (n: v: if (lib.isDerivation v && !v.meta.unfree) then v else null)
+    hunspellDicts);
+  nuspell-custom = nuspellWithDicts (lib.mapAttrsToList
+    (n: v: if (lib.isDerivation v && !v.meta.unfree) then v else null)
+    hunspellDicts);
 
   # Source overrides
   awesome-git = callPackage ./awesome/default.nix { };
