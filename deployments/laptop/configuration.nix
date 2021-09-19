@@ -11,7 +11,7 @@
     ./users.nix
     ../../hardware/thinkpad-t480s.nix
     # Activate fleet machines and caching
-    ../../plugables/home-fleet.nix
+    ../../plugables/mesh.nix
     ../../plugables/cachix.nix
   ];
 
