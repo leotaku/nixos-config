@@ -58,6 +58,7 @@
     srandrd
     tpacpi-bat
     virt-manager
+    wally-cli
     # SDDM
     qt5.qtgraphicaleffects
     qt5.qtmultimedia
