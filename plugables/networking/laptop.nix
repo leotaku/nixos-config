@@ -6,10 +6,6 @@
   # Disable firewall per default
   networking.firewall.enable = false;
 
-  # Use systemd-networkd for networking
-  networking.useNetworkd = true;
-  networking.useDHCP = false;
-
   # Setup all wired network interfaces
   systemd.network.networks."40-wired" = {
     matchConfig = { Name = lib.mkForce "enp* eth*"; };

@@ -1,6 +1,10 @@
 { config, pkgs, lib, ... }:
 
 {
+  # Use systemd-networkd for networking
+  networking.useNetworkd = true;
+  networking.useDHCP = false;
+
   # FIXME: Nftables is better but messes up virtualization
   networking.firewall.package = pkgs.iptables;
 
