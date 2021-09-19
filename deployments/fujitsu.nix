@@ -55,7 +55,7 @@
     permitRootLogin = "yes";
   };
 
-  # Enable Fail2ban firewall
+  # Enable Fail2Ban firewall
   services.fail2ban = {
     enable = true;
     packageFirewall = config.networking.firewall.package;
