@@ -19,11 +19,6 @@
   nix = {
     distributedBuilds = true;
     buildMachines = lib.mapAttrsToList (lib.flip lib.const) {
-      "nixos-laptop" = {
-        hostName = "nixos-laptop.local";
-        systems = [ "x86_64-linux" "wasm32-wasi" "aarch64-linux" ];
-        speedFactor = 8;
-      };
       "nixos-rpi" = {
         hostName = "nixos-rpi.local";
         systems = [ "aarch64-linux" ];
