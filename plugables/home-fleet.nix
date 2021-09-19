@@ -1,30 +1,40 @@
 { lib, config, pkgs, ... }: {
   imports = [ ../modules/fleet.nix ];
 
-  # Fleet machines
+  # Configure network mesh
   fleet = {
     enable = true;
-    machines = {
-      "nixos-laptop" = {
-        hostName = "192.168.178.54";
-        systems = [ "x86_64-linux" "wasm32-wasi" "aarch64-linux" ];
-      };
-      "nixos-rpi" = {
-        hostName = "192.168.178.23";
-        systems = [ "aarch64-linux" ];
-      };
+    openFirewall = true;
+    servers = {
       "nixos-fujitsu" = {
-        hostName = "192.168.178.48";
+        external = [ "raw.le0.gs" ];
+        internal = "192.169.100.1";
+      };
+      "nixos-laptop" = { internal = "192.169.100.2"; };
+      "nixos-rpi" = { internal = "192.169.100.3"; };
+    };
+  };
+
+  # Nix build machines
+  nix = {
+    distributedBuilds = true;
+    buildMachines = lib.mapAttrsToList (lib.flip lib.const) {
+      "nixos-laptop" = {
+        hostName = "nixos-laptop.local";
         systems = [ "x86_64-linux" "wasm32-wasi" "aarch64-linux" ];
         speedFactor = 8;
+      };
+      "nixos-rpi" = {
+        hostName = "nixos-rpi.local";
+        systems = [ "aarch64-linux" ];
+        speedFactor = 4;
+      };
+      "nixos-fujitsu" = {
+        hostName = "nixos-fujitsu.local";
+        systems = [ "x86_64-linux" "wasm32-wasi" "aarch64-linux" ];
+        speedFactor = 12;
         supportedFeatures = [ "big-parallel" ];
       };
     };
-    base = "/home/leo/.ssh";
   };
-
-  # Generate '.local' host entries
-  networking.extraHosts = lib.concatStringsSep "\n"
-    (lib.mapAttrsToList (n: v: "${v.hostName} ${n}.local")
-      config.fleet.machines);
 }
