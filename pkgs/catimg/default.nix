@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
   name = "catimg-${version}";
-  version = "unstable-2020-12-10";
+  version = "unstable-2021-08-13";
 
   src = fetchFromGitHub {
     repo = "catimg";
     owner = "posva";
-    rev = "759ff22a85bad22cbfc17e9c06ee92bad6fe1a4d";
-    sha256 = "1faxf8pqld9mxswb4zk1g7fdi6wgjxk9wd4xxvdqry7g08w9v6z6";
+    rev = "70e6f5ef627240589378e0e9e527a197faa0acde";
+    sha256 = "030gxldh5d3p3sasqabyi03is9wy8slmsbhx38riz0bwf79baig0";
   };
 
   nativeBuildInputs = [ cmake ];
