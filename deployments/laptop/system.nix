@@ -10,7 +10,6 @@
     ../../plugables/netdata.nix
     ../../plugables/networking/laptop.nix
     ../../plugables/variables.nix
-    ../../plugables/zsa.nix
     # Import package collections
     ../../plugables/packages/gui.nix
     ../../plugables/packages/large.nix
@@ -87,6 +86,7 @@
 
   # List simple features that you want to enable
   hardware.bluetooth.enable = true;
+  hardware.keyboard.zsa.enable = true;
   powerManagement.enable = true;
   programs.gnupg.agent.enable = true;
   services.autorandr.enable = false;
