@@ -166,7 +166,7 @@
   };
 
   # Enable virtualization/container technologies
-  services.flatpak.enable = false;
+  services.flatpak.enable = true;
   virtualisation.anbox.enable = false;
   virtualisation.libvirtd.enable = true;
 
