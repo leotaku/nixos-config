@@ -104,6 +104,11 @@
     gutenprintBin
     splix
   ];
+  services.avahi = {
+    enable = true;
+    nssmdns = false;
+    publish.enable = false;
+  };
 
   # DBUS user session
   services.dbus.packages = with pkgs; [ gnome3.dconf ];

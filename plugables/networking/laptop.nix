@@ -54,11 +54,4 @@
     NameResolvingService=systemd
     RoutePriorityOffset=300
   '';
-
-  # Enable Avahi
-  services.avahi = {
-    enable = true;
-    nssmdns = false;
-    publish.enable = false;
-  };
 }
