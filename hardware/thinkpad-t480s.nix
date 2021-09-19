@@ -24,7 +24,7 @@
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaPersistenced = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
     prime = {
       offload.enable = true;
       intelBusId = "PCI:0:2:0";
