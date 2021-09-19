@@ -50,10 +50,7 @@
   console.keyMap = "de";
 
   # Enable SSH
-  services.openssh = {
-    enable = true;
-    permitRootLogin = "yes";
-  };
+  services.openssh.enable = true;
 
   # Enable Fail2Ban firewall
   services.fail2ban = {
