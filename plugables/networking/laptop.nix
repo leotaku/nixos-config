@@ -22,16 +22,6 @@
     dhcpV6Config = { RouteMetric = 400; };
   };
 
-  # Force predictable interface names
-  systemd.network.links."20-default" = {
-    matchConfig = { OriginalName = "*"; };
-    linkConfig = {
-      NamePolicy = "keep kernel database onboard slot path";
-      AlternativeNamesPolicy = "database onboard slot path";
-      MACAddressPolicy = "persistent";
-    };
-  };
-
   # Wireless configuration with IWD
   networking.wireless.iwd.enable = true;
   environment.etc."iwd/main.conf".text = ''
