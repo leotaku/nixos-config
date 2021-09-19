@@ -23,13 +23,17 @@
   };
 
   # Wireless configuration with IWD
-  networking.wireless.iwd.enable = true;
-  environment.etc."iwd/main.conf".text = ''
-    [General]
-    EnableNetworkConfiguration=false
-    UseDefaultInterface=true
-    [Network]
-    NameResolvingService=systemd
-    RoutePriorityOffset=300
-  '';
+  networking.wireless.iwd = {
+    enable = true;
+    settings = {
+      General = {
+        EnableNetworkConfiguration = false;
+        UseDefaultInterface = false;
+      };
+      Network = {
+        NameResolvingService = "systemd";
+        RoutePriorityOffset = 300;
+      };
+    };
+  };
 }
