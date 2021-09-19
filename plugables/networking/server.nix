@@ -3,7 +3,7 @@
 {
   imports = [ ./shared.nix ];
 
-  # Use firewall per default
+  # Enable firewall per default
   networking.firewall.enable = true;
 
   # Setup all physical network interfaces
