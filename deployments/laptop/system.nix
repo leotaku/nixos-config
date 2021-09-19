@@ -222,7 +222,7 @@
       }
       {
         repository = "rclone:gdata:restic";
-        timer = [ "*-*-* 12:00" ];
+        timer = [ "*-*-* 12:00" "*-*-* 23:00" ];
       }
     ];
   };
