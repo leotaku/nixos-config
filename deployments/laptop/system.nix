@@ -139,6 +139,7 @@
     theme = "haze";
     settings = {
       Theme = {
+        EnableAvatars = true;
         ThemeDir = pkgs.sddm-themes + "/share/sddm/themes";
       };
     };
