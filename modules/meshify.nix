@@ -1,8 +1,8 @@
 { lib, pkgs, config, options, ... }:
 with lib;
-let cfg = config.fleet;
+let cfg = config.meshify;
 in {
-  options.fleet = {
+  options.meshify = {
     enable = mkEnableOption "Nebula private mesh network";
     openFirewall = mkOption {
       type = types.bool;
@@ -37,7 +37,7 @@ in {
       (lib.mapAttrsToList (n: v: "${v.internal} ${n}.local") cfg.servers);
 
     # Mutable Nebula for simple mesh network
-    services.nebula.networks."fleet" = let
+    services.nebula.networks."meshify" = let
       hostName = config.networking.hostName;
       isLighthouse = lib.hasAttr hostName cfg.servers
         && (lib.getAttr hostName cfg.servers).external != [ ];

@@ -1,8 +1,8 @@
 { lib, config, pkgs, ... }: {
-  imports = [ ../modules/fleet.nix ];
+  imports = [ ../modules/meshify.nix ];
 
   # Configure network mesh
-  fleet = {
+  meshify = {
     enable = true;
     openFirewall = true;
     servers = {
