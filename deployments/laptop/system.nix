@@ -78,7 +78,7 @@
   programs.gnome-disks.enable = true;
   programs.light.enable = true;
 
-  # Configure default shell
+  # Configure interactive shell
   programs.fish = {
     enable = true;
     useBabelfish = true;
