@@ -28,7 +28,7 @@
     settings = {
       General = {
         EnableNetworkConfiguration = false;
-        UseDefaultInterface = false;
+        UseDefaultInterface = true;
       };
       Network = {
         NameResolvingService = "systemd";
