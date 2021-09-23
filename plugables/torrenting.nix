@@ -23,7 +23,7 @@
       "--dht-listen-port=22327"
       "--seed-ratio=3.0"
     ];
-    # NOTE: Irrelevant, we are protected by http-auth
+    # NOTE: Irrelevant, we are protected by HTTP authentication
     rpcSecret = "aria2rpc";
   };
 
