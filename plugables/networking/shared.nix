@@ -11,19 +11,23 @@
   # Use trusted DNS server
   # 0: https://mullvad.net/de/help/dns-leaks/
   # 1: https://developers.cloudflare.com/1.1.1.1/
-  networking.nameservers = [ "1.1.1.1" ];
+  networking.nameservers = [ "1.1.1.1#1dot1dot1dot1.cloudflare-dns.com" ];
 
   # Use systemd-resolved instead of DHCPCD
-  # TODO: Maybe enable DoT when it becomes safe
-  # TODO: Investigate why DNSSec never works
-  # TODO: Investigate why IPv6 breaks everything
   networking.dhcpcd.enable = false;
   networking.enableIPv6 = true;
   services.resolved = {
     enable = true;
     domains = [ "~." ];
-    fallbackDns = [ "8.8.8.8" ];
-    dnssec = "allow-downgrade";
+    fallbackDns = [
+      "194.242.2.2#dot.mullvad.net"
+      "193.19.108.2#dot.mullvad.net"
+      "193.138.218.74#dns.mullvad.net"
+      "8.8.8.8#dns.google"
+      "8.8.4.4#dns.google"
+    ];
+    dnssec = "true";
+    extraConfig = "DNSOverTLS=opportunistic";
   };
 
   # Wireguard support
