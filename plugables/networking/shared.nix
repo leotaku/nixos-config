@@ -23,8 +23,6 @@
       "194.242.2.2#dot.mullvad.net"
       "193.19.108.2#dot.mullvad.net"
       "193.138.218.74#dns.mullvad.net"
-      "8.8.8.8#dns.google"
-      "8.8.4.4#dns.google"
     ];
     dnssec = "true";
     extraConfig = "DNSOverTLS=opportunistic";
