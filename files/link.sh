@@ -2,9 +2,9 @@
 set -e
 
 instantiate() {
-    nix-instantiate \
-        --eval ./inputs.nix \
-        -A nixpkgs.outPath
+    nix-instantiate --eval \
+        --expr 'builtins.getFlake (builtins.toString ./..)' \
+        -A inputs.nixpkgs.outPath
 }
 
 TARGET="/etc/nixos/links/nixpkgs"

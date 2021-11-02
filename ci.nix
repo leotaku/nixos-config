@@ -1,6 +1,6 @@
 let
-  inputs = import ./files/inputs.nix;
-  pkgs = import inputs.nixpkgs {
+  flake = builtins.getFlake (builtins.toString ./.);
+  pkgs = import flake.inputs.nixpkgs {
     overlays = [ (import ./pkgs/default.nix) ];
   };
 in {
