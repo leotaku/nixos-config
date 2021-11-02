@@ -1,7 +1,7 @@
 { stdenv, fetchFromGitHub, lib }:
 
 stdenv.mkDerivation rec {
-  name = "besley-${version}";
+  pname = "besley";
   version = "unstable-2021-07-11";
 
   src = fetchFromGitHub {

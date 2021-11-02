@@ -1,7 +1,7 @@
 { stdenv, fetchurl, imagemagick, cmake, gcc, lib }:
 
 stdenv.mkDerivation rec {
-  name = "build2-${version}";
+  pname = "build2";
   version = "0.13.0";
 
   src = fetchurl {

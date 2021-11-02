@@ -12,7 +12,7 @@ in
   srcRepo = true;
   nativeComp = true;
 }).overrideAttrs (oldAttrs: rec {
-  name = "emacs-unstable-${version}";
+  pname = "emacs-unstable";
   version = "git";
   inherit src;
 
