@@ -4,6 +4,7 @@
   # Use systemd-networkd for networking
   networking.useNetworkd = true;
   networking.useDHCP = false;
+  services.nscd.enable = false;
 
   # FIXME: Nftables is better but messes up virtualization
   networking.firewall.package = pkgs.iptables;
