@@ -19,6 +19,7 @@
     papirus-icon-theme
     # GUI applications
     discord
+    firefox-devedition-bin
     emacs-git-custom
     inkscape
     krita
@@ -27,7 +28,6 @@
     mpv
     pavucontrol
     pinta
-    pkgs.firefox-devedition-bin
     qt5ct
     rofi
     sxiv
