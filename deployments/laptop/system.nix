@@ -214,13 +214,6 @@
     ];
   };
 
-  # Run LocateDB every hour
-  services.locate = {
-    enable = true;
-    interval = "hourly";
-    localuser = "root";
-  };
-
   # Disable NixOS command-not-found functionality
   programs.command-not-found.enable = false;
 
