@@ -70,10 +70,17 @@
   programs.light.enable = true;
 
   # Configure interactive shell
-  programs.fish = {
+  programs.zsh = {
     enable = true;
-    useBabelfish = true;
+    enableCompletion = true;
+    enableBashCompletion = false;
+    enableGlobalCompInit = false;
+
     shellAliases = lib.mkForce { };
+    setOptions = [ ];
+
+    autosuggestions.enable = false;
+    syntaxHighlighting.enable = false;
   };
 
   # List simple features that you want to enable
