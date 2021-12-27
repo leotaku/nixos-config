@@ -36,4 +36,8 @@
       };
     };
   };
+
+  # Reset IWD on waking up from suspend
+  powerManagement.powerDownCommands = "${pkgs.systemd}/bin/systemctl stop iwd.service";
+  powerManagement.powerUpCommands = "${pkgs.systemd}/bin/systemctl start iwd.service";
 }
