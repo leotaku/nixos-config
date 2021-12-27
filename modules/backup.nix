@@ -36,7 +36,7 @@ in {
           };
           repository = mkOption {
             type = types.str;
-            example = "rest:http://le0.gs:8000";
+            example = "rest:http://example.com:8000";
             description = "Location of the restic server.";
           };
           passwordFile = mkOption {
