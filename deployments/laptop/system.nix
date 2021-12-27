@@ -111,12 +111,6 @@
   services.xserver.libinput.enable = true;
   services.xserver.wacom.enable = true;
 
-  # URxvt daemon
-  services.urxvtd = {
-    enable = true;
-    package = pkgs.rxvt-unicode;
-  };
-
   # Basic XDG support
   xdg.portal = {
     enable = true;
