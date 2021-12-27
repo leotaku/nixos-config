@@ -78,7 +78,6 @@
 
   # List simple features that you want to enable
   hardware.bluetooth.enable = true;
-  hardware.keyboard.zsa.enable = true;
   powerManagement.enable = true;
   programs.gnupg.agent.enable = true;
   services.autorandr.enable = false;

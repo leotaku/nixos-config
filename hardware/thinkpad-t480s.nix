@@ -39,6 +39,13 @@
     setLdLibraryPath = true;
   };
 
+  # Udev support for Moonlander keyboard
+  hardware.keyboard.zsa.enable = true;
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{idVendor}=="3297", ATTR{idProduct}=="1969", \
+      TAG+="systemd", ENV{SYSTEMD_USER_WANTS}="keyboard.service"
+  '';
+
   # Use the systemd-boot EFI boot loader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
