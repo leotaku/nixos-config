@@ -9,6 +9,7 @@
     xcape
     xdo
     xorg.xkbcomp
+    xclip
     xsel
     # Theming
     adapta-gtk-theme
