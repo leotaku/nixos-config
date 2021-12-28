@@ -20,7 +20,6 @@ in {
     CONAN_USER_HOME = XDG_DATA_HOME + "/conan";
     GOPATH = XDG_DATA_HOME + "/go";
     HISTFILE = XDG_DATA_HOME + "/bash_history";
-    IPFS_PATH = XDG_DATA_HOME + "/ipfs";
     LESSHISTFILE = XDG_CACHE_HOME + "/lesshist";
     MPLAYER_HOME = XDG_CONFIG_HOME + "/mplayer";
     NOTMUCH_CONFIG = XDG_CONFIG_HOME + "/notmuch/notmuchrc";
