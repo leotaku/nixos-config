@@ -13,8 +13,8 @@
     ffmpeg
     gitAndTools.delta
     github-cli
+    graphicsmagick
     hyperfine
-    imagemagick7
     just
     ledger
     libqalculate
