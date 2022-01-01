@@ -209,6 +209,7 @@
     enable = true;
     enableNvidia = false;
     dockerCompat = true;
+    dockerSocket.enable = true;
   };
 
   # Add Wireshark permissions
