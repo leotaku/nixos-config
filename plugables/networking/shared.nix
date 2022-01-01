@@ -5,6 +5,7 @@
   networking.useNetworkd = true;
   networking.useDHCP = false;
   services.nscd.enable = false;
+  system.nssModules = lib.mkForce [ ];
 
   # FIXME: Nftables is better but messes up virtualization
   networking.firewall.package = pkgs.iptables;
