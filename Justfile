@@ -17,7 +17,6 @@ secrets:
 
 update:
 	nix flake update
-	sh ./files/link.sh
 
 update-pkgs:
 	parallel --timeout 60 --bar update-nix-fetchgit ::: pkgs/*/*.nix
