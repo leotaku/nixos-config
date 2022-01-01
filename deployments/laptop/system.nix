@@ -40,24 +40,35 @@
     anki-bin
     blueman
     calibre
+    dfeet
     discord
     emacs-git-custom
     firefox-devedition-bin
     kdeconnect
     kitty
+    kolourpaint
     okular
+    pavucontrol
     syncthing
     # Utilities
     aspell-custom
+    emv
     fd
+    file
     git
     github-cli
+    hyperfine
     isync
+    jq
     just
+    kakoune
+    libarchive
     libqalculate
     notmuch
     parallel
     ripgrep
+    sops
+    stow
     tesseract
     # Backend tools
     direnv
@@ -75,6 +86,7 @@
     awesome-git
     cbatticon
     picom
+    pulseaudio
     redshift
     rofi
     # GUI
