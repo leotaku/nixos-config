@@ -226,25 +226,12 @@
       paths = [{
         path = "/home/leo";
         exclude = [
-          "**/*.a"
-          "**/*.o"
-          "**/*.rlib"
-          "**/*.rmeta"
-          "**/*.so"
           "**/target"
-          ".cabal"
           ".cache"
-          ".cargo"
-          ".ghc"
+          ".debug"
           ".ipfs"
           ".local/share"
-          ".maildir/.notmuch"
-          ".multimc"
-          ".npm"
-          ".rustup"
-          ".stack"
-          ".technic"
-          ".var/app"
+          ".var"
           "large"
         ];
       }];
