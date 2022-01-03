@@ -10,9 +10,6 @@
     ../../plugables/netdata.nix
     ../../plugables/networking/laptop.nix
     ../../plugables/variables.nix
-    # Import package collections
-    ../../plugables/packages/gui.nix
-    ../../plugables/packages/large.nix
     # Import custom modules
     ../../modules/backup.nix
   ];
@@ -39,20 +36,65 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   environment.systemPackages = with pkgs; [
-    # Laptop utilities
-    acpi
-    arandr
-    autorandr
-    glxinfo
-    pamixer
-    powertop
-    srandrd
-    tpacpi-bat
-    virt-manager
-    wally-cli
-    # SDDM
+    # Applications
+    anki-bin
+    blueman
+    calibre
+    discord
+    emacs-git-custom
+    firefox-devedition-bin
+    kdeconnect
+    kitty
+    okular
+    syncthing
+    # Utilities
+    aspell-custom
+    fd
+    git
+    github-cli
+    isync
+    just
+    libqalculate
+    notmuch
+    parallel
+    ripgrep
+    tesseract
+    # Backend tools
+    direnv
+    lorri
+    rnix-lsp
+    tmux
+    z-lua
+    # GUI utilities
+    maim
+    xcape
+    xclip
+    xdo
+    xorg.xkbcomp
+    # Desktop
+    awesome-git
+    cbatticon
+    picom
+    redshift
+    rofi
+    # GUI
+    lxappearance
+    adapta-gtk-theme
+    breeze-qt5
+    qt5ct
+    gnome3.adwaita-icon-theme
+    libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.qtstyleplugins
+    papirus-icon-theme
+    # SDDM support
     qt5.qtgraphicaleffects
     qt5.qtmultimedia
+  ];
+
+  fonts.fonts = with pkgs; [
+    # Fonts
+    alegreya
+    fira-mono
   ];
 
   # Global environment

@@ -6,8 +6,6 @@
     ../plugables/mesh.nix
     ../plugables/netdata.nix
     ../plugables/networking/server.nix
-    ../plugables/packages/base.nix
-    ../plugables/packages/usability.nix
     ../plugables/torrenting.nix
     ../plugables/webserver.nix
     ../plugables/znc.nix

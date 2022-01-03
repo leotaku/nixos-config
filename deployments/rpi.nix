@@ -6,7 +6,6 @@
     ../plugables/mesh.nix
     ../plugables/netdata.nix
     ../plugables/networking/server.nix
-    ../plugables/packages/base.nix
   ];
 
   # Hostname
