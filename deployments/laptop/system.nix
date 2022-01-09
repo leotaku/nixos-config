@@ -9,6 +9,7 @@
     # Import plugable configurations
     ../../plugables/netdata.nix
     ../../plugables/networking/laptop.nix
+    ../../plugables/perf.nix
     ../../plugables/variables.nix
     # Import custom modules
     ../../modules/backup.nix
