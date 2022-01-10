@@ -2,10 +2,6 @@
 with lib;
 let
   cfg = config.backup;
-  service = config.systemd.services.restic-backups-backup-module-1;
-  serviceEnv = concatStrings (mapAttrsToList (n: v: ''
-    export ${n}=${v}
-  '') (filterAttrs (n: _: n != "PATH") service.environment));
   backupPath = types.submodule {
     options = {
       path = mkOption {
@@ -19,10 +15,16 @@ let
       };
     };
   };
-  backupscript = pkgs.writeShellScriptBin "backup"
-    (serviceEnv + (last service.serviceConfig.ExecStart) + " $@");
-  supportscript = pkgs.writeShellScriptBin "backuptool"
-    (serviceEnv + (pkgs.restic + "/bin/restic $@"));
+  services = lib.filterAttrs (name: _: lib.hasPrefix "restic" name) config.systemd.services;
+  generateScript = name: service: let
+    filename = "backuptool-" + lib.last (lib.splitString "-" name);
+  in pkgs.writeShellScriptBin filename ''
+    export RESTIC_REPOSITORY="${service.environment.RESTIC_REPOSITORY}"
+    export RESTIC_PASSWORD_FILE="${service.environment.RESTIC_PASSWORD_FILE}"
+    export RESTIC_CACHE_DIR="/var/cache/${name}"
+    ${pkgs.restic}/bin/restic "$@"
+  '';
+  scripts = lib.mapAttrsToList generateScript services;
 in {
   options.backup.jobs = mkOption {
     type = with types;
@@ -83,6 +85,6 @@ in {
     }) cfg.jobs);
 
     # Include the Restic package and backup script in the global environment
-    environment.systemPackages = [ pkgs.restic backupscript supportscript ];
+    environment.systemPackages = [ pkgs.restic ] ++ scripts;
   };
 }
