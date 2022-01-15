@@ -2,17 +2,17 @@
 
 buildGoModule rec {
   pname = "goatcounter";
-  version = "2.0.4";
+  version = "2.1.1";
 
   src = fetchFromGitHub {
     owner = "zgoat";
     repo = "goatcounter";
-    rev = "283de6ae647612cd2ce53c3fe1a21da8c129fac6"; # tags/v2.0.4
-    sha256 = "1r4af5rympch22l67f8cwla94bya2fhqndaac8f23b4qv11ikv9d";
+    rev = "2461147f90cc340997710c307afe078548ffe7d6"; # tags/v2.1.1
+    sha256 = "1q42g00n8pl8pj4f5mdv2mydksx28ylzabhh0cyfdvz8bsfx4klm";
   };
 
   subPackages = [ "./cmd/goatcounter" ];
-  vendorSha256 = "sha256-z9SoAASihdTo2Q23hwo78SU76jVD4jvA0UVhredidOQ=";
+  vendorSha256 = "sha256-Gl3JPgruQi+rjgua0JcHqG2CqJf7TDNin6IT0RywolY=";
   doCheck = false;
 
   meta = with lib; {
