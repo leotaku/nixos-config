@@ -151,13 +151,11 @@
   services.udisks2.enable = true;
 
   # Printing
-  services.printing.enable = true;
-  services.printing.drivers = with pkgs; [
-    hplip
-    gutenprint
-    gutenprintBin
-    splix
-  ];
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [ hplip gutenprint gutenprintBin splix ];
+    extraConf = ''ErrorPolicy retry-this-job'';
+  };
   services.avahi = {
     enable = true;
     nssmdns = false;
