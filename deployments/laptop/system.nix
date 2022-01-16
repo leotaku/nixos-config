@@ -164,9 +164,6 @@
     publish.enable = false;
   };
 
-  # DBUS user session
-  services.dbus.packages = with pkgs; [ gnome3.dconf ];
-
   # X11 windowing system
   services.xserver.enable = true;
   services.xserver.libinput.enable = true;
