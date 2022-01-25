@@ -5,8 +5,10 @@ let
     withGTK3 = true;
     withXwidgets = true;
   }).overrideAttrs (oldAttrs: {
-    configureFlags = oldAttrs.configureFlags
-      ++ [ "--without-toolkit-scroll-bars" ];
+    configureFlags = oldAttrs.configureFlags ++ [
+      "--without-toolkit-scroll-bars"
+      "--without-compress-install"
+    ];
   }))).overrideScope' (self: super: { git-commit = null; });
   emacs-with-packages = customEmacsPackages.emacsWithPackages (epkgs: [
     # Native Emacs packages
