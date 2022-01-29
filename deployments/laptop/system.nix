@@ -153,7 +153,7 @@
   # Printing
   services.printing = {
     enable = true;
-    drivers = with pkgs; [ hplip gutenprint gutenprintBin splix ];
+    drivers = with pkgs; [ gutenprint hplip splix ];
     extraConf = ''ErrorPolicy retry-this-job'';
   };
   services.avahi = {
