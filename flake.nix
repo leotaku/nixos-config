@@ -6,10 +6,6 @@
       url = "github:nixos/nixpkgs/nixos-unstable";
       flake = true;
     };
-    hercules-ci = {
-      url = "github:hercules-ci/hercules-ci-agent";
-      flake = true;
-    };
   };
 
   outputs = { self, nixpkgs, ... }:
@@ -20,13 +16,7 @@
         system = "x86_64-linux";
       };
       om = { ... }: {
-        nixpkgs.overlays = [
-          self.overlay
-          (_: _: {
-            hercules-ci-agent =
-              self.inputs.hercules-ci.packages.x86_64-linux.hercules-ci-agent-nixUnstable;
-          })
-        ];
+        nixpkgs.overlays = [ self.overlay ];
       };
       nm = { ... }: {
         nix = {
