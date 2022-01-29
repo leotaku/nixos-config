@@ -15,10 +15,7 @@
         config.allowUnfree = true;
         system = "x86_64-linux";
       };
-      om = { ... }: {
-        nixpkgs.overlays = [ self.overlay ];
-      };
-      nm = { ... }: {
+      mod = { ... }: {
         nix = {
           extraOptions = let
             registry = builtins.toFile "empty-flake-registry.json"
@@ -33,21 +30,24 @@
           registry.nixpkgs.flake = nixpkgs;
           nixPath = [ "nixpkgs=${nixpkgs}" ];
         };
+        nixpkgs = {
+          overlays = [ self.overlay ];
+        };
       };
     in {
       # Systems
       nixosConfigurations = {
         laptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ (import ./deployments/laptop/configuration.nix) nm om ];
+          modules = [ (import ./deployments/laptop/configuration.nix) mod ];
         };
         fujitsu = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ (import ./deployments/fujitsu.nix) nm om ];
+          modules = [ (import ./deployments/fujitsu.nix) mod ];
         };
         rpi = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
-          modules = [ (import ./deployments/rpi.nix) nm om ];
+          modules = [ (import ./deployments/rpi.nix) mod ];
         };
       };
 
