@@ -70,7 +70,7 @@
     ripgrep
     sops
     stow
-    tesseract
+    tesseract4
     # Backend tools
     direnv
     lorri
