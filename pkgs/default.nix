@@ -22,7 +22,7 @@ with self; {
   sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
 
   # Hard customizations
-  aspell-custom = (aspellWithDicts (lib.mapAttrsToList lib.const)).overrideAttrs
+  aspell-custom = (aspellWithDicts lib.attrValues).overrideAttrs
     (oldAttrs: { ignoreCollisions = true; });
   hunspell-custom = hunspellWithDicts (lib.mapAttrsToList
     (n: v: if (lib.isDerivation v && !v.meta.unfree) then v else null)
