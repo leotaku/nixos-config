@@ -52,6 +52,7 @@
     pavucontrol
     syncthing
     # Utilities
+    aria2
     aspell-custom
     emv
     fd
