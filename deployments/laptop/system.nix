@@ -69,6 +69,7 @@
     parallel
     qrencode
     ripgrep
+    ripgrep-all
     sops
     stow
     tesseract4
