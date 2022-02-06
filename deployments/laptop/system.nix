@@ -158,7 +158,7 @@
     extraConf = ''ErrorPolicy retry-this-job'';
   };
   services.avahi = {
-    enable = true;
+    enable = false;
     nssmdns = false;
     publish.enable = false;
   };
