@@ -67,10 +67,12 @@
     libqalculate
     notmuch
     parallel
+    qrencode
     ripgrep
     sops
     stow
     tesseract4
+    zbar
     # Backend tools
     direnv
     lorri
