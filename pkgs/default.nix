@@ -10,9 +10,6 @@ with self; {
   sddm-themes = callPackage ./sddm/default.nix { };
 
   # Customized packages
-  aspellDicts =
-    lib.filterAttrs (n: v: !lib.elem n [ "en-science" "en-computers" ])
-    super.aspellDicts;
   ncmpcpp = super.ncmpcpp.override {
     visualizerSupport = true;
     outputsSupport = true;
