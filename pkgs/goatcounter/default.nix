@@ -12,7 +12,7 @@ buildGo117Module rec {
   };
 
   subPackages = [ "./cmd/goatcounter" ];
-  vendorSha256 = "sha256-Gl3JPgruQi+rjgua0JcHqG2CqJf7TDNin6IT0RywolY=";
+  vendorSha256 = "sha256-zPsu9tugeExpvwRRS6/CFKWZfZ8L89ylM+P3So+lpZQ=";
   doCheck = false;
 
   meta = with lib; {
