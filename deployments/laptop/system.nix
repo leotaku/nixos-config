@@ -266,9 +266,13 @@
   # Disable NixOS command-not-found functionality
   programs.command-not-found.enable = false;
 
-  # Upower for battery management
-  services.upower = {
-    enable = true;
-    criticalPowerAction = "Hibernate";
-  };
+  # DBus rules for battery management
+  services.udev.extraRules = ''
+    SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-5]", \
+      TAG+="systemd", ENV{SYSTEMD_WANTS}="suspend-then-hibernate.target"
+  '';
+  systemd.sleep.extraConfig = ''
+    SuspendState=freeze
+    HibernateDelaySec=1h
+  '';
 }
