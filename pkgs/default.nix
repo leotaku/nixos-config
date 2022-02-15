@@ -19,7 +19,6 @@ with self; {
     githubSupport = true;
     mpdSupport = true;
   };
-  sxiv = super.sxiv.override { conf = builtins.readFile ./sxiv/config.h; };
 
   # Hard customizations
   aspell-custom = (aspellWithDicts lib.attrValues).overrideAttrs
