@@ -18,6 +18,7 @@ in {
     CABAL_DIR = XDG_CACHE_HOME + "/cabal";
     CARGO_HOME = XDG_DATA_HOME + "/cargo";
     CONAN_USER_HOME = XDG_DATA_HOME + "/conan";
+    DENO_INSTALL_ROOT = XDG_DATA_HOME + "/deno";
     GOPATH = XDG_DATA_HOME + "/go";
     HISTFILE = XDG_DATA_HOME + "/bash_history";
     LESSHISTFILE = XDG_CACHE_HOME + "/lesshist";
