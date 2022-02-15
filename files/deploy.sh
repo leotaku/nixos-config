@@ -4,11 +4,16 @@ action="$1"
 shift
 
 for machine in "${@}"; do
-    ssh_target="root@nixos-${machine}.local"
+    host="nixos-${machine}.local"
+    if [ "$host" == "$(hostname).local" ]; then
+        host="0.0.0.0"
+    fi
+
     echo "Building machine ${machine}..."
-    nixos-rebuild "$action"         \
-        --flake .#"$machine"        \
-        --no-build-nix              \
-        --target-host "$ssh_target" \
-        --build-host "$ssh_target"
+    nixos-rebuild "$action"  \
+        --flake .#"$machine" \
+        --no-build-nix       \
+        --use-substitutes    \
+        --target-host root@"$host" \
+        --build-host  root@"$host"
 done
