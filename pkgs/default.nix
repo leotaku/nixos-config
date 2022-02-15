@@ -10,17 +10,6 @@ with self; {
   sddm-themes = callPackage ./sddm/default.nix { };
 
   # Customized packages
-  ncmpcpp = super.ncmpcpp.override {
-    visualizerSupport = true;
-    outputsSupport = true;
-    clockSupport = true;
-  };
-  polybar = super.polybar.override {
-    githubSupport = true;
-    mpdSupport = true;
-  };
-
-  # Hard customizations
   aspell-custom = (aspellWithDicts lib.attrValues).overrideAttrs
     (oldAttrs: { ignoreCollisions = true; });
   hunspell-custom = hunspellWithDicts (lib.mapAttrsToList
