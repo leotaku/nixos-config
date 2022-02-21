@@ -1,6 +1,6 @@
 { pkgs, emacsPackagesFor, emacs, ... }:
 let
-  customEmacsPackages = (emacsPackagesFor ((emacs.override {
+  customEmacsPackages = emacsPackagesFor ((emacs.override {
     withX = true;
     withGTK3 = true;
     withXwidgets = true;
@@ -8,13 +8,15 @@ let
     configureFlags = oldAttrs.configureFlags ++ [
       "--without-toolkit-scroll-bars"
       "--without-compress-install"
+      "--with-sqlite3"
     ];
-  }))).overrideScope' (self: super: { git-commit = null; });
+    buildInputs = oldAttrs.buildInputs ++ [
+      pkgs.sqlite
+    ];
+  }));
   emacs-with-packages = customEmacsPackages.emacsWithPackages (epkgs: [
     # Native Emacs packages
-    epkgs.forge
     epkgs.vterm
-    epkgs.zmq
     pkgs.notmuch.emacs
   ]);
   emacs-with-paths = pkgs.symlinkJoin {
