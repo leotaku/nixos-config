@@ -3,11 +3,12 @@ let
   customEmacsPackages = emacsPackagesFor ((emacs.override {
     withX = true;
     withGTK3 = true;
-    withXwidgets = true;
+    withXwidgets = false;
   }).overrideAttrs (oldAttrs: {
     configureFlags = oldAttrs.configureFlags ++ [
       "--without-toolkit-scroll-bars"
       "--without-compress-install"
+      "--with-pgtk"
       "--with-sqlite3"
     ];
     buildInputs = oldAttrs.buildInputs ++ [
