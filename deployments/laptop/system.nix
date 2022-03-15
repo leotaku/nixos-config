@@ -44,7 +44,7 @@
     dfeet
     discord
     emacs-git-custom
-    firefox-devedition-bin
+    firefox-custom
     kdeconnect
     kitty
     kolourpaint

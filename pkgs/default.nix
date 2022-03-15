@@ -18,6 +18,9 @@ with self; {
   nuspell-custom = nuspellWithDicts (lib.mapAttrsToList
     (n: v: if (lib.isDerivation v && !v.meta.unfree) then v else null)
     hunspellDicts);
+  firefox-custom = firefox-devedition-bin.override (old: {
+    extraPolicies = { "DisableAppUpdate" = true; };
+  });
 
   # Source overrides
   awesome-git = callPackage ./awesome/default.nix { };
