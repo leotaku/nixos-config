@@ -10,16 +10,28 @@
   systemd.network.networks."40-wired" = {
     matchConfig = { Name = lib.mkForce "enp* eth*"; };
     networkConfig = { DHCP = "yes"; };
-    dhcpV4Config = { RouteMetric = 200; };
-    dhcpV6Config = { RouteMetric = 200; };
+    dhcpV4Config = {
+      RouteMetric = 200;
+      UseDNS = false;
+    };
+    dhcpV6Config = {
+      RouteMetric = 200;
+      UseDNS = false;
+    };
   };
 
   # Protect all wireless networks from being unconfigured
   systemd.network.networks."40-wireless" = {
     matchConfig = { Name = lib.mkForce "wlp* wlan*"; };
     networkConfig = { DHCP = "yes"; };
-    dhcpV4Config = { RouteMetric = 400; };
-    dhcpV6Config = { RouteMetric = 400; };
+    dhcpV4Config = {
+      RouteMetric = 400;
+      UseDNS = false;
+    };
+    dhcpV6Config = {
+      RouteMetric = 400;
+      UseDNS = false;
+    };
   };
 
   # Wireless configuration with IWD
