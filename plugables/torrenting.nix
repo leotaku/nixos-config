@@ -55,6 +55,13 @@
     }];
   };
 
+  # Disable using DNS servers from DHCP for vpn interface
+  systemd.network.networks."30-wireguard" = {
+    matchConfig = { Name = lib.mkForce "vpn"; };
+    dhcpV4Config = { UseDNS = false; };
+    dhcpV6Config = { UseDNS = false; };
+  };
+
   # Season downloads
   services.sonarr.enable = true;
 
