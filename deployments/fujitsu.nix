@@ -80,8 +80,14 @@
   services.minecraft-server = rec {
     enable = true;
     eula = true;
-    package = pkgs.writeShellScriptBin "minecraft-server" ''
-      ${pkgs.jre}/bin/java -Xmx3G -Xms2G -jar ${dataDir}/server.jar nogui
+    package = let
+      server = pkgs.fetchurl {
+        url =
+          "https://papermc.io/api/v2/projects/paper/versions/1.18.2/builds/252/downloads/paper-1.18.2-252.jar";
+        sha256 = "0gwz2j03a3yp87d12v7yr9954169dcsn7cf5ayvcnhp8xlsyzavi";
+      };
+    in pkgs.writeShellScriptBin "minecraft-server" ''
+      ${pkgs.jre}/bin/java -Xmx3G -Xms2G -jar ${server} nogui
     '';
     dataDir = "/var/lib/minecraft";
     declarative = true;
