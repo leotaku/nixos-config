@@ -83,7 +83,7 @@
     package = pkgs.writeShellScriptBin "minecraft-server" ''
       ${pkgs.jre}/bin/java -Xmx3G -Xms2G -jar ${dataDir}/server.jar nogui
     '';
-    dataDir = "/var/lib/minnekraft";
+    dataDir = "/var/lib/minecraft";
     declarative = true;
     serverProperties = {
       motd = "Yolomaudadolo!!!";
