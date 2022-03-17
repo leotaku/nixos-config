@@ -13,7 +13,10 @@
   # Use trusted DNS server
   # 0: https://mullvad.net/de/help/dns-leaks/
   # 1: https://developers.cloudflare.com/1.1.1.1/
-  networking.nameservers = [ "1.1.1.1#1dot1dot1dot1.cloudflare-dns.com" ];
+  networking.nameservers = [
+    "8.8.8.8#dns.google"
+    "1.1.1.1#1dot1dot1dot1.cloudflare-dns.com"
+  ];
 
   # Use systemd-resolved instead of DHCPCD
   networking.dhcpcd.enable = false;
