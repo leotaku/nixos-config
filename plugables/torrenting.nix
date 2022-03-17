@@ -10,7 +10,7 @@
     listenPortRange = map (n: {
       from = n;
       to = n;
-    }) [ 6585 9395 11551 14128 ];
+    }) [ 55207 55293 55460 56395 ];
     openPorts = false;
     extraArguments = lib.concatStringsSep " " [
       "--rpc-listen-all=false"
@@ -20,7 +20,7 @@
       "--force-save=false"
       "--input-file=/var/lib/aria2/aria2.session"
       "--enable-dht=true"
-      "--dht-listen-port=22327"
+      "--dht-listen-port=58593"
       "--seed-ratio=3.0"
     ];
     # NOTE: Irrelevant, we are protected by HTTP authentication
