@@ -41,7 +41,7 @@ in {
           };
           "/public".return = "301 /public/";
           "/public/" = {
-            alias = "/var/web/stuff/public/";
+            alias = "/var/web/public/";
             extraConfig = trackingConfig + ''
               fancyindex on;
               fancyindex_exact_size off;
