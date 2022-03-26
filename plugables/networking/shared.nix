@@ -7,9 +7,6 @@
   services.nscd.enable = false;
   system.nssModules = lib.mkForce [ ];
 
-  # FIXME: Nftables is better but messes up virtualization
-  networking.firewall.package = pkgs.iptables;
-
   # Use trusted DNS server
   # 0: https://mullvad.net/de/help/dns-leaks/
   # 1: https://developers.cloudflare.com/1.1.1.1/
