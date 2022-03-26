@@ -9,9 +9,9 @@ for machine in "${@}"; do
     host="nixos-${machine}.local"
     if [ "$host" == "$(hostname).local" ]; then
         sudo nixos-rebuild "$action"  \
-            --flake .#"$machine" \
-            --no-build-nix       \
-            --use-substitutes
+                 --flake .#"$machine" \
+                 --no-build-nix       \
+                 --use-substitutes
     else
         nixos-rebuild "$action"  \
             --flake .#"$machine" \
