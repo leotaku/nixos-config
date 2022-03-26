@@ -21,6 +21,8 @@
     overlays = [ (import ../pkgs) ];
   };
 
+  environment.systemPackages = with pkgs; [ emv htop kakoune ncdu ];
+
   # Netdata monitoring
   services.nginx = {
     enable = true;

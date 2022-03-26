@@ -23,10 +23,14 @@
 
   environment.systemPackages = with pkgs; [
     dnsmasq
+    emv
     ethtool
     freeipmi
     goatcounter
+    htop
     ipmitool
+    kakoune
+    ncdu
     restic
     syncthing-cli
   ];
