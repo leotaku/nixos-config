@@ -151,9 +151,6 @@ in {
     };
   };
 
-  # Nginx server may access personal files
-  users.users.nginx.extraGroups = [ "syncthing" ];
-
   # Acme certificates
   security.acme = {
     acceptTerms = true;
