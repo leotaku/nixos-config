@@ -80,7 +80,7 @@
     lorri
     rnix-lsp
     tmux
-    z-lua
+    zoxide
     # GUI utilities
     maim
     xcape
