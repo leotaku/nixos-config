@@ -150,6 +150,7 @@ in {
       };
     };
   };
+  users.users."nginx".extraGroups = [ "acme" ];
 
   # Acme certificates
   security.acme = {
@@ -160,7 +161,7 @@ in {
         webroot = config.services.nginx.virtualHosts."le0.gs".acmeRoot;
         extraDomainNames = lib.filter (n: n != "le0.gs")
           (lib.attrNames config.services.nginx.virtualHosts);
-        group = "nginx";
+        group = "acme";
       };
     };
   };

@@ -66,7 +66,7 @@
       "--tls-key=/var/lib/acme/le0.gs/key.pem"
     ];
   };
-  users.users."restic".extraGroups = [ "nginx" ];
+  users.users."restic".extraGroups = [ "acme" ];
 
   services.syncthing = {
     enable = true;
