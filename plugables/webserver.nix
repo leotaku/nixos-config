@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  nginx = pkgs.nginxMainline.override
+  nginxCustom = pkgs.nginxMainline.override
     (old: { modules = with pkgs.nginxModules; [ fancyindex ]; });
   protectHost = _: v:
     (sslHost _ v) // {
@@ -20,7 +20,7 @@ in {
   # Nginx server
   services.nginx = {
     enable = true;
-    package = nginx;
+    package = nginxCustom;
 
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
