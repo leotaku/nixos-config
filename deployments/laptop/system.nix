@@ -253,7 +253,7 @@
   in {
     jobs = map (lib.mergeAttrs default) [
       {
-        repository = "rest:http://raw.le0.gs:8000";
+        repository = "rest:https://raw.le0.gs:8000";
         timer = [ "*-*-* 11:00" "*-*-* 22:00" ];
       }
       {

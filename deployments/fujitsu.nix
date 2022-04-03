@@ -60,8 +60,14 @@
     enable = true;
     prometheus = true;
     dataDir = config.fileSystems.raid1x5tb.mountPoint + "/restic";
-    extraFlags = [ "--no-auth" ];
+    extraFlags = [
+      "--no-auth" "--tls"
+      "--tls-cert=/var/lib/acme/le0.gs/cert.pem"
+      "--tls-key=/var/lib/acme/le0.gs/key.pem"
+    ];
   };
+  users.users."restic".extraGroups = [ "nginx" ];
+
   services.syncthing = {
     enable = true;
     guiAddress = "0.0.0.0:8384";
