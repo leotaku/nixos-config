@@ -95,14 +95,14 @@
     redshift
     rofi
     # GUI
-    lxappearance
     adapta-gtk-theme
     breeze-qt5
-    qt5ct
     gnome3.adwaita-icon-theme
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugins
+    lxappearance
     papirus-icon-theme
+    qt5ct
     # SDDM support
     qt5.qtgraphicaleffects
     qt5.qtmultimedia
