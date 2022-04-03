@@ -3,11 +3,11 @@
 let
   nginxCustom = pkgs.nginxMainline.override
     (old: { modules = with pkgs.nginxModules; [ fancyindex ]; });
-  protectHost = _: host:
+  addAuthProtectionToHost = _: host:
     host // {
       basicAuthFile = builtins.toString /var/keys/htpasswd;
     };
-  sslHost = _: host:
+  addSSLProtectionToHost = _: host:
     host // {
       useACMEHost = "le0.gs";
       forceSSL = true;
@@ -30,7 +30,7 @@ in {
     # Always use UTF-8
     appendHttpConfig = "charset utf-8;";
 
-    virtualHosts = lib.mapAttrs sslHost {
+    virtualHosts = lib.mapAttrs addSSLProtectionToHost {
       "le0.gs" = {
         locations = {
           "/" = {
@@ -70,7 +70,7 @@ in {
       "analytics.le0.gs" = {
         locations = { "/" = { proxyPass = "http://localhost:9000/"; }; };
       };
-    } // lib.mapAttrs (host: lib.pipe host [ sslHost protectHost ]) {
+    } // lib.mapAttrs (host: lib.pipe host [ addSSLProtectionToHost addAuthProtectionToHost ]) {
       "files.le0.gs" = {
         locations = {
           "/" = {
