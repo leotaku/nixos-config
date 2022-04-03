@@ -21,7 +21,7 @@
     overlays = [ (import ../pkgs) ];
   };
 
-  environment.systemPackages = with pkgs; [ emv htop kakoune ncdu ];
+  environment.systemPackages = with pkgs; [ emv htop kakoune ncdu tmux ];
 
   # Netdata monitoring
   services.nginx = {

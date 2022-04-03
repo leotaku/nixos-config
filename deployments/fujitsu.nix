@@ -33,6 +33,7 @@
     ncdu
     restic
     syncthing-cli
+    tmux
   ];
 
   # Setup correct keyboard
