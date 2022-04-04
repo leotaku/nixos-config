@@ -272,7 +272,7 @@
       TAG+="systemd", ENV{SYSTEMD_WANTS}="suspend-then-hibernate.target"
   '';
   systemd.sleep.extraConfig = ''
-    SuspendState=freeze
+    SuspendState=mem
     HibernateDelaySec=1h
   '';
 }
