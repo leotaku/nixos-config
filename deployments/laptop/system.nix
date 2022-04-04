@@ -59,6 +59,7 @@
     file
     git
     github-cli
+    graphicsmagick
     hyperfine
     isync
     jq
@@ -66,6 +67,8 @@
     kakoune
     libarchive
     libqalculate
+    ncdu
+    nix-top
     notmuch
     parallel
     qrencode
