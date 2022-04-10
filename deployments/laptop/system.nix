@@ -60,6 +60,7 @@
     git
     github-cli
     graphicsmagick
+    htop
     hyperfine
     isync
     jq
@@ -68,7 +69,6 @@
     libarchive
     libqalculate
     ncdu
-    nix-top
     notmuch
     parallel
     qrencode
