@@ -70,7 +70,7 @@ in {
       "analytics.le0.gs" = {
         locations = { "/" = { proxyPass = "http://localhost:9000/"; }; };
       };
-    } // lib.mapAttrs (host: lib.pipe host [ addSSLProtectionToHost addAuthProtectionToHost ]) {
+    } // lib.mapAttrs (host: addSSLProtectionToHost (addAuthProtectionToHost host)) {
       "files.le0.gs" = {
         locations = {
           "/" = {
