@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
   pname = "besley";
-  version = "unstable-2022-03-08";
+  version = "unstable-2022-04-10";
 
   src = fetchFromGitHub {
     owner = "indestructible-type";
     repo = "Besley";
-    rev = "3fcec75b7690779e73f7550610a66955ee161e4d";
-    sha256 = "1wa45bhqkw7cp72ij8l3cnq46bsvc5km8n11vxdd1xmvwcxi55p1";
+    rev = "4df6f13f2a9b160e9c7c7497543f1a014eb70f6a";
+    sha256 = "0sx7k8dq8w54d5bskvl589f4yjgnggszazmmi97bda3pbpwr7x6p";
   };
 
   installPhase = ''
