@@ -46,7 +46,7 @@
     emacs-git-custom
     firefox-custom
     kdeconnect
-    kitty
+    kitty-custom
     kolourpaint
     okular
     pavucontrol

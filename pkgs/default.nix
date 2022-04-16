@@ -21,6 +21,7 @@ with self; {
   firefox-custom = firefox-devedition-bin.override (old: {
     extraPolicies = { "DisableAppUpdate" = true; };
   });
+  kitty-custom = kitty.override (old: { imagemagick = null; });
 
   # Source overrides
   awesome-git = callPackage ./awesome/default.nix { };
