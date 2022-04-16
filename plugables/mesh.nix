@@ -15,6 +15,11 @@
     };
   };
 
+  # Wait until online before starting Nebula VPN
+  systemd.services."nebula@meshify" = {
+    after = [ "network-online.target" ];
+  };
+
   # Nix build machines
   nix = {
     distributedBuilds = true;
