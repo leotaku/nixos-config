@@ -164,11 +164,6 @@
     drivers = with pkgs; [ gutenprint hplip splix ];
     extraConf = ''ErrorPolicy retry-this-job'';
   };
-  services.avahi = {
-    enable = false;
-    nssmdns = false;
-    publish.enable = false;
-  };
 
   # X11 windowing system
   services.xserver.enable = true;
