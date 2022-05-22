@@ -69,6 +69,7 @@
     libarchive
     libqalculate
     ncdu
+    nixfmt
     notmuch
     parallel
     qrencode
