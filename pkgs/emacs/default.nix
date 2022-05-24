@@ -11,9 +11,7 @@ let
       "--with-pgtk"
       "--with-sqlite3"
     ];
-    buildInputs = oldAttrs.buildInputs ++ [
-      pkgs.sqlite
-    ];
+    buildInputs = oldAttrs.buildInputs ++ [ pkgs.sqlite ];
   }));
   emacs-with-packages = customEmacsPackages.emacsWithPackages (epkgs: [
     # Native Emacs packages
