@@ -6,7 +6,7 @@ let
     withXwidgets = false;
   }).overrideAttrs (oldAttrs: {
     configureFlags = oldAttrs.configureFlags ++ [
-      "--without-toolkit-scroll-bars"
+      "--without-scroll-bars"
       "--without-compress-install"
       "--with-pgtk"
       "--with-sqlite3"
