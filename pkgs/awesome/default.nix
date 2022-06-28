@@ -11,4 +11,5 @@ in
   gtk3Support = true;
 }).overrideAttrs (oldAttrs: {
   inherit src;
+  patches = [ ];
 })
