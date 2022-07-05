@@ -156,6 +156,7 @@
   services.gvfs.enable = true;
   services.hardware.bolt.enable = true;
   services.openssh.enable = true;
+  services.postfix.enable = true;
   services.tumbler.enable = true;
   services.udisks2.enable = true;
 
