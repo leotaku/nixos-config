@@ -268,7 +268,8 @@
 
   # DBus rules for battery management
   services.udev.extraRules = ''
-    SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-5]", \
+    SUBSYSTEM=="power_supply", KERNEL=="BAT0", \
+      ATTR{status}=="Discharging", ATTR{capacity_level}=="Low", \
       TAG+="systemd", ENV{SYSTEMD_WANTS}="suspend-then-hibernate.target"
   '';
   systemd.sleep.extraConfig = ''
