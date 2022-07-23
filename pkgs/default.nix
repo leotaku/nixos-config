@@ -18,9 +18,8 @@ with self; {
   nuspell-custom = nuspellWithDicts (lib.mapAttrsToList
     (n: v: if (lib.isDerivation v && !v.meta.unfree) then v else null)
     hunspellDicts);
-  firefox-custom = firefox-devedition-bin.override (old: {
-    extraPolicies = { "DisableAppUpdate" = true; };
-  });
+  firefox-custom = firefox-devedition-bin.override
+    (old: { extraPolicies = { "DisableAppUpdate" = true; }; });
   kitty-custom = kitty.override (old: { imagemagick = null; });
 
   # Source overrides
