@@ -45,9 +45,9 @@
     discord
     emacs-git-custom
     firefox-custom
+    gimp
     kdeconnect
     kitty-custom
-    kolourpaint
     okular
     pavucontrol
     syncthing
