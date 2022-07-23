@@ -19,7 +19,7 @@ update:
 	nix flake update
 
 update-pkgs:
-	parallel --timeout 60 --bar update-nix-fetchgit ::: pkgs/*/*.nix
+	parallel --timeout 60 --progress update-nix-fetchgit ::: pkgs/*/*.nix
 
 # Export
 
