@@ -48,9 +48,12 @@
     gimp
     kdeconnect
     kitty-custom
+    mate.eom
+    mpv
     okular
     pavucontrol
     syncthing
+    xfce.thunar
     # Utilities
     aria2
     aspell-custom
