@@ -16,6 +16,7 @@ let
   emacs-with-packages = customEmacsPackages.emacsWithPackages (epkgs: [
     # Native Emacs packages
     epkgs.vterm
+    pkgs.mu
   ]);
   emacs-with-paths = pkgs.symlinkJoin {
     name = builtins.replaceStrings [ "emacs-with-packages" ] [ "emacs-custom" ]
