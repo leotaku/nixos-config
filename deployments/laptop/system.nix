@@ -78,6 +78,7 @@
     sops
     stow
     tesseract4
+    update-nix-fetchgit
     zbar
     # Backend tools
     direnv
