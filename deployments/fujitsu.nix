@@ -42,6 +42,10 @@
   # Enable SSH
   services.openssh.enable = true;
 
+  # Enable libvirtd
+  virtualisation.libvirtd.enable = true;
+  security.polkit.enable = true;
+
   # Enable Fail2Ban firewall
   services.fail2ban = {
     enable = true;
