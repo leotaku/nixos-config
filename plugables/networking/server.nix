@@ -11,7 +11,7 @@
 
   # Setup all physical network interfaces
   systemd.network.networks."40-physical" = {
-    matchConfig = { Type = "ether wlan"; };
+    matchConfig = { Name = "wlan* wlp* eth* enp*"; };
     networkConfig = { DHCP = "yes"; };
   };
 }

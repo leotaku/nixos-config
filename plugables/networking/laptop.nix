@@ -8,7 +8,7 @@
 
   # Setup all wired network interfaces
   systemd.network.networks."40-wired" = {
-    matchConfig = { Type = "ether"; };
+    matchConfig = { Name = "eth* enp*"; };
     networkConfig = { DHCP = "yes"; };
     dhcpV4Config = {
       RouteMetric = 200;
@@ -22,7 +22,7 @@
 
   # Protect all wireless networks from being unconfigured
   systemd.network.networks."40-wireless" = {
-    matchConfig = { Type = "wlan"; };
+    matchConfig = { Name = "wlan* wlp*"; };
     networkConfig = { DHCP = "yes"; };
     dhcpV4Config = {
       RouteMetric = 400;
