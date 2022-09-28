@@ -46,12 +46,12 @@
     emacs-git-custom
     firefox-custom
     gimp
-    kdeconnect
     kitty-custom
     mate.eom
     mpv
     okular
     pavucontrol
+    plasma5Packages.kdeconnect-kde
     syncthing
     xfce.thunar
     # Utilities
@@ -105,7 +105,7 @@
     # GUI
     adapta-gtk-theme
     breeze-qt5
-    gnome3.adwaita-icon-theme
+    gnome.adwaita-icon-theme
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugins
     lxappearance
