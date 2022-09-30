@@ -39,6 +39,7 @@
   environment.systemPackages = with pkgs; [
     # Applications
     anki-bin
+    blender
     blueman
     calibre
     dfeet
@@ -46,7 +47,9 @@
     emacs-git-custom
     firefox-custom
     gimp
+    godot
     kitty-custom
+    krita
     mate.eom
     mpv
     okular
