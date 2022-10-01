@@ -7,7 +7,6 @@
 {
   imports = [
     # Import plugable configurations
-    ../../plugables/netdata.nix
     ../../plugables/networking/laptop.nix
     ../../plugables/perf.nix
     ../../plugables/variables.nix
