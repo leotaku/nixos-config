@@ -224,7 +224,7 @@
   virtualisation.anbox.enable = false;
   virtualisation.libvirtd.enable = true;
 
-  # Enable Podman with NVIDIA support
+  # Enable Podman without NVIDIA support
   virtualisation.podman = {
     enable = true;
     enableNvidia = false;
