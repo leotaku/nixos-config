@@ -10,7 +10,7 @@ let
 in
 (emacs.override {
   srcRepo = true;
-  nativeComp = true;
+  nativeComp = false;
 }).overrideAttrs (oldAttrs: rec {
   pname = "emacs-unstable";
   version = "git";
