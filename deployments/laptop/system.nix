@@ -47,7 +47,7 @@
     firefox-custom
     gimp
     godot
-    kitty-custom
+    kitty
     krita
     mate.eom
     mpv
