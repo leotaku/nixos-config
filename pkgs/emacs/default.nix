@@ -4,7 +4,6 @@ let
     configureFlags = oldAttrs.configureFlags ++ [
       "--without-scroll-bars"
       "--without-compress-install"
-      "--with-pgtk"
       "--with-sqlite3"
     ];
     buildInputs = oldAttrs.buildInputs ++ [ pkgs.gtk3 pkgs.sqlite ];
