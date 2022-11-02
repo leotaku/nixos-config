@@ -199,6 +199,13 @@
     };
   };
 
+  # Empty X session to hook into
+  services.xserver.displayManager.session = [{
+    manage = "window";
+    name = "default";
+    start = "true";
+  }];
+
   # PipeWire for sound
   security.rtkit.enable = true;
   services.pipewire = {
