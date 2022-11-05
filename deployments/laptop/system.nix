@@ -49,11 +49,11 @@
     godot
     kitty
     krita
-    mate.eom
     mpv
     okular
     pavucontrol
     plasma5Packages.kdeconnect-kde
+    sxiv
     syncthing
     xfce.thunar
     # Utilities
