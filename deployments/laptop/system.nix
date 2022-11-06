@@ -163,13 +163,11 @@
   programs.gnupg.agent.enable = true;
   programs.kdeconnect.enable = true;
   services.blueman.enable = true;
-  services.gvfs.enable = true;
   services.hardware.bolt.enable = true;
   services.mullvad-vpn.enable = true;
   services.openssh.enable = true;
   services.postfix.enable = true;
   services.tumbler.enable = true;
-  services.udisks2.enable = true;
 
   # Printing
   services.printing = {
