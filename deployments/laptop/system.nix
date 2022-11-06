@@ -239,6 +239,17 @@
     enableNvidia = false;
   };
 
+  # Enable Docker with NVIDIA support
+  virtualisation.docker = {
+    enable = true;
+    enableNvidia = true;
+  };
+  systemd.services."user@" = {
+    serviceConfig = {
+      Delegate = true;
+    };
+  };
+
   # Add Wireshark permissions
   programs.wireshark = {
     enable = true;
