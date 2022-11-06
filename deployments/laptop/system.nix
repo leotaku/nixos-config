@@ -47,14 +47,17 @@
     firefox-custom
     gimp
     godot
+    inkscape
     kitty
     krita
     mpv
+    mullvad-vpn
     okular
     pavucontrol
     plasma5Packages.kdeconnect-kde
     sxiv
     syncthing
+    virt-manager
     xfce.thunar
     # Utilities
     aria2
@@ -71,6 +74,7 @@
     jq
     just
     kakoune
+    ledger
     libarchive
     libqalculate
     ncdu
@@ -78,6 +82,7 @@
     notmuch
     parallel
     qrencode
+    rclone
     ripgrep
     ripgrep-all
     sops
