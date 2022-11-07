@@ -69,5 +69,24 @@ in {
     systemd.services."nebula@meshify" = {
       after = [ "network-online.target" ];
     };
+
+    # Periodically restart Nebula VPN
+    systemd.services."nebula-refresh" = {
+      serviceConfig = {
+        ExecStart = pkgs.systemd + "/bin/systemctl restart nebula@meshify.service";
+        Type = "oneshot";
+      };
+      requires = [ "network.target" ];
+    };
+
+    systemd.timers."nebula-refresh" = {
+      enable = true;
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = [ "daily" ];
+        RandomizedDelaySec = "2h";
+        Persistent = true;
+      };
+    };
   });
 }
