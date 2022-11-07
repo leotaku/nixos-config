@@ -64,5 +64,10 @@ in {
       firewall.outbound = rules;
       listen.port = 4242;
     };
+
+    # Wait until online before starting Nebula VPN
+    systemd.services."nebula@meshify" = {
+      after = [ "network-online.target" ];
+    };
   });
 }
