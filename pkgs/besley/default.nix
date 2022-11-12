@@ -2,18 +2,18 @@
 
 stdenv.mkDerivation rec {
   pname = "besley";
-  version = "unstable-2022-08-12";
+  version = "unstable-2022-11-11";
 
   src = fetchFromGitHub {
     owner = "indestructible-type";
     repo = "Besley";
-    rev = "0b79b0542eb0137a3a43d165634d96b38e1a4d27";
-    sha256 = "0h0ci8ibdj508r77382v9ippdd1i7alvmlbyd0ifgv05ggh6qfyb";
+    rev = "cd24c10a8053d7287f8697721844b8a330a0043e";
+    sha256 = "1prm9091d44z9zwqxz0phcqhv5f6d1868hnmiqicjcjl4air4080";
   };
 
   installPhase = ''
     mkdir -p $out/share/fonts/truetype
-    cp fonts/ttf/* $out/share/fonts/truetype
+    cp fonts/variable/* $out/share/fonts/truetype
   '';
 
   meta = with lib; {
