@@ -3,8 +3,6 @@ with self; {
   # Custom packages
   alegreya = callPackage ./alegreya/default.nix { };
   besley = callPackage ./besley/default.nix { };
-  build2 = callPackage ./build2/default.nix { };
-  catimg = callPackage ./catimg/default.nix { };
   goatcounter = callPackage ./goatcounter/default.nix { };
   n30f = callPackage ./n30f/default.nix { };
   sddm-themes = callPackage ./sddm/default.nix { };
