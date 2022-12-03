@@ -31,7 +31,7 @@
           nixPath = [ "nixpkgs=${nixpkgs}" ];
         };
         nixpkgs = {
-          overlays = [ self.overlay ];
+          overlays = [ self.overlays.default ];
         };
       };
     in {
@@ -52,9 +52,9 @@
       };
 
       # Custom overlay
-      overlay = import ./pkgs/default.nix;
+      overlays.default = import ./pkgs/default.nix;
 
       # Package set with overlay
-      legacyPackages.x86_64-linux = prev.extend self.overlay;
+      legacyPackages.x86_64-linux = prev.extend self.overlays.default;
     };
 }
