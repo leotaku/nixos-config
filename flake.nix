@@ -16,7 +16,10 @@
     let
       final = self.legacyPackages.x86_64-linux;
       prev = import nixpkgs {
-        config.allowUnfree = true;
+        config = {
+          allowAliases = false;
+          allowUnfree = true;
+        };
         system = "x86_64-linux";
       };
       mod = {
