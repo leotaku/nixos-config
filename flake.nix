@@ -19,7 +19,7 @@
         config.allowUnfree = true;
         system = "x86_64-linux";
       };
-      mod = { ... }: {
+      mod = {
         nix = {
           extraOptions = let
             registry = builtins.toFile "empty-flake-registry.json"
