@@ -59,6 +59,7 @@
       overlays.default = import ./pkgs/default.nix;
 
       # Package set with overlay
-      legacyPackages.x86_64-linux = prev.extend self.overlays.default;
+      legacyPackages.x86_64-linux =
+        prev.extend (prev.lib.composeManyExtensions mod.nixpkgs.overlays);
     };
 }
