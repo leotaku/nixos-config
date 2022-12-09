@@ -20,8 +20,6 @@ with prev; {
 
   # Source overrides
   awesome-git = callPackage ./awesome/default.nix { };
-  emacs-git = callPackage ./emacs/emacs-git.nix { };
-  emacs-custom = callPackage ./emacs/default.nix { };
-  emacs-git-custom =
-    callPackage ./emacs/default.nix { emacs = self.emacs-git; };
+  emacs-git-custom = with final; (emacsPackagesFor emacsGit).emacsWithPackages
+     (epkgs: [ epkgs.vterm pkgs.mu ]);
 }
