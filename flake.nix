@@ -6,9 +6,13 @@
       url = "github:nixos/nixpkgs/nixos-unstable-small";
       flake = true;
     };
+    emacs = {
+      url = "github:nix-community/emacs-overlay";
+      flake = true;
+    };
   };
 
-  outputs = { self, nixpkgs, ... }:
+  outputs = { self, nixpkgs, emacs, ... }:
     let
       final = self.legacyPackages.x86_64-linux;
       prev = import nixpkgs {
@@ -31,7 +35,7 @@
           nixPath = [ "nixpkgs=${nixpkgs}" ];
         };
         nixpkgs = {
-          overlays = [ self.overlays.default ];
+          overlays = [ self.overlays.default emacs.overlays.default ];
         };
       };
     in {

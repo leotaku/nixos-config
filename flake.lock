@@ -1,6 +1,53 @@
 {
   "nodes": {
+    "emacs": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1670556527,
+        "narHash": "sha256-vNsC6COhRRepzzV+y1delpsbH1zFYuY6qxsNS61D6Qs=",
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "rev": "7279dc6f75d0983a552eeacef992246c53473aea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1667395993,
+        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1670418855,
+        "narHash": "sha256-JCB34YSz+FpQKWbwaKz8eaZCdgkw/XreJPFcLIGQZLk=",
+        "path": "/nix/store/8l4kv1jivjs91sp1i3jl0s8v3k5nr5xm-source",
+        "rev": "b5e342b8cf9298b7f7a3e10f051f012c459c40b1",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1670418855,
         "narHash": "sha256-JCB34YSz+FpQKWbwaKz8eaZCdgkw/XreJPFcLIGQZLk=",
@@ -18,7 +65,8 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "emacs": "emacs",
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },
