@@ -5,14 +5,14 @@ A Git repository for my Nix configurations
 ## Design
 
 This repository contains most of my Nix-related efforts, including
-packages, systems, nixos modules and home-manager modules.
+packages, systems and custom nixos modules.
 
 ## Points of Interest
 
 Casual observers might find the following files to be of interest:
 
 * `Justfile` :: A task-runner file containing some commonly used actions
-* `pkgs/default.nix` :: Some interesting packages, including custom unstable Emacs build
+* `pkgs/default.nix` :: Some interesting packages
 * `modules/backup.nix` :: An easy to use backup module based on restic
 
 ## Continuous Integration
