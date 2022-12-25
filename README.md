@@ -11,9 +11,10 @@ packages, systems and custom nixos modules.
 
 Casual observers might find the following files to be of interest:
 
-* `Justfile` :: A task-runner file containing some commonly used actions
+* `Justfile` :: Task-runner file containing some commonly used actions
 * `pkgs/default.nix` :: Some interesting packages
-* `modules/backup.nix` :: An easy to use backup module based on restic
+* `modules/meshify.nix` :: Automatic mesh network based on nebula
+* `modules/backup.nix` :: Easy to use backup module based on restic
 
 ## Continuous Integration
 
