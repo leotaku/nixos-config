@@ -1,8 +1,6 @@
 { config, pkgs, lib, ... }:
 
 let
-  nginxCustom = pkgs.nginxMainline.override
-    (old: { modules = with pkgs.nginxModules; [ fancyindex ]; });
   addAuthProtectionToHost = _: host:
     host // {
       basicAuthFile = builtins.toString /var/keys/htpasswd;
@@ -20,7 +18,6 @@ in {
   # Nginx server
   services.nginx = {
     enable = true;
-    package = nginxCustom;
 
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
@@ -43,8 +40,7 @@ in {
           "/public/" = {
             alias = "/var/web/public/";
             extraConfig = trackingConfig + ''
-              fancyindex on;
-              fancyindex_exact_size off;
+              autoindex on;
             '';
           };
         };
@@ -76,8 +72,7 @@ in {
           "/" = {
             alias = "/var/web/stuff/";
             extraConfig = ''
-              fancyindex on;
-              fancyindex_exact_size off;
+              autoindex on;
             '';
           };
         };
