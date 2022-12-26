@@ -122,8 +122,8 @@ in {
         locations = {
           "/".root = pkgs.fetchzip {
             url =
-              "https://github.com/mayswind/AriaNg/releases/download/1.2.1/AriaNg-1.2.1.zip";
-            sha256 = "19ing17sq541j0yd27n1m1x7vjc8dwjg9gb02qhi8ncmvq73x5jw";
+              "https://github.com/mayswind/AriaNg/releases/download/1.3.2/AriaNg-1.3.2.zip";
+            sha256 = "1ybn17fcgngzaq2166gmdihs7xrdkr6jifcnwm0sk9cfrzqv0r4d";
             stripRoot = false;
           };
           "/jsonrpc" = {
