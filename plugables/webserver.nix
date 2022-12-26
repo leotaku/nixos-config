@@ -36,13 +36,13 @@
               error_page 404 /404.html;
             '';
           };
-          "/public".return = "301 /public/";
           "/public/" = {
             alias = "/var/web/public/";
             extraConfig = trackingConfig + ''
               autoindex on;
             '';
           };
+          "/public".return = "301 /public/";
         };
       };
       "raw.le0.gs" = public // {
