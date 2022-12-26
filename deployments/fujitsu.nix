@@ -104,7 +104,6 @@
 
   # Enable simple programs and services
   services.haveged.enable = true;
-  services.jellyfin.enable = true;
   virtualisation.docker.enable = false;
   programs.wireshark.enable = false;
 

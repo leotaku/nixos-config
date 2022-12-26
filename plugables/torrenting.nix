@@ -62,6 +62,9 @@
     dhcpV6Config = { UseDNS = true; };
   };
 
+  # Streaming server
+  services.jellyfin.enable = true;
+
   # Season downloads
   services.sonarr.enable = true;
 
