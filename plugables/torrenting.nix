@@ -62,6 +62,11 @@
     dhcpV6Config = { UseDNS = true; };
   };
 
+  # Enable Wireguard VPN
+  services.wg-quicker = {
+    setups = [ "/etc/wireguard/vpn.conf" ];
+  };
+
   # Streaming server
   services.jellyfin.enable = true;
 
@@ -72,9 +77,4 @@
   users.groups.media = { };
   services.sonarr.group = "media";
   users.users."aria2".group = lib.mkForce "media";
-
-  # Enable Wireguard VPN
-  services.wg-quicker = {
-    setups = [ "/etc/wireguard/vpn.conf" ];
-  };
 }
