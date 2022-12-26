@@ -1,20 +1,6 @@
 { config, pkgs, lib, ... }:
 
-let
-  addAuthProtectionToHost = _: host:
-    host // {
-      basicAuthFile = builtins.toString /var/keys/htpasswd;
-    };
-  addSSLProtectionToHost = _: host:
-    host // {
-      useACMEHost = "le0.gs";
-      forceSSL = true;
-    };
-  trackingConfig = ''
-    sub_filter '</body>' '<script data-goatcounter="https://analytics.le0.gs/count" async src="//analytics.le0.gs/count.js"></script></body>';
-    sub_filter_once on;
-  '';
-in {
+{
   # Nginx server
   services.nginx = {
     enable = true;
@@ -27,8 +13,22 @@ in {
     # Always use UTF-8
     appendHttpConfig = "charset utf-8;";
 
-    virtualHosts = lib.mapAttrs addSSLProtectionToHost {
-      "le0.gs" = {
+    virtualHosts = let
+      private = {
+        basicAuthFile = builtins.toString /var/keys/htpasswd;
+        useACMEHost = "le0.gs";
+        forceSSL = true;
+      };
+      public = {
+        useACMEHost = "le0.gs";
+        addSSL = true;
+      };
+      trackingConfig = ''
+        sub_filter '</body>' '<script data-goatcounter="https://analytics.le0.gs/count" async src="//analytics.le0.gs/count.js"></script></body>';
+        sub_filter_once on;
+      '';
+    in {
+      "le0.gs" = public // {
         locations = {
           "/" = {
             root = "/var/web/site";
@@ -45,7 +45,7 @@ in {
           };
         };
       };
-      "raw.le0.gs" = {
+      "raw.le0.gs" = public // {
         locations = {
           "/robots.txt" = {
             return = ''200 "User-agent: *\nDisallow: /\n"'';
@@ -53,95 +53,93 @@ in {
           };
         };
       };
-      "stats.le0.gs" = {
+      "stats.le0.gs" = public // {
         locations = {
           "/".return = "301 /fujitsu/";
           "/fujitsu".proxyPass = "http://localhost:19999/";
           "/rpi".proxyPass = "http://nixos-rpi.local/";
         };
       };
-      "analytics.le0.gs" = {
+      "analytics.le0.gs" = public // {
         locations = { "/" = { proxyPass = "http://localhost:9000/"; }; };
       };
-    } // lib.mapAttrs
-      (host: addSSLProtectionToHost (addAuthProtectionToHost host)) {
-        "files.le0.gs" = {
-          locations = {
-            "/" = {
-              alias = "/var/web/stuff/";
-              extraConfig = ''
-                autoindex on;
-              '';
-            };
-          };
-        };
-        "stream.le0.gs" = {
-          locations = {
-            "/" = {
-              proxyPass = "http://localhost:8096/";
-              extraConfig = ''
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header X-Forwarded-Proto $scheme;
-                proxy_set_header X-Forwarded-Protocol $scheme;
-                proxy_set_header X-Forwarded-Host $http_host;
-                proxy_buffering off;
-              '';
-            };
-            "/socket" = {
-              proxyPass = "http://localhost:8096/socket/";
-              extraConfig = ''
-                proxy_http_version 1.1;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection "upgrade";
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header X-Forwarded-Proto $scheme;
-                proxy_set_header X-Forwarded-Protocol $scheme;
-                proxy_set_header X-Forwarded-Host $http_host;
-              '';
-            };
-          };
-        };
-        "tv.le0.gs" = {
-          locations = {
-            "/" = {
-              proxyPass = "http://localhost:8989";
-              extraConfig = ''
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header X-Forwarded-Proto $scheme;
-                proxy_redirect off;
-                sub_filter '</head>' '<link rel="stylesheet" type="text/css" href="https://archmonger.github.io/Blackberry-Themes/Themes/Blackberry-Shadow/radarr.css"></head>';
-                sub_filter_once on;
-              '';
-            };
-          };
-        };
-        "download.le0.gs" = {
-          locations = {
-            "/".root = pkgs.fetchzip {
-              url =
-                "https://github.com/mayswind/AriaNg/releases/download/1.3.2/AriaNg-1.3.2.zip";
-              sha256 = "1ybn17fcgngzaq2166gmdihs7xrdkr6jifcnwm0sk9cfrzqv0r4d";
-              stripRoot = false;
-            };
-            "/jsonrpc" = {
-              proxyPass = "http://localhost:6800/jsonrpc";
-              extraConfig = ''
-                proxy_http_version 1.1;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection "upgrade";
-                proxy_set_header Host $host;
-                proxy_set_header X-Forwarded-Host $host:$server_port;
-                proxy_set_header X-Forwarded-Server $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-              '';
-            };
+      "files.le0.gs" = private // {
+        locations = {
+          "/" = {
+            alias = "/var/web/stuff/";
+            extraConfig = ''
+              autoindex on;
+            '';
           };
         };
       };
+      "stream.le0.gs" = private // {
+        locations = {
+          "/" = {
+            proxyPass = "http://localhost:8096/";
+            extraConfig = ''
+              proxy_set_header X-Real-IP $remote_addr;
+              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+              proxy_set_header X-Forwarded-Proto $scheme;
+              proxy_set_header X-Forwarded-Protocol $scheme;
+              proxy_set_header X-Forwarded-Host $http_host;
+              proxy_buffering off;
+            '';
+          };
+          "/socket" = {
+            proxyPass = "http://localhost:8096/socket/";
+            extraConfig = ''
+              proxy_http_version 1.1;
+              proxy_set_header Upgrade $http_upgrade;
+              proxy_set_header Connection "upgrade";
+              proxy_set_header X-Real-IP $remote_addr;
+              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+              proxy_set_header X-Forwarded-Proto $scheme;
+              proxy_set_header X-Forwarded-Protocol $scheme;
+              proxy_set_header X-Forwarded-Host $http_host;
+            '';
+          };
+        };
+      };
+      "tv.le0.gs" = private // {
+        locations = {
+          "/" = {
+            proxyPass = "http://localhost:8989";
+            extraConfig = ''
+              proxy_set_header Host $host;
+              proxy_set_header X-Real-IP $remote_addr;
+              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+              proxy_set_header X-Forwarded-Proto $scheme;
+              proxy_redirect off;
+              sub_filter '</head>' '<link rel="stylesheet" type="text/css" href="https://archmonger.github.io/Blackberry-Themes/Themes/Blackberry-Shadow/radarr.css"></head>';
+              sub_filter_once on;
+            '';
+          };
+        };
+      };
+      "download.le0.gs" = private // {
+        locations = {
+          "/".root = pkgs.fetchzip {
+            url =
+              "https://github.com/mayswind/AriaNg/releases/download/1.3.2/AriaNg-1.3.2.zip";
+              sha256 = "1ybn17fcgngzaq2166gmdihs7xrdkr6jifcnwm0sk9cfrzqv0r4d";
+              stripRoot = false;
+          };
+          "/jsonrpc" = {
+            proxyPass = "http://localhost:6800/jsonrpc";
+            extraConfig = ''
+              proxy_http_version 1.1;
+              proxy_set_header Upgrade $http_upgrade;
+              proxy_set_header Connection "upgrade";
+              proxy_set_header Host $host;
+              proxy_set_header X-Forwarded-Host $host:$server_port;
+              proxy_set_header X-Forwarded-Server $host;
+              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            '';
+          };
+        };
+      };
+    };
   };
   users.users."nginx".extraGroups = [ "acme" ];
 
