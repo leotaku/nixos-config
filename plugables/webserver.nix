@@ -65,16 +65,6 @@
       "analytics.le0.gs" = public // {
         locations = { "/" = { proxyPass = "http://localhost:9000/"; }; };
       };
-      "files.le0.gs" = private // {
-        locations = {
-          "/" = {
-            alias = "/var/web/stuff/";
-            extraConfig = ''
-              autoindex on;
-            '';
-          };
-        };
-      };
       "stream.le0.gs" = private // config.variables.virtualHosts."stream";
       "tv.le0.gs" = private // config.variables.virtualHosts."tv";
       "download.le0.gs" = private // config.variables.virtualHosts."download";
