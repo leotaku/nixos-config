@@ -19,26 +19,6 @@
   boot.blacklistedKernelModules = [ "i915" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.acpi_call ];
 
-  # Enable basic NVIDIA offload support
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    nvidiaPersistenced = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    prime = {
-      offload.enable = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
-  };
-
-  # OpenGL with NVIDIA in mind
-  hardware.opengl = {
-    enable = true;
-    driSupport32Bit = true;
-    setLdLibraryPath = true;
-  };
-
   # Udev support for Moonlander keyboard
   hardware.keyboard.zsa.enable = true;
   services.udev.extraRules = ''
