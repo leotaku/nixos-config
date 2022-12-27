@@ -174,7 +174,6 @@
   services.printing = {
     enable = true;
     drivers = with pkgs; [ gutenprint hplip splix ];
-    extraConf = ''ErrorPolicy retry-this-job'';
   };
 
   # X11 windowing system
