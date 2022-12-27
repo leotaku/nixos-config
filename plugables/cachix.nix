@@ -4,7 +4,5 @@
   # Manually trust @wheel users
   nix.settings.trusted-users = [ "leo" ];
 
-  environment.systemPackages = [
-    pkgs.cachix
-  ];
+  environment.systemPackages = [ pkgs.cachix ];
 }

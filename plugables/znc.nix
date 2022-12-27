@@ -33,7 +33,8 @@
         };
         Pass.password = {
           Method = "sha256";
-          Hash = "4ad4a22a92eb784a6f115a833116ac11f373fe78830243b7ec8db007b99ec645";
+          Hash =
+            "4ad4a22a92eb784a6f115a833116ac11f373fe78830243b7ec8db007b99ec645";
           Salt = "Wa3qDwgHHP()IIVm(C9U";
         };
       };

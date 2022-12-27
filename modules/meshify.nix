@@ -73,7 +73,8 @@ in {
     # Periodically restart Nebula VPN
     systemd.services."nebula-refresh" = {
       serviceConfig = {
-        ExecStart = pkgs.systemd + "/bin/systemctl restart nebula@meshify.service";
+        ExecStart = pkgs.systemd
+          + "/bin/systemctl restart nebula@meshify.service";
         Type = "oneshot";
       };
       requires = [ "network.target" ];

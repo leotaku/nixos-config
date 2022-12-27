@@ -55,9 +55,7 @@
   # Hercules-CI agent
   services.hercules-ci-agent = {
     enable = true;
-    settings = {
-      concurrentTasks = 12;
-    };
+    settings = { concurrentTasks = 12; };
   };
 
   # Backup and syncing
@@ -66,7 +64,8 @@
     prometheus = true;
     dataDir = config.fileSystems.raid1x5tb.mountPoint + "/restic";
     extraFlags = [
-      "--no-auth" "--tls"
+      "--no-auth"
+      "--tls"
       "--tls-cert=/var/lib/acme/le0.gs/cert.pem"
       "--tls-key=/var/lib/acme/le0.gs/key.pem"
     ];

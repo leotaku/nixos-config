@@ -5,7 +5,8 @@ stdenv.mkDerivation rec {
   version = "2.008";
 
   src = fetchzip {
-    url = "https://github.com/huertatipografica/Alegreya/archive/v${version}.zip";
+    url =
+      "https://github.com/huertatipografica/Alegreya/archive/v${version}.zip";
     sha256 = "sha256-md8qKCJ9lAe1A6O4ULLusGDT0pjMwe2z2L1j40vKvdQ=";
   };
 

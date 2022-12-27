@@ -35,9 +35,7 @@
 
     virtualHosts = {
       "localhost" = {
-        locations = {
-          "/".proxyPass = "http://localhost:19999/";
-        };
+        locations = { "/".proxyPass = "http://localhost:19999/"; };
       };
     };
   };
