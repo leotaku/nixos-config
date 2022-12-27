@@ -1,9 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    ../modules/variables.nix
-  ];
+  imports = [ ../modules/variables.nix ];
 
   # Nginx server
   services.nginx = {
@@ -18,14 +16,14 @@
     appendHttpConfig = "charset utf-8;";
 
     virtualHosts = let
-      private = {
-        basicAuthFile = builtins.toString /var/keys/htpasswd;
-        useACMEHost = "le0.gs";
-        forceSSL = true;
-      };
       public = {
         useACMEHost = "le0.gs";
         addSSL = true;
+      };
+      private = {
+        useACMEHost = "le0.gs";
+        forceSSL = true;
+        basicAuthFile = builtins.toString /var/keys/htpasswd;
       };
       trackingConfig = ''
         sub_filter '</body>' '<script data-goatcounter="https://analytics.le0.gs/count" async src="//analytics.le0.gs/count.js"></script></body>';

@@ -1,10 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    ../modules/variables.nix
-    ../modules/wg-quicker.nix
-  ];
+  imports = [ ../modules/variables.nix ../modules/wg-quicker.nix ];
 
   # Aria2 server
   services.aria2 = {
@@ -90,9 +87,7 @@
   };
 
   # Enable Wireguard VPN
-  services.wg-quicker = {
-    setups = [ "/etc/wireguard/vpn.conf" ];
-  };
+  services.wg-quicker.setups = [ "/etc/wireguard/vpn.conf" ];
 
   # Streaming server
   services.jellyfin.enable = true;
