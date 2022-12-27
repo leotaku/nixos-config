@@ -91,7 +91,7 @@
     serviceConfig = {
       WorkingDirectory = "/var/lib/goatcounter";
       ExecStart = pkgs.goatcounter
-        + "/bin/goatcounter serve -listen :9000 -tls none";
+        + "/bin/goatcounter serve -listen :9000 -tls none -automigrate";
       Type = "simple";
     };
     after = [ "nginx.service" ];
