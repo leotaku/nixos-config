@@ -107,9 +107,6 @@
   virtualisation.docker.enable = false;
   programs.wireshark.enable = false;
 
-  # Udisks depends on GTK+ which I don't want on my headless servers
-  services.udisks2.enable = false;
-
   # Open firewall ports
   networking.firewall.allowedTCPPorts = [ 22 80 443 8000 8384 6667 6697 25565 ];
 
