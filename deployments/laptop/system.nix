@@ -223,11 +223,6 @@
   hardware.opengl.driSupport32Bit = true;
   hardware.steam-hardware.enable = true;
 
-  # Sysctl settings for Steam
-  boot.kernel.sysctl = {
-    "dev.i915.perf_stream_paranoid" = 0;
-  };
-
   # Enable virtualization/container technologies
   services.flatpak.enable = true;
   virtualisation.anbox.enable = false;
