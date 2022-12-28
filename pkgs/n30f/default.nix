@@ -1,6 +1,6 @@
 { stdenv, fetchFromGitHub, cairo, lib }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "n30f";
   version = "unstable-2020-04-11";
 

@@ -1,5 +1,6 @@
 { stdenv }:
-stdenv.mkDerivation rec {
+
+stdenv.mkDerivation {
   name = "sddm-themes";
   src = ./.;
 
