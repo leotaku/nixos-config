@@ -14,9 +14,7 @@
   # Nixpkgs configurations
   nixpkgs = rec {
     # Tell the host system that it should build for AArch64
-    crossSystem = lib.systems.elaborate {
-      config = "aarch64-unknown-linux-gnu";
-    };
+    crossSystem = lib.systems.examples.aarch64-multiplatform;
     localSystem = crossSystem;
     overlays = [ (import ../pkgs) ];
   };
