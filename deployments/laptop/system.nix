@@ -239,11 +239,7 @@
     enable = true;
     enableNvidia = true;
   };
-  systemd.services."user@" = {
-    serviceConfig = {
-      Delegate = true;
-    };
-  };
+  systemd.services."user@".serviceConfig.Delegate = true;
 
   # Add Wireshark permissions
   programs.wireshark = {
