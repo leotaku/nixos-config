@@ -80,7 +80,7 @@
   };
 
   # Minecraft server
-  services.minecraft-server = rec {
+  services.minecraft-server = {
     enable = true;
     eula = true;
     package = let
