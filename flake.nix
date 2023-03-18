@@ -1,5 +1,5 @@
 {
-  description = "My overlays and local system";
+  description = "Leo Gaskin's overlays and personal systems";
 
   inputs = {
     nixpkgs = {
