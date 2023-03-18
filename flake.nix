@@ -15,14 +15,17 @@
 
   outputs = { self, nixpkgs, emacs, ... }:
     let
-      final = self.legacyPackages.x86_64-linux;
-      prev = import nixpkgs {
-        config = {
-          allowAliases = false;
-          allowUnfree = true;
+      forAllSystems = f:
+        nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed
+        (system: f (prevFor system));
+      prevFor = system:
+        import nixpkgs {
+          config = {
+            allowAliases = false;
+            allowUnfree = true;
+          };
+          inherit system;
         };
-        system = "x86_64-linux";
-      };
       mod = {
         nix = {
           extraOptions = let
@@ -63,7 +66,7 @@
       overlays.default = import ./pkgs/default.nix;
 
       # Package set with overlay
-      legacyPackages.x86_64-linux =
-        prev.extend (prev.lib.composeManyExtensions mod.nixpkgs.overlays);
+      legacyPackages = forAllSystems (prev:
+        prev.extend (prev.lib.composeManyExtensions mod.nixpkgs.overlays));
     };
 }
