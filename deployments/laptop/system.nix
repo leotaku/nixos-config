@@ -267,16 +267,16 @@
       }];
     };
   in {
-    jobs = map (lib.mergeAttrs default) [
-      {
+    jobs = lib.mapAttrs (_: lib.mergeAttrs default) {
+      fujitsu = {
         repository = "rest:https://raw.le0.gs:8000";
         timer = [ "*-*-* 11:00" "*-*-* 22:00" ];
-      }
-      {
+      };
+      gdata = {
         repository = "rclone:gdata:restic";
         timer = [ "*-*-* 12:00" "*-*-* 23:00" ];
-      }
-    ];
+      };
+    };
   };
 
   # Disable NixOS command-not-found functionality

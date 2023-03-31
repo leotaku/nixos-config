@@ -29,7 +29,7 @@ let
 in {
   options.backup.jobs = mkOption {
     type = with types;
-      listOf (submodule (_: {
+      attrsOf (submodule (_: {
         options = {
           enable = mkEnableOption "backup service based on restic";
           timer = mkOption {
@@ -68,8 +68,8 @@ in {
 
   config = {
     # Enable a Restic backup service
-    services.restic.backups = listToAttrs (imap (n: cfg: {
-      name = "backup-module-" + builtins.toString n;
+    services.restic.backups = lib.mapAttrs' (name: cfg: {
+      name = "backup-module-${name}";
       value = mkIf cfg.enable {
         paths = map (p: p.path) cfg.paths;
         user = cfg.user;
@@ -83,7 +83,7 @@ in {
           Persistent = true;
         };
       };
-    }) cfg.jobs);
+    }) cfg.jobs;
 
     # Include the Restic package and backup script in the global environment
     environment.systemPackages = [ pkgs.restic ] ++ scripts;
