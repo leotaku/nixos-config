@@ -62,6 +62,7 @@
     # Utilities
     aria2
     aspell-custom
+    davmail
     emv
     fd
     file
