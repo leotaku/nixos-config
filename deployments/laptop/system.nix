@@ -106,6 +106,7 @@
     xclip
     xdo
     xorg.xkbcomp
+    xkbset
     # Desktop
     awesome-git
     cbatticon
