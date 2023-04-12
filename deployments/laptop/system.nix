@@ -78,7 +78,6 @@
     libarchive
     libqalculate
     ncdu
-    nixfmt
     parallel
     qrencode
     rclone
@@ -87,14 +86,19 @@
     sops
     stow
     tesseract4
-    update-nix-fetchgit
     zbar
     # Backend tools
     direnv
     lorri
-    rnix-lsp
     tmux
     zoxide
+    # Nix utilities
+    nil
+    nix-output-monitor
+    nix-prefetch-git
+    nix-top
+    nixfmt
+    update-nix-fetchgit
     # GUI utilities
     maim
     xcape
