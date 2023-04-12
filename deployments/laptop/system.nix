@@ -79,7 +79,6 @@
     libqalculate
     ncdu
     nixfmt
-    notmuch
     parallel
     qrencode
     rclone
