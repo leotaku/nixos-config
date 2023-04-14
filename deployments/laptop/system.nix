@@ -51,7 +51,6 @@
     kitty
     krita
     mpv
-    mullvad-vpn
     okular
     pavucontrol
     plasma5Packages.kdeconnect-kde
