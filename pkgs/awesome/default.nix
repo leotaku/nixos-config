@@ -3,8 +3,8 @@ let
   src = fetchFromGitHub {
     owner = "awesomeWM";
     repo = "awesome";
-    rev = "b54e50ad6cfdcd864a21970b31378f7c64adf3f4";
-    sha256 = "1cd1jirhndss583agxrapq9wf6q7m27gv95wdmx4bbzrykac4df8";
+    rev = "b6263bf209dc69482ddbf10987e1f71577bc98cb";
+    sha256 = "1x29rkm4vfdgg1yh5i232h629zrhy83fjrkxsixhnaw3c5xpvdzr";
   };
 in (awesome.override { gtk3Support = true; }).overrideAttrs (oldAttrs: {
   inherit src;
