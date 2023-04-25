@@ -19,6 +19,8 @@
       "transmission"
       "vboxusers"
       "video"
+      "lp"
+      "scanner"
       "wheel"
       "wireshark"
     ];

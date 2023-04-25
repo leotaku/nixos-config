@@ -52,6 +52,7 @@
     krita
     mpv
     okular
+    simple-scan
     pavucontrol
     plasma5Packages.kdeconnect-kde
     sxiv
@@ -178,6 +179,10 @@
   services.printing = {
     enable = true;
     drivers = with pkgs; [ gutenprint hplip splix ];
+  };
+  hardware.sane = {
+    enable = true;
+    extraBackends = with pkgs; [ hplipWithPlugin ];
   };
 
   # X11 windowing system
