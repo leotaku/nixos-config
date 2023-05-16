@@ -37,7 +37,7 @@
 
   environment.systemPackages = with pkgs; [
     # Applications
-    anki-bin
+    anki
     blender
     blueman
     calibre
