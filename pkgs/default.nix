@@ -21,5 +21,5 @@ with prev; {
   # Source overrides
   awesome-git = callPackage ./awesome/default.nix { };
   emacs-git-custom = with final;
-    (emacsPackagesFor emacsGit).emacsWithPackages (epkgs: [ pkgs.mu ]);
+    (emacsPackagesFor emacs-git).emacsWithPackages (epkgs: [ pkgs.mu ]);
 }
