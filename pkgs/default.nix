@@ -22,4 +22,6 @@ with prev; {
   awesome-git = callPackage ./awesome/default.nix { };
   emacs-git-custom = with final;
     (emacsPackagesFor emacs-git).emacsWithPackages (epkgs: [ pkgs.mu ]);
+  emacs-pgtk-custom = with final;
+    (emacsPackagesFor emacs-unstable-pgtk).emacsWithPackages (epkgs: [ pkgs.mu ]);
 }
