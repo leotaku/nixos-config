@@ -7,10 +7,7 @@
   services.aria2 = {
     enable = true;
     downloadDir = config.fileSystems.raid1x5tb.mountPoint + "/download";
-    listenPortRange = map (n: {
-      from = n;
-      to = n;
-    }) [ 55207 55293 55460 56395 ];
+    listenPortRange = [ ];
     openPorts = false;
     extraArguments = lib.concatStringsSep " " [
       "--rpc-listen-all=false"
@@ -20,7 +17,6 @@
       "--force-save=false"
       "--input-file=/var/lib/aria2/aria2.session"
       "--enable-dht=true"
-      "--dht-listen-port=58593"
       "--seed-ratio=3.0"
     ];
     # NOTE: Irrelevant, we are protected by HTTP authentication
