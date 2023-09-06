@@ -12,6 +12,7 @@
       };
       "nixos-laptop" = { internal = "192.169.100.2"; };
       "nixos-rpi" = { internal = "192.169.100.3"; };
+      "fedora-laptop" = { internal = "192.169.100.4"; };
     };
   };
 
