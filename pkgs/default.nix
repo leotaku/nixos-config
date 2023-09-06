@@ -23,5 +23,5 @@ with prev; {
   emacs-git-custom = with final;
     (emacsPackagesFor emacs-git).emacsWithPackages (epkgs: [ pkgs.mu ]);
   emacs-pgtk-custom = with final;
-    (emacsPackagesFor emacs-unstable-pgtk).emacsWithPackages (epkgs: [ pkgs.mu ]);
+    (emacsPackagesFor emacs-pgtk).emacsWithPackages (epkgs: [ pkgs.mu ]);
 }
