@@ -25,6 +25,7 @@
     dnsmasq
     emv
     ethtool
+    tcpdump
     freeipmi
     goatcounter
     htop
