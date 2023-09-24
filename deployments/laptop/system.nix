@@ -128,7 +128,7 @@
     qt5.qtmultimedia
   ];
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     # Fonts
     alegreya
     fira-mono
