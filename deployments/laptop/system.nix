@@ -46,7 +46,7 @@
     emacs-git-custom
     firefox-custom
     gimp
-    godot
+    godot_4
     inkscape
     kitty
     krita
