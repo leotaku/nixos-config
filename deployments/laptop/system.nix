@@ -94,7 +94,7 @@
     tmux
     zoxide
     # Nix utilities
-    nil
+    nixd
     nix-output-monitor
     nix-prefetch-git
     nix-top
