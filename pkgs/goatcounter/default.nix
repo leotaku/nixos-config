@@ -12,7 +12,7 @@ buildGoModule {
   };
 
   subPackages = [ "./cmd/goatcounter" ];
-  vendorSha256 = "sha256-nKfqZ5hGGVLBY/hnJJPCrS/9MlGoR2MWFUWDnpwWgyM=";
+  vendorHash = "sha256-nKfqZ5hGGVLBY/hnJJPCrS/9MlGoR2MWFUWDnpwWgyM=";
   doCheck = false;
 
   meta = with lib; {
