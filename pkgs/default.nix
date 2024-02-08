@@ -21,7 +21,9 @@ with prev; {
   # Source overrides
   awesome-git = callPackage ./awesome/default.nix { };
   emacs-git-custom = with final;
-    (emacsPackagesFor emacs-git).emacsWithPackages (epkgs: [ epkgs.mu4e ]);
+    (emacsPackagesFor emacs-git).emacsWithPackages
+    (epkgs: with epkgs; [ mu4e treesit-grammars.with-all-grammars ]);
   emacs-pgtk-custom = with final;
-    (emacsPackagesFor emacs-pgtk).emacsWithPackages (epkgs: [ epkgs.mu4e ]);
+    (emacsPackagesFor emacs-pgtk).emacsWithPackages
+    (epkgs: with epkgs; [ mu4e treesit-grammars.with-all-grammars ]);
 }
