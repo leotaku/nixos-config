@@ -20,7 +20,7 @@
       "--seed-ratio=3.0"
     ];
     # NOTE: Irrelevant, we are protected by HTTP authentication
-    rpcSecret = "aria2rpc";
+    rpcSecretFile = pkgs.writeText "secret" "aria2rpc";
   };
 
   # Show AriaNg web interface using Nginx
