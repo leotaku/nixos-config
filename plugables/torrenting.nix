@@ -140,7 +140,7 @@
   };
 
   # Shared group for downloaded stuff
-  users.groups.media = { };
-  services.sonarr.group = "media";
-  users.users."aria2".group = lib.mkForce "media";
+  users.groups.media = {
+    members = [ "aria2" "sonarr" ];
+  };
 }
