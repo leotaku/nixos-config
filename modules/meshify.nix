@@ -68,6 +68,7 @@ in {
     # Wait until online before starting Nebula VPN
     systemd.services."nebula@meshify" = {
       after = [ "network-online.target" ];
+      requires = [ "network-online.target" ];
     };
 
     # Periodically restart Nebula VPN
