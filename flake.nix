@@ -65,6 +65,10 @@
           system = "aarch64-linux";
           modules = [ (import ./deployments/rpi.nix) mod ];
         };
+        fedora = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ (import ./deployments/fedora.nix) mod ];
+        };
       };
 
       # Custom overlay
