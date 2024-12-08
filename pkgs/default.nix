@@ -2,7 +2,6 @@ final: prev:
 with prev; {
   # Custom packages
   alegreya = callPackage ./alegreya/default.nix { };
-  goatcounter = callPackage ./goatcounter/default.nix { };
   n30f = callPackage ./n30f/default.nix { };
   sddm-themes = callPackage ./sddm/default.nix { };
 
