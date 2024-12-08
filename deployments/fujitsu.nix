@@ -33,7 +33,7 @@
     kakoune
     ncdu
     restic
-    syncthing-cli
+    syncthing
     tmux
   ];
 
