@@ -6,19 +6,19 @@
   # Aria2 server
   services.aria2 = {
     enable = true;
-    downloadDir = config.fileSystems.raid1x5tb.mountPoint + "/download";
-    listenPortRange = [ ];
     openPorts = false;
-    extraArguments = lib.concatStringsSep " " [
-      "--rpc-listen-all=false"
-      "--remote-time=true"
-      "--max-concurrent-downloads=200"
-      "--save-session-interval=30"
-      "--force-save=false"
-      "--input-file=/var/lib/aria2/aria2.session"
-      "--enable-dht=true"
-      "--seed-ratio=3.0"
-    ];
+    settings = {
+      "dir" = config.fileSystems.raid1x5tb.mountPoint + "/download";
+      "listen-port" = [ ];
+      "rpc-listen-all" = false;
+      "remote-time" = true;
+      "max-concurrent-downloads" = 200;
+      "save-session-interval" = 30;
+      "force-save" = false;
+      "input-file" = "/var/lib/aria2/aria2.session";
+      "enable-dht" = true;
+      "seed-ratio" = 3.0;
+    };
     # NOTE: Irrelevant, we are protected by HTTP authentication
     rpcSecretFile = pkgs.writeText "secret" "aria2rpc";
   };
