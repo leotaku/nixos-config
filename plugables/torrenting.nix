@@ -51,28 +51,24 @@
   systemd.network.networks."40-physical" = {
     routingPolicyRules = [
       {
-        routingPolicyRuleConfig = {
-          Table = "main";
-          SourcePort = 6800;
-          Priority = 1000;
-        };
+        Table = "main";
+        SourcePort = 6800;
+        Priority = 1000;
       }
       {
-        routingPolicyRuleConfig = {
-          Table = "2002";
-          User = "aria2";
-          Priority = 1001;
-        };
+        Table = "2002";
+        User = "aria2";
+        Priority = 1001;
       }
     ];
-    routes = [{
-      routeConfig = {
+    routes = [
+      {
         Table = "2002";
         Destination = "0.0.0.0/0";
         Type = "prohibit";
         Metric = 1;
-      };
-    }];
+      }
+    ];
   };
 
   # Disable using DNS servers from DHCP for vpn interface
