@@ -96,6 +96,10 @@
     };
   };
 
+  # Immich
+  services.immich.enable = true;
+  users.users."immich".extraGroups = [ "syncthing" ];
+
   # Enable simple programs and services
   services.haveged.enable = true;
   virtualisation.docker.enable = false;

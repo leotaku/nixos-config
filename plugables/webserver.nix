@@ -65,6 +65,18 @@
       "analytics.le0.gs" = public // {
         locations = { "/" = { proxyPass = "http://localhost:9000/"; }; };
       };
+      "immich.le0.gs" = public // {
+        locations = {
+          "/" = {
+            proxyPass = "http://localhost:2283/";
+            extraConfig = ''
+              proxy_set_header Upgrade $http_upgrade;
+              proxy_set_header Connection "upgrade";
+              proxy_set_header Host $host;
+            '';
+          };
+        };
+      };
       "stream.le0.gs" = private // config.variables.virtualHosts."stream";
       "tv.le0.gs" = private // config.variables.virtualHosts."tv";
       "download.le0.gs" = private // config.variables.virtualHosts."download";
