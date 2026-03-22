@@ -8,10 +8,10 @@ with prev; {
   # Customized packages
   aspell-custom = (aspellWithDicts lib.attrValues).overrideAttrs
     (oldAttrs: { ignoreCollisions = true; });
-  hunspell-custom = hunspellWithDicts (lib.mapAttrsToList
+  hunspell-custom = hunspell.withDicts (lib.mapAttrsToList
     (n: v: if (lib.isDerivation v && !v.meta.unfree) then v else null)
     hunspellDicts);
-  nuspell-custom = nuspellWithDicts (lib.mapAttrsToList
+  nuspell-custom = nuspell.withDicts (lib.mapAttrsToList
     (n: v: if (lib.isDerivation v && !v.meta.unfree) then v else null)
     hunspellDicts);
   firefox-custom = firefox-devedition-bin.override
